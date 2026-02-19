@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Reading R2: State History Museum</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 20px; color: #333; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1 { color: #c0392b; text-align: center; }
+        .text-area { line-height: 1.8; font-size: 18px; text-align: justify; background: #fff; padding: 20px; border: 1px solid #eee; border-radius: 8px; }
+        
+        .gap { display: inline-block; min-width: 50px; border-bottom: 2px solid #c0392b; color: #c0392b; font-weight: bold; cursor: pointer; padding: 0 5px; }
+        
+        .options-box { margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
+        .opt-item { margin-bottom: 10px; font-size: 16px; line-height: 1.4; }
+        .opt-item b { color: #c0392b; margin-right: 10px; }
+
+        .controls { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        select { padding: 5px; border: 2px solid #c0392b; border-radius: 4px; font-size: 16px; }
+
+        .correct-cell { background: #d4edda !important; }
+        .wrong-cell { background: #f8d7da !important; }
+        
+        #setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f4f7f6; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
+        .btn { padding: 15px 30px; background: #c0392b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%; max-width: 300px; }
+        .hidden { display: none !important; }
+        #resultDisplay { text-align: center; font-size: 22px; margin-top: 20px; font-weight: bold; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <h1>EGE Reading R2</h1>
+    <p>State History Museum (B6BB0D)</p>
+    <input type="text" id="studentName" placeholder="Имя и Фамилия" style="padding: 12px; width: 280px; margin-bottom: 20px; border-radius: 6px; border: 2px solid #ddd;">
+    <button class="btn" onclick="startApp()">Начать</button>
+</div>
+
+<div class="container">
+    <h1>State History Museum</h1>
+    
+    <div class="text-area">
+        The State History Museum is the largest historical museum in Russia. It is situated at the northern end of Red Square in the heart of Moscow. What once was the Principal Medicine Store now houses a huge collection <b>A</b> <select class="ans" data-correct="5"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select> the Stone Age. It was founded in 1872 and opened to the public in 1883. The museum is housed in a neo-Russian style building, <b>B</b> <select class="ans" data-correct="1"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select>. It is one of the most prominent buildings in Red Square. Each room is in the style of a different period or region. The walls in some rooms are decorated in the style of Russian churches. 
+        <br><br>
+        The impressive collection of the State History Museum includes relics of prehistoric tribes <b>C</b> <select class="ans" data-correct="2"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select> present-day Russia. The exhibits about medieval Russia are excellent. Several rooms of this period cover the Mongol invasions <b>D</b> <select class="ans" data-correct="4"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select>. 
+        <br><br>
+        The 2nd floor is dedicated to the Imperial period. The exhibits include personal items of the royal family members, furniture and decoration from the palace interiors. There are also various pieces of artworks and documents from the era. Specific rooms are dedicated to the reigns of various tsars. An unexpected highlight is an exhibition <b>E</b> <select class="ans" data-correct="7"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select> by examining the growing network of roads and how people travelled in the past. The State History Museum has also the country’s largest coin collection, the 6th-century manuscripts and artworks <b>F</b> <select class="ans" data-correct="6"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select> during their reign.
+    </div>
+
+    <div class="options-box">
+        <div class="opt-item"><b>1.</b> which is an attraction in its own right</div>
+        <div class="opt-item"><b>2.</b> that once inhabited the big territory of</div>
+        <div class="opt-item"><b>3.</b> and cave paintings of prehistoric times</div>
+        <div class="opt-item"><b>4.</b> and the consolidation of the Russian state</div>
+        <div class="opt-item"><b>5.</b> covering Russian history since the time of</div>
+        <div class="opt-item"><b>6.</b> that were collected by the Romanov dynasty</div>
+        <div class="opt-item"><b>7.</b> addressing the expansion of the Russian Empire</div>
+    </div>
+
+    <button class="btn" id="sendBtn" style="margin-top: 30px; max-width: none;" onclick="checkR2()">Проверить и отправить результат</button>
+    <div id="resultDisplay" class="hidden"></div>
+</div>
+
+<script>
+    const G_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function checkR2() {
+        let score = 0;
+        let log = [];
+        const selects = document.querySelectorAll('.ans');
+        const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+        selects.forEach((sel, i) => {
+            const userVal = sel.value;
+            const correctVal = sel.getAttribute('data-correct');
+            log.push(`${letters[i]}:${userVal || '-'}`);
+            sel.disabled = true;
+
+            if(userVal === correctVal) {
+                score++;
+                sel.classList.add('correct-cell');
+            } else {
+                sel.classList.add('wrong-cell');
+                // Маленькая подсказка рядом при ошибке
+                const hint = document.createElement('span');
+                hint.style.fontSize = '12px';
+                hint.style.color = 'green';
+                hint.innerText = '(' + correctVal + ')';
+                sel.after(hint);
+            }
+        });
+
+        const final = score + "/6";
+        document.getElementById('sendBtn').classList.add('hidden');
+        const resDiv = document.getElementById('resultDisplay');
+        resDiv.innerText = "Результат: " + final;
+        resDiv.classList.remove('hidden');
+
+        fetch(G_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE R2 B6BB0D History Museum",
+                result: final,
+                answers: log.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
