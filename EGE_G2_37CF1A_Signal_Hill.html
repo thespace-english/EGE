@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Word Formation: Signal Hill</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdfdfd; padding: 20px; color: #2d3436; }
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; text-align: center; border-bottom: 2px solid #2ecc71; padding-bottom: 10px; }
+        .task-descr { background: #f0fff4; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.5; border-left: 5px solid #2ecc71; }
+        
+        .q-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #f1f1f1; }
+        .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        .text { flex: 3; font-size: 18px; line-height: 1.6; text-align: justify; }
+        .word { flex: 1; text-align: right; font-weight: bold; color: #2980b9; font-size: 19px; letter-spacing: 1px; }
+        
+        input[type="text"] { width: 220px; padding: 10px; border: 2px solid #dfe6e9; border-radius: 6px; font-size: 17px; margin-top: 10px; text-transform: uppercase; transition: 0.3s; }
+        input[type="text"]:focus { border-color: #2ecc71; outline: none; box-shadow: 0 0 5px rgba(46,204,113,0.3); }
+
+        .correct { background: #d4edda !important; border-radius: 8px; padding: 10px; }
+        .wrong { background: #f8d7da !important; border-radius: 8px; padding: 10px; }
+        .ans-hint { display: block; margin-top: 8px; font-weight: bold; color: #27ae60; font-size: 15px; }
+
+        .btn { width: 100%; padding: 15px; background: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; margin-top: 20px; }
+        .btn:hover { background: #219150; }
+        
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdfdfd; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; width: 320px;">
+        <h2 style="color:#27ae60">EGE Word Formation</h2>
+        <p>Task 37CF1A: Signal Hill</p>
+        <input type="text" id="studentName" placeholder="Ваше Имя" style="text-transform: none; width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #2ecc71; border-radius: 6px;"><br>
+        <button class="btn" onclick="startApp()">Начать тест</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Signal Hill</h1>
+    <div class="task-descr">
+        Образуйте от слов в конце строк однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста.
+    </div>
+
+    <div id="quiz">
+        <div class="q-item" data-res="BEAUTIFUL">
+            <div class="row">
+                <div class="text"><b>26.</b> Do you know about Signal Hill? This __________________ place is located in Canada, at the entrance to St. John’s harbour.</div>
+                <div class="word">BEAUTY</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="ATTRACTION">
+            <div class="row">
+                <div class="text"><b>27.</b> This is an important historical __________________ of Canada.</div>
+                <div class="word">ATTRACT</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="EXACTLY">
+            <div class="row">
+                <div class="text"><b>28.</b> It was __________________ here, in 1901, that the first wireless transatlantic signal was received.</div>
+                <div class="word">EXACT</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="BUILDINGS">
+            <div class="row">
+                <div class="text"><b>29.</b> The Cabot Tower is one of the key __________________ of Signal Hill.</div>
+                <div class="word">BUILD</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="SYMBOLIZE/SYMBOLISE">
+            <div class="row">
+                <div class="text"><b>30.</b> It was constructed in 1897 to __________________ the 400th anniversary of the discovery of Newfoundland. It also commemorates now G. Marconi’s reception...</div>
+                <div class="word">SYMBOL</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="TOURISTS">
+            <div class="row">
+                <div class="text"><b>31.</b> __________________ can enjoy exhibitions on the history of Signal Hill and the history of communications (with a special section on Marconi).</div>
+                <div class="word">TOUR</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="sendResult()">Проверить и отправить результат</button>
+    <div id="final" class="hidden" style="text-align: center; margin-top: 20px;">
+        <h2 id="score" style="color:#27ae60"></h2>
+        <p>Результаты сохранены в вашу таблицу.</p>
+    </div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function sendResult() {
+        let score = 0;
+        let logs = [];
+        const items = document.querySelectorAll('.q-item');
+
+        items.forEach((item, i) => {
+            const possible = item.getAttribute('data-res').split('/');
+            const input = item.querySelector('.ans');
+            const userAns = input.value.trim().toUpperCase();
+            
+            logs.push(`Q${i+26}:${userAns || "-"}`);
+            input.disabled = true;
+
+            if(possible.includes(userAns)) {
+                score++;
+                item.classList.add('correct');
+            } else {
+                item.classList.add('wrong');
+                const hint = document.createElement('span');
+                hint.className = 'ans-hint';
+                hint.innerText = "Правильно: " + possible[0];
+                item.appendChild(hint);
+            }
+        });
+
+        const total = score + "/6";
+        document.getElementById('finishBtn').classList.add('hidden');
+        document.getElementById('final').classList.remove('hidden');
+        document.getElementById('score').innerText = "Результат: " + total;
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE G2 37CF1A Signal Hill",
+                result: total,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
