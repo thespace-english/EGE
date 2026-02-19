@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE R3: Life hacks for visiting Russia</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        
+        .main-content { display: flex; gap: 30px; margin-top: 20px; }
+        .text-column { flex: 1.2; height: 75vh; overflow-y: auto; padding-right: 20px; border-right: 1px solid #eee; line-height: 1.6; font-size: 17px; text-align: justify; }
+        .quiz-column { flex: 1; height: 75vh; overflow-y: auto; padding-left: 5px; }
+
+        .q-block { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #3498db; }
+        .q-title { font-weight: bold; margin-bottom: 10px; display: block; }
+        
+        label { display: block; background: white; padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: 0.2s; }
+        label:hover { background: #edf7ff; }
+        input[type="radio"] { margin-right: 10px; }
+
+        .correct { background: #d4edda !important; border-color: #28a745 !important; }
+        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; }
+
+        #setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f0f2f5; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .login-box { background: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .btn { background: #3498db; color: white; border: none; padding: 12px 30px; border-radius: 6px; cursor: pointer; font-size: 18px; width: 100%; margin-top: 15px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div class="login-box">
+        <h2>Reading Task: Life Hacks</h2>
+        <input type="text" id="userName" placeholder="Имя Фамилия" style="padding: 12px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"><br>
+        <button class="btn" onclick="start()">Начать тест</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Life hacks for visiting Russia</h1>
+    
+    <div class="main-content">
+        <div class="text-column">
+            <p>Planning a holiday in Russia and don’t want to break the bank? Here are a few hacks to help your journey around the world’s biggest country on a shoestring.</p>
+            <p>Like people from all over the world, many Russians are open to volunteering in exchange for food, accommodation, and new experiences. There is, for example, the <i>Help Exchange</i> advertising service. Foreigners are invited as volunteers by small companies, families, children’s camps, and even the Academy of Sciences. The conditions depend on the host but be sure that for interesting offers there will be stiff competition: you have to monitor the offers and respond quickly. It helps if you have recommendations. Last year, on a competitive basis, me and my friends managed to go to Ferapontovo (an ancient monastery on the UNESCO World Heritage list), to Kamchatka and Siberia, and to a summer camp on Lake Baikal. The “hottest” time is the summer season. The obvious plus – apart from the fact that you pay almost nothing – is that many hosts provide help with visas and pay for your journey. And the minus is that you will really have to work.</p>
+            <p>Big cities like Moscow and St. Petersburg offer the Russian tourist the <i>CityPass</i>, which entitles you to free museum admissions and excursions, admission without queuing, river cruises, discounts for taxis and restaurants, unlimited calls within Russia, and many other benefits. <b>It</b> may seem a bit costly but it will save you much more. You can also save money without a tourist pass. If you are not too shy, remember: in Russia, you can enter many museums and parks at the exits but I wouldn’t go for it.</p>
+            <p>Another life hack is to check on free admission days. Every museum has free admission days. At the Hermitage in St. Petersburg the first Thursday of each month is a free day, while at the New Tretyakov Gallery in the Russian capital it is every Wednesday.</p>
+            <p>As a rule, tickets to museums and art galleries cost more for foreign nationals than locals. Tourists who don’t want to pay extra can ask a Russian to buy tickets for them. And don’t waste money on an audio guide. To be honest, you won’t need it. You can download audio guides in English for many popular museums in Russia from the App Store.</p>
+            <p>As for eating out while travelling in Russia, there are a number of pretty cheap options. You can find special offers in Russian cafés and restaurants at any time of the day. Canteens (cheap restaurants that serve homemade dishes) are a win-win option. Here, a soup, main course, drink, and dessert will cost you just 250-300 rubles or cheaper.</p>
+            <p>I had the following routine when travelling around Russia. In the morning I had breakfast in canteens attached to institutes or ordinary public canteens, which you can find on 2Gis (a multilingual digital service that has city maps and tells you how much the average bill in different eateries will be). For lunch I would go to any place serving business lunches (many restaurants offer them between 12:00 and 17:00), giving preference to places with a high rating. And for dinner I would use coupons from special websites available only in Russian – a sushi selection at a 50-percent discount is very filling and very tasty. Or on some evenings I cooked my own dinner buying food in a supermarket.</p>
+            <p>Not many people know how to save while travelling but if you prepare yourself in advance by reading tips from experienced travellers, you may visit more places and spend less money while enjoying it none the less.</p>
+        </div>
+
+        <div class="quiz-column" id="quiz">
+            <div class="q-block" data-ans="1">
+                <span class="q-title">12. The purpose of the article is to...</span>
+                <label><input type="radio" name="q1" value="1"> 1) give advice to budget travellers.</label>
+                <label><input type="radio" name="q1" value="2"> 2) describe advantages of travelling.</label>
+                <label><input type="radio" name="q1" value="3"> 3) introduce foreigners to Russia.</label>
+                <label><input type="radio" name="q1" value="4"> 4) warn against the dangers of travel.</label>
+            </div>
+
+            <div class="q-block" data-ans="4">
+                <span class="q-title">13. Which is NOT true about volunteering?</span>
+                <label><input type="radio" name="q2" value="1"> 1) Travel expenses can be covered.</label>
+                <label><input type="radio" name="q2" value="2"> 2) You have to go through a selection process.</label>
+                <label><input type="radio" name="q2" value="3"> 3) There is a range of host institutions.</label>
+                <label><input type="radio" name="q2" value="4"> 4) You have to share eating and living costs.</label>
+            </div>
+
+            <div class="q-block" data-ans="2">
+                <span class="q-title">14. "It" in Paragraph 3 refers to...</span>
+                <label><input type="radio" name="q3" value="1"> 1) international calls.</label>
+                <label><input type="radio" name="q3" value="2"> 2) a tourist’s discount card.</label>
+                <label><input type="radio" name="q3" value="3"> 3) eating in restaurants.</label>
+                <label><input type="radio" name="q3" value="4"> 4) visiting museums in cities.</label>
+            </div>
+
+            <div class="q-block" data-ans="4">
+                <span class="q-title">15. The author’s advice about museums is to...</span>
+                <label><input type="radio" name="q4" value="1"> 1) buy a museum audio guide tour.</label>
+                <label><input type="radio" name="q4" value="2"> 2) visit only one museum a week.</label>
+                <label><input type="radio" name="q4" value="3"> 3) buy tickets from local people.</label>
+                <label><input type="radio" name="q4" value="4"> 4) visit museums on certain days.</label>
+            </div>
+
+            <div class="q-block" data-ans="3">
+                <span class="q-title">16. Canteens are a “win-win option” because they...</span>
+                <label><input type="radio" name="q5" value="1"> 1) often have special offers.</label>
+                <label><input type="radio" name="q5" value="2"> 2) serve delicious meals.</label>
+                <label><input type="radio" name="q5" value="3"> 3) offer inexpensive dishes.</label>
+                <label><input type="radio" name="q5" value="4"> 4) are open at any time.</label>
+            </div>
+
+            <div class="q-block" data-ans="2">
+                <span class="q-title">17. While staying in Russia, the author...</span>
+                <label><input type="radio" name="q6" value="1"> 1) chose mainly Japanese food.</label>
+                <label><input type="radio" name="q6" value="2"> 2) checked where to eat beforehand.</label>
+                <label><input type="radio" name="q6" value="3"> 3) ordered his food online.</label>
+                <label><input type="radio" name="q6" value="4"> 4) bought ready-made food in supermarkets.</label>
+            </div>
+
+            <div class="q-block" data-ans="3">
+                <span class="q-title">18. Main idea of the last paragraph?</span>
+                <label><input type="radio" name="q7" value="1"> 1) It is difficult to enjoy travelling with little money.</label>
+                <label><input type="radio" name="q7" value="2"> 2) Budget travel requires too much planning.</label>
+                <label><input type="radio" name="q7" value="3"> 3) Planning helps you to travel cheaper.</label>
+                <label><input type="radio" name="q7" value="4"> 4) Experienced travellers avoid spending money.</label>
+            </div>
+
+            <button class="btn" onclick="check()">Отправить результат</button>
+            <h2 id="res" style="text-align:center;"></h2>
+        </div>
+    </div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
+
+    function start() {
+        if(document.getElementById('userName').value.trim()) {
+            document.getElementById('setup').classList.add('hidden');
+        } else alert("Введите имя!");
+    }
+
+    function check() {
+        let score = 0;
+        let log = [];
+        const blocks = document.querySelectorAll('.q-block');
+        
+        blocks.forEach((block, i) => {
+            const correct = block.getAttribute('data-ans');
+            const selected = block.querySelector('input:checked');
+            const val = selected ? selected.value : "-";
+            log.push(`Q${i+12}:${val}`);
+
+            const labels = block.querySelectorAll('label');
+            labels.forEach(l => {
+                const inp = l.querySelector('input');
+                if(inp.value === correct) l.classList.add('correct');
+                if(selected && inp.value === val && val !== correct) l.classList.add('wrong');
+                inp.disabled = true;
+            });
+            if(val === correct) score++;
+        });
+
+        const total = score + "/7";
+        document.getElementById('res').innerText = "Результат: " + total;
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('userName').value,
+                task: "EGE R3 402A1A Russia Hacks",
+                result: total,
+                answers: log.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
