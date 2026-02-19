@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Grammar FB2D77 Full Text</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdfdfd; padding: 20px; color: #2d3436; }
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { color: #2980b9; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .task-descr { background: #ebf5fb; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.5; }
+        
+        .q-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #f1f1f1; }
+        .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        .text { flex: 3; font-size: 18px; line-height: 1.6; text-align: justify; }
+        .word { flex: 1; text-align: right; font-weight: bold; color: #e67e22; font-size: 19px; letter-spacing: 1px; }
+        
+        input[type="text"] { width: 220px; padding: 10px; border: 2px solid #dfe6e9; border-radius: 6px; font-size: 17px; margin-top: 10px; text-transform: uppercase; transition: 0.3s; }
+        input[type="text"]:focus { border-color: #3498db; outline: none; box-shadow: 0 0 5px rgba(52,152,219,0.3); }
+
+        .correct { background: #d4edda !important; border-radius: 8px; padding: 10px; }
+        .wrong { background: #f8d7da !important; border-radius: 8px; padding: 10px; }
+        .ans-hint { display: block; margin-top: 8px; font-weight: bold; color: #27ae60; font-size: 15px; }
+
+        .btn { width: 100%; padding: 15px; background: #2980b9; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; margin-top: 20px; }
+        
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdfdfd; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; width: 320px;">
+        <h2 style="color:#2980b9">EGE Grammar Practice</h2>
+        <p>New Year around the world</p>
+        <input type="text" id="studentName" placeholder="Введите ваше Имя" style="text-transform: none; width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #3498db; border-radius: 6px;"><br>
+        <button class="btn" onclick="startApp()">Начать тест</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>New Year around the world</h1>
+    <div class="task-descr">
+        Преобразуйте слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–25, так, чтобы они грамматически соответствовали содержанию текстов.
+    </div>
+
+    <div id="quiz">
+        <div class="q-item" data-res="IS CELEBRATED">
+            <div class="row">
+                <div class="text"><b>19.</b> Everybody loves New Year. It is a holiday which __________________ all over the world.</div>
+                <div class="word">CELEBRATE</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="WOMEN">
+            <div class="row">
+                <div class="text"><b>20.</b> In Scandinavia __________________ cook rice with nuts and not turkey for New Year.</div>
+                <div class="word">WOMAN</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="THROWING">
+            <div class="row">
+                <div class="text"><b>21.</b> Italian people enjoy __________________ old things out of the windows on New Year’s Day. It is interesting to learn about these traditions.</div>
+                <div class="word">THROW</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+
+        <h2 style="color: #2980b9; margin-top: 40px; border-top: 1px solid #eee; pt: 20px;">A treasure in a chair</h2>
+        
+        <div class="q-item" data-res="BOUGHT">
+            <div class="row">
+                <div class="text"><b>22.</b> The Browns from Manchester, the UK, are a very lucky family. Some years ago, Mr Brown __________________ a chair on sale.</div>
+                <div class="word">BUY</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="DID NOT LIKE/DIDN'T LIKE">
+            <div class="row">
+                <div class="text"><b>23.</b> However, Mrs Brown __________________ it.</div>
+                <div class="word">NOT LIKE</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="WOULD SELL">
+            <div class="row">
+                <div class="text"><b>24.</b> Mr Brown took it to the attic thinking he __________________ it later.</div>
+                <div class="word">SELL</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+        <div class="q-item" data-res="BEST">
+            <div class="row">
+                <div class="text"><b>25.</b> While cleaning it before a spring garage sale, he broke it by accident and found expensive jewellery inside. Mrs Brown says it’s the __________________ surprise in her life!</div>
+                <div class="word">GOOD</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ваш ответ...">
+        </div>
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="sendResult()">Проверить и отправить результат</button>
+    <div id="final" class="hidden" style="text-align: center; margin-top: 20px;">
+        <h2 id="score" style="color:#27ae60"></h2>
+        <p>Результаты сохранены. Тексты выведены полностью.</p>
+    </div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function sendResult() {
+        let score = 0;
+        let logs = [];
+        const items = document.querySelectorAll('.q-item');
+
+        items.forEach((item, i) => {
+            const possible = item.getAttribute('data-res').split('/');
+            const input = item.querySelector('.ans');
+            const userAns = input.value.trim().toUpperCase();
+            
+            logs.push(`Q${i+19}:${userAns || "-"}`);
+            input.disabled = true;
+
+            if(possible.includes(userAns)) {
+                score++;
+                item.classList.add('correct');
+            } else {
+                item.classList.add('wrong');
+                const hint = document.createElement('span');
+                hint.className = 'ans-hint';
+                hint.innerText = "Правильно: " + possible[0];
+                item.appendChild(hint);
+            }
+        });
+
+        const total = score + "/7";
+        document.getElementById('finishBtn').classList.add('hidden');
+        document.getElementById('final').classList.remove('hidden');
+        document.getElementById('score').innerText = "Результат: " + total;
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE G1 FB2D77 New Year",
+                result: total,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
