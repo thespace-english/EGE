@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Reading R1: Music Full</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 20px; color: #1a1a1a; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        h1 { color: #1e3799; text-align: center; }
+        
+        .instruction { background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fcc419; margin-bottom: 20px; font-style: italic; }
+        
+        .headers-list { background: #f8f9fa; padding: 20px; border-radius: 10px; border: 1px solid #dee2e6; margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .header-item { padding: 5px; font-size: 16px; }
+        .header-item b { color: #e63946; margin-right: 8px; }
+
+        .text-card { margin-bottom: 30px; padding: 25px; border: 1px solid #e9ecef; border-radius: 12px; line-height: 1.7; font-size: 17px; position: relative; transition: 0.3s; }
+        .text-card:hover { border-color: #1e3799; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .letter-badge { background: #1e3799; color: white; padding: 4px 12px; border-radius: 4px; font-weight: bold; margin-right: 12px; }
+        
+        .select-area { margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ced4da; }
+        select { padding: 10px 15px; border: 2px solid #1e3799; border-radius: 6px; font-size: 16px; cursor: pointer; background: white; }
+
+        .correct { background: #d4edda !important; border-color: #28a745 !important; }
+        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; }
+        .ans-hint { color: #28a745; font-weight: bold; margin-left: 15px; }
+
+        #setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f0f2f5; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
+        .login-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
+        input[type="text"] { padding: 15px; width: 300px; border-radius: 8px; border: 2px solid #ddd; margin-bottom: 20px; font-size: 16px; }
+        
+        .btn { padding: 15px 40px; background: #1e3799; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%; }
+        .btn:hover { background: #0c2461; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div class="login-box">
+        <h1>Music: Matching Task</h1>
+        <p>EGE R1 4827B3</p>
+        <input type="text" id="studentName" placeholder="Введите Имя и Фамилию">
+        <button class="btn" onclick="startTask()">Начать тест</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Music</h1>
+    
+    <div class="instruction">
+        Установите соответствие между текстами A–G и заголовками 1–8. Используйте каждую цифру только один раз. В задании один заголовок лишний.
+    </div>
+
+    <div class="headers-list">
+        <div class="header-item"><b>1.</b> The power of music</div>
+        <div class="header-item"><b>2.</b> Sound producers</div>
+        <div class="header-item"><b>3.</b> Special knowledge needed</div>
+        <div class="header-item"><b>4.</b> Musical sound characteristics</div>
+        <div class="header-item"><b>5.</b> Differences in perception</div>
+        <div class="header-item"><b>6.</b> The history of music</div>
+        <div class="header-item"><b>7.</b> The choice of music matters</div>
+        <div class="header-item"><b>8.</b> Different types of music</div>
+    </div>
+
+    <div id="quiz-content">
+        <div class="text-card" data-correct="3">
+            <p><span class="letter-badge">A</span> Music is a group of sounds that people have arranged in a meaningful way. Some musicians make up music as they perform. Others sing songs or play pieces that someone else created. Musicians have developed a system for writing down music so that others can play it again. They use certain symbols, called notes, to indicate the tones to be played or sung. The arrangement of the notes shows the order in which the tones should be played. Other numbers and symbols show how fast to play each note. They are known as musical notation.</p>
+            <div class="select-area">
+                Заголовок: 
+                <select class="ans-select">
+                    <option value="">-- выбрать --</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                    <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-card" data-correct="8">
+            <p><span class="letter-badge">B</span> Some music goes along with religious ceremonies. Other music is a part of everyday life. Traditional music made by everyday people is called folk music. Classical music is formal and artistic music that developed in Europe over hundreds of years. Orchestras, choirs, and chamber ensembles (small groups of musicians) often perform classical music. Opera is a type of classical music that features dramatic singing. When large numbers of people enjoy a type of music, it is called popular music.</p>
+            <div class="select-area">
+                Заголовок: 
+                <select class="ans-select">
+                    <option value="">-- выбрать --</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                    <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-card" data-correct="2">
+            <p><span class="letter-badge">C</span> People use their voices to sing. To make other kinds of music, they use musical instruments. Stringed instruments, like violins and harps, have tight strings that make sounds when people pluck or rub them. Wind instruments, like trumpets and saxophones, make sounds when people blow into them. Percussion instruments, like drums and rattles, make sounds when people hit or shake them. Keyboard instruments, like pianos and accordions, make sounds when people press their keys, buttons, or levers.</p>
+            <div class="select-area">
+                Заголовок: 
+                <select class="ans-select">
+                    <option value="">-- выбрать --</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                    <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-card" data-correct="4">
+            <p><span class="letter-badge">D</span> Rhythm describes the length of musical sounds. The most important part of rhythm is the pulse, or beat. Melody is a series of different tones, or sounds, in a piece of music. Harmony takes place when people play or sing more than one tone at the same time. Groups of tones played together are called chords. Harmony also describes the way chords go along with a melody. Form is the way that people put rhythm, melody, and harmony together. There are many different types of musical forms. Repeating a short melody is one of the simplest forms.</p>
+            <div class="select-area">
+                Заголовок: 
+                <select class="ans-select">
+                    <option value="">-- выбрать --</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                    <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-card" data-correct="1">
+            <p><span class="letter-badge">E</span> If you want to firm up your body, head to the gym. If you want to exercise your brain, listen to music. Many of us instinctively know the effects of music on our mood and energy. There are few things that stimulate the brain the way music does. If you want to keep your brain engaged throughout the aging process, listening to or playing music is a great tool. It provides a total brain workout. Research has shown that listening to music can reduce anxiety, blood pressure, and pain, as well as improve sleep quality, mood, mental alertness, and memory.</p>
+            <div class="select-area">
+                Заголовок: 
+                <select class="ans-select">
+                    <option value="">-- выбрать --</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                    <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-card" data-correct="7">
+            <p><span class="letter-badge">F</span> Listening to classical music has a wide range of benefits for your brain and body. For example, it can help you with relaxation, concentration, memory, and cognition. Listening to relaxing music, such as smooth jazz, can induce an alpha-wave state in your brain. These waves occur when you’re awake but relaxed, making smooth jazz one of the best ways to wind down at the end of a long day. Rap music often tells stories of people overcoming obstacles or achieving success in the face of unlikely odds.</p>
+            <div class="select-area">
+                Заголовок: 
+                <select class="ans-select">
+                    <option value="">-- выбрать --</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                    <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-card" data-correct="5">
+            <p><span class="letter-badge">G</span> If you ask some people about the benefits of listening to music while trying to concentrate, you could hear mixed reviews. Listening to music to help us concentrate works differently for everyone. Some people might think it’s a remarkable study habit, while others may find it useless because it only distracts them. But branching out and trying new ways of boosting your concentration might help you find a practice that works well. It isn’t easy to find strategies that work specifically for you.</p>
+            <div class="select-area">
+                Заголовок: 
+                <select class="ans-select">
+                    <option value="">-- выбрать --</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                    <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" id="submitBtn" onclick="submitMatching()">Проверить ответы и отправить</button>
+    <div id="resultText" class="hidden" style="text-align: center; margin-top: 20px; font-size: 24px; color: #1e3799;"></div>
+</div>
+
+<script>
+    const TARGET_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
+
+    function startTask() {
+        if(document.getElementById('studentName').value.trim() !== "") {
+            document.getElementById('setup').classList.add('hidden');
+        } else alert("Пожалуйста, введите имя!");
+    }
+
+    function submitMatching() {
+        let score = 0;
+        let log = [];
+        const cards = document.querySelectorAll('.text-card');
+        
+        cards.forEach((card, index) => {
+            const letter = card.querySelector('.letter-badge').innerText;
+            const sel = card.querySelector('.ans-select');
+            const userVal = sel.value;
+            const correctVal = card.getAttribute('data-correct');
+
+            log.push(`${letter}:${userVal || '?'}`);
+            sel.disabled = true;
+
+            if(userVal === correctVal) {
+                score++;
+                card.classList.add('correct');
+            } else {
+                card.classList.add('wrong');
+                const hint = document.createElement('span');
+                hint.className = "ans-hint";
+                hint.innerText = "Правильно: " + correctVal;
+                card.querySelector('.select-area').appendChild(hint);
+            }
+        });
+
+        const finalScore = score + "/7";
+        document.getElementById('submitBtn').classList.add('hidden');
+        document.getElementById('resultText').innerText = "Ваш результат: " + finalScore;
+        document.getElementById('resultText').classList.remove('hidden');
+
+        fetch(TARGET_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE R1 4827B3 Music",
+                result: finalScore,
+                answers: log.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
