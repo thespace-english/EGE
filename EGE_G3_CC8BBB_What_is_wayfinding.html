@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Lexis CC8BBB</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; padding: 20px; color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        
+        .main-layout { display: flex; gap: 30px; margin-top: 20px; }
+        .text-part { flex: 1.2; line-height: 1.8; font-size: 18px; text-align: justify; background: #fff; padding: 20px; border: 1px solid #e1e8ed; border-radius: 8px; }
+        .quiz-part { flex: 1; height: 75vh; overflow-y: auto; padding-right: 15px; }
+
+        .gap-ref { color: #3498db; font-weight: bold; border-bottom: 2px solid #3498db; padding: 0 4px; }
+        
+        .q-card { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #3498db; transition: 0.3s; }
+        .q-num { font-weight: bold; color: #2c3e50; margin-bottom: 10px; display: block; }
+        
+        .opt-label { display: block; background: white; padding: 10px; margin: 6px 0; border: 1px solid #dcdde1; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+        .opt-label:hover { border-color: #3498db; }
+        input[type="radio"] { margin-right: 10px; }
+
+        /* ЦВЕТОВОЙ КОД */
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+
+        #setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f4f7f6; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .login-box { background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .btn { background: #3498db; color: white; border: none; padding: 14px 25px; border-radius: 6px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%; margin-top: 15px; }
+        .hidden { display: none !important; }
+        #finalMsg { text-align: center; font-size: 22px; font-weight: bold; margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div class="login-box">
+        <h2>EGE Lexis Practice</h2>
+        <p>What is wayfinding?</p>
+        <input type="text" id="userName" placeholder="Введите ваше Имя" style="padding: 12px; width: 260px; border: 2px solid #3498db; border-radius: 6px;"><br>
+        <button class="btn" onclick="start()">Начать задание</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>What is wayfinding?</h1>
+    
+    <div class="main-layout">
+        <div class="text-part">
+            Traditional Polynesian navigation – also called wayfinding – means finding your way without any of the tools modern navigators <span class="gap-ref">30</span> for granted. You use no GPS, no compass, no radio or satellite reports to help you navigate. Besides your brain, the only “tool” you might <span class="gap-ref">31</span> on in traditional navigation is an outstretched hand, which helps for measuring angles in the sky. Instead, your clues about position, direction, and distance come from the stars, sun, and moon, from clouds, and even from wildlife. Navigators must pay close <span class="gap-ref">32</span> to characteristic patterns of winds, currents, and weather.
+            <br><br>
+            Hawaiians in the voyaging community joke that the best way to spot the navigator on a voyaging canoe is to <span class="gap-ref">33</span> for the person with red eyes. Navigators get little sleep while voyaging because traditional navigation <span class="gap-ref">34</span> non-stop analysis of the natural world. Reading these clues involves all the senses, coupled with deep knowledge of sea and sky.
+            <br><br>
+            However, traditional navigation without computers and satellite can be more precise. For instance, in 1985 when master navigator <span class="gap-ref">35</span> that the ship was within a few miles of land, nobody believed him because their satellite navigation system reported no land for over a hundred miles. Yet the island <span class="gap-ref">36</span> by the traditional method appeared shortly after, as promised – a triumph of no-tech over high-tech.
+        </div>
+
+        <div class="quiz-part" id="quiz">
+            <div class="q-card" data-ans="3">
+                <span class="q-num">30.</span>
+                <label class="opt-label"><input type="radio" name="q30" value="1"> 1) make</label>
+                <label class="opt-label"><input type="radio" name="q30" value="2"> 2) keep</label>
+                <label class="opt-label"><input type="radio" name="q30" value="3"> 3) take</label>
+                <label class="opt-label"><input type="radio" name="q30" value="4"> 4) hold</label>
+            </div>
+
+            <div class="q-card" data-ans="1">
+                <span class="q-num">31.</span>
+                <label class="opt-label"><input type="radio" name="q31" value="1"> 1) rely</label>
+                <label class="opt-label"><input type="radio" name="q31" value="2"> 2) recall</label>
+                <label class="opt-label"><input type="radio" name="q31" value="3"> 3) refer</label>
+                <label class="opt-label"><input type="radio" name="q31" value="4"> 4) reply</label>
+            </div>
+
+            <div class="q-card" data-ans="4">
+                <span class="q-num">32.</span>
+                <label class="opt-label"><input type="radio" name="q32" value="1"> 1) attraction</label>
+                <label class="opt-label"><input type="radio" name="q32" value="2"> 2) application</label>
+                <label class="opt-label"><input type="radio" name="q32" value="3"> 3) addition</label>
+                <label class="opt-label"><input type="radio" name="q32" value="4"> 4) attention</label>
+            </div>
+
+            <div class="q-card" data-ans="2">
+                <span class="q-num">33.</span>
+                <label class="opt-label"><input type="radio" name="q33" value="1"> 1) watch</label>
+                <label class="opt-label"><input type="radio" name="q33" value="2"> 2) look</label>
+                <label class="opt-label"><input type="radio" name="q33" value="3"> 3) glance</label>
+                <label class="opt-label"><input type="radio" name="q33" value="4"> 4) see</label>
+            </div>
+
+            <div class="q-card" data-ans="3">
+                <span class="q-num">34.</span>
+                <label class="opt-label"><input type="radio" name="q34" value="1"> 1) reserves</label>
+                <label class="opt-label"><input type="radio" name="q34" value="2"> 2) requests</label>
+                <label class="opt-label"><input type="radio" name="q34" value="3"> 3) requires</label>
+                <label class="opt-label"><input type="radio" name="q34" value="4"> 4) reckons</label>
+            </div>
+
+            <div class="q-card" data-ans="2">
+                <span class="q-num">35.</span>
+                <label class="opt-label"><input type="radio" name="q35" value="1"> 1) extended</label>
+                <label class="opt-label"><input type="radio" name="q35" value="2"> 2) announced</label>
+                <label class="opt-label"><input type="radio" name="q35" value="3"> 3) promoted</label>
+                <label class="opt-label"><input type="radio" name="q35" value="4"> 4) presented</label>
+            </div>
+
+            <div class="q-card" data-ans="4">
+                <span class="q-num">36.</span>
+                <label class="opt-label"><input type="radio" name="q36" value="1"> 1) pretended</label>
+                <label class="opt-label"><input type="radio" name="q36" value="2"> 2) prevented</label>
+                <label class="opt-label"><input type="radio" name="q36" value="3"> 3) prepared</label>
+                <label class="opt-label"><input type="radio" name="q36" value="4"> 4) predicted</label>
+            </div>
+
+            <button class="btn" id="submitBtn" onclick="check()">Проверить ответы</button>
+            <div id="finalMsg" class="hidden"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const G_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function start() {
+        if(document.getElementById('userName').value.trim()) {
+            document.getElementById('setup').classList.add('hidden');
+        } else alert("Пожалуйста, введите имя!");
+    }
+
+    function check() {
+        let score = 0;
+        let log = [];
+        const cards = document.querySelectorAll('.q-card');
+        
+        cards.forEach((card) => {
+            const correct = card.getAttribute('data-ans');
+            const selected = card.querySelector('input:checked');
+            const userVal = selected ? selected.value : null;
+            const qNum = card.querySelector('.q-num').innerText;
+            
+            log.push(`${qNum}${userVal || "-"}`);
+
+            const labels = card.querySelectorAll('.opt-label');
+            labels.forEach(lbl => {
+                const inp = lbl.querySelector('input');
+                inp.disabled = true;
+                if(inp.value === correct) lbl.classList.add('status-correct');
+                if(userVal && inp.value === userVal && userVal !== correct) lbl.classList.add('status-wrong');
+            });
+
+            if(userVal === correct) score++;
+        });
+
+        const total = score + "/7";
+        document.getElementById('submitBtn').classList.add('hidden');
+        const msg = document.getElementById('finalMsg');
+        msg.innerHTML = "Тест завершен. Ваш результат: " + total;
+        msg.classList.remove('hidden');
+
+        fetch(G_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('userName').value,
+                task: "EGE G3 CC8BBB What is wayfinding",
+                result: total,
+                answers: log.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
