@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Word Formation 36E01C</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdfdfd; padding: 20px; color: #2d3436; }
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #16a085; padding-bottom: 10px; margin-bottom: 20px; }
+        .task-descr { background: #e8f8f5; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.5; border-left: 5px solid #16a085; }
+        
+        .q-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #f1f1f1; }
+        .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        .text { flex: 3; font-size: 18px; line-height: 1.7; text-align: justify; }
+        .word { flex: 1; text-align: right; font-weight: bold; color: #16a085; font-size: 19px; letter-spacing: 1px; }
+        
+        input[type="text"] { width: 220px; padding: 10px; border: 2px solid #dfe6e9; border-radius: 6px; font-size: 17px; margin-top: 10px; text-transform: uppercase; transition: 0.3s; outline: none; }
+        
+        /* ЦВЕТОВОЙ КОД */
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .ans-hint { display: block; margin-top: 8px; font-weight: bold; color: #27ae60; font-size: 15px; }
+
+        .btn { width: 100%; padding: 15px; background: #16a085; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn:hover { background: #138d75; }
+        
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdfdfd; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+        #finalScore { text-align: center; font-size: 24px; font-weight: bold; color: #2c3e50; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; width: 320px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+        <h2 style="color:#16a085">EGE English</h2>
+        <p>Capilano Suspension Bridge</p>
+        <input type="text" id="studentName" placeholder="Ваше Имя" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #16a085; border-radius: 6px; outline: none;"><br>
+        <button class="btn" onclick="startApp()">Начать</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>EGE G2 36E01C Capilano Suspension Bridge</h1>
+    <div class="task-descr">
+        Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 26–31, однокоренные слова, так, чтобы они грамматически и лексически соответствовали содержанию текста.
+    </div>
+
+    <div id="quiz">
+        <div class="q-item" data-res="CERTAINLY">
+            <div class="row">
+                <div class="text"><b>26.</b> Canada can boast of many sights. Capilano Suspension Bridge is __________________ one of them.</div>
+                <div class="word">CERTAIN</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="BEAUTIFUL">
+            <div class="row">
+                <div class="text"><b>27.</b> It is a __________________ bridge in Canada, located near Vancouver. It is located at an altitude of 70 meters above the Capilano River.</div>
+                <div class="word">BEAUTY</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="TOURISTS">
+            <div class="row">
+                <div class="text"><b>28.</b> It was originally built as a shorter path to the local mill to make life easier for employees. Going over this bridge is quite an adventure for __________________.</div>
+                <div class="word">TOUR</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="WINDY">
+            <div class="row">
+                <div class="text"><b>29.</b> If the weather is __________________, the bridge sways from side to side. Despite this, it is always crowded.</div>
+                <div class="word">WIND</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="VARIOUS">
+            <div class="row">
+                <div class="text"><b>30.</b> People come here for the fresh and clean air, the scent of pine needles and __________________ attractions on the other side of the bridge.</div>
+                <div class="word">VARY</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="SHOPPERS">
+            <div class="row">
+                <div class="text"><b>31.</b> There is a park there with all sorts of entertainment and great boutiques for enthusiastic __________________.</div>
+                <div class="word">SHOP</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="checkAnswers()">Завершить и отправить</button>
+    <div id="finalScore" class="hidden"></div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function checkAnswers() {
+        let score = 0;
+        let logs = [];
+        const items = document.querySelectorAll('.q-item');
+
+        items.forEach((item, i) => {
+            const correct = item.getAttribute('data-res');
+            const input = item.querySelector('.ans');
+            const userAns = input.value.trim().toUpperCase();
+            
+            logs.push(`Q${i+26}:${userAns || "-"}`);
+            input.disabled = true;
+
+            if(userAns === correct) {
+                score++;
+                input.classList.add('status-correct');
+            } else {
+                input.classList.add('status-wrong');
+                const hint = document.createElement('span');
+                hint.className = 'ans-hint';
+                hint.innerText = "Верно: " + correct;
+                item.appendChild(hint);
+            }
+        });
+
+        const total = score + "/6";
+        document.getElementById('finishBtn').classList.add('hidden');
+        const scoreDiv = document.getElementById('finalScore');
+        scoreDiv.innerText = "Ваш результат: " + total;
+        scoreDiv.classList.remove('hidden');
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE G2 36E01C Capilano Suspension Bridge",
+                result: total,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
