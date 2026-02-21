@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Grammar FE4F79</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdfdfd; padding: 20px; color: #2d3436; }
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { color: #2980b9; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .task-descr { background: #ebf5fb; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.5; border-left: 5px solid #3498db; }
+        
+        .q-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #f1f1f1; }
+        .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        .text { flex: 3; font-size: 18px; line-height: 1.6; text-align: justify; }
+        .word { flex: 1; text-align: right; font-weight: bold; color: #e67e22; font-size: 19px; letter-spacing: 1px; }
+        
+        input[type="text"] { width: 220px; padding: 10px; border: 2px solid #dfe6e9; border-radius: 6px; font-size: 17px; margin-top: 10px; text-transform: uppercase; transition: 0.3s; outline: none; }
+        
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .ans-hint { display: block; margin-top: 8px; font-weight: bold; color: #27ae60; font-size: 15px; }
+
+        .btn { width: 100%; padding: 15px; background: #2980b9; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; margin-top: 20px; }
+        .btn:hover { background: #2471a3; }
+        
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdfdfd; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; width: 320px;">
+        <h2 style="color:#2980b9">EGE Grammar</h2>
+        <p>A hungry wolf & Light bulb</p>
+        <input type="text" id="studentName" placeholder="Введите ваше Имя" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #3498db; border-radius: 6px;"><br>
+        <button class="btn" onclick="startApp()">Начать тест</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>EGE G1 FE4F79 A hungry wolf</h1>
+    <div class="task-descr">
+        Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–25.
+    </div>
+
+    <div id="quiz">
+        <h3 style="color: #2c3e50;">A hungry wolf</h3>
+        
+        <div class="q-item" data-res="TOLD">
+            <div class="row">
+                <div class="text"><b>19.</b> An old nurse was putting a baby to bed. She __________________ the boy to be quiet otherwise she would give him to a wolf.</div>
+                <div class="word">TELL</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="WAS SCREAMING">
+            <div class="row">
+                <div class="text"><b>20.</b> But the child __________________ even more and more loudly.</div>
+                <div class="word">SCREAM</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="HAVE NOT HAD/HAVEN'T HAD">
+            <div class="row">
+                <div class="text"><b>21.</b> The wolf heard the screams and thought to himself, “I __________________ any lunch yet. This boy is just what I need.” But the old nurse shut the door and all the windows, and the wolf had to go away. Never trust enemies’ promises.</div>
+                <div class="word">NOT HAVE</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <h3 style="color: #2c3e50; margin-top: 40px;">The invention of the light bulb</h3>
+
+        <div class="q-item" data-res="WAS INVENTED">
+            <div class="row">
+                <div class="text"><b>22.</b> Every person in the world knows about Thomas Edison. The electric light bulb __________________ by this famous scientist.</div>
+                <div class="word">INVENT</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="ILLUMINATING">
+            <div class="row">
+                <div class="text"><b>23.</b> The electrification of the modern world profoundly changed human life, __________________ the night.</div>
+                <div class="word">ILLUMINATE</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="FIRST">
+            <div class="row">
+                <div class="text"><b>24.</b> The __________________ electric bulb made it possible for people to continue their usual day activities after dark.</div>
+                <div class="word">ONE</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+
+        <div class="q-item" data-res="LIVES">
+            <div class="row">
+                <div class="text"><b>25.</b> Edison started with a 40-hour life light bulb and finally made a bulb that lasted for 1500 hours. This certainly revolutionized human __________________ at that time.</div>
+                <div class="word">LIFE</div>
+            </div>
+            <input type="text" class="ans" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="sendResult()">Проверить и отправить результат</button>
+    <div id="final" class="hidden" style="text-align: center; margin-top: 20px;">
+        <h2 id="score" style="color:#27ae60"></h2>
+    </div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function sendResult() {
+        let score = 0;
+        let logs = [];
+        const items = document.querySelectorAll('.q-item');
+
+        items.forEach((item, i) => {
+            const possible = item.getAttribute('data-res').split('/');
+            const input = item.querySelector('.ans');
+            const userAns = input.value.trim().toUpperCase();
+            
+            logs.push(`Q${i+19}:${userAns || "-"}`);
+            input.disabled = true;
+
+            if(possible.includes(userAns)) {
+                score++;
+                input.classList.add('status-correct');
+            } else {
+                input.classList.add('status-wrong');
+                const hint = document.createElement('span');
+                hint.className = 'ans-hint';
+                hint.innerText = "Правильно: " + possible[0];
+                item.appendChild(hint);
+            }
+        });
+
+        const total = score + "/7";
+        document.getElementById('finishBtn').classList.add('hidden');
+        document.getElementById('final').classList.remove('hidden');
+        document.getElementById('score').innerText = "Результат: " + total;
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE G1 FE4F79 A hungry wolf",
+                result: total,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
