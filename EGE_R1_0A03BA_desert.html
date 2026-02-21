@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Reading 0A03BA</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #fdfdfd; padding: 20px; color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); }
+        h1 { color: #d35400; text-align: center; border-bottom: 3px solid #e67e22; padding-bottom: 10px; margin-bottom: 25px; }
+        .task-descr { background: #fff5e6; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.6; border-left: 5px solid #e67e22; }
+        
+        .headings-box { background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 10px; margin-bottom: 30px; }
+        .headings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .heading-item { font-weight: bold; color: #d35400; font-size: 16px; }
+
+        .text-section { margin-bottom: 30px; padding: 20px; border: 1px solid #f1f1f1; border-radius: 10px; position: relative; }
+        .text-letter { font-weight: bold; color: #e67e22; font-size: 22px; margin-right: 12px; }
+        .text-content { font-size: 17px; line-height: 1.7; text-align: justify; }
+        
+        .ans-row { margin-top: 15px; display: flex; align-items: center; gap: 15px; }
+        .ans-select { padding: 10px; border-radius: 6px; border: 2px solid #ddd; width: 220px; font-size: 16px; cursor: pointer; outline: none; }
+        
+        /* ЦВЕТОВОЙ КОД */
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .hint { color: #28a745; font-weight: bold; font-size: 14px; margin-left: 10px; display: none; }
+
+        .btn { width: 100%; padding: 18px; background: #e67e22; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; transition: 0.3s; margin-top: 20px; }
+        .btn:hover { background: #d35400; box-shadow: 0 4px 12px rgba(211,84,0,0.3); }
+
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdfdfd; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+        #result-area { text-align: center; font-size: 26px; font-weight: bold; margin-top: 30px; color: #2c3e50; padding: 20px; background: #f8f9fa; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+        <h2 style="color:#e67e22; margin-bottom: 20px;">EGE Reading</h2>
+        <p>0A03BA desert</p>
+        <input type="text" id="studentName" placeholder="Ваше Имя" style="padding: 15px; width: 280px; border: 2px solid #e67e22; border-radius: 8px; font-size: 16px;"><br><br>
+        <button class="btn" onclick="startApp()">Начать тест</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>EGE R1 0A03BA desert</h1>
+    <div class="task-descr">
+        Установите соответствие между текстами A–G и заголовками 1–8. Используйте каждую цифру только один раз. В задании один заголовок лишний.
+    </div>
+
+    <div class="headings-box">
+        <div class="headings-grid">
+            <div class="heading-item">1. What is a desert?</div>
+            <div class="heading-item">2. Smart desert plants</div>
+            <div class="heading-item">3. The land of treasure</div>
+            <div class="heading-item">4. How do deserts form?</div>
+            <div class="heading-item">5. The desert statistics</div>
+            <div class="heading-item">6. The symbol of deserts</div>
+            <div class="heading-item">7. A unique white habitat</div>
+            <div class="heading-item">8. Deserts are dangerous</div>
+        </div>
+    </div>
+
+    <div id="quiz">
+        <div class="text-section" data-ans="1">
+            <span class="text-letter">A.</span>
+            <div class="text-content">Although the typical idea of a desert is a vast sandy place with little water, a desert is more than that. It is actually classified as any area of land that has not received any rain for a minimum of 12 straight months or a very dry area that receives less than 10 inches of rain every year. The reason for dryness in a desert is also connected with high evaporation and transpiration rates. The ground loses much water through a high evaporation rate. Plants lose their water through a high transpiration rate.</div>
+            <div class="ans-row">
+                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+                <span class="hint">Верно: 1</span>
+            </div>
+        </div>
+
+        <div class="text-section" data-ans="2">
+            <span class="text-letter">B.</span>
+            <div class="text-content">The plants that grow in the desert include various forms of cacti, low-lying plants like yucca and agave, and trees like palms and Joshua trees. While classified differently, these plants share characteristics that help them survive in the rough desert climate. They have a reduction of leaves and alternate water storage options. Many of the plants use extremely long “tap” roots as a mode of adaptation, while others stay close to the surface so they have a better chance to absorb the water before it evaporates.</div>
+            <div class="ans-row">
+                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+                <span class="hint">Верно: 2</span>
+            </div>
+        </div>
+
+        <div class="text-section" data-ans="6">
+            <span class="text-letter">C.</span>
+            <div class="text-content">Cactus is one of the plants most associated with deserts. Recognizable by their protective spikes, some species grow flowers and edible fruits. The cactus has adapted exceptionally well to desert conditions. To conserve water, most cacti have a fine root structure in which the roots grow near the surface. Over time they have changed their shape so that their external surface is reduced in relation to their volume. In many types of cacti, the stems have become round or flat and are used instead of green leaves.</div>
+            <div class="ans-row">
+                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+                <span class="hint">Верно: 6</span>
+            </div>
+        </div>
+
+        <div class="text-section" data-ans="3">
+            <span class="text-letter">D.</span>
+            <div class="text-content">Deserts are the primary source of table salt, borates, potassium and sodium nitrates and gypsum. Soda, nitrates and boron are the most common minerals that appear only in deserts. Approximately half of the world’s stores of fossil fuels come from desert lands, including oil and natural gas, and about half of the world’s diamonds, copper, gold, iron ore and uranium ore come from the desert as well. Besides, deserts are important because they provide corridors for migration for a number of bird species.</div>
+            <div class="ans-row">
+                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+                <span class="hint">Верно: 3</span>
+            </div>
+        </div>
+
+        <div class="text-section" data-ans="4">
+            <span class="text-letter">E.</span>
+            <div class="text-content">Several causes can be attributed to deserts, including the Earth’s air circulation, the rain shadow effect, the distance from the ocean and the proximity of cold ocean currents. The air circulation pattern is one cause that can be explained by the fact that warm air holds more moisture than cold air. This results in the evaporation of water and the formation of deserts. The rain shadow effect occurs to land between two mountain ranges. The rain falls on the other side of the mountains, leaving the land in-between dry.</div>
+            <div class="ans-row">
+                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+                <span class="hint">Верно: 4</span>
+            </div>
+        </div>
+
+        <div class="text-section" data-ans="5">
+            <span class="text-letter">F.</span>
+            <div class="text-content">There are 33 major deserts in the world, or 71 when subdivided into smaller deserts. Of those 71, 12 are in Africa, one is Antarctica, three are in the Arctic basin, 26 are in Asia, including the Middle East, 10 are in Australia and New Zealand, 10 are in Europe, four are in North America, and five are in South America. Having less than 10 inches of rain annually, Antarctica is not only classified as a desert, but it is the largest desert. The Sahara in Africa is the largest hot desert.</div>
+            <div class="ans-row">
+                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+                <span class="hint">Верно: 5</span>
+            </div>
+        </div>
+
+        <div class="text-section" data-ans="7">
+            <span class="text-letter">G.</span>
+            <div class="text-content">Cold deserts are deserts that experience low temperatures and long winters. They occur in the Arctic, the Antarctic and Greenland, as well as above the tree lines of mountain ranges. Cold deserts tend to have higher precipitation levels than hot deserts, and snowfall is common during winter. Average annual rainfall ranges from 6 to 10 inches. Vegetation is scattered due to poor soil quality, and plants tend to have needle-like leaves that reduce water loss. Native animals include rabbits, pocket mice and foxes.</div>
+            <div class="ans-row">
+                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+                <span class="hint">Верно: 7</span>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="checkResults()">Проверить и отправить результат</button>
+    <div id="result-area" class="hidden"></div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function checkResults() {
+        let score = 0;
+        let logs = [];
+        const sections = document.querySelectorAll('.text-section');
+
+        sections.forEach((sec) => {
+            const correct = sec.getAttribute('data-ans');
+            const select = sec.querySelector('.ans-select');
+            const userAns = select.value;
+            const letter = sec.querySelector('.text-letter').innerText;
+            
+            logs.push(`${letter}:${userAns || "-"}`);
+            select.disabled = true;
+
+            if(userAns === correct) {
+                score++;
+                select.classList.add('status-correct');
+            } else {
+                select.classList.add('status-wrong');
+                sec.querySelector('.hint').style.display = 'inline';
+            }
+        });
+
+        const finalScore = score + "/7";
+        document.getElementById('finishBtn').classList.add('hidden');
+        const resArea = document.getElementById('result-area');
+        resArea.innerHTML = "Результат: " + finalScore;
+        resArea.classList.remove('hidden');
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE R1 0A03BA desert",
+                result: finalScore,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
