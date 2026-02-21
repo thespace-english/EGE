@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Reading 285D02</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; padding: 20px; color: #34495e; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        h1 { color: #2980b9; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .task-descr { background: #e1f5fe; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.6; border-left: 5px solid #3498db; font-style: italic; }
+        
+        .options-box { background: #fff; border: 2px solid #3498db; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .option-item { margin-bottom: 8px; font-size: 16px; line-height: 1.4; }
+        .opt-num { font-weight: bold; color: #2980b9; margin-right: 10px; }
+
+        .text-content { font-size: 18px; line-height: 2; text-align: justify; background: #fafafa; padding: 25px; border-radius: 10px; border: 1px solid #eee; }
+        .gap-box { display: inline-block; vertical-align: middle; }
+        .ans-select { padding: 5px; border-radius: 4px; border: 2px solid #3498db; font-weight: bold; color: #2980b9; cursor: pointer; outline: none; }
+        
+        /* ЦВЕТОВОЙ КОД */
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .hint { color: #28a745; font-weight: bold; font-size: 14px; margin-left: 5px; display: none; }
+
+        .btn { width: 100%; padding: 18px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; transition: 0.3s; margin-top: 30px; }
+        .btn:hover { background: #2980b9; box-shadow: 0 4px 15px rgba(52,152,219,0.3); }
+
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #f0f4f8; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+        #result-area { text-align: center; font-size: 24px; font-weight: bold; margin-top: 20px; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h2 style="color:#2980b9">EGE Reading Practice</h2>
+        <p>285D02 Improving punctuality</p>
+        <input type="text" id="studentName" placeholder="Введите Имя" style="padding: 12px; width: 250px; border: 2px solid #3498db; border-radius: 6px;"><br><br>
+        <button class="btn" onclick="startApp()">Начать</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Improving punctuality</h1>
+    <div class="task-descr">
+        Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке лишняя.
+    </div>
+
+    <div class="options-box">
+        <div class="option-item"><span class="opt-num">1.</span> for class could cause you to miss out</div>
+        <div class="option-item"><span class="opt-num">2.</span> your lateness is mentally draining if you have</div>
+        <div class="option-item"><span class="opt-num">3.</span> very few situations where it’s not rude to make</div>
+        <div class="option-item"><span class="opt-num">4.</span> consequences of being late always far outweigh</div>
+        <div class="option-item"><span class="opt-num">5.</span> on more important things instead by simply being on</div>
+        <div class="option-item"><span class="opt-num">6.</span> aspect of being on time is that you may find yourself</div>
+        <div class="option-item"><span class="opt-num">7.</span> and that could mean the difference in getting you the next promotion</div>
+    </div>
+
+    <div class="text-content">
+        Some people fall into the trap of thinking that it's really no big deal to be consistently late. There’s a saying that goes, “90% of life is just showing up”. If that's the case, then showing up on time is 100% of life! <br><br>
+        There are <span class="gap-box" data-ans="3"><b>A</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(3)</span></span> others wait for you. If you keep your friends waiting too often, they’ll start to think that you don’t care about your friendship enough to be there on time. <br><br>
+        Being consistently late for your job is grounds for contract termination at most workplaces, while being late <span class="gap-box" data-ans="1"><b>B</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(1)</span></span> on important information. Whatever the situation, there are always benefits of being on time, while there are rarely ever benefits of being late. <br><br>
+        First, you’re only using more energy by being late. Having to come up with an excuse for <span class="gap-box" data-ans="2"><b>C</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(2)</span></span> to do it too often. <br><br>
+        You could concentrate <span class="gap-box" data-ans="5"><b>D</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(5)</span></span> time, freeing up your mental resources. Being late also causes stress, so you’ll save yourself from a stressful situation just by arriving at the correct time. <br><br>
+        Think about it this way: if you come to work on time every day while another co-worker has a less-than-stellar record when it comes to tardiness, who will the bosses be more willing to promote? All other things being equal, being punctual will display good time management skills, <span class="gap-box" data-ans="7"><b>E</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(7)</span></span>. <br><br>
+        However you look at it, it’s always going to be more advantageous to arrive at your destination on time. The negative <span class="gap-box" data-ans="4"><b>F</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(4)</span></span> any positive aspects. Make punctuality a part of your personality.
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="checkResults()">Проверить и отправить результат</button>
+    <div id="result-area" class="hidden"></div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function checkResults() {
+        let score = 0;
+        let logs = [];
+        const gaps = document.querySelectorAll('.gap-box');
+
+        gaps.forEach((gap) => {
+            const correct = gap.getAttribute('data-ans');
+            const select = gap.querySelector('.ans-select');
+            const userAns = select.value;
+            const label = gap.firstChild.textContent.trim();
+            
+            logs.push(`${label}:${userAns || "-"}`);
+            select.disabled = true;
+
+            if(userAns === correct) {
+                score++;
+                select.classList.add('status-correct');
+            } else {
+                select.classList.add('status-wrong');
+                gap.querySelector('.hint').style.display = 'inline';
+            }
+        });
+
+        const finalScore = score + "/6";
+        document.getElementById('finishBtn').classList.add('hidden');
+        const resArea = document.getElementById('result-area');
+        resArea.innerText = "Результат: " + finalScore;
+        resArea.classList.remove('hidden');
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE R2 285D02 Improving punctuality",
+                result: finalScore,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
