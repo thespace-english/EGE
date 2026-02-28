@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE G3 3759BA A girl from Uganda</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Verdana', sans-serif; margin: 0; background: #f0f2f5; height: 100vh; display: flex; flex-direction: column; }
+        
+        header { background: #2c3e50; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; flex-shrink: 0; }
+        
+        .main-container { display: flex; flex: 1; overflow: hidden; }
+
+        /* ТЕКСТ СЛЕВА */
+        .text-panel { flex: 1; overflow-y: auto; padding: 40px; background: white; border-right: 2px solid #ddd; line-height: 1.9; font-size: 18px; }
+        .gap { font-weight: bold; color: #d35400; background: #fef5e7; padding: 2px 6px; border: 1px solid #f5b041; border-radius: 4px; }
+
+        /* ТЕСТ СПРАВА */
+        .quiz-panel { flex: 1; overflow-y: auto; padding: 30px; background: #fdfefe; }
+        
+        .card { 
+            background: white; border-radius: 10px; padding: 20px; margin-bottom: 30px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e8e8;
+            display: block;
+        }
+
+        .card-num { color: #2980b9; font-weight: bold; font-size: 14px; margin-bottom: 12px; display: block; border-bottom: 1px solid #f2f4f4; padding-bottom: 5px; }
+        
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .opt { 
+            padding: 12px 15px; border: 2px solid #ebedef; border-radius: 6px; 
+            cursor: pointer; transition: 0.2s; font-size: 16px; 
+        }
+        .opt:hover { border-color: #3498db; background: #f4faff; }
+        .opt.selected { border-color: #3498db; background: #ebf5fb; font-weight: bold; }
+
+        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724 !important; }
+        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; }
+
+        .action-area { padding-bottom: 100px; }
+        .btn-main { 
+            width: 100%; padding: 20px; background: #2c3e50; color: white; 
+            border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; 
+        }
+        .btn-main:hover { background: #1a252f; }
+
+        /* ЭКРАН ВХОДА */
+        #auth-screen { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: #2c3e50; z-index: 9999; display: flex; align-items: center; justify-content: center; 
+        }
+        .auth-box { background: white; padding: 40px; border-radius: 15px; text-align: center; width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .auth-box h3 { margin-bottom: 25px; color: #2c3e50; }
+        .auth-box input { padding: 12px; width: 100%; border: 1px solid #bdc3c7; border-radius: 6px; margin-bottom: 25px; font-size: 16px; outline: none; }
+
+        .hidden { display: none !important; }
+        #score-msg { text-align: center; font-size: 22px; font-weight: bold; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
+    </style>
+</head>
+<body>
+
+<div id="auth-screen">
+    <div class="auth-box">
+        <h3>EGE G3 3759BA</h3>
+        <input type="text" id="userName" placeholder="Введите ваше имя">
+        <button class="btn-main" onclick="startQuiz()">Начать</button>
+    </div>
+</div>
+
+<header>EGE G3 3759BA A girl from Uganda (30–36)</header>
+
+<div class="main-container">
+    <div class="text-panel">
+        <h2>A girl from Uganda</h2>
+        <p>It was a special day for the girl from Uganda, a country in Africa. She was <span class="gap">30</span> to meet the world’s greatest living chess player, which was a great honour for her. The girl was a chess player herself. She had been invited to <span class="gap">31</span> her story by a committee that had organized a conference in Moscow. That story was one of triumph. It was a story of her childhood in Katwe, Uganda. She would describe how the skills nourished by the principles of the game of chess had <span class="gap">32</span> her to come to that conference. </p>
+        
+        <p>There is no word for chess in the girl’s native language. <span class="gap">33</span>, the game had taken her far from home, first to Sudan and Turkey, and finally to Russia. Chess had given her the opportunity to take her first flight above the clouds. </p>
+        
+        <p>Over the years, she had become the best female chess player in Uganda. Though the girl was only 17 years old, she had long competed at the highest level of the game. Her talent and <span class="gap">34</span> made her one of the most promising young players in the world. The girl’s story was the subject of a book, documentaries, and magazine articles. </p>
+        
+        <p>The girl still couldn’t believe she was visiting the conference in Moscow. She was very <span class="gap">35</span> about meeting the world champion, the person she had idolized in her childhood. He had <span class="gap">36</span> her to push herself so that one day she might achieve the rank of Grand Master, the highest honour in the game. </p>
+    </div>
+
+    <div class="quiz-panel">
+        <div class="card" data-ans="1">
+            <span class="card-num">Задание №1 (30)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) supposed</div>
+                <div class="opt" data-v="2">2) supplied</div>
+                <div class="opt" data-v="3">3) suspected</div>
+                <div class="opt" data-v="4">4) succeeded</div>
+            </div>
+        </div>
+        <div class="card" data-ans="4">
+            <span class="card-num">Задание №2 (31)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) say</div>
+                <div class="opt" data-v="2">2) talk</div>
+                <div class="opt" data-v="3">3) speak</div>
+                <div class="opt" data-v="4">4) tell</div>
+            </div>
+        </div>
+        <div class="card" data-ans="2">
+            <span class="card-num">Задание №3 (32)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) approved</div>
+                <div class="opt" data-v="2">2) allowed</div>
+                <div class="opt" data-v="3">3) admitted</div>
+                <div class="opt" data-v="4">4) afforded</div>
+            </div>
+        </div>
+        <div class="card" data-ans="1">
+            <span class="card-num">Задание №4 (33)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) However</div>
+                <div class="opt" data-v="2">2) Despite</div>
+                <div class="opt" data-v="3">3) Otherwise</div>
+                <div class="opt" data-v="4">4) Likewise</div>
+            </div>
+        </div>
+        <div class="card" data-ans="4">
+            <span class="card-num">Задание №5 (34)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) reservation</div>
+                <div class="opt" data-v="2">2) admiration</div>
+                <div class="opt" data-v="3">3) appreciation</div>
+                <div class="opt" data-v="4">4) determination</div>
+            </div>
+        </div>
+        <div class="card" data-ans="1">
+            <span class="card-num">Задание №6 (35)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) enthusiastic</div>
+                <div class="opt" data-v="2">2) abandoned</div>
+                <div class="opt" data-v="3">3) controversial</div>
+                <div class="opt" data-v="4">4) sympathetic</div>
+            </div>
+        </div>
+        <div class="card" data-ans="4">
+            <span class="card-num">Задание №7 (36)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) involved</div>
+                <div class="opt" data-v="2">2) intended</div>
+                <div class="opt" data-v="3">3) impressed</div>
+                <div class="opt" data-v="4">4) inspired</div>
+            </div>
+        </div>
+
+        <div id="score-msg" class="hidden"></div>
+        <div class="action-area">
+            <button class="btn-main" id="checkBtn" onclick="runCheck()">Проверить ответы</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startQuiz() {
+        if(document.getElementById('userName').value.trim() !== "") {
+            document.getElementById('auth-screen').classList.add('hidden');
+        } else {
+            alert("Пожалуйста, введите ваше имя");
+        }
+    }
+
+    document.querySelectorAll('.opt').forEach(el => {
+        el.onclick = function() {
+            const wrap = this.parentElement;
+            wrap.querySelectorAll('.opt').forEach(i => i.classList.remove('selected'));
+            this.classList.add('selected');
+        }
+    });
+
+    function runCheck() {
+        let count = 0;
+        let details = [];
+        document.querySelectorAll('.card').forEach((c, idx) => {
+            const correct = c.dataset.ans;
+            const chosen = c.querySelector('.opt.selected');
+            const val = chosen ? chosen.dataset.v : "0";
+            
+            details.push(`Q${idx+1}:${val}`);
+            
+            c.querySelectorAll('.opt').forEach(btn => {
+                if(btn.dataset.v === correct) btn.classList.add('correct');
+                if(chosen && btn === chosen && btn.dataset.v !== correct) btn.classList.add('wrong');
+                btn.style.pointerEvents = "none";
+            });
+            if(val === correct) count++;
+        });
+
+        const finalScore = `${count} из 7`;
+        const info = document.getElementById('score-msg');
+        info.innerText = "Результат: " + finalScore;
+        info.classList.remove('hidden');
+        info.style.background = count >= 5 ? "#d4edda" : "#f8d7da";
+        document.getElementById('checkBtn').classList.add('hidden');
+
+        fetch(SHEET_URL, {
+            method: "POST", mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('userName').value,
+                task: "EGE G3 3759BA A girl from Uganda",
+                result: finalScore,
+                answers: details.join(", ")
+            })
+        });
+    }
+</script>
+</body>
+</html>
