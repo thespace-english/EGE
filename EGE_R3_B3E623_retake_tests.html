@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE R3 B3E623 Retake Tests</title>
+    <style>
+        :root { 
+            --primary: #2c3e50; --accent: #e67e22; --bg: #fdfaf6; 
+            --correct: #27ae60; --wrong: #e74c3c;
+        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
+        header { background: var(--primary); color: white; padding: 15px 25px; flex-shrink: 0; font-size: 1.1em; }
+        
+        .main-layout { display: flex; flex: 1; overflow: hidden; }
+        
+        .text-pane { flex: 1.2; padding: 40px; overflow-y: auto; background: white; border-right: 2px solid #eee; line-height: 1.8; font-size: 18px; color: #2c3e50; }
+        .questions-pane { flex: 0.8; padding: 40px; overflow-y: auto; background: #fdfdfd; }
+        
+        .highlight { color: #d35400; font-weight: bold; }
+        
+        .name-section { background: #fff; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .name-field { width: 100%; padding: 12px; border: 2px solid #bdc3c7; border-radius: 6px; font-size: 16px; box-sizing: border-box; }
+        
+        .q-card { background: white; padding: 25px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); }
+        .q-title { font-weight: bold; display: block; margin-bottom: 15px; }
+        .opt-label { display: block; margin: 10px 0; padding: 12px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .opt-label:hover { background: #fffcf0; }
+        
+        .opt-label.correct-ans { background: #d4edda !important; border-color: var(--correct) !important; color: #155724; font-weight: bold; }
+        .opt-label.wrong-ans { background: #f8d7da !important; border-color: var(--wrong) !important; color: #721c24; }
+
+        .submit-btn { background: var(--accent); color: white; border: none; padding: 20px; font-size: 18px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
+        .submit-btn:hover { background: #d35400; }
+        .submit-btn:disabled { background: #bdc3c7; cursor: not-allowed; }
+        #status { margin-top: 20px; text-align: center; font-weight: bold; padding-bottom: 40px; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+
+<header>EGE R3 B3E623: Прочитайте текст и выполните задания 12–18</header>
+
+<div class="main-layout">
+    <section class="text-pane">
+        <h2>Should children be allowed to retake tests?</h2>
+        <p>My daughter texted me from school, upset that she’d failed a physics test she thought she’d been prepared for. She was worried it would bring down her overall grade at the end of the first marking period. A half-hour later, she texted to say all was good. Her teacher allowed her to make corrections – she got all the problems right this time, and her grade was no longer under threat.</p>
+        
+        <p>On the one hand, I was pleased that she’d taken the initiative to fix what she viewed as a problem. On the other hand, I wasn’t sure how I felt about this infinite redo approach.</p>
+        
+        <p>When I heard that my daughter was allowed to go back and correct her mistakes, my mind instantly went to all the professionals in the real world – surgeons, firefighters, death-row case trial lawyers, pilots, paramedics, cops and more – who really, really needed to get their jobs right the first time. With some jobs, “later” isn’t an option. Heck, in the realm of less life-and-death professions, I spent years working as a live TV show producer. <strong class="highlight">There were no second takes there</strong>, either.</p>
+        
+        <p>As with all education research, both pros and cons have been tallied and reported. Some of the pros include the assertion that letting kids retake tests reduces cheating, makes them responsible for their own grades and helps them better evaluate their own learning. Cons have been listed as: low motivation; students procrastinating until they’ve fallen too far behind, leading to stress; and teachers needing to teach separate lessons to different class members during the same period.</p>
+        
+        <p>Then I turned to my focus group of one: my husband, a middle school math and physics teacher who has, for years, allowed his students to redo their homework and in-class work as many times as they wish in order to get to 100% mastery. I asked him why he believes his technique is beneficial.</p>
+        
+        <p>He stressed that, “Homework and in-class work is formative assessment, which is the key here. Homework and in-class work is practice. Doing the work correctly over and over again is the only way to improve. Tests are summative assessments. They measure performance after practice. I allow redos only on homework and in-class work. I don’t allow resitting tests, because tests measure what they’ve learned after all that practice. If you are a performing artist, it’s the performance that matters. For athletes, it’s the game. Homework versus tests is the same thing.”</p>
+        
+        <p>That brings us back to those surgeons, firefighters, death-row case trial lawyers, pilots, paramedics, cops and more who, in real life, I would really like to get their tasks right the first time. Their jobs can be considered the ultimate in summative assessment. But that assessment didn’t come on the first day of training. It came after many, many years of formative assessments in the form of arguing mock trials, practicing approaches on flight simulators, and conducting rescue drills – not to mention taking paper-and-pencil tests as well.</p>
+        
+        <p>So much education policy debate these days seems to be driven by a zero-sum game mindset. If we do things one way, we shouldn’t be doing them another. As the late Stephen Sondheim wrote, “Is it always “or?” Is it never “and?”</p>
+        
+        <p>Just as students benefit from a cross-section of classmates, they should also benefit from a cross-section of opinions on how best to teach. It would better prepare them for living and working with a variety of people for the rest of their lives, and help them figure out how they learn best, so <strong class="highlight">they</strong> can adapt accordingly. That said, I would still prefer that my daughter got her physics equations right the first time.</p>
+    </section>
+
+    <section class="questions-pane">
+        <div class="name-section">
+            <input type="text" id="userName" class="name-field" placeholder="Введите имя для отчета" required>
+        </div>
+
+        <form id="quizForm">
+            <div class="q-card" id="card-q12">
+                <span class="q-title">12. The feelings of the author after her daughter’s second text are best described as …</span>
+                <label class="opt-label"><input type="radio" name="q12" value="1" required> 1) mixed.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="2"> 2) disappointment.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="3"> 3) relief.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="4"> 4) anger.</label>
+            </div>
+
+            <div class="q-card" id="card-q13">
+                <span class="q-title">13. What does the phrase “There were no second takes there” in paragraph 3 mean?</span>
+                <label class="opt-label"><input type="radio" name="q13" value="1" required> 1) Only the best ones were hired.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="2"> 2) There was very little time to make a decision.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="3"> 3) There was only one attempt to do the job.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="4"> 4) If you failed for the first time, nobody gave you the second chance.</label>
+            </div>
+
+            <div class="q-card" id="card-q14">
+                <span class="q-title">14. Which statement is TRUE?</span>
+                <label class="opt-label"><input type="radio" name="q14" value="1" required> 1) Educators see more pros than cons in retakes.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="2"> 2) A negative side of retakes is extra difficulty for teachers.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="3"> 3) Without retakes, students become more responsible.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="4"> 4) Retaking tests is mostly useful for middle-schoolers.</label>
+            </div>
+
+            <div class="q-card" id="card-q15">
+                <span class="q-title">15. Why does the author’s husband allow students to retake homework?</span>
+                <label class="opt-label"><input type="radio" name="q15" value="1" required> 1) It gives students extra practice.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="2"> 2) It helps him measure what they have learnt.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="3"> 3) It prepares them for jobs like surgeons.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="4"> 4) Students usually pass their tests better this way.</label>
+            </div>
+
+            <div class="q-card" id="card-q16">
+                <span class="q-title">16. Which technique does the author’s husband believe is the best?</span>
+                <label class="opt-label"><input type="radio" name="q16" value="1" required> 1) Students should retake everything.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="2"> 2) No retakes are allowed.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="3"> 3) Homework can be retaken, but tests cannot.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="4"> 4) Tests can be retaken, but homework cannot.</label>
+            </div>
+
+            <div class="q-card" id="card-q17">
+                <span class="q-title">17. What does "they" in paragraph 13 refer to?</span>
+                <label class="opt-label"><input type="radio" name="q17" value="1" required> 1) Students.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="2"> 2) Opinions.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="3"> 3) Lives.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="4"> 4) People.</label>
+            </div>
+
+            <div class="q-card" id="card-q18">
+                <span class="q-title">18. The author sounds dissatisfied at the end because …</span>
+                <label class="opt-label"><input type="radio" name="q18" value="1" required> 1) her daughter lacks physics knowledge.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="2"> 2) her daughter was allowed to retake the test.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="3"> 3) her daughter got a bad final grade.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="4"> 4) her daughter failed her first attempt.</label>
+            </div>
+
+            <button type="submit" id="submitBtn" class="submit-btn">ОТПРАВИТЬ ОТВЕТЫ</button>
+            <div id="status"></div>
+        </form>
+    </section>
+</div>
+
+<script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec';
+    const KEYS = { q12:"1", q13:"3", q14:"2", q15:"1", q16:"3", q17:"1", q18:"4" };
+
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nameInput = document.getElementById('userName').value.trim();
+        if (!nameInput) { alert("Введите имя!"); return; }
+
+        let score = 0;
+        let details = [];
+        const formData = new FormData(this);
+
+        for (let q in KEYS) {
+            const userVal = formData.get(q);
+            const card = document.getElementById('card-' + q);
+            const labels = card.querySelectorAll('.opt-label');
+            details.push(`${q.toUpperCase()}:${userVal}`);
+
+            labels.forEach(l => {
+                const val = l.querySelector('input').value;
+                l.classList.remove('correct-ans', 'wrong-ans');
+                if (val === KEYS[q]) l.classList.add('correct-ans');
+                if (userVal === val && val !== KEYS[q]) l.classList.add('wrong-ans');
+            });
+            if (userVal === KEYS[q]) score++;
+        }
+
+        const payload = {
+            name: nameInput,
+            task: "EGE R3 B3E623 retake tests",
+            result: `${score}/7`,
+            answers: details.join(', ')
+        };
+
+        document.getElementById('submitBtn').disabled = true;
+        
+        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) })
+        .then(() => { 
+            document.getElementById('status').innerHTML = `<span style="color:var(--correct)">Результат сохранен! Ваш балл: ${score}/7</span>`; 
+        })
+        .catch(err => {
+            document.getElementById('status').innerHTML = `<span style="color:var(--wrong)">Ошибка сети, но балл: ${score}/7</span>`;
+        });
+    });
+</script>
+</body>
+</html>

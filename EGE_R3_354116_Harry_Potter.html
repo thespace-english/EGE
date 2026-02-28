@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE R3 354116 Harry Potter</title>
+    <style>
+        :root { 
+            --primary: #2c3e50; --accent: #3498db; --bg: #f4f7f6; 
+            --correct: #27ae60; --wrong: #e74c3c;
+        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
+        header { background: var(--primary); color: white; padding: 15px 25px; flex-shrink: 0; }
+        
+        .main-layout { display: flex; flex: 1; overflow: hidden; }
+        
+        .text-pane { flex: 1; padding: 40px; overflow-y: auto; background: white; border-right: 2px solid #ddd; line-height: 1.8; font-size: 18px; }
+        .questions-pane { flex: 1; padding: 40px; overflow-y: auto; }
+        
+        .highlight { color: #d35400; font-weight: bold; text-decoration: underline; }
+        
+        .name-section { background: #fff; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .name-field { width: 100%; padding: 12px; border: 2px solid #bdc3c7; border-radius: 6px; font-size: 16px; box-sizing: border-box; }
+        
+        .q-card { background: white; padding: 25px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 2px solid transparent; }
+        .opt-label { display: block; margin: 10px 0; padding: 12px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        
+        .opt-label.correct-ans { background: #d4edda !important; border-color: var(--correct) !important; color: #155724; font-weight: bold; }
+        .opt-label.wrong-ans { background: #f8d7da !important; border-color: var(--wrong) !important; color: #721c24; }
+
+        .submit-btn { background: #27ae60; color: white; border: none; padding: 20px; font-size: 18px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
+        .submit-btn:disabled { background: #95a5a6; }
+        #status { margin-top: 20px; text-align: center; font-weight: bold; padding-bottom: 40px; }
+    </style>
+</head>
+<body>
+
+<header>Прочитайте текст и выполните задания 12–18</header>
+
+<div class="main-layout">
+    <section class="text-pane">
+        <h2>How Harry Potter saved one small town</h2>
+        <p>Mallaig is far from the prettiest of Highland settlements, even when the weather is fine. Several rows of what could be prewar council houses stretch across the hill beyond the harbour. A <strong class="highlight">mishmash</strong> of car parks, jetties and workaday buildings squats close to the railway terminus. When I last stayed in Mallaig, it was known as the biggest herring port in Europe.</p>
+        <p>Today, the herring have vanished, and yet Mallaig remains a busy place. Ferries come and go and fishing boats land shellfish, which is driven away in lorries to the markets of France and Spain. None of this activity, however, explains the hundreds of people who can be seen roaming Mallaig’s few streets every afternoon between the beginning of May and the end of October, or the presence of so many restaurants. What do explain them are two enthusiasms, one for low fact and the other for high fiction, which are kindled in childhood and among many adults never entirely disappear.</p>
+        <p>The railway reached Mallaig from Fort William and the south in 1901. It was among the last big lines to be built in Britain, late enough to have its viaducts built of concrete. It traversed one of Europe’s most spectacular and emptiest landscapes, with hardly anything large enough to be called a village along its 40-mile length.</p>
+        <p>The construction needed a large government subsidy, but the traffic never grew much beyond the two or three trains a day that carried fish boxes and a few dozen travellers to and from the Hebrides. It made little economic sense. Only 60 years after the line opened, it began to be threatened with closure. Few people would have guessed then that its commercial salvation would be owed to a novel and a film, and first of all, to a hobby.</p>
+        <p>Railways became an amateur pastime as well as a means of transport during the last decades of the 19th century. Then professional men such as vicars and lawyers began to see the large variety of trains and their technical progress as a hobby offering a similar kind of pleasure to philately and butterfly-hunting. By the end of the century they had their own magazine and their own club, the Railway Club, the world’s first society for railway enthusiasts. It was founded in London in 1899 and had its own premises with a library and leather armchairs. It was from these elite beginnings that the 20th century’s great cult of trainspotting spread, reinforcing a more general fondness for steam locomotives that many people had without knowing quite why. So a sense of loss ran through Britain when, in the 1960s, it became clear that their day was nearly done.</p>
+        <p>Hundreds of <strong>them</strong> were saved from the scrapyards and restored to working order; dozens of branch lines repaired and reopened so that in the holidays Britain could be charmed by how it once was. It’s hard to think that anywhere in the world has seen a more popular or successful preservation movement, or at least one run and largely funded by volunteers. Out of this business grew the West Coast Railway Company, which hires out engines, coaches and crew for steam excursions.</p>
+        <p>A film producer looking to shoot a fantastical train in a dramatic location would naturally turn to such a company, and so in three Harry Potter films the train to Hogwarts is seen crossing Glenfinnan’s viaduct.</p>
+        <p>Today, the Jacobite Express fills with Potter fans from all parts of the globe and always stops for a photo opportunity at Glenfinnan, which is where the real Bonnie Prince Charlie really raised his standard in '45 and marked as such by a real memorial. All of which reality is cast into shadow by the film of a modern fairytale.</p>
+    </section>
+
+    <section class="questions-pane">
+        <div class="name-section">
+            <input type="text" id="userName" class="name-field" placeholder="Введите ваше имя (обязательно)" required>
+        </div>
+
+        <form id="quizForm">
+            <div class="q-card" id="card-q12">
+                <span class="q-title">12. Which adjective could best describe Mallaig?</span>
+                <label class="opt-label"><input type="radio" name="q12" value="1" required> 1) Derelict.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="2"> 2) Beautiful.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="3"> 3) Abandoned.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="4"> 4) Unsightly.</label>
+            </div>
+
+            <div class="q-card" id="card-q13">
+                <span class="q-title">13. The word <i>mishmash</i> in paragraph 1 means ...</span>
+                <label class="opt-label"><input type="radio" name="q13" value="1" required> 1) a ruin.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="2"> 2) a mixture.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="3"> 3) a sight.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="4"> 4) a queue.</label>
+            </div>
+
+            <div class="q-card" id="card-q14">
+                <span class="q-title">14. Which statement is TRUE about the railway line?</span>
+                <label class="opt-label"><input type="radio" name="q14" value="1" required> 1) It was the last big line constructed in Britain.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="2"> 2) The traffic on it was busy at the beginning.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="3"> 3) It finally became profitable.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="4"> 4) It was closed shortly after its opening.</label>
+            </div>
+
+            <div class="q-card" id="card-q15">
+                <span class="q-title">15. The author compares trains to philately because ...</span>
+                <label class="opt-label"><input type="radio" name="q15" value="1" required> 1) it turned into a pastime.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="2"> 2) they all require patience.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="3"> 3) they all became unpopular.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="4"> 4) they all are fashionable.</label>
+            </div>
+
+            <div class="q-card" id="card-q16">
+                <span class="q-title">16. The author mentions a library and armchairs to illustrate ...</span>
+                <label class="opt-label"><input type="radio" name="q16" value="1" required> 1) how important trains were.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="2"> 2) how successful the Railway Club became.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="3"> 3) the amount of corruption.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="4"> 4) the number of members.</label>
+            </div>
+
+            <div class="q-card" id="card-q17">
+                <span class="q-title">17. The word <i>them</i> in paragraph 6 refers to ...</span>
+                <label class="opt-label"><input type="radio" name="q17" value="1" required> 1) people.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="2"> 2) locomotives.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="3"> 3) train spotters.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="4"> 4) lines.</label>
+            </div>
+
+            <div class="q-card" id="card-q18">
+                <span class="q-title">18. How does the author feel about Glenfinnan?</span>
+                <label class="opt-label"><input type="radio" name="q18" value="1" required> 1) Enthusiastic.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="2"> 2) Indifferent.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="3"> 3) Sad.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="4"> 4) Outraged.</label>
+            </div>
+
+            <button type="submit" id="submitBtn" class="submit-btn">ПРОВЕРИТЬ И ОТПРАВИТЬ</button>
+            <div id="status"></div>
+        </form>
+    </section>
+</div>
+
+<script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec';
+    // Обновлен правильный ответ для q14 на "3"
+    const KEYS = { q12:"4", q13:"2", q14:"3", q15:"1", q16:"2", q17:"2", q18:"3" };
+
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nameInput = document.getElementById('userName').value.trim();
+        if (!nameInput) { alert("Без имени запуск невозможен!"); return; }
+
+        const firstName = nameInput.split(' ')[0];
+        let score = 0;
+        let details = [];
+        const formData = new FormData(this);
+
+        for (let q in KEYS) {
+            const userVal = formData.get(q);
+            const card = document.getElementById('card-' + q);
+            const labels = card.querySelectorAll('.opt-label');
+            details.push(`${q.toUpperCase()}:${userVal}`);
+
+            labels.forEach(l => {
+                const val = l.querySelector('input').value;
+                l.classList.remove('correct-ans', 'wrong-ans');
+                if (val === KEYS[q]) l.classList.add('correct-ans');
+                if (userVal === val && val !== KEYS[q]) l.classList.add('wrong-ans');
+            });
+            if (userVal === KEYS[q]) score++;
+        }
+
+        const payload = {
+            name: firstName,
+            task: "EGE R3 354116 Harry Potter",
+            result: `${score}/7`,
+            answers: details.join(', ')
+        };
+
+        document.getElementById('submitBtn').disabled = true;
+        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) })
+        .then(() => { document.getElementById('status').innerHTML = `<span style="color:green">Успешно сохранено! Результат: ${score}/7</span>`; });
+    });
+</script>
+</body>
+</html>

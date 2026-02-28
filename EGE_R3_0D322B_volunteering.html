@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE R3 0D322B Volunteering</title>
+    <style>
+        :root { 
+            --primary: #2c3e50; --accent: #8e44ad; --bg: #fdfeff; 
+            --correct: #27ae60; --wrong: #e74c3c;
+        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
+        header { background: var(--primary); color: white; padding: 15px 25px; flex-shrink: 0; font-weight: bold; }
+        
+        .main-layout { display: flex; flex: 1; overflow: hidden; }
+        
+        .text-pane { flex: 1; padding: 40px; overflow-y: auto; background: white; border-right: 2px solid #eee; line-height: 1.8; font-size: 18px; color: #333; }
+        .questions-pane { flex: 1; padding: 40px; overflow-y: auto; background: #f9f9f9; }
+        
+        .highlight { color: #8e44ad; font-weight: bold; border-bottom: 2px solid #8e44ad; }
+        
+        .name-section { background: #fff; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .name-field { width: 100%; padding: 12px; border: 2px solid #bdc3c7; border-radius: 6px; font-size: 16px; box-sizing: border-box; }
+        
+        .q-card { background: white; padding: 25px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 5px solid var(--accent); }
+        .q-title { font-weight: bold; display: block; margin-bottom: 15px; color: var(--primary); }
+        .opt-label { display: block; margin: 8px 0; padding: 12px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        .opt-label:hover { background: #f0f4f8; }
+        
+        .opt-label.correct-ans { background: #d4edda !important; border-color: var(--correct) !important; color: #155724; font-weight: bold; }
+        .opt-label.wrong-ans { background: #f8d7da !important; border-color: var(--wrong) !important; color: #721c24; }
+
+        .submit-btn { background: var(--accent); color: white; border: none; padding: 20px; font-size: 18px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
+        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .submit-btn:disabled { background: #95a5a6; transform: none; }
+        #status { margin-top: 20px; text-align: center; font-weight: bold; padding-bottom: 40px; font-size: 20px; }
+    </style>
+</head>
+<body>
+
+<header>EGE R3 0D322B: Прочитайте текст и выполните задания 12–18</header>
+
+<div class="main-layout">
+    <section class="text-pane">
+        <h2>What volunteering taught me</h2>
+        <p>Today I am member of the UN Global Education First Youth Advocacy Group. Many young people have come to me to ask how I got to be in such an initiative. It has always been a pleasure for me to share my volunteer experiences, and it is because of these experiences that I was selected out of 500 applications to serve in this group. It all started when I was in secondary school. I was engaged in student affairs as the president of the UNESCO club, a school platform that brings students together to discuss school matters and the pressing current issues concerning them.</p>
+
+        <p>After secondary school, I started volunteering within non-governmental organizations. It was at this moment that I began to understand a lot about community development. I was involved in projects and activities relating to peace, human rights and the environment. It was a great pleasure for me to contribute to the development of my community through volunteering because the impact was visible.</p>
+
+        <p>I had many obstacles while volunteering because people don’t value volunteer work. In Cameroon and especially in my community, people consider volunteering as waste of time and resources. They cannot conceive the fact that someone can work without remuneration or a salary. My friends and family advised me on several occasions to stop volunteering. I felt very discouraged at some point, but I could not stop because I loved doing it. Volunteering was the top priority in my life. I decided not to pay attention to their advice but to concentrate on my work.</p>
+
+        <p>By spending time with host families in various regions I got used to cultural differences, which was really helpful during the projects. I learned a lot about what belonged to the norms and values of the local people. For example, how to dress appropriately, eat and even how to shower and go to the bathroom the local way. Most of the things are totally different than in my area, so it took some time to adapt.</p>
+
+        <p>In Nigeria I taught English conversation, 3 times a day. I had the opportunity to come up with my own ideas for the classes and tried to be as creative as possible making my lessons not only informative, but also fun. Apart from having conversations, we also cooked food, listened to English music and painted. Having a lot of conversations in English on different topics, I understood how to look at things from a different perspective. It also made me think in a more creative way, out of the box, one can say. I think this will help me in the future, looking at things through different glasses.</p>
+
+        <p>One day, a group of young people came to me and said they had something to say. I was very surprised. They said they were all grateful for the changes I brought into their lives through peer education. I was so happy to hear <strong class="highlight">this</strong> that it aroused joy in my heart. This experience made me understand that only volunteer work can have such a <strong class="highlight">profound</strong> impact on people’s lives.</p>
+
+        <p>There are three elements that permitted me to succeed in a life dedicated to volunteering: passion, determination and patience. Volunteering helped me become a job creator, not a job seeker.</p>
+
+        <p>My advice to my peers is that we cannot succeed in life overnight. We have to work hard to enjoy the fruits of our labor. Even if you have a diploma from the best school in the world, it is not enough because what matters most is your skills, your talent. The best way to discover who you are in order to integrate yourself into society is to volunteer. Volunteering not only allows you to offer your services, but to learn and discover new things and improve your skills. One secret in volunteer work is to avoid thinking about money because that is where the problem is. Young people expect to be paid as they are volunteering.</p>
+    </section>
+
+    <section class="questions-pane">
+        <div class="name-section">
+            <input type="text" id="userName" class="name-field" placeholder="Введите ваше имя для сохранения результата" required>
+        </div>
+
+        <form id="quizForm">
+            <div class="q-card" id="card-q12">
+                <span class="q-title">12. The author was chosen for her current position because of …</span>
+                <label class="opt-label"><input type="radio" name="q12" value="1" required> 1) her passion for volunteering.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="2"> 2) the advice she gave others.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="3"> 3) her volunteering background.</label>
+                <label class="opt-label"><input type="radio" name="q12" value="4"> 4) her leadership skills.</label>
+            </div>
+
+            <div class="q-card" id="card-q13">
+                <span class="q-title">13. Why did the author enjoy her work in community development?</span>
+                <label class="opt-label"><input type="radio" name="q13" value="1" required> 1) She took part in interesting events.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="2"> 2) She became part of the community.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="3"> 3) She developed her skills.</label>
+                <label class="opt-label"><input type="radio" name="q13" value="4"> 4) She saw the results of her work.</label>
+            </div>
+
+            <div class="q-card" id="card-q14">
+                <span class="q-title">14. Why did the author have difficulties when volunteering?</span>
+                <label class="opt-label"><input type="radio" name="q14" value="1" required> 1) People did not understand the purpose of volunteering.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="2"> 2) Employers did not want to pay volunteers.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="3"> 3) She spent too much time volunteering.</label>
+                <label class="opt-label"><input type="radio" name="q14" value="4"> 4) Her family did not approve of her work.</label>
+            </div>
+
+            <div class="q-card" id="card-q15">
+                <span class="q-title">15. The main idea expressed in paragraphs 4 and 5 is that volunteering …</span>
+                <label class="opt-label"><input type="radio" name="q15" value="1" required> 1) develops creativity and talent.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="2"> 2) becomes more adaptive and flexible.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="3"> 3) helps build closer relations with locals.</label>
+                <label class="opt-label"><input type="radio" name="q15" value="4"> 4) helps understand other cultures and lifestyles.</label>
+            </div>
+
+            <div class="q-card" id="card-q16">
+                <span class="q-title">16. The pronoun "this" in paragraph 6 refers to the …</span>
+                <label class="opt-label"><input type="radio" name="q16" value="1" required> 1) offer to study together.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="2"> 2) young men's gratitude.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="3"> 3) surprising information.</label>
+                <label class="opt-label"><input type="radio" name="q16" value="4"> 4) advice on how to change her life.</label>
+            </div>
+
+            <div class="q-card" id="card-q17">
+                <span class="q-title">17. The word "profound" in paragraph 6 means …</span>
+                <label class="opt-label"><input type="radio" name="q17" value="1" required> 1) significant.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="2"> 2) instant.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="3"> 3) severe.</label>
+                <label class="opt-label"><input type="radio" name="q17" value="4"> 4) visual.</label>
+            </div>
+
+            <div class="q-card" id="card-q18">
+                <span class="q-title">18. Which piece of advice does the author NOT give to her peers?</span>
+                <label class="opt-label"><input type="radio" name="q18" value="1" required> 1) Do not to expect quick results.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="2"> 2) Develop through volunteering.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="3"> 3) Become part of a social group.</label>
+                <label class="opt-label"><input type="radio" name="q18" value="4"> 4) Do not count on earning money.</label>
+            </div>
+
+            <button type="submit" id="submitBtn" class="submit-btn">ПРОВЕРИТЬ РЕЗУЛЬТАТ</button>
+            <div id="status"></div>
+        </form>
+    </section>
+</div>
+
+<script>
+    // Используем ваш URL для скрипта
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec';
+    const KEYS = { q12:"3", q13:"4", q14:"1", q15:"4", q16:"2", q17:"1", q18:"3" };
+
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nameInput = document.getElementById('userName').value.trim();
+        if (!nameInput) { alert("Введите имя!"); return; }
+
+        let score = 0;
+        let details = [];
+        const formData = new FormData(this);
+
+        for (let q in KEYS) {
+            const userVal = formData.get(q);
+            const card = document.getElementById('card-' + q);
+            const labels = card.querySelectorAll('.opt-label');
+            details.push(`${q}:${userVal}`);
+
+            labels.forEach(l => {
+                const val = l.querySelector('input').value;
+                l.classList.remove('correct-ans', 'wrong-ans');
+                if (val === KEYS[q]) l.classList.add('correct-ans');
+                if (userVal === val && val !== KEYS[q]) l.classList.add('wrong-ans');
+            });
+            if (userVal === KEYS[q]) score++;
+        }
+
+        const payload = {
+            name: nameInput,
+            task: "EGE R3 0D322B volunteering",
+            result: `${score}/7`,
+            answers: details.join(', ')
+        };
+
+        document.getElementById('submitBtn').disabled = true;
+        
+        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) })
+        .then(() => { 
+            document.getElementById('status').innerHTML = `<span style="color:var(--correct)">Задание выполнено! Ваш балл: ${score} из 7</span>`; 
+        })
+        .catch(err => {
+            document.getElementById('status').innerHTML = `Ошибка при отправке, но ваш балл: ${score}/7`;
+        });
+    });
+</script>
+</body>
+</html>
