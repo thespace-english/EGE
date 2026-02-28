@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Reading A6B07B Bandy</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; padding: 20px; color: #333; }
+        .container { max-width: 950px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .task-descr { background: #ebf5fb; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.6; border-left: 5px solid #3498db; }
+        
+        .options-box { background: #fff; border: 2px solid #3498db; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .option-item { margin-bottom: 10px; font-size: 16px; line-height: 1.4; }
+        .opt-num { font-weight: bold; color: #3498db; margin-right: 10px; }
+
+        .text-content { font-size: 18px; line-height: 2.2; text-align: justify; background: #fafafa; padding: 30px; border-radius: 10px; border: 1px solid #eee; }
+        .gap-box { display: inline-block; vertical-align: middle; }
+        .ans-select { padding: 5px; border-radius: 4px; border: 2px solid #3498db; font-weight: bold; color: #2980b9; cursor: pointer; outline: none; background: white; }
+        
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .hint { color: #28a745; font-weight: bold; font-size: 14px; margin-left: 5px; display: none; }
+
+        .btn { width: 100%; padding: 18px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; transition: 0.3s; margin-top: 30px; }
+        .btn:hover { background: #2980b9; box-shadow: 0 4px 15px rgba(52,152,219,0.3); }
+
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #f0f4f8; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+        #result-area { text-align: center; font-size: 24px; font-weight: bold; margin-top: 25px; color: #2c3e50; padding: 15px; background: #e8f4fd; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+        <h2 style="color:#3498db">EGE Reading Practice</h2>
+        <p>A6B07B Bandy</p>
+        <input type="text" id="studentName" placeholder="Введите Имя" style="padding: 12px; width: 250px; border: 2px solid #3498db; border-radius: 6px; outline: none;"><br><br>
+        <button class="btn" onclick="startApp()">Начать задание</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Bandy</h1>
+    <div class="task-descr">
+        Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке лишняя.
+    </div>
+
+    <div class="options-box">
+        <div class="option-item"><span class="opt-num">1.</span> was very popular all over Russia</div>
+        <div class="option-item"><span class="opt-num">2.</span> while Russia kept bandy traditions</div>
+        <div class="option-item"><span class="opt-num">3.</span> played a big role in its development</div>
+        <div class="option-item"><span class="opt-num">4.</span> when it comes to hockey with a puck</div>
+        <div class="option-item"><span class="opt-num">5.</span> who brought skates from the Netherlands</div>
+        <div class="option-item"><span class="opt-num">6.</span> an enthusiastic sportsman and the founder of the circle</div>
+        <div class="option-item"><span class="opt-num">7.</span> which weighs 60 grams and is 6.3 centimetres in diameter</div>
+    </div>
+
+    <div class="text-content">
+        Have you ever heard of such a sport as bandy? It is the “elder brother” of hockey, and Russia <span class="gap-box" data-ans="3"><b>A</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(3)</span></span>. Folk amusements resembling bandy were known in Russia already before the Middle Ages. Some historians even say that Emperor Peter I, <span class="gap-box" data-ans="5"><b>B</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(5)</span></span>, was a fan of this sport. Yet, bandy became popular only at the end of the XIX century.<br><br>
+        
+        By that time, certain rules had already been settled. In 1888 a sports club appeared in Saint Petersburg, which was founded by one of the students. And in 1897 Petr Moskvin, <span class="gap-box" data-ans="6"><b>C</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(6)</span></span>, developed single bandy rules for Russia. Next year, on March 8, 1898 the first match was played. This date is called the “birthday” of Russian bandy.<br><br>
+        
+        At the beginning of the XX century, bandy <span class="gap-box" data-ans="1"><b>D</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(1)</span></span>. As a result, it was often called “Russian hockey”. And hockey with a puck really came into being largely because of the great popularity of bandy. Therefore, many rules of the games are similar. Yet, the differences between these two sports are quite significant. The most important ones are about inventory and a team. Bandy uses a rubber ball, <span class="gap-box" data-ans="7"><b>E</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(7)</span></span>, instead of a puck. As for the team, <span class="gap-box" data-ans="4"><b>F</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(4)</span></span>, there can be no more than six hockey players from one team on the field. While in bandy, eleven players including a goalkeeper make the same team on the field.
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="checkResults()">Проверить и отправить результат</button>
+    <div id="result-area" class="hidden"></div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function checkResults() {
+        let score = 0;
+        let logs = [];
+        const gaps = document.querySelectorAll('.gap-box');
+
+        gaps.forEach((gap) => {
+            const correct = gap.getAttribute('data-ans');
+            const select = gap.querySelector('.ans-select');
+            const userAns = select.value;
+            const label = gap.firstChild.textContent.trim();
+            
+            logs.push(`${label}:${userAns || "-"}`);
+            select.disabled = true;
+
+            if(userAns === correct) {
+                score++;
+                select.classList.add('status-correct');
+            } else {
+                select.classList.add('status-wrong');
+                gap.querySelector('.hint').style.display = 'inline';
+            }
+        });
+
+        const finalScore = score + "/6";
+        document.getElementById('finishBtn').classList.add('hidden');
+        const resArea = document.getElementById('result-area');
+        resArea.innerText = "Результат: " + finalScore;
+        resArea.classList.remove('hidden');
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE R2 A6B07B Bandy",
+                result: finalScore,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>

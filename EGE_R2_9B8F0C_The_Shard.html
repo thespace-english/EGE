@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Reading 9B8F0C The Shard</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; padding: 20px; color: #1a1a1b; }
+        .container { max-width: 950px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { color: #2980b9; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 15px; }
+        .task-descr { background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.6; border-left: 5px solid #3498db; font-style: italic; }
+        
+        .options-box { background: #fff; border: 2px solid #3498db; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .option-item { margin-bottom: 10px; font-size: 16px; line-height: 1.4; }
+        .opt-num { font-weight: bold; color: #2980b9; margin-right: 10px; }
+
+        .text-content { font-size: 18px; line-height: 2.2; text-align: justify; background: #fafafa; padding: 30px; border-radius: 10px; border: 1px solid #eee; }
+        .gap-box { display: inline-block; vertical-align: middle; }
+        .ans-select { padding: 5px; border-radius: 4px; border: 2px solid #3498db; font-weight: bold; color: #2980b9; cursor: pointer; outline: none; background: white; }
+        
+        /* ЦВЕТОВОЙ КОД */
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .hint { color: #28a745; font-weight: bold; font-size: 14px; margin-left: 5px; display: none; }
+
+        .btn { width: 100%; padding: 18px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; transition: 0.3s; margin-top: 30px; }
+        .btn:hover { background: #2980b9; box-shadow: 0 4px 15px rgba(52,152,219,0.3); }
+
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #f0f2f5; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+        #result-area { text-align: center; font-size: 24px; font-weight: bold; margin-top: 25px; color: #2c3e50; padding: 15px; background: #e8f4fd; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+        <h2 style="color:#2980b9">EGE Reading Practice</h2>
+        <p>9B8F0C London’s skyscraper</p>
+        <input type="text" id="studentName" placeholder="Введите Имя" style="padding: 12px; width: 250px; border: 2px solid #3498db; border-radius: 6px; outline: none;"><br><br>
+        <button class="btn" onclick="startApp()">Начать задание</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>London’s skyscraper</h1>
+    <div class="task-descr">
+        Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке лишняя.
+    </div>
+
+    <div class="options-box">
+        <div class="option-item"><span class="opt-num">1.</span> when seen from across the river Thames</div>
+        <div class="option-item"><span class="opt-num">2.</span> who is concerned about the city’s heritage</div>
+        <div class="option-item"><span class="opt-num">3.</span> and the developers even renamed the tower</div>
+        <div class="option-item"><span class="opt-num">4.</span> who considered the glass tower inappropriate</div>
+        <div class="option-item"><span class="opt-num">5.</span> and residential apartments on the upper floors</div>
+        <div class="option-item"><span class="opt-num">6.</span> that offers visitors spectacular 360 degree views</div>
+        <div class="option-item"><span class="opt-num">7.</span> and in 1836 the first railway station opened there</div>
+    </div>
+
+    <div class="text-content">
+        The Shard is a modern glass skyscraper in London. The skyscraper is situated in the London Bridge Quarter in Southwark. It is right near the heart of London and only the river separates it from the City of London. The area is full of history: a bridge was built there by the Romans around 50 AD <span class="gap-box" data-ans="7"><b>A</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(7)</span></span>. <br><br>
+        The plans for the London Bridge Tower, as the building was initially called, caused a strong protest from people <span class="gap-box" data-ans="4"><b>B</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(4)</span></span> for a historic neighbourhood with mostly low-rise brick buildings. They claimed the tower would cut through the neighbourhood like a shard of glass. The name “shard” stuck <span class="gap-box" data-ans="3"><b>C</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(3)</span></span> – “The Shard”. <br><br>
+        When it was completed the Shard held the record as Europe’s tallest skyscraper with a height of almost 310 metres. Only a couple of months later, it was surpassed in height by Moscow’s Mercury City Tower. The Shard towers over the neighbourhood and is visible from afar. The iconic skyscraper looks particularly spectacular at night <span class="gap-box" data-ans="1"><b>D</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(1)</span></span>. <br><br>
+        The building is multifunctional, with offices and a hotel on the lower floors <span class="gap-box" data-ans="5"><b>E</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(5)</span></span>. The top floors of the Shard are home to the “View from the Shard”, an observation deck <span class="gap-box" data-ans="6"><b>F</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(6)</span></span> of the city. On a clear day one can see as far as sixty kilometres. At a height of 245 metres, this is the highest public viewing gallery in London, almost twice as high as the London Eye.
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="checkResults()">Проверить и отправить результат</button>
+    <div id="result-area" class="hidden"></div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function checkResults() {
+        let score = 0;
+        let logs = [];
+        const gaps = document.querySelectorAll('.gap-box');
+
+        gaps.forEach((gap) => {
+            const correct = gap.getAttribute('data-ans');
+            const select = gap.querySelector('.ans-select');
+            const userAns = select.value;
+            const label = gap.firstChild.textContent.trim();
+            
+            logs.push(`${label}:${userAns || "-"}`);
+            select.disabled = true;
+
+            if(userAns === correct) {
+                score++;
+                select.classList.add('status-correct');
+            } else {
+                select.classList.add('status-wrong');
+                gap.querySelector('.hint').style.display = 'inline';
+            }
+        });
+
+        const finalScore = score + "/6";
+        document.getElementById('finishBtn').classList.add('hidden');
+        const resArea = document.getElementById('result-area');
+        resArea.innerText = "Результат: " + finalScore;
+        resArea.classList.remove('hidden');
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE R2 9B8F0C The Shard",
+                result: finalScore,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>

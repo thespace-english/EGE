@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Reading 5E5974 Red Pandas FULL</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdf5e6; padding: 20px; color: #4a2c2a; }
+        .container { max-width: 950px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1); }
+        h1 { color: #d35400; text-align: center; border-bottom: 3px solid #e67e22; padding-bottom: 10px; }
+        .task-descr { background: #fff5e6; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.6; border-left: 5px solid #e67e22; font-style: italic; }
+        
+        .options-box { background: #fff; border: 2px solid #e67e22; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .option-item { margin-bottom: 10px; font-size: 16px; line-height: 1.4; }
+        .opt-num { font-weight: bold; color: #d35400; margin-right: 10px; }
+
+        .text-content { font-size: 18px; line-height: 2.2; text-align: justify; background: #fafafa; padding: 30px; border-radius: 10px; border: 1px solid #eee; }
+        .gap-box { display: inline-block; vertical-align: middle; }
+        .ans-select { padding: 5px; border-radius: 4px; border: 2px solid #e67e22; font-weight: bold; color: #d35400; cursor: pointer; outline: none; background: white; }
+        
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .hint { color: #28a745; font-weight: bold; font-size: 14px; margin-left: 5px; display: none; }
+
+        .btn { width: 100%; padding: 18px; background: #e67e22; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; transition: 0.3s; margin-top: 30px; }
+        .btn:hover { background: #d35400; box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3); }
+
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdf5e6; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+        #result-area { text-align: center; font-size: 24px; font-weight: bold; margin-top: 25px; color: #2c3e50; padding: 15px; background: #fff5e6; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+        <h2 style="color:#d35400">EGE Reading Practice</h2>
+        <p>5E5974 Red Pandas (Full Text)</p>
+        <input type="text" id="studentName" placeholder="Введите Имя" style="padding: 12px; width: 250px; border: 2px solid #e67e22; border-radius: 6px; outline: none;"><br><br>
+        <button class="btn" onclick="startApp()">Начать задание</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Red Pandas</h1>
+    <div class="task-descr">
+        Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке лишняя.
+    </div>
+
+    <div class="options-box">
+        <div class="option-item"><span class="opt-num">1.</span> which are animals that eat meat</div>
+        <div class="option-item"><span class="opt-num">2.</span> one of the few animals that can do this</div>
+        <div class="option-item"><span class="opt-num">3.</span> are probably more closely related to skunks</div>
+        <div class="option-item"><span class="opt-num">4.</span> it’s always green, and you can always find it</div>
+        <div class="option-item"><span class="opt-num">5.</span> which they use to hold on to slippery tree branches</div>
+        <div class="option-item"><span class="opt-num">6.</span> in the mountainous forests of China, India, Nepal</div>
+        <div class="option-item"><span class="opt-num">7.</span> who have everything for eating and digesting plants</div>
+    </div>
+
+    <div class="text-content">
+        Have you ever seen a red panda? With their cute fluffy faces and funny games, they’ve become internet superstars. Red pandas look nothing like giant pandas; yet just like them, red pandas live in the mountainous forests of Asia. But while giant pandas belong to the bear family, red pandas <span class="gap-box" data-ans="3"><b>A</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(3)</span></span>, raccoons and weasels.<br><br>
+        
+        Red pandas were carnivores, <span class="gap-box" data-ans="1"><b>B</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(1)</span></span>. They had teeth designed for ripping and shredding. However, more than 2 million years ago, they decided bamboo was a better choice and switched to a bamboo-based diet. Bamboo doesn’t run away, <span class="gap-box" data-ans="4"><b>C</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(4)</span></span>. They might also occasionally eat fruits, insects and bird eggs, too.<br><br>
+        
+        Red pandas are skilled tree-top navigators. They have sharp claws like a cat, <span class="gap-box" data-ans="5"><b>D</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(5)</span></span>. They also use their bushy tails to help keep their balance. The funny fact about red pandas is that they can climb down a tree headfirst. They are <span class="gap-box" data-ans="2"><b>E</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(2)</span></span>.<br><br>
+        
+        Though it might not seem like it, a red panda’s rusty coat helps them to hide in the forest. The trees <span class="gap-box" data-ans="6"><b>F</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(6)</span></span> and Myanmar are covered with reddish-brown moss. Red pandas blend right in. <br><br>
+        
+        Red pandas also have black fur on their belly and legs. This helps them camouflage with the forest's dark leaves. This also helps them hide from their predators.
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="checkResults()">Проверить и отправить результат</button>
+    <div id="result-area" class="hidden"></div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function checkResults() {
+        let score = 0;
+        let logs = [];
+        const gaps = document.querySelectorAll('.gap-box');
+
+        gaps.forEach((gap) => {
+            const correct = gap.getAttribute('data-ans');
+            const select = gap.querySelector('.ans-select');
+            const userAns = select.value;
+            const label = gap.firstChild.textContent.trim();
+            
+            logs.push(`${label}:${userAns || "-"}`);
+            select.disabled = true;
+
+            if(userAns === correct) {
+                score++;
+                select.classList.add('status-correct');
+            } else {
+                select.classList.add('status-wrong');
+                gap.querySelector('.hint').style.display = 'inline';
+            }
+        });
+
+        const finalScore = score + "/6";
+        document.getElementById('finishBtn').classList.add('hidden');
+        const resArea = document.getElementById('result-area');
+        resArea.innerText = "Результат: " + finalScore;
+        resArea.classList.remove('hidden');
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE R2 5E5974 Red Pandas",
+                result: finalScore,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>

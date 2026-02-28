@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE Reading 92220C Borodino</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdfdfd; padding: 20px; color: #2c3e50; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 35px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.05); }
+        h1 { color: #c0392b; text-align: center; border-bottom: 3px solid #e74c3c; padding-bottom: 10px; }
+        .task-descr { background: #fdf2f2; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.6; border-left: 5px solid #e74c3c; }
+        
+        .options-box { background: #fff; border: 2px solid #e74c3c; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .option-item { margin-bottom: 8px; font-size: 16px; line-height: 1.4; }
+        .opt-num { font-weight: bold; color: #c0392b; margin-right: 10px; }
+
+        .text-content { font-size: 18px; line-height: 2.1; text-align: justify; background: #fafafa; padding: 30px; border-radius: 10px; border: 1px solid #eee; }
+        .gap-box { display: inline-block; vertical-align: middle; }
+        .ans-select { padding: 4px; border-radius: 4px; border: 2px solid #e74c3c; font-weight: bold; color: #c0392b; cursor: pointer; outline: none; background: white; }
+        
+        /* ЦВЕТОВОЙ КОД */
+        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .hint { color: #28a745; font-weight: bold; font-size: 14px; margin-left: 5px; display: none; }
+
+        .btn { width: 100%; padding: 18px; background: #e74c3c; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; transition: 0.3s; margin-top: 30px; }
+        .btn:hover { background: #c0392b; box-shadow: 0 4px 15px rgba(192, 57, 43, 0.2); }
+
+        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdfdfd; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .hidden { display: none !important; }
+        #result-area { text-align: center; font-size: 24px; font-weight: bold; margin-top: 25px; color: #2c3e50; padding: 15px; background: #fef1f0; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div id="setup">
+    <div style="text-align: center; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h2 style="color:#c0392b">EGE Reading</h2>
+        <p>92220C Borodino battlefield</p>
+        <input type="text" id="studentName" placeholder="Ваше Имя" style="padding: 12px; width: 250px; border: 2px solid #e74c3c; border-radius: 6px; outline: none;"><br><br>
+        <button class="btn" onclick="startApp()">Начать задание</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Borodino battlefield</h1>
+    <div class="task-descr">
+        Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке лишняя.
+    </div>
+
+    <div class="options-box">
+        <div class="option-item"><span class="opt-num">1.</span> as it provides a useful overview</div>
+        <div class="option-item"><span class="opt-num">2.</span> when he was writing about the events</div>
+        <div class="option-item"><span class="opt-num">3.</span> who was mortally wounded in the battle</div>
+        <div class="option-item"><span class="opt-num">4.</span> including uniforms, weapons, documents</div>
+        <div class="option-item"><span class="opt-num">5.</span> that is dedicated to the World War II battle</div>
+        <div class="option-item"><span class="opt-num">6.</span> who has become a soldier and a great writer</div>
+        <div class="option-item"><span class="opt-num">7.</span> marking the sites of the most violent fighting</div>
+    </div>
+
+    <div class="text-content">
+        Borodino battlefield was the site of the turning-point Battle of Borodino in 1812, during the Napoleonic Wars. Two hundred years later, the rural site presents a vivid history lesson. The entire battlefield is now part of the Borodino Field Museum-Reserve, with dozens of memorials to specific divisions and generals. The hilltop monument in front of the Borodino Museum is Bagration’s tomb. It is the grave of Prince Bagration, a heroic general <span class="gap-box" data-ans="3"><b>A</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(3)</span></span>. <br><br>
+        The Borodino Museum is an excellent place to start with <span class="gap-box" data-ans="1"><b>B</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(1)</span></span>. Visitors can study an interactive diorama of the Battle of Borodino before setting out to see the site in person. The main exhibitions feature original objects from the battle, <span class="gap-box" data-ans="4"><b>C</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(4)</span></span> and personal items. The displays, created by soldiers and their contemporaries, demonstrate the perception of the battle and the Napoleonic Wars at the time. There is also an exhibition <span class="gap-box" data-ans="5"><b>D</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(5)</span></span> at this site. <br><br>
+        There are several other exhibitions related to the 1812 battle on the grounds of the Borodino Monastery. Leo Tolstoy stayed there <span class="gap-box" data-ans="2"><b>E</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(2)</span></span> for his novel War and Peace. <br><br>
+        If travelling by car, tourists can see monuments <span class="gap-box" data-ans="7"><b>F</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(7)</span></span>, as well as the headquarters of both the French and Russian armies. If tourists come by train, they will see the monuments only along the road between the train station and the museum.
+    </div>
+
+    <button class="btn" id="finishBtn" onclick="checkResults()">Проверить и отправить результат</button>
+    <div id="result-area" class="hidden"></div>
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startApp() {
+        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
+        document.getElementById('setup').classList.add('hidden');
+    }
+
+    function checkResults() {
+        let score = 0;
+        let logs = [];
+        const gaps = document.querySelectorAll('.gap-box');
+
+        gaps.forEach((gap) => {
+            const correct = gap.getAttribute('data-ans');
+            const select = gap.querySelector('.ans-select');
+            const userAns = select.value;
+            const label = gap.firstChild.textContent.trim();
+            
+            logs.push(`${label}:${userAns || "-"}`);
+            select.disabled = true;
+
+            if(userAns === correct) {
+                score++;
+                select.classList.add('status-correct');
+            } else {
+                select.classList.add('status-wrong');
+                gap.querySelector('.hint').style.display = 'inline';
+            }
+        });
+
+        const finalScore = score + "/6";
+        document.getElementById('finishBtn').classList.add('hidden');
+        const resArea = document.getElementById('result-area');
+        resArea.innerText = "Результат: " + finalScore;
+        resArea.classList.remove('hidden');
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('studentName').value,
+                task: "EGE R2 92220C Borodino battlefield",
+                result: finalScore,
+                answers: logs.join(", ")
+            })
+        });
+    }
+</script>
+
+</body>
+</html>
