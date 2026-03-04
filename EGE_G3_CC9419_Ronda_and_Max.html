@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE G3 CC9419 Ronda and Max</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Verdana', sans-serif; margin: 0; background: #f0f2f5; height: 100vh; display: flex; flex-direction: column; }
+        
+        header { background: #2c3e50; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; flex-shrink: 0; }
+        
+        .main-container { display: flex; flex: 1; overflow: hidden; }
+
+        /* ТЕКСТ СЛЕВА */
+        .text-panel { flex: 1; overflow-y: auto; padding: 40px; background: white; border-right: 2px solid #ddd; line-height: 1.9; font-size: 18px; }
+        .gap { font-weight: bold; color: #d35400; background: #fef5e7; padding: 2px 6px; border: 1px solid #f5b041; border-radius: 4px; }
+
+        /* ТЕСТ СПРАВА */
+        .quiz-panel { flex: 1; overflow-y: auto; padding: 30px; background: #fdfefe; }
+        
+        .card { 
+            background: white; border-radius: 10px; padding: 20px; margin-bottom: 30px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e8e8;
+            display: block;
+        }
+
+        .card-num { color: #2980b9; font-weight: bold; font-size: 14px; margin-bottom: 12px; display: block; border-bottom: 1px solid #f2f4f4; padding-bottom: 5px; }
+        
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .opt { 
+            padding: 12px 15px; border: 2px solid #ebedef; border-radius: 6px; 
+            cursor: pointer; transition: 0.2s; font-size: 16px; 
+        }
+        .opt:hover { border-color: #3498db; background: #f4faff; }
+        .opt.selected { border-color: #3498db; background: #ebf5fb; font-weight: bold; }
+
+        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724 !important; }
+        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; }
+
+        .action-area { padding-bottom: 100px; }
+        .btn-main { 
+            width: 100%; padding: 20px; background: #2c3e50; color: white; 
+            border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; 
+        }
+        .btn-main:hover { background: #1a252f; }
+
+        /* ЭКРАН ВХОДА */
+        #auth-screen { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: #2c3e50; z-index: 9999; display: flex; align-items: center; justify-content: center; 
+        }
+        .auth-box { background: white; padding: 40px; border-radius: 15px; text-align: center; width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .auth-box h3 { margin-bottom: 25px; color: #2c3e50; }
+        .auth-box input { padding: 12px; width: 100%; border: 1px solid #bdc3c7; border-radius: 6px; margin-bottom: 25px; font-size: 16px; outline: none; }
+
+        .hidden { display: none !important; }
+        #score-msg { text-align: center; font-size: 22px; font-weight: bold; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
+    </style>
+</head>
+<body>
+
+<div id="auth-screen">
+    <div class="auth-box">
+        <h3>EGE G3 CC9419</h3>
+        <input type="text" id="userName" placeholder="Введите ваше имя">
+        <button class="btn-main" onclick="startQuiz()">Начать</button>
+    </div>
+</div>
+
+<header>EGE G3 CC9419 Ronda and Max (30–36)</header>
+
+<div class="main-container">
+    <div class="text-panel">
+        <h2>Ronda and Max</h2>
+        <p>Max and Ronda had become real friends and, perhaps, more than that. Max <span class="gap">30</span> that Ronda meet him in Hartwood’s the week after the wedding of her sister. They hadn’t seen each other in five weeks and had been <span class="gap">31</span> each other.</p>
+        
+        <p>She had a mountain of work to do at the store, especially with their online business now, and they had just hired another assistant whom Jane was training, and Ronda thought she should be there too. But she wanted to see him, and <span class="gap">32</span> to go. She had been feeling down ever since the wedding. And after Hartwood’s he had business in California and he wanted her to join him.</p>
+
+        <p>Ronda <span class="gap">33</span> her mother she was leaving and meeting a friend and Belinda thought it was an excellent idea. Ronda looked exhausted, and her mother didn’t ask who she was meeting, since Ronda didn’t mention it herself. Belinda never pried, but she hoped it was <span class="gap">34</span> a special friend. She thought it would <span class="gap">35</span> Ronda good if it was.</p>
+        
+        <p>Ronda took a plane to California two days later, and a very small airplane from there to Hartwood’s. The second flight was bumpy and the landing was frightening, but she was so happy to be meeting Max that she didn’t care how bad the <span class="gap">36</span> was. He was waiting for her at the airport and held her tightly in his arms. He could see all the strain and sorrow of the past month in her eyes. And all he wanted to do now was to make it better.</p>
+    </div>
+
+    <div class="quiz-panel">
+        <div class="card" data-ans="3">
+            <span class="card-num">Задание №1 (30)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) supplied</div>
+                <div class="opt" data-v="2">2) submitted</div>
+                <div class="opt" data-v="3">3) suggested</div>
+                <div class="opt" data-v="4">4) substituted</div>
+            </div>
+        </div>
+        <div class="card" data-ans="1">
+            <span class="card-num">Задание №2 (31)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) missing</div>
+                <div class="opt" data-v="2">2) failing</div>
+                <div class="opt" data-v="3">3) lacking</div>
+                <div class="opt" data-v="4">4) losing</div>
+            </div>
+        </div>
+        <div class="card" data-ans="2">
+            <span class="card-num">Задание №3 (32)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) approved</div>
+                <div class="opt" data-v="2">2) agreed</div>
+                <div class="opt" data-v="3">3) admired</div>
+                <div class="opt" data-v="4">4) admitted</div>
+            </div>
+        </div>
+        <div class="card" data-ans="2">
+            <span class="card-num">Задание №4 (33)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) said</div>
+                <div class="opt" data-v="2">2) told</div>
+                <div class="opt" data-v="3">3) talked</div>
+                <div class="opt" data-v="4">4) spoke</div>
+            </div>
+        </div>
+        <div class="card" data-ans="4">
+            <span class="card-num">Задание №5 (34)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) merely</div>
+                <div class="opt" data-v="2">2) hardly</div>
+                <div class="opt" data-v="3">3) rarely</div>
+                <div class="opt" data-v="4">4) really</div>
+            </div>
+        </div>
+        <div class="card" data-ans="1">
+            <span class="card-num">Задание №6 (35)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) do</div>
+                <div class="opt" data-v="2">2) make</div>
+                <div class="opt" data-v="3">3) keep</div>
+                <div class="opt" data-v="4">4) hold</div>
+            </div>
+        </div>
+        <div class="card" data-ans="3">
+            <span class="card-num">Задание №7 (36)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) voyage</div>
+                <div class="opt" data-v="2">2) road</div>
+                <div class="opt" data-v="3">3) trip</div>
+                <div class="opt" data-v="4">4) tour</div>
+            </div>
+        </div>
+
+        <div id="score-msg" class="hidden"></div>
+        <div class="action-area">
+            <button class="btn-main" id="checkBtn" onclick="runCheck()">Проверить ответы</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startQuiz() {
+        if(document.getElementById('userName').value.trim() !== "") {
+            document.getElementById('auth-screen').classList.add('hidden');
+        } else {
+            alert("Пожалуйста, введите ваше имя");
+        }
+    }
+
+    document.querySelectorAll('.opt').forEach(el => {
+        el.onclick = function() {
+            const wrap = this.parentElement;
+            wrap.querySelectorAll('.opt').forEach(i => i.classList.remove('selected'));
+            this.classList.add('selected');
+        }
+    });
+
+    function runCheck() {
+        let count = 0;
+        let details = [];
+        document.querySelectorAll('.card').forEach((c, idx) => {
+            const correct = c.dataset.ans;
+            const chosen = c.querySelector('.opt.selected');
+            const val = chosen ? chosen.dataset.v : "0";
+            
+            details.push(`Q${idx+1}:${val}`);
+            
+            c.querySelectorAll('.opt').forEach(btn => {
+                if(btn.dataset.v === correct) btn.classList.add('correct');
+                if(chosen && btn === chosen && btn.dataset.v !== correct) btn.classList.add('wrong');
+                btn.style.pointerEvents = "none";
+            });
+            if(val === correct) count++;
+        });
+
+        const finalScore = `${count} из 7`;
+        const info = document.getElementById('score-msg');
+        info.innerText = "Результат: " + finalScore;
+        info.classList.remove('hidden');
+        info.style.background = count >= 5 ? "#d4edda" : "#f8d7da";
+        document.getElementById('checkBtn').classList.add('hidden');
+
+        fetch(SHEET_URL, {
+            method: "POST", mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('userName').value,
+                task: "EGE G3 CC9419 Ronda and Max",
+                result: finalScore,
+                answers: details.join(", ")
+            })
+        });
+    }
+</script>
+</body>
+</html>
