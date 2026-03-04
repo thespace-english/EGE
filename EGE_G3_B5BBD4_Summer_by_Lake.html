@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE G3 B5BBD4 A summer by the lake</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Verdana', sans-serif; margin: 0; background: #f0f2f5; height: 100vh; display: flex; flex-direction: column; }
+        
+        header { background: #2c3e50; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; flex-shrink: 0; }
+        
+        .main-container { display: flex; flex: 1; overflow: hidden; }
+
+        /* ТЕКСТ СЛЕВА */
+        .text-panel { flex: 1; overflow-y: auto; padding: 40px; background: white; border-right: 2px solid #ddd; line-height: 1.9; font-size: 18px; }
+        .gap { font-weight: bold; color: #d35400; background: #fef5e7; padding: 2px 6px; border: 1px solid #f5b041; border-radius: 4px; }
+
+        /* ТЕСТ СПРАВА */
+        .quiz-panel { flex: 1; overflow-y: auto; padding: 30px; background: #fdfefe; }
+        
+        .card { 
+            background: white; border-radius: 10px; padding: 20px; margin-bottom: 30px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e8e8;
+            display: block;
+        }
+
+        .card-num { color: #2980b9; font-weight: bold; font-size: 14px; margin-bottom: 12px; display: block; border-bottom: 1px solid #f2f4f4; padding-bottom: 5px; }
+        
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .opt { 
+            padding: 12px 15px; border: 2px solid #ebedef; border-radius: 6px; 
+            cursor: pointer; transition: 0.2s; font-size: 16px; 
+        }
+        .opt:hover { border-color: #3498db; background: #f4faff; }
+        .opt.selected { border-color: #3498db; background: #ebf5fb; font-weight: bold; }
+
+        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724 !important; }
+        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; }
+
+        .action-area { padding-bottom: 100px; }
+        .btn-main { 
+            width: 100%; padding: 20px; background: #2c3e50; color: white; 
+            border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; 
+        }
+        .btn-main:hover { background: #1a252f; }
+
+        /* ЭКРАН ВХОДА */
+        #auth-screen { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: #2c3e50; z-index: 9999; display: flex; align-items: center; justify-content: center; 
+        }
+        .auth-box { background: white; padding: 40px; border-radius: 15px; text-align: center; width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .auth-box h3 { margin-bottom: 25px; color: #2c3e50; }
+        .auth-box input { padding: 12px; width: 100%; border: 1px solid #bdc3c7; border-radius: 6px; margin-bottom: 25px; font-size: 16px; outline: none; }
+
+        .hidden { display: none !important; }
+        #score-msg { text-align: center; font-size: 22px; font-weight: bold; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
+    </style>
+</head>
+<body>
+
+<div id="auth-screen">
+    <div class="auth-box">
+        <h3>EGE G3 B5BBD4</h3>
+        <input type="text" id="userName" placeholder="Введите ваше имя">
+        <button class="btn-main" onclick="startQuiz()">Начать</button>
+    </div>
+</div>
+
+<header>EGE G3 B5BBD4 A summer by the lake (32–38)</header>
+
+<div class="main-container">
+    <div class="text-panel">
+        <h2>A summer by the lake</h2>
+        <p>Barbara and Michael were sister and brother – twelve and eight years old. They were <span class="gap">32</span> vacation, but Barbara was bored out of her mind. Ever since Michael was born, their family had been coming to Emerald Lake, a crystal blue lake which stretched as far as the eye could <span class="gap">33</span>.</p>
+        
+        <p>They had stayed in the same cabin, an old wooden house just several steps from where the water met the sandy beach. And ever since Barbara was ten, she had hated coming here. The mosquitoes got bigger every year. By now they were larger, it seemed, than her fist. The humidity got worse, and the rain became more constant. If this is what people meant by climate change, she thought, she was not <span class="gap">34</span> with it. </p>
+
+        <p>Everybody in the family knew about it as Barbara never <span class="gap">35</span> to love this place. She spent most of the day reading in bed, stretched out on the woollen blanket on top of the rock-hard mattress, wishing she was at home with her friends doing normal summer stuff: going to the mall, watching movies, eating popsicles in the park.</p>
+        
+        <p>She wished she was anywhere but Emerald Lake. <span class="gap">36</span>, there was nowhere else Michael wanted to be. He didn’t mind the humidity, he found the constant rain soothing, and thought the giant mosquitoes were the most amazing animals he had ever seen. </p>
+
+        <p>Michael paid <span class="gap">37</span> to every little animal and plant around him. He didn’t have time for reading on a woollen blanket because he was in love with the lake. The boy was <span class="gap">38</span> the most of his summertime by the lake.</p>
+    </div>
+
+    <div class="quiz-panel">
+        <div class="card" data-ans="2">
+            <span class="card-num">Задание №1 (32)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) to</div>
+                <div class="opt" data-v="2">2) on</div>
+                <div class="opt" data-v="3">3) in</div>
+                <div class="opt" data-v="4">4) at</div>
+            </div>
+        </div>
+        <div class="card" data-ans="4">
+            <span class="card-num">Задание №2 (33)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) glance</div>
+                <div class="opt" data-v="2">2) look</div>
+                <div class="opt" data-v="3">3) watch</div>
+                <div class="opt" data-v="4">4) see</div>
+            </div>
+        </div>
+        <div class="card" data-ans="2">
+            <span class="card-num">Задание №3 (34)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) affected</div>
+                <div class="opt" data-v="2">2) satisfied</div>
+                <div class="opt" data-v="3">3) interested</div>
+                <div class="opt" data-v="4">4) convinced</div>
+            </div>
+        </div>
+        <div class="card" data-ans="3">
+            <span class="card-num">Задание №4 (35)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) presented</div>
+                <div class="opt" data-v="2">2) preserved</div>
+                <div class="opt" data-v="3">3) pretended</div>
+                <div class="opt" data-v="4">4) previewed</div>
+            </div>
+        </div>
+        <div class="card" data-ans="1">
+            <span class="card-num">Задание №5 (36)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) However</div>
+                <div class="opt" data-v="2">2) Moreover</div>
+                <div class="opt" data-v="3">3) Although</div>
+                <div class="opt" data-v="4">4) Therefore</div>
+            </div>
+        </div>
+        <div class="card" data-ans="3">
+            <span class="card-num">Задание №6 (37)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) affection</div>
+                <div class="opt" data-v="2">2) connection</div>
+                <div class="opt" data-v="3">3) attention</div>
+                <div class="opt" data-v="4">4) relation</div>
+            </div>
+        </div>
+        <div class="card" data-ans="4">
+            <span class="card-num">Задание №7 (38)</span>
+            <div class="options">
+                <div class="opt" data-v="1">1) turning</div>
+                <div class="opt" data-v="2">2) keeping</div>
+                <div class="opt" data-v="3">3) giving</div>
+                <div class="opt" data-v="4">4) making</div>
+            </div>
+        </div>
+
+        <div id="score-msg" class="hidden"></div>
+        <div class="action-area">
+            <button class="btn-main" id="checkBtn" onclick="runCheck()">Проверить ответы</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startQuiz() {
+        if(document.getElementById('userName').value.trim() !== "") {
+            document.getElementById('auth-screen').classList.add('hidden');
+        } else {
+            alert("Пожалуйста, введите ваше имя");
+        }
+    }
+
+    document.querySelectorAll('.opt').forEach(el => {
+        el.onclick = function() {
+            const wrap = this.parentElement;
+            wrap.querySelectorAll('.opt').forEach(i => i.classList.remove('selected'));
+            this.classList.add('selected');
+        }
+    });
+
+    function runCheck() {
+        let count = 0;
+        let details = [];
+        document.querySelectorAll('.card').forEach((c, idx) => {
+            const correct = c.dataset.ans;
+            const chosen = c.querySelector('.opt.selected');
+            const val = chosen ? chosen.dataset.v : "0";
+            
+            details.push(`Q${idx+1}:${val}`);
+            
+            c.querySelectorAll('.opt').forEach(btn => {
+                if(btn.dataset.v === correct) btn.classList.add('correct');
+                if(chosen && btn === chosen && btn.dataset.v !== correct) btn.classList.add('wrong');
+                btn.style.pointerEvents = "none";
+            });
+            if(val === correct) count++;
+        });
+
+        const finalScore = `${count} из 7`;
+        const info = document.getElementById('score-msg');
+        info.innerText = "Результат: " + finalScore;
+        info.classList.remove('hidden');
+        info.style.background = count >= 5 ? "#d4edda" : "#f8d7da";
+        document.getElementById('checkBtn').classList.add('hidden');
+
+        fetch(SHEET_URL, {
+            method: "POST", mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('userName').value,
+                task: "EGE G3 B5BBD4 A summer by the lake",
+                result: finalScore,
+                answers: details.join(", ")
+            })
+        });
+    }
+</script>
+</body>
+</html>
