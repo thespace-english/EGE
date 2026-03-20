@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE G1 6EC77E A strange story</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            background: #ffffff; 
+            color: #333; 
+            min-height: 100vh; 
+        }
+        
+        header { background: #e67e22; color: white; padding: 25px; text-align: center; font-size: 24px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+
+        .text-item { background: #fff; padding: 30px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; line-height: 1.8; position: relative; font-size: 18px; }
+        .num-badge { position: absolute; left: -15px; top: -10px; background: #e67e22; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transform: rotate(-5deg); }
+        
+        .gap { color: #e67e22; font-weight: bold; text-decoration: underline; }
+
+        .control-area { margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between; }
+        .base-word { background: #34495e; color: white; padding: 5px 12px; border-radius: 5px; font-weight: bold; font-family: monospace; }
+        
+        input[type="text"] { padding: 10px; font-size: 16px; width: 60%; border: 2px solid #bdc3c7; border-radius: 8px; text-transform: uppercase; outline: none; transition: 0.3s; }
+        input[type="text"]:focus { border-color: #e67e22; box-shadow: 0 0 5px rgba(230, 126, 34, 0.2); }
+
+        .btn-check { width: 100%; padding: 20px; background: #27ae60; color: white; border: none; border-radius: 12px; font-size: 22px; font-weight: bold; cursor: pointer; margin: 20px 0; transition: 0.3s; }
+        .btn-check:hover { background: #219150; transform: translateY(-2px); }
+
+        .correct-bg { background-color: #d4edda !important; border-color: #28a745 !important; }
+        .wrong-bg { background-color: #f8d7da !important; border-color: #dc3545 !important; }
+        
+        #final-score { text-align: center; font-size: 28px; font-weight: bold; padding: 20px; border-radius: 12px; display: none; background: #f8f9fa; border: 1px solid #ddd; margin-bottom: 50px; }
+
+        #auth-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; }
+        .auth-box { background: white; padding: 40px; border-radius: 20px; text-align: center; width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .auth-box input { padding: 15px; width: 100%; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 25px; font-size: 18px; outline: none; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="auth-screen">
+    <div class="auth-box">
+        <h2 style="color:#2c3e50">A strange story & A tasty cup</h2>
+        <input type="text" id="userName" placeholder="Введите имя">
+        <button class="btn-check" style="margin:0" onclick="startSession()">Начать</button>
+    </div>
+</div>
+
+<header>EGE G1: Grammar (6EC77E)</header>
+
+<div class="container">
+    <div class="text-item">
+        <div class="num-badge">19</div>
+        Boris Kustodiev was a famous Soviet painter. One day two young scientists <span class="gap">__________________</span> to see him.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">COME</span></span>
+            <input type="text" class="user-ans" data-ans="CAME" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">20</div>
+        They wanted to have their portraits painted. Kustodiev painted portraits of famous people only and his <span class="gap">__________________</span> wish was to refuse them.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">ONE</span></span>
+            <input type="text" class="user-ans" data-ans="FIRST" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">21</div>
+        Still, the scientists insisted they <span class="gap">__________________</span> famous in the near future. They were P. Kapitsa and N. Semenov, who both later got the Nobel Prizes.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">BE</span></span>
+            <input type="text" class="user-ans" data-ans="WOULDBE" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <hr style="border:0; height:1px; background:#eee; margin: 40px 0;">
+
+    <div class="text-item">
+        <div class="num-badge">22</div>
+        Can you imagine a person who drinks his cup of coffee, then has his empty cup for dessert and leaves the café? A lot of Italian restaurants now serve the <span class="gap">__________________</span> coffee in the country in the cups which one can eat.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">GOOD</span></span>
+            <input type="text" class="user-ans" data-ans="BEST" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">23</div>
+        The cup <span class="gap">__________________</span> with a substance which keeps the liquid inside.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">COVER</span></span>
+            <input type="text" class="user-ans" data-ans="ISCOVERED" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">24</div>
+        You <span class="gap">__________________</span> to put extra sugar in your coffee in such a cup because it is sweet.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">NOT NEED</span></span>
+            <input type="text" class="user-ans" data-ans="DONOTNEED,DON'TNEED" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">25</div>
+        There is no doubt that soon such cups <span class="gap">__________________</span> popular all over the world.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">BECOME</span></span>
+            <input type="text" class="user-ans" data-ans="WILLBECOME" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <button class="btn-check" id="checkBtn" onclick="checkAnswers()">ПРОВЕРИТЬ</button>
+    <div id="final-score"></div>
+</div>
+
+<script>
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startSession() {
+        if(document.getElementById('userName').value.trim()) document.getElementById('auth-screen').classList.add('hidden');
+    }
+
+    function checkAnswers() {
+        let score = 0;
+        let details = [];
+        const inputs = document.querySelectorAll('.user-ans');
+
+        inputs.forEach((input, index) => {
+            const userVal = input.value.trim().toUpperCase().replace(/\s/g, '');
+            const correctOnes = input.dataset.ans.split(',').map(v => v.toUpperCase().replace(/\s/g, '').replace("'", ""));
+            
+            // Очистка пользовательского ввода от апострофа для сравнения
+            const cleanUserVal = userVal.replace("'", "");
+
+            if (correctOnes.includes(cleanUserVal)) {
+                input.classList.add('correct-bg');
+                score++;
+            } else {
+                input.classList.add('wrong-bg');
+                input.value += ` (${input.dataset.ans.split(',')[0]})`;
+            }
+            input.disabled = true;
+            details.push(`Q${index+19}:${userVal}`);
+        });
+
+        const scoreDiv = document.getElementById('final-score');
+        scoreDiv.style.display = "block";
+        scoreDiv.innerText = `Результат: ${score} из 7`;
+        document.getElementById('checkBtn').classList.add('hidden');
+
+        fetch(SHEET_URL, {
+            method: "POST", mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('userName').value,
+                task: "EGE G1 6EC77E Strange Story",
+                result: `${score}/7`,
+                answers: details.join(", ")
+            })
+        });
+    }
+</script>
+</body>
+</html>
