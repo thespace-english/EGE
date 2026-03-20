@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE G2 646587 Ottawa’s Parliament Hill</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            /* Фон удален, установлен чистый белый цвет */
+            background: #ffffff;
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        header { background: #e67e22; color: white; padding: 25px; text-align: center; font-size: 24px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+
+        .text-item { background: #fff; padding: 30px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; line-height: 1.8; position: relative; font-size: 18px; }
+        .num-badge { position: absolute; left: -15px; top: -10px; background: #e67e22; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transform: rotate(-5deg); }
+        
+        .gap { color: #e67e22; font-weight: bold; text-decoration: underline; }
+
+        .control-area { margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between; }
+        .base-word { background: #34495e; color: white; padding: 5px 12px; border-radius: 5px; font-weight: bold; font-family: monospace; }
+        
+        input[type="text"] { padding: 10px; font-size: 16px; width: 60%; border: 2px solid #bdc3c7; border-radius: 8px; text-transform: uppercase; outline: none; transition: 0.3s; }
+        input[type="text"]:focus { border-color: #e67e22; box-shadow: 0 0 5px rgba(230, 126, 34, 0.2); }
+
+        .btn-check { width: 100%; padding: 20px; background: #27ae60; color: white; border: none; border-radius: 12px; font-size: 22px; font-weight: bold; cursor: pointer; margin: 20px 0; transition: 0.3s; }
+        .btn-check:hover { background: #219150; transform: translateY(-2px); }
+
+        .correct-bg { background-color: #d4edda !important; border-color: #28a745 !important; }
+        .wrong-bg { background-color: #f8d7da !important; border-color: #dc3545 !important; }
+        
+        #final-score { text-align: center; font-size: 28px; font-weight: bold; padding: 20px; border-radius: 12px; display: none; background: #f8f9fa; border: 1px solid #ddd; margin-bottom: 50px; }
+
+        #auth-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; }
+        .auth-box { background: white; padding: 40px; border-radius: 20px; text-align: center; width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .auth-box input { padding: 15px; width: 100%; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 25px; font-size: 18px; outline: none; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="auth-screen">
+    <div class="auth-box">
+        <h2 style="color:#2c3e50">Ottawa’s Parliament Hill</h2>
+        <input type="text" id="userName" placeholder="Ваше имя">
+        <button class="btn-check" style="margin:0" onclick="startSession()">Начать</button>
+    </div>
+</div>
+
+<header>EGE G2: Word Formation (646587)</header>
+
+<div class="container">
+    <div class="text-item">
+        <div class="num-badge">25</div>
+        Have you ever been to Ottawa? It’s <span class="gap">__________________</span> a very beautiful city.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">CERTAIN</span></span>
+            <input type="text" class="user-ans" data-ans="CERTAINLY" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">26</div>
+        One of its main <span class="gap">__________________</span> is Parliament Hill standing high above the Ottawa River.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">ATTRACT</span></span>
+            <input type="text" class="user-ans" data-ans="ATTRACTIONS" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">27</div>
+        There you can see the Neo-Gothic-style Parliament <span class="gap">__________________</span> of the last half of the 19th century.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">BUILD</span></span>
+            <input type="text" class="user-ans" data-ans="BUILDINGS,BUILDING" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">28</div>
+        The most <span class="gap">__________________</span> construction is the Peace Tower, which divides the House of Commons and the Senate on either side.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">IMPRESS</span></span>
+            <input type="text" class="user-ans" data-ans="IMPRESSIVE" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">29</div>
+        There <span class="gap">__________________</span> can also see the Centennial Flame.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">TOUR</span></span>
+            <input type="text" class="user-ans" data-ans="TOURISTS" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">30</div>
+        It was lit in 1966 to <span class="gap">__________________</span> the centenary of the Canadian Confederation. There is also a sculpture garden. Below Parliament Hill, a lovely walk runs alongside the Ottawa River.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">SYMBOL</span></span>
+            <input type="text" class="user-ans" data-ans="SYMBOLIZE,SYMBOLISE" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <button class="btn-check" id="checkBtn" onclick="checkAnswers()">ПРОВЕРИТЬ</button>
+    <div id="final-score"></div>
+</div>
+
+<script>
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startSession() {
+        if(document.getElementById('userName').value.trim()) document.getElementById('auth-screen').classList.add('hidden');
+    }
+
+    function checkAnswers() {
+        let score = 0;
+        let details = [];
+        const inputs = document.querySelectorAll('.user-ans');
+
+        inputs.forEach((input, index) => {
+            const userVal = input.value.trim().toUpperCase();
+            // Сплитим правильные варианты по запятой
+            const correctOnes = input.dataset.ans.split(',');
+            
+            if (correctOnes.includes(userVal)) {
+                input.classList.add('correct-bg');
+                score++;
+            } else {
+                input.classList.add('wrong-bg');
+                // Показываем первый (основной) вариант в скобках
+                input.value += ` (${correctOnes[0]})`;
+            }
+            input.disabled = true;
+            details.push(`Q${index+25}:${userVal}`);
+        });
+
+        const scoreDiv = document.getElementById('final-score');
+        scoreDiv.style.display = "block";
+        scoreDiv.innerText = `Результат: ${score} из 6`;
+        document.getElementById('checkBtn').classList.add('hidden');
+
+        fetch(SHEET_URL, {
+            method: "POST", mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('userName').value,
+                task: "EGE G2 646587 Ottawa (Clean)",
+                result: `${score}/6`,
+                answers: details.join(", ")
+            })
+        });
+    }
+</script>
+</body>
+</html>
