@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EGE G1 33A17F Winston Churchill & Clouds</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            background: #ffffff; 
+            color: #333; 
+            min-height: 100vh; 
+        }
+        
+        header { background: #e67e22; color: white; padding: 25px; text-align: center; font-size: 24px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+
+        .section-title { color: #2c3e50; border-left: 5px solid #e67e22; padding-left: 15px; margin: 40px 0 20px 0; text-transform: uppercase; letter-spacing: 1px; }
+
+        .text-item { background: #fff; padding: 30px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; line-height: 1.8; position: relative; font-size: 18px; }
+        .num-badge { position: absolute; left: -15px; top: -10px; background: #e67e22; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transform: rotate(-5deg); }
+        
+        .gap { color: #e67e22; font-weight: bold; text-decoration: underline; }
+
+        .control-area { margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between; }
+        .base-word { background: #34495e; color: white; padding: 5px 12px; border-radius: 5px; font-weight: bold; font-family: monospace; }
+        
+        input[type="text"] { padding: 10px; font-size: 16px; width: 60%; border: 2px solid #bdc3c7; border-radius: 8px; text-transform: uppercase; outline: none; }
+
+        .btn-check { width: 100%; padding: 20px; background: #27ae60; color: white; border: none; border-radius: 12px; font-size: 22px; font-weight: bold; cursor: pointer; margin: 20px 0; transition: 0.3s; }
+        .btn-check:hover { background: #219150; transform: translateY(-2px); }
+
+        .correct-bg { background-color: #d4edda !important; border-color: #28a745 !important; }
+        .wrong-bg { background-color: #f8d7da !important; border-color: #dc3545 !important; }
+        
+        #final-score { text-align: center; font-size: 28px; font-weight: bold; padding: 20px; border-radius: 12px; display: none; background: #f8f9fa; border: 1px solid #ddd; margin-bottom: 50px; }
+
+        #auth-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; }
+        .auth-box { background: white; padding: 40px; border-radius: 20px; text-align: center; width: 400px; }
+        .auth-box input { padding: 15px; width: 100%; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 25px; font-size: 18px; outline: none; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="auth-screen">
+    <div class="auth-box">
+        <h2 style="color:#2c3e50">Grammar Practice</h2>
+        <input type="text" id="userName" placeholder="Имя ученика">
+        <button class="btn-check" style="margin:0" onclick="startSession()">Начать</button>
+    </div>
+</div>
+
+<header>EGE G1: Grammar (33A17F)</header>
+
+<div class="container">
+    
+    <h2 class="section-title">Winston Churchill</h2>
+
+    <div class="text-item">
+        <div class="num-badge">19</div>
+        Winston Churchill was a great political leader and a very clever man. Many British people think since then there <span class="gap">__________________</span> a prime minister better than him.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">NOT BE</span></span>
+            <input type="text" class="user-ans" data-ans="HASNOTBEEN,HASN'TBEEN" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">20</div>
+        He even <span class="gap">__________________</span> the Nobel Prize in Literature in 1953.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">WIN</span></span>
+            <input type="text" class="user-ans" data-ans="WON" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">21</div>
+        His <span class="gap">__________________</span> work was a six-volume memoir about WW2, but he wrote some science fiction books as well.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">FAMOUS</span></span>
+            <input type="text" class="user-ans" data-ans="MOSTFAMOUS" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <h2 class="section-title">CLOUDS</h2>
+
+    <div class="text-item">
+        <div class="num-badge">22</div>
+        Do you like to watch clouds? Many people all over the world enjoy <span class="gap">__________________</span> it.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">DO</span></span>
+            <input type="text" class="user-ans" data-ans="DOING" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">23</div>
+        There are a lot of different kinds of clouds but they all look white as they reflect the Sun’s light – just like the Moon. It is interesting to know that clouds <span class="gap">__________________</span> unique to our planet.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">NOT BE</span></span>
+            <input type="text" class="user-ans" data-ans="ARENOT,AREN'T" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">24</div>
+        In fact, any planet with an atmosphere has <span class="gap">__________________</span>.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">THEY</span></span>
+            <input type="text" class="user-ans" data-ans="THEM" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <div class="text-item">
+        <div class="num-badge">25</div>
+        It takes an hour or <span class="gap">__________________</span> to form a cloud. That is why the weather can change so quickly.
+        <div class="control-area">
+            <span>Слово: <span class="base-word">LITTLE</span></span>
+            <input type="text" class="user-ans" data-ans="LESS" placeholder="Ответ...">
+        </div>
+    </div>
+
+    <button class="btn-check" id="checkBtn" onclick="checkAnswers()">ПРОВЕРИТЬ</button>
+    <div id="final-score"></div>
+</div>
+
+<script>
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+
+    function startSession() {
+        if(document.getElementById('userName').value.trim()) document.getElementById('auth-screen').classList.add('hidden');
+    }
+
+    function checkAnswers() {
+        let score = 0;
+        let details = [];
+        const inputs = document.querySelectorAll('.user-ans');
+
+        inputs.forEach((input, index) => {
+            const userVal = input.value.trim().toUpperCase().replace(/\s/g, '').replace("'", "");
+            const correctVariants = input.dataset.ans.split(',').map(v => v.toUpperCase().replace(/\s/g, '').replace("'", ""));
+            
+            if (correctVariants.includes(userVal)) {
+                input.classList.add('correct-bg');
+                score++;
+            } else {
+                input.classList.add('wrong-bg');
+                input.value += ` (${input.dataset.ans.split(',')[0]})`;
+            }
+            input.disabled = true;
+            details.push(`Q${index+19}:${userVal}`);
+        });
+
+        const scoreDiv = document.getElementById('final-score');
+        scoreDiv.style.display = "block";
+        scoreDiv.innerText = `Ваш результат: ${score} из 7`;
+        document.getElementById('checkBtn').classList.add('hidden');
+
+        fetch(SHEET_URL, {
+            method: "POST", mode: "no-cors",
+            body: JSON.stringify({
+                name: document.getElementById('userName').value,
+                task: "EGE G1 33A17F Churchill Clouds (Final)",
+                result: `${score}/7`,
+                answers: details.join(", ")
+            })
+        });
+    }
+</script>
+</body>
+</html>
