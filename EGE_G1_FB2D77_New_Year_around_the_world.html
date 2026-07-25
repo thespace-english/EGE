@@ -25,28 +25,18 @@
         html,
         body {
             margin: 0;
-            width: 100%;
             min-height: 100%;
         }
 
         body {
-            min-height: 100vh;
-
             font-family: 'Nunito', sans-serif;
-
             color: #173D43;
 
             background:
                 radial-gradient(
-                    circle at 11% 88%,
-                    rgba(87, 209, 198, 0.26) 0%,
-                    rgba(87, 209, 198, 0.10) 28%,
-                    transparent 48%
-                ),
-                radial-gradient(
-                    circle at 74% 10%,
-                    rgba(116, 205, 195, 0.10) 0%,
-                    transparent 42%
+                    circle at 8% 88%,
+                    rgba(87,209,198,0.22),
+                    transparent 38%
                 ),
                 linear-gradient(
                     135deg,
@@ -54,14 +44,7 @@
                     #EDF8F5 52%,
                     #E4F5F1 100%
                 );
-
-            overflow-x: hidden;
-
-            position: relative;
         }
-
-
-        /* верхняя дуга */
 
         body::before {
             content: "";
@@ -76,1131 +59,1404 @@
 
             border-radius: 50%;
 
-            border:
-                28px solid rgba(255,255,255,0.12);
+            border: 28px solid rgba(255,255,255,0.12);
 
             box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.92),
-                0 0 0 1px rgba(255,255,255,0.35),
-                0 12px 34px rgba(100,160,151,0.05);
+                inset 0 0 0 1px rgba(255,255,255,0.92);
 
             pointer-events: none;
 
             z-index: 0;
         }
-
-
-        /* большой нижний круг */
-
-        body::after {
-            content: "";
-
-            position: fixed;
-
-            width: 285px;
-            height: 285px;
-
-            left: -45px;
-            bottom: -140px;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.17),
-                    rgba(255,255,255,0.04)
-                );
-
-            border:
-                1px solid rgba(255,255,255,0.76);
-
-            box-shadow:
-                inset 2px 2px 8px rgba(255,255,255,0.30),
-                inset -3px -3px 10px rgba(82,165,154,0.04);
-
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-
-            pointer-events: none;
-
-            z-index: 0;
-        }
-
 
         .page {
             width: 100%;
-            max-width: 1040px;
+            max-width: 980px;
 
             margin: 0 auto;
 
-            padding:
-                80px
-                24px
-                120px;
+            padding: 55px 24px 120px;
 
             position: relative;
-
             z-index: 2;
         }
 
-
-        /* средний круг */
-
-        .page::before {
-            content: "";
-
-            position: fixed;
-
-            width: 105px;
-            height: 105px;
-
-            left: 42px;
-            bottom: 105px;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.22),
-                    rgba(255,255,255,0.05)
-                );
-
-            border:
-                1px solid rgba(255,255,255,0.76);
-
-            pointer-events: none;
-
-            z-index: 0;
-        }
-
-
-        /* маленький круг */
-
-        .page::after {
-            content: "";
-
-            position: fixed;
-
-            width: 70px;
-            height: 70px;
-
-            left: 200px;
-            bottom: 22px;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.27),
-                    rgba(255,255,255,0.07)
-                );
-
-            border:
-                1px solid rgba(255,255,255,0.80);
-
-            pointer-events: none;
-
-            z-index: 0;
-        }
-
-
-        /* header */
-
         header {
             text-align: center;
-
-            margin-bottom: 36px;
+            margin-bottom: 30px;
         }
 
-
-        .logo {
-            margin: 0;
-
-            font-size: 58px;
-            line-height: 1;
-
+        .brand {
+            font-size: 52px;
             font-weight: 800;
-
             letter-spacing: 8px;
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 7px;
 
             color: #138E87;
         }
 
+        .back-button {
+            position: fixed;
 
-        .section-title {
-            margin-top: 18px;
+            top: 18px;
+            left: 18px;
 
-            font-size: 21px;
+            z-index: 20;
 
-            font-weight: 700;
+            padding: 9px 13px;
 
-            letter-spacing: 8px;
+            border: 0;
+            border-radius: 10px;
 
-            color: #168F89;
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
         }
-
-
-        /* верхняя карточка */
 
         .intro-card,
         .quiz-card,
-        .result-card {
+        .result-card,
+        .review-card {
+            padding: 30px;
+
             border-radius: 24px;
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,255,255,0.78),
-                    rgba(255,255,255,0.60)
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
                 );
 
             border:
-                1px solid rgba(255,255,255,0.94);
-
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+                1px solid rgba(255,255,255,0.95);
 
             box-shadow:
                 0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
         }
 
-
         .intro-card {
-            padding: 28px 34px;
-
             margin-bottom: 20px;
         }
 
+        .review-card {
+            display: none;
 
-        .student-line {
-            font-size: 16px;
+            margin-bottom: 20px;
 
-            color: #536F68;
-
-            margin-bottom: 8px;
+            text-align: center;
         }
 
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
 
-        .task-code {
-            font-size: 17px;
+            color: #138E87;
+        }
 
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
             font-weight: 800;
 
             color: #138E87;
-
-            margin-bottom: 6px;
         }
 
+        h1 {
+            margin: 4px 0 16px;
 
-        .task-name {
-            margin: 0;
-
-            font-size: 30px;
-
-            font-weight: 800;
+            font-size: 27px;
 
             color: #173D43;
         }
 
-
         .instruction {
-            margin-top: 18px;
+            margin: 0;
 
-            font-size: 17px;
-
+            font-size: 16px;
             line-height: 1.6;
 
-            color: #536F68;
+            color: #607A74;
         }
-
-
-        /* quiz */
 
         .quiz-card {
-            padding: 34px;
+            padding-bottom: 36px;
         }
 
+        .text-title {
+            margin: 10px 0 22px;
 
-        .subheading {
-            margin:
-                10px
-                0
-                24px;
-
-            font-size: 23px;
-
+            font-size: 22px;
             font-weight: 800;
 
             color: #138E87;
         }
 
+        .text-title.second {
+            margin-top: 38px;
+            padding-top: 28px;
 
-        .q-item {
-            padding:
-                24px
-                0
-                28px;
+            border-top:
+                1px solid rgba(122,160,149,0.18);
+        }
+
+        .question {
+            margin-bottom: 27px;
+            padding-bottom: 25px;
 
             border-bottom:
-                1px solid rgba(122,160,149,0.16);
+                1px solid rgba(122,160,149,0.15);
         }
 
-
-        .q-item:last-child {
-            border-bottom: none;
-        }
-
-
-        .row {
+        .question-row {
             display: grid;
 
-            grid-template-columns:
-                minmax(0, 1fr)
-                150px;
+            grid-template-columns: 1fr 160px;
 
             gap: 24px;
 
             align-items: start;
         }
 
+        .sentence {
+            font-size: 17px;
+            line-height: 1.65;
+        }
 
-        .text {
-            font-size: 18px;
-
-            line-height: 1.7;
+        .number {
+            font-weight: 800;
 
             color: #173D43;
         }
 
-
-        .word {
+        .base-word {
             text-align: right;
 
-            font-size: 18px;
-
+            font-size: 17px;
             font-weight: 800;
-
             letter-spacing: 1px;
 
             color: #138E87;
         }
 
+        .answer {
+            width: 245px;
 
-        input[type="text"] {
-            width: 250px;
-
-            max-width: 100%;
-
-            margin-top: 14px;
-
-            padding: 13px 15px;
-
-            border-radius: 13px;
+            margin-top: 12px;
+            padding: 12px 14px;
 
             border:
                 1px solid rgba(122,160,149,0.28);
 
-            background:
-                rgba(255,255,255,0.78);
+            border-radius: 11px;
 
-            font-family: 'Nunito', sans-serif;
-
-            font-size: 17px;
+            background: rgba(255,255,255,0.80);
 
             color: #173D43;
 
-            text-transform: uppercase;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
 
             outline: none;
         }
 
-
-        input[type="text"]:focus {
-            border-color:
-                rgba(19,142,135,0.55);
+        .answer:focus {
+            border-color: rgba(19,142,135,0.65);
 
             box-shadow:
                 0 0 0 3px rgba(19,142,135,0.08);
         }
 
-
-        .correct {
-            margin:
-                0
-                -16px;
-
-            padding:
-                24px
-                16px
-                28px;
-
-            border-radius: 18px;
+        .answer.correct {
+            border-color: #4AAE8A;
 
             background:
-                rgba(112, 200, 164, 0.16);
+                rgba(217,245,232,0.76);
         }
 
-
-        .wrong {
-            margin:
-                0
-                -16px;
-
-            padding:
-                24px
-                16px
-                28px;
-
-            border-radius: 18px;
+        .answer.wrong {
+            border-color: #D48888;
 
             background:
-                rgba(224, 141, 141, 0.15);
+                rgba(250,225,225,0.76);
         }
 
+        .correct-answer {
+            margin-top: 8px;
 
-        .ans-hint {
-            display: block;
-
-            margin-top: 10px;
-
-            font-size: 15px;
-
-            font-weight: 800;
+            font-size: 14px;
+            font-weight: 700;
 
             color: #138E87;
         }
 
-
-        .btn {
+        .check-button,
+        .try-button {
             width: 100%;
 
-            margin-top: 26px;
-
-            padding: 16px 22px;
+            margin-top: 10px;
+            padding: 15px 20px;
 
             border: none;
 
-            border-radius: 16px;
+            border-radius: 14px;
 
-            background:
-                #138E87;
+            background: #15968F;
 
             color: white;
 
             font-family: 'Nunito', sans-serif;
-
-            font-size: 18px;
-
+            font-size: 17px;
             font-weight: 800;
 
             cursor: pointer;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
         }
 
-
-        .btn:hover {
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 14px 28px rgba(19,142,135,0.18);
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
         }
 
-
-        .btn:disabled {
-            opacity: 0.65;
-            cursor: default;
-            transform: none;
+        .try-button {
+            margin-top: 18px;
         }
-
 
         .result-card {
             display: none;
 
             margin-top: 20px;
 
-            padding: 28px 32px;
-
             text-align: center;
         }
 
-
         .result-score {
-            margin: 0 0 8px;
+            margin-bottom: 8px;
 
-            font-size: 28px;
-
+            font-size: 29px;
             font-weight: 800;
 
             color: #138E87;
         }
 
+        .result-mistakes {
+            margin-bottom: 8px;
 
-        .result-text {
-            margin: 0;
-
-            color: #536F68;
-
-            font-size: 17px;
+            color: #607A74;
         }
 
-
-        .save-status {
-            margin-top: 10px;
+        .result-saved {
+            margin-bottom: 6px;
 
             font-size: 14px;
 
-            color: #536F68;
+            color: #607A74;
         }
-
-
-        .back-link {
-            display: inline-block;
-
-            margin-top: 18px;
-
-            color: #138E87;
-
-            font-weight: 800;
-
-            text-decoration: none;
-        }
-
 
         .corner-logo {
             position: fixed;
 
-            right: 28px;
-            bottom: 22px;
+            right: 25px;
+            bottom: 18px;
 
-            width: 180px;
-            height: auto;
+            width: 145px;
 
             z-index: 10;
-
-            object-fit: contain;
         }
-
 
         @media (max-width: 700px) {
 
-            .page {
-                padding:
-                    70px
-                    18px
-                    110px;
-            }
-
-
-            .logo {
-                font-size: 39px;
-
+            .brand {
+                font-size: 36px;
                 letter-spacing: 5px;
             }
 
-
-            .section-title {
-                font-size: 16px;
-
-                letter-spacing: 6px;
+            .page {
+                padding: 85px 15px 100px;
             }
-
 
             .intro-card,
-            .quiz-card {
-                padding: 24px;
+            .quiz-card,
+            .review-card {
+                padding: 22px;
             }
 
-
-            .task-name {
-                font-size: 25px;
-            }
-
-
-            .row {
+            .question-row {
                 grid-template-columns: 1fr;
 
-                gap: 10px;
+                gap: 8px;
             }
 
-
-            .word {
+            .base-word {
                 text-align: left;
             }
 
+            .answer {
+                width: 100%;
+            }
 
             .corner-logo {
-                width: 125px;
-
-                right: 15px;
-                bottom: 15px;
+                width: 105px;
             }
 
         }
 
     </style>
-
 </head>
 
 
 <body>
 
 
-    <div class="page">
+<button
+    class="back-button"
+    onclick="goBackToG1()"
+>
+    ← BACK TO G1
+</button>
 
 
-        <header>
-
-            <div class="logo">
-                THE SPACE
-            </div>
-
-            <div class="section-title">
-                EGE · G1
-            </div>
-
-        </header>
+<div class="page">
 
 
-        <div class="intro-card">
+    <header>
 
-            <div
-                id="studentLine"
-                class="student-line"
-            ></div>
+        <div class="brand">
+            THE SPACE
+        </div>
 
-            <div class="task-code">
-                FB2D77
-            </div>
+        <div class="section-name">
+            EGE · G1
+        </div>
 
-            <h1 class="task-name">
-                New Year around the world
-            </h1>
+    </header>
 
-            <div class="instruction">
-                Transform the words in capital letters so that they grammatically match the content of the texts.
-            </div>
 
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            FB2D77
+        </div>
+
+        <h1>
+            New Year around the world
+        </h1>
+
+        <p class="instruction">
+            Transform the words in capital letters so that they
+            grammatically match the content of the texts.
+        </p>
+
+    </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div
+            class="review-title"
+        >
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="quiz-card">
+
+
+        <div class="text-title">
+            New Year around the world
         </div>
 
 
-        <div class="quiz-card">
+        <div
+            class="question"
+            data-number="19"
+            data-answer="IS CELEBRATED"
+        >
 
-            <div id="quiz">
+            <div class="question-row">
 
-
-                <div
-                    class="q-item"
-                    data-res="IS CELEBRATED"
-                    data-number="19"
-                >
-
-                    <div class="row">
-
-                        <div class="text">
-                            <b>19.</b>
-                            Everybody loves New Year. It is a holiday which __________________ all over the world.
-                        </div>
-
-                        <div class="word">
-                            CELEBRATE
-                        </div>
-
-                    </div>
-
-                    <input
-                        type="text"
-                        class="ans"
-                        placeholder="Your answer"
-                    >
-
+                <div class="sentence">
+                    <span class="number">19.</span>
+                    Everybody loves New Year. It is a holiday which
+                    __________________ all over the world.
                 </div>
 
-
-
-                <div
-                    class="q-item"
-                    data-res="WOMEN"
-                    data-number="20"
-                >
-
-                    <div class="row">
-
-                        <div class="text">
-                            <b>20.</b>
-                            In Scandinavia __________________ cook rice with nuts and not turkey for New Year.
-                        </div>
-
-                        <div class="word">
-                            WOMAN
-                        </div>
-
-                    </div>
-
-                    <input
-                        type="text"
-                        class="ans"
-                        placeholder="Your answer"
-                    >
-
+                <div class="base-word">
+                    CELEBRATE
                 </div>
-
-
-
-                <div
-                    class="q-item"
-                    data-res="THROWING"
-                    data-number="21"
-                >
-
-                    <div class="row">
-
-                        <div class="text">
-                            <b>21.</b>
-                            Italian people enjoy __________________ old things out of the windows on New Year’s Day. It is interesting to learn about these traditions.
-                        </div>
-
-                        <div class="word">
-                            THROW
-                        </div>
-
-                    </div>
-
-                    <input
-                        type="text"
-                        class="ans"
-                        placeholder="Your answer"
-                    >
-
-                </div>
-
-
-
-                <div class="subheading">
-                    A treasure in a chair
-                </div>
-
-
-
-                <div
-                    class="q-item"
-                    data-res="BOUGHT"
-                    data-number="22"
-                >
-
-                    <div class="row">
-
-                        <div class="text">
-                            <b>22.</b>
-                            The Browns from Manchester, the UK, are a very lucky family. Some years ago, Mr Brown __________________ a chair on sale.
-                        </div>
-
-                        <div class="word">
-                            BUY
-                        </div>
-
-                    </div>
-
-                    <input
-                        type="text"
-                        class="ans"
-                        placeholder="Your answer"
-                    >
-
-                </div>
-
-
-
-                <div
-                    class="q-item"
-                    data-res="DID NOT LIKE/DIDN'T LIKE"
-                    data-number="23"
-                >
-
-                    <div class="row">
-
-                        <div class="text">
-                            <b>23.</b>
-                            However, Mrs Brown __________________ it.
-                        </div>
-
-                        <div class="word">
-                            NOT LIKE
-                        </div>
-
-                    </div>
-
-                    <input
-                        type="text"
-                        class="ans"
-                        placeholder="Your answer"
-                    >
-
-                </div>
-
-
-
-                <div
-                    class="q-item"
-                    data-res="WOULD SELL"
-                    data-number="24"
-                >
-
-                    <div class="row">
-
-                        <div class="text">
-                            <b>24.</b>
-                            Mr Brown took it to the attic thinking he __________________ it later.
-                        </div>
-
-                        <div class="word">
-                            SELL
-                        </div>
-
-                    </div>
-
-                    <input
-                        type="text"
-                        class="ans"
-                        placeholder="Your answer"
-                    >
-
-                </div>
-
-
-
-                <div
-                    class="q-item"
-                    data-res="BEST"
-                    data-number="25"
-                >
-
-                    <div class="row">
-
-                        <div class="text">
-                            <b>25.</b>
-                            While cleaning it before a spring garage sale, he broke it by accident and found expensive jewellery inside. Mrs Brown says it’s the __________________ surprise in her life!
-                        </div>
-
-                        <div class="word">
-                            GOOD
-                        </div>
-
-                    </div>
-
-                    <input
-                        type="text"
-                        class="ans"
-                        placeholder="Your answer"
-                    >
-
-                </div>
-
 
             </div>
 
-
-            <button
-                class="btn"
-                id="finishBtn"
-                onclick="checkAndSend()"
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
             >
-                CHECK
-            </button>
 
         </div>
 
 
         <div
-            id="resultCard"
-            class="result-card"
+            class="question"
+            data-number="20"
+            data-answer="WOMEN"
         >
 
-            <h2
-                id="resultScore"
-                class="result-score"
-            ></h2>
+            <div class="question-row">
 
-            <p
-                id="resultText"
-                class="result-text"
-            ></p>
+                <div class="sentence">
+                    <span class="number">20.</span>
+                    In Scandinavia __________________ cook rice
+                    with nuts and not turkey for New Year.
+                </div>
 
-            <div
-                id="saveStatus"
-                class="save-status"
-            ></div>
+                <div class="base-word">
+                    WOMAN
+                </div>
 
-            <a
-                href="../ege-g1.html"
-                class="back-link"
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
             >
-                Back to G1
-            </a>
 
         </div>
+
+
+        <div
+            class="question"
+            data-number="21"
+            data-answer="THROWING"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">21.</span>
+                    Italian people enjoy __________________ old things
+                    out of the windows on New Year’s Day. It is
+                    interesting to learn about these traditions.
+                </div>
+
+                <div class="base-word">
+                    THROW
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div class="text-title second">
+            A treasure in a chair
+        </div>
+
+
+        <div
+            class="question"
+            data-number="22"
+            data-answer="BOUGHT"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">22.</span>
+                    The Browns from Manchester, the UK, are a very
+                    lucky family. Some years ago, Mr Brown
+                    __________________ a chair on sale.
+                </div>
+
+                <div class="base-word">
+                    BUY
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="23"
+            data-answer="DID NOT LIKE|DIDN'T LIKE"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">23.</span>
+                    However, Mrs Brown __________________ it.
+                </div>
+
+                <div class="base-word">
+                    NOT LIKE
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="24"
+            data-answer="WOULD SELL"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">24.</span>
+                    Mr Brown took it to the attic thinking he
+                    __________________ it later.
+                </div>
+
+                <div class="base-word">
+                    SELL
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="25"
+            data-answer="BEST"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">25.</span>
+                    While cleaning it before a spring garage sale,
+                    he broke it by accident and found expensive
+                    jewellery inside. Mrs Brown says it’s the
+                    __________________ surprise in her life!
+                </div>
+
+                <div class="base-word">
+                    GOOD
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <button
+            id="checkButton"
+            class="check-button"
+            onclick="checkAnswers()"
+        >
+            CHECK ANSWERS
+        </button>
 
 
     </div>
 
 
-    <img
-        src="logo.png"
-        class="corner-logo"
-        alt="The Space English Online"
+    <div
+        id="resultCard"
+        class="result-card"
     >
 
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
 
-    <script>
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
 
-        const API_URL =
-            "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
 
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
 
-        const COURSE = "EGE";
-        const SECTION = "G1";
-        const TASK_ID = "FB2D77";
-
-
-        /* =========================================
-           УЧЕНИК ИЗ URL
-        ========================================= */
-
-        const params =
-            new URLSearchParams(window.location.search);
-
-        let student =
-            params.get("student") || "";
-
-
-        if (!student) {
-            student =
-                localStorage.getItem("theSpaceStudent") || "";
-        }
+    </div>
 
 
-        document.getElementById("studentLine").textContent =
+</div>
+
+
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
+
+
+<script>
+
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "G1";
+    const TASK_ID = "FB2D77";
+
+
+    const G1_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-g1.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
+    }
+
+
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
             student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
             ? "Student: " + student
             : "Student not selected";
 
 
-        /* =========================================
-           ПРОВЕРКА + ОТПРАВКА
-        ========================================= */
+    function goBackToG1() {
 
-        async function checkAndSend() {
+        if (window.history.length > 1) {
 
-            if (!student) {
-                alert("Please return to G1 and choose your name.");
-                return;
-            }
+            window.history.back();
 
-
-            const button =
-                document.getElementById("finishBtn");
-
-            button.disabled = true;
-            button.textContent = "CHECKING...";
-
-
-            let score = 0;
-
-            const mistakes = [];
-            const answers = [];
-
-            const items =
-                document.querySelectorAll(".q-item");
-
-
-            items.forEach(item => {
-
-                const number =
-                    item.dataset.number;
-
-                const possible =
-                    item
-                        .dataset
-                        .res
-                        .split("/")
-                        .map(answer => answer.trim().toUpperCase());
-
-
-                const input =
-                    item.querySelector(".ans");
-
-
-                const userAnswer =
-                    input
-                        .value
-                        .trim()
-                        .toUpperCase();
-
-
-                answers.push(
-                    number +
-                    ":" +
-                    (userAnswer || "-")
-                );
-
-
-                input.disabled = true;
-
-
-                if (possible.includes(userAnswer)) {
-
-                    score++;
-
-                    item.classList.add("correct");
-
-                } else {
-
-                    mistakes.push(number);
-
-                    item.classList.add("wrong");
-
-
-                    const hint =
-                        document.createElement("span");
-
-                    hint.className =
-                        "ans-hint";
-
-                    hint.textContent =
-                        "Correct: " +
-                        possible[0];
-
-
-                    item.appendChild(hint);
-
-                }
-
-            });
-
-
-            const total =
-                score + "/" + items.length;
-
-
-            /* результат */
-
-            const resultCard =
-                document.getElementById("resultCard");
-
-            const resultScore =
-                document.getElementById("resultScore");
-
-            const resultText =
-                document.getElementById("resultText");
-
-            const saveStatus =
-                document.getElementById("saveStatus");
-
-
-            resultCard.style.display =
-                "block";
-
-
-            resultScore.textContent =
-                total;
-
-
-            if (mistakes.length === 0) {
-
-                resultText.textContent =
-                    "Excellent! All answers are correct.";
-
-            } else {
-
-                resultText.textContent =
-                    "Mistakes: " +
-                    mistakes.join(", ");
-
-            }
-
-
-            saveStatus.textContent =
-                "Saving result...";
-
-
-            /* отправляем в новую таблицу */
-
-            try {
-
-                const response =
-                    await fetch(
-                        API_URL,
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type": "text/plain;charset=utf-8"
-                            },
-
-                            body: JSON.stringify({
-                                student: student,
-                                course: COURSE,
-                                section: SECTION,
-                                taskId: TASK_ID,
-                                result: total,
-                                mistakes:
-                                    mistakes.length
-                                    ? mistakes.join(", ")
-                                    : "",
-                                answers:
-                                    answers.join(", ")
-                            })
-                        }
-                    );
-
-
-                const data =
-                    await response.json();
-
-
-                if (data.status === "success") {
-
-                    saveStatus.textContent =
-                        "Result saved · Attempt " +
-                        data.attempt;
-
-                } else {
-
-                    throw new Error(
-                        data.message ||
-                        "Save error"
-                    );
-
-                }
-
-
-            } catch (error) {
-
-                console.error(error);
-
-                saveStatus.textContent =
-                    "Result could not be saved.";
-
-            }
-
-
-            button.style.display =
-                "none";
-
-
-            resultCard.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+            return;
 
         }
 
-    </script>
+
+        let url = G1_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href = url;
+
+    }
+
+
+    function normalizeAnswer(value) {
+
+        return String(value || "")
+            .trim()
+            .replace(/\s+/g, " ")
+            .replace(/[’‘]/g, "'")
+            .toUpperCase();
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const number =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[number] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+
+                element.remove();
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        question,
+        userAnswer
+    ) {
+
+        const input =
+            question.querySelector(
+                ".answer"
+            );
+
+
+        const accepted =
+            question.dataset.answer
+                .split("|")
+                .map(normalizeAnswer);
+
+
+        const normalized =
+            normalizeAnswer(
+                userAnswer
+            );
+
+
+        input.value =
+            userAnswer || "";
+
+
+        input.disabled =
+            true;
+
+
+        input.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+
+        if (
+            accepted.includes(
+                normalized
+            )
+        ) {
+
+            input.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            input.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "div"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                accepted[0];
+
+
+            question.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+
+
+            document
+                .querySelectorAll(
+                    ".question"
+                )
+                .forEach(question => {
+
+                    const number =
+                        question.dataset.number;
+
+
+                    showQuestionState(
+                        question,
+                        savedAnswers[number] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    function resetQuiz() {
+
+        clearHints();
+
+
+        document
+            .querySelectorAll(
+                ".answer"
+            )
+            .forEach(input => {
+
+                input.value = "";
+
+                input.disabled =
+                    false;
+
+
+                input.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        const firstInput =
+            document.querySelector(
+                ".answer"
+            );
+
+
+        if (firstInput) {
+
+            firstInput.focus();
+
+        }
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to G1 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+
+
+        const questions =
+            document.querySelectorAll(
+                ".question"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+
+        const answers = [];
+
+
+        questions.forEach(question => {
+
+            const number =
+                question.dataset.number;
+
+
+            const accepted =
+                question.dataset.answer
+                    .split("|")
+                    .map(normalizeAnswer);
+
+
+            const input =
+                question.querySelector(
+                    ".answer"
+                );
+
+
+            const userAnswer =
+                normalizeAnswer(
+                    input.value
+                );
+
+
+            answers.push(
+                number +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            input.disabled = true;
+
+
+            input.classList.remove(
+                "correct",
+                "wrong"
+            );
+
+
+            const isCorrect =
+                accepted.includes(
+                    userAnswer
+                );
+
+
+            if (isCorrect) {
+
+                score++;
+
+                input.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                mistakes.push(
+                    number
+                );
+
+
+                input.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    accepted[0];
+
+
+                question.appendChild(
+                    correct
+                );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/7";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(
+                                        ", "
+                                    )
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status ===
+                "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
+</script>
 
 
 </body>
