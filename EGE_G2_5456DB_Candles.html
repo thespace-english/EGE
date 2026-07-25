@@ -1,167 +1,1412 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE G2 5456DB Candles</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Space — 5456DB</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: 'Verdana', sans-serif; margin: 0; background: #f0f2f5; height: 100vh; display: flex; flex-direction: column; }
-        
-        header { background: #2c3e50; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; flex-shrink: 0; }
-        
-        .main-container { display: flex; flex: 1; overflow: hidden; }
 
-        /* ТЕКСТ СЛЕВА */
-        .text-panel { flex: 1; overflow-y: auto; padding: 40px; background: white; border-right: 2px solid #ddd; line-height: 1.9; font-size: 18px; }
-        .gap-input { 
-            border: none; border-bottom: 2px solid #2980b9; width: 160px; 
-            font-size: 18px; font-weight: bold; text-align: center; color: #2c3e50; outline: none;
-            background: #f4faff;
+        * {
+            box-sizing: border-box;
         }
 
-        /* ТЕСТ СПРАВА */
-        .quiz-panel { flex: 1; overflow-y: auto; padding: 30px; background: #fdfefe; }
-        
-        .card { 
-            background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e8e8;
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
         }
 
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .card-num { color: #2980b9; font-weight: bold; font-size: 14px; }
-        .base-word { background: #e74c3c; color: white; padding: 2px 10px; border-radius: 4px; font-weight: bold; }
-        
-        .user-answer { 
-            width: 100%; padding: 12px; border: 2px solid #ebedef; border-radius: 6px; 
-            font-size: 16px; outline: none; text-transform: uppercase;
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #173D43;
+
+            background:
+                radial-gradient(
+                    circle at 8% 88%,
+                    rgba(87,209,198,0.22),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #F7FCFA 0%,
+                    #EDF8F5 52%,
+                    #E4F5F1 100%
+                );
         }
-        .user-answer:focus { border-color: #3498db; }
 
-        .correct-bg { background: #d4edda !important; border-color: #28a745 !important; }
-        .wrong-bg { background: #f8d7da !important; border-color: #dc3545 !important; }
+        body::before {
+            content: "";
 
-        .action-area { padding-bottom: 100px; }
-        .btn-main { 
-            width: 100%; padding: 20px; background: #2c3e50; color: white; 
-            border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; 
+            position: fixed;
+
+            width: 900px;
+            height: 900px;
+
+            top: -680px;
+            right: -290px;
+
+            border-radius: 50%;
+
+            border:
+                28px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                inset 0 0 0 1px
+                rgba(255,255,255,0.92);
+
+            pointer-events: none;
+
+            z-index: 0;
         }
-        .btn-main:hover { background: #1a252f; }
 
-        /* ЭКРАН ВХОДА */
-        #auth-screen { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #2c3e50; z-index: 9999; display: flex; align-items: center; justify-content: center; 
+        .page {
+            width: 100%;
+            max-width: 980px;
+
+            margin: 0 auto;
+
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
         }
-        .auth-box { background: white; padding: 40px; border-radius: 15px; text-align: center; width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .auth-box input { padding: 12px; width: 100%; border: 1px solid #bdc3c7; border-radius: 6px; margin-bottom: 25px; font-size: 16px; outline: none; }
 
-        .hidden { display: none !important; }
-        #score-msg { text-align: center; font-size: 22px; font-weight: bold; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            background:
+                rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .intro-card,
+        .quiz-card,
+        .result-card,
+        .review-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px
+                rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card {
+            margin-bottom: 20px;
+        }
+
+        .review-card {
+            display: none;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 27px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+        .quiz-card {
+            padding-bottom: 36px;
+        }
+
+        .text-title {
+            margin: 10px 0 22px;
+
+            font-size: 22px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .question {
+            margin-bottom: 27px;
+            padding-bottom: 25px;
+
+            border-bottom:
+                1px solid rgba(122,160,149,0.15);
+        }
+
+        .question-row {
+            display: grid;
+
+            grid-template-columns:
+                1fr 160px;
+
+            gap: 24px;
+
+            align-items: start;
+        }
+
+        .sentence {
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .number {
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .base-word {
+            text-align: right;
+
+            font-size: 17px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            color: #138E87;
+        }
+
+        .answer {
+            width: 245px;
+
+            margin-top: 12px;
+            padding: 12px 14px;
+
+            border:
+                1px solid rgba(122,160,149,0.28);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,0.80);
+
+            color: #173D43;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .answer:focus {
+            border-color:
+                rgba(19,142,135,0.65);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(19,142,135,0.08);
+        }
+
+        .answer.correct {
+            border-color: #4AAE8A;
+
+            background:
+                rgba(217,245,232,0.76);
+        }
+
+        .answer.wrong {
+            border-color: #D48888;
+
+            background:
+                rgba(250,225,225,0.76);
+        }
+
+        .correct-answer {
+            margin-top: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #138E87;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 10px;
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .result-card {
+            display: none;
+
+            margin-top: 20px;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+        @media (max-width: 700px) {
+
+            .brand {
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding:
+                    85px 15px 100px;
+            }
+
+            .intro-card,
+            .quiz-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .question-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .base-word {
+                text-align: left;
+            }
+
+            .answer {
+                width: 100%;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
 </head>
+
+
 <body>
 
-<div id="auth-screen">
-    <div class="auth-box">
-        <h3>EGE G2 5456DB</h3>
-        <input type="text" id="userName" placeholder="Введите ваше имя">
-        <button class="btn-main" onclick="startQuiz()">Начать</button>
+
+<button
+    class="back-button"
+    onclick="goBackToG2()"
+>
+    ← BACK TO G2
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · G2
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            5456DB
+        </div>
+
+        <h1>
+            Candles
+        </h1>
+
+        <p class="instruction">
+            Form a new word from the word in capital letters
+            so that it grammatically and lexically fits the text.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="quiz-card">
+
+
+        <div class="text-title">
+            Candles
+        </div>
+
+
+        <div
+            class="question"
+            data-number="25"
+            data-answer="VARIOUS"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">25.</span>
+                    If you have an active profile in any social media,
+                    you may have noticed how often candles feature in
+                    people’s posts and stories. In fact, there are
+                    __________________ reasons why people use candles
+                    at home.
+                </div>
+
+                <div class="base-word">
+                    VARY
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="26"
+            data-answer="HEAVILY"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">26.</span>
+                    To begin with, candles create a cozy atmosphere.
+                    It is so nice to burn a candle when it is raining
+                    __________________ outdoors.
+                </div>
+
+                <div class="base-word">
+                    HEAVY
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="27"
+            data-answer="STRESSFUL"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">27.</span>
+                    It gives soft and pleasant light which is
+                    especially good for people after a
+                    __________________ day at school or at work.
+                </div>
+
+                <div class="base-word">
+                    STRESS
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="28"
+            data-answer="CELEBRATION"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">28.</span>
+                    You may light a candle at your evening mealtime
+                    and have a quiet conversation with your nearest
+                    and dearest. Moreover, we burn candles when we
+                    have an important __________________ like a
+                    birthday or on seasonal holidays.
+                </div>
+
+                <div class="base-word">
+                    CELEBRATE
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="29"
+            data-answer="AMAZING"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">29.</span>
+                    Finally, candles simply look
+                    __________________ and are a great decoration.
+                </div>
+
+                <div class="base-word">
+                    AMAZE
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <button
+            id="checkButton"
+            class="check-button"
+            onclick="checkAnswers()"
+        >
+            CHECK ANSWERS
+        </button>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
-<header>EGE G2 5456DB Candles (25–29)</header>
 
-<div class="main-container">
-    <div class="text-panel">
-        <h2>Candles</h2>
-        <p>If you have an active profile in any social media, you may have noticed how often candles feature in people’s posts and stories. In fact, there are <input type="text" class="gap-input" id="g25" readonly> (25) reasons why people use candles at home.</p>
-        
-        <p>To begin with, candles create a cozy atmosphere. It is so nice to burn a candle when it is raining <input type="text" class="gap-input" id="g26" readonly> (26) outdoors. It gives soft and pleasant light which is especially good for people after a <input type="text" class="gap-input" id="g27" readonly> (27) day at school or at work.</p>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-        <p>You may light a candle at your evening mealtime and have a quiet conversation with your nearest and dearest. Moreover, we burn candles when we have an important <input type="text" class="gap-input" id="g28" readonly> (28) like a birthday or on seasonal holidays.</p>
-        
-        <p>Finally, candles simply look <input type="text" class="gap-input" id="g29" readonly> (29) and are a great decoration.</p>
-    </div>
-
-    <div class="quiz-panel">
-        <div class="card" data-ans="VARIOUS">
-            <div class="card-header"><span class="card-num">Задание 25</span> <span class="base-word">VARY</span></div>
-            <input type="text" class="user-answer" oninput="sync(25, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="HEAVILY">
-            <div class="card-header"><span class="card-num">Задание 26</span> <span class="base-word">HEAVY</span></div>
-            <input type="text" class="user-answer" oninput="sync(26, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="STRESSFUL">
-            <div class="card-header"><span class="card-num">Задание 27</span> <span class="base-word">STRESS</span></div>
-            <input type="text" class="user-answer" oninput="sync(27, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="CELEBRATION">
-            <div class="card-header"><span class="card-num">Задание 28</span> <span class="base-word">CELEBRATE</span></div>
-            <input type="text" class="user-answer" oninput="sync(28, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="AMAZING">
-            <div class="card-header"><span class="card-num">Задание 29</span> <span class="base-word">AMAZE</span></div>
-            <input type="text" class="user-answer" oninput="sync(29, this.value)" placeholder="Ваш ответ...">
-        </div>
-
-        <div id="score-msg" class="hidden"></div>
-        <div class="action-area">
-            <button class="btn-main" id="checkBtn" onclick="runCheck()">Проверить ответы</button>
-        </div>
-    </div>
-</div>
 
 <script>
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
 
-    function startQuiz() {
-        if(document.getElementById('userName').value.trim() !== "") {
-            document.getElementById('auth-screen').classList.add('hidden');
-        } else { alert("Введите имя!"); }
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "G2";
+    const TASK_ID = "5456DB";
+
+
+    const G2_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-g2.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function sync(num, val) {
-        document.getElementById('g' + num).value = val.toUpperCase();
+
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
     }
 
-    function runCheck() {
-        let count = 0;
-        let details = [];
-        document.querySelectorAll('.card').forEach((c, idx) => {
-            const correct = c.dataset.ans;
-            const input = c.querySelector('.user-answer');
-            const val = input.value.trim().toUpperCase();
-            
-            details.push(`Q${idx+25}:${val}`);
-            
-            if(val === correct) {
-                input.classList.add('correct-bg');
-                count++;
-            } else {
-                input.classList.add('wrong-bg');
-                input.value = val + " (Correct: " + correct + ")";
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToG2() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
+        }
+
+
+        let url =
+            G2_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href =
+            url;
+
+    }
+
+
+    function normalizeAnswer(value) {
+
+        return String(value || "")
+            .trim()
+            .replace(/\s+/g, " ")
+            .replace(/[’‘]/g, "'")
+            .toUpperCase();
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const number =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[number] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+
+                element.remove();
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        question,
+        userAnswer
+    ) {
+
+        const input =
+            question.querySelector(
+                ".answer"
+            );
+
+
+        const accepted =
+            question.dataset.answer
+                .split("|")
+                .map(normalizeAnswer);
+
+
+        const normalized =
+            normalizeAnswer(
+                userAnswer
+            );
+
+
+        input.value =
+            userAnswer || "";
+
+
+        input.disabled =
+            true;
+
+
+        input.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+
+        if (
+            accepted.includes(
+                normalized
+            )
+        ) {
+
+            input.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            input.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "div"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                accepted[0];
+
+
+            question.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
             }
-            input.disabled = true;
-        });
 
-        const finalScore = `${count} из 5`;
-        const info = document.getElementById('score-msg');
-        info.innerText = "Результат: " + finalScore;
-        info.classList.remove('hidden');
-        info.style.background = count >= 4 ? "#d4edda" : "#f8d7da";
-        document.getElementById('checkBtn').classList.add('hidden');
 
-        fetch(SHEET_URL, {
-            method: "POST", mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE G2 5456DB Candles",
-                result: finalScore,
-                answers: details.join(", ")
-            })
-        });
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+
+
+            document
+                .querySelectorAll(
+                    ".question"
+                )
+                .forEach(question => {
+
+                    const number =
+                        question.dataset.number;
+
+
+                    showQuestionState(
+                        question,
+                        savedAnswers[number] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
     }
+
+
+    function resetQuiz() {
+
+        clearHints();
+
+
+        document
+            .querySelectorAll(
+                ".answer"
+            )
+            .forEach(input => {
+
+                input.value =
+                    "";
+
+
+                input.disabled =
+                    false;
+
+
+                input.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        const firstInput =
+            document.querySelector(
+                ".answer"
+            );
+
+
+        if (firstInput) {
+
+            firstInput.focus();
+
+        }
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to G2 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+
+
+        const questions =
+            document.querySelectorAll(
+                ".question"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        questions.forEach(question => {
+
+            const number =
+                question.dataset.number;
+
+
+            const accepted =
+                question.dataset.answer
+                    .split("|")
+                    .map(normalizeAnswer);
+
+
+            const input =
+                question.querySelector(
+                    ".answer"
+                );
+
+
+            const userAnswer =
+                normalizeAnswer(
+                    input.value
+                );
+
+
+            answers.push(
+                number +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            input.disabled =
+                true;
+
+
+            input.classList.remove(
+                "correct",
+                "wrong"
+            );
+
+
+            const isCorrect =
+                accepted.includes(
+                    userAnswer
+                );
+
+
+            if (isCorrect) {
+
+                score++;
+
+
+                input.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                mistakes.push(
+                    number
+                );
+
+
+                input.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    accepted[0];
+
+
+                question.appendChild(
+                    correct
+                );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/5";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(
+                                        ", "
+                                    )
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status ===
+                "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
+
+
 </body>
+
 </html>
