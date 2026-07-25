@@ -1,175 +1,1451 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE G1 8D8877 Oleg Protopopov & Rosetta Stone</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Space — 8D8877</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        * { box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            background: #ffffff; 
-            color: #333; 
-            min-height: 100vh; 
+
+        * {
+            box-sizing: border-box;
         }
-        
-        header { background: #e67e22; color: white; padding: 25px; text-align: center; font-size: 24px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        
-        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
 
-        .section-title { color: #2c3e50; border-left: 5px solid #e67e22; padding-left: 15px; margin: 40px 0 20px 0; text-transform: uppercase; letter-spacing: 1px; }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
 
-        .text-item { background: #fff; padding: 30px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; line-height: 1.8; position: relative; font-size: 18px; }
-        .num-badge { position: absolute; left: -15px; top: -10px; background: #e67e22; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transform: rotate(-5deg); }
-        
-        .gap { color: #e67e22; font-weight: bold; text-decoration: underline; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #173D43;
 
-        .control-area { margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between; }
-        .base-word { background: #34495e; color: white; padding: 5px 12px; border-radius: 5px; font-weight: bold; font-family: monospace; }
-        
-        input[type="text"] { padding: 10px; font-size: 16px; width: 60%; border: 2px solid #bdc3c7; border-radius: 8px; text-transform: uppercase; outline: none; }
+            background:
+                radial-gradient(
+                    circle at 8% 88%,
+                    rgba(87,209,198,0.22),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #F7FCFA 0%,
+                    #EDF8F5 52%,
+                    #E4F5F1 100%
+                );
+        }
 
-        .btn-check { width: 100%; padding: 20px; background: #27ae60; color: white; border: none; border-radius: 12px; font-size: 22px; font-weight: bold; cursor: pointer; margin: 20px 0; transition: 0.3s; }
-        .btn-check:hover { background: #219150; transform: translateY(-2px); }
+        body::before {
+            content: "";
 
-        .correct-bg { background-color: #d4edda !important; border-color: #28a745 !important; }
-        .wrong-bg { background-color: #f8d7da !important; border-color: #dc3545 !important; }
-        
-        #final-score { text-align: center; font-size: 28px; font-weight: bold; padding: 20px; border-radius: 12px; display: none; background: #f8f9fa; border: 1px solid #ddd; margin-bottom: 50px; }
+            position: fixed;
 
-        #auth-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; }
-        .auth-box { background: white; padding: 40px; border-radius: 20px; text-align: center; width: 400px; }
-        .auth-box input { padding: 15px; width: 100%; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 25px; font-size: 18px; outline: none; }
-        .hidden { display: none !important; }
+            width: 900px;
+            height: 900px;
+
+            top: -680px;
+            right: -290px;
+
+            border-radius: 50%;
+
+            border: 28px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.92);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 980px;
+
+            margin: 0 auto;
+
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .intro-card,
+        .quiz-card,
+        .result-card,
+        .review-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card {
+            margin-bottom: 20px;
+        }
+
+        .review-card {
+            display: none;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 27px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+        .quiz-card {
+            padding-bottom: 36px;
+        }
+
+        .text-title {
+            margin: 10px 0 22px;
+
+            font-size: 22px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .text-title.second {
+            margin-top: 38px;
+            padding-top: 28px;
+
+            border-top:
+                1px solid rgba(122,160,149,0.18);
+        }
+
+        .question {
+            margin-bottom: 27px;
+            padding-bottom: 25px;
+
+            border-bottom:
+                1px solid rgba(122,160,149,0.15);
+        }
+
+        .question-row {
+            display: grid;
+
+            grid-template-columns: 1fr 160px;
+
+            gap: 24px;
+
+            align-items: start;
+        }
+
+        .sentence {
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .number {
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .base-word {
+            text-align: right;
+
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            color: #138E87;
+        }
+
+        .answer {
+            width: 245px;
+
+            margin-top: 12px;
+            padding: 12px 14px;
+
+            border:
+                1px solid rgba(122,160,149,0.28);
+
+            border-radius: 11px;
+
+            background: rgba(255,255,255,0.80);
+
+            color: #173D43;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .answer:focus {
+            border-color: rgba(19,142,135,0.65);
+
+            box-shadow:
+                0 0 0 3px rgba(19,142,135,0.08);
+        }
+
+        .answer.correct {
+            border-color: #4AAE8A;
+
+            background:
+                rgba(217,245,232,0.76);
+        }
+
+        .answer.wrong {
+            border-color: #D48888;
+
+            background:
+                rgba(250,225,225,0.76);
+        }
+
+        .correct-answer {
+            margin-top: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #138E87;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 10px;
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .result-card {
+            display: none;
+
+            margin-top: 20px;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+        @media (max-width: 700px) {
+
+            .brand {
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding: 85px 15px 100px;
+            }
+
+            .intro-card,
+            .quiz-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .question-row {
+                grid-template-columns: 1fr;
+
+                gap: 8px;
+            }
+
+            .base-word {
+                text-align: left;
+            }
+
+            .answer {
+                width: 100%;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
 </head>
+
+
 <body>
 
-<div id="auth-screen">
-    <div class="auth-box">
-        <h2 style="color:#2c3e50">Grammar Task</h2>
-        <input type="text" id="userName" placeholder="WRITE YOUR NAME">
-        <button class="btn-check" style="margin:0" onclick="startSession()">Начать</button>
+
+<button
+    class="back-button"
+    onclick="goBackToG1()"
+>
+    ← BACK TO G1
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · G1
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            8D8877
+        </div>
+
+        <h1>
+            Oleg Protopopov & The Rosetta Stone
+        </h1>
+
+        <p class="instruction">
+            Transform the words in capital letters so that they
+            grammatically match the content of the texts.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="quiz-card">
+
+
+        <div class="text-title">
+            Oleg Protopopov
+        </div>
+
+
+        <div
+            class="question"
+            data-number="19"
+            data-answer="BEST"
+        >
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">19.</span>
+                    Have you heard about Oleg Protopopov?
+                    He was born in 1932 and he was one of the
+                    __________________ figure skaters of his time.
+                </div>
+
+                <div class="base-word">
+                    GOOD
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+        </div>
+
+
+        <div
+            class="question"
+            data-number="20"
+            data-answer="WON"
+        >
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">20.</span>
+                    He __________________ two Olympic gold medals.
+                </div>
+
+                <div class="base-word">
+                    WIN
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+        </div>
+
+
+        <div
+            class="question"
+            data-number="21"
+            data-answer="FIRST"
+        >
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">21.</span>
+                    He was also the __________________ sportsman
+                    to show a lyrical programme in figure skating.
+                    Russian people are certainly proud of this
+                    outstanding sportsman.
+                </div>
+
+                <div class="base-word">
+                    ONE
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+        </div>
+
+
+        <div class="text-title second">
+            The Rosetta Stone
+        </div>
+
+
+        <div
+            class="question"
+            data-number="22"
+            data-answer="WAS FOUND"
+        >
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">22.</span>
+                    We learn about our past thanks to the findings
+                    of archaeologists. The Rosetta stone is one of
+                    them. It __________________ in 1799.
+                </div>
+
+                <div class="base-word">
+                    FIND
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+        </div>
+
+
+        <div
+            class="question"
+            data-number="23"
+            data-answer="STUDYING"
+        >
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">23.</span>
+                    Thanks to this finding, scientists could start
+                    __________________ the language of ancient
+                    Egyptians.
+                </div>
+
+                <div class="base-word">
+                    STUDY
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+        </div>
+
+
+        <div
+            class="question"
+            data-number="24"
+            data-answer="THESE"
+        >
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">24.</span>
+                    This happened so because there were texts on
+                    the stone. __________________ texts were both
+                    in Greek and the ancient Egyptian language.
+                </div>
+
+                <div class="base-word">
+                    THIS
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+        </div>
+
+
+        <div
+            class="question"
+            data-number="25"
+            data-answer="HAVE SEEN"
+        >
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">25.</span>
+                    Now the Rosetta stone is in the British museum.
+                    Millions of visitors to the museum
+                    __________________ it so far.
+                </div>
+
+                <div class="base-word">
+                    SEE
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+        </div>
+
+
+        <button
+            id="checkButton"
+            class="check-button"
+            onclick="checkAnswers()"
+        >
+            CHECK ANSWERS
+        </button>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
-<header>EGE G1: Grammar (8D8877)</header>
 
-<div class="container">
-    
-    <h2 class="section-title">Oleg Protopopov</h2>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-    <div class="text-item">
-        <div class="num-badge">19</div>
-        Have you heard about Oleg Protopopov? He was born in 1932 and he was one of the <span class="gap">__________________</span> figure skaters of his time.
-        <div class="control-area">
-            <span>Слово: <span class="base-word">GOOD</span></span>
-            <input type="text" class="user-ans" data-ans="BEST" placeholder="Ответ...">
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="num-badge">20</div>
-        He <span class="gap">__________________</span> two Olympic gold medals.
-        <div class="control-area">
-            <span>Слово: <span class="base-word">WIN</span></span>
-            <input type="text" class="user-ans" data-ans="WON" placeholder="Ответ...">
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="num-badge">21</div>
-        He was also the <span class="gap">__________________</span> sportsman to show a lyrical programme in figure skating. Russian people are certainly proud of this outstanding sportsman.
-        <div class="control-area">
-            <span>Слово: <span class="base-word">ONE</span></span>
-            <input type="text" class="user-ans" data-ans="FIRST" placeholder="Ответ...">
-        </div>
-    </div>
-
-    <h2 class="section-title">The Rosetta Stone</h2>
-
-    <div class="text-item">
-        <div class="num-badge">22</div>
-        We learn about our past thanks to the findings of archaeologists. The Rosetta stone is one of them. It <span class="gap">__________________</span> in 1799.
-        <div class="control-area">
-            <span>Слово: <span class="base-word">FIND</span></span>
-            <input type="text" class="user-ans" data-ans="WASFOUND" placeholder="Ответ...">
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="num-badge">23</div>
-        Thanks to this finding, scientists could start <span class="gap">__________________</span> the language of ancient Egyptians.
-        <div class="control-area">
-            <span>Слово: <span class="base-word">STUDY</span></span>
-            <input type="text" class="user-ans" data-ans="STUDYING" placeholder="Ответ...">
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="num-badge">24</div>
-        This happened so because there were texts on the stone. <span class="gap">__________________</span> texts were both in Greek and the ancient Egyptian language.
-        <div class="control-area">
-            <span>Слово: <span class="base-word">THIS</span></span>
-            <input type="text" class="user-ans" data-ans="THESE" placeholder="Ответ...">
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="num-badge">25</div>
-        Now the Rosetta stone is in the British museum. Millions of visitors to the museum <span class="gap">__________________</span> it so far.
-        <div class="control-area">
-            <span>Слово: <span class="base-word">SEE</span></span>
-            <input type="text" class="user-ans" data-ans="HAVESEEN" placeholder="Ответ...">
-        </div>
-    </div>
-
-    <button class="btn-check" id="checkBtn" onclick="checkAnswers()">ПРОВЕРИТЬ</button>
-    <div id="final-score"></div>
-</div>
 
 <script>
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
 
-    function startSession() {
-        if(document.getElementById('userName').value.trim()) document.getElementById('auth-screen').classList.add('hidden');
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "G1";
+    const TASK_ID = "8D8877";
+
+
+    const G1_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-g1.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function checkAnswers() {
-        let score = 0;
-        let details = [];
-        const inputs = document.querySelectorAll('.user-ans');
 
-        inputs.forEach((input, index) => {
-            const userVal = input.value.trim().toUpperCase().replace(/\s/g, '');
-            const correctVariants = input.dataset.ans.split(',').map(v => v.toUpperCase().replace(/\s/g, ''));
-            
-            if (correctVariants.includes(userVal)) {
-                input.classList.add('correct-bg');
-                score++;
-            } else {
-                input.classList.add('wrong-bg');
-                input.value += ` (${input.dataset.ans.split(',')[0]})`;
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToG1() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
+        }
+
+
+        let url = G1_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href = url;
+
+    }
+
+
+    function normalizeAnswer(value) {
+
+        return String(value || "")
+            .trim()
+            .replace(/\s+/g, " ")
+            .replace(/[’‘]/g, "'")
+            .toUpperCase();
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const number =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[number] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+
+                element.remove();
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        question,
+        userAnswer
+    ) {
+
+        const input =
+            question.querySelector(
+                ".answer"
+            );
+
+
+        const accepted =
+            question.dataset.answer
+                .split("|")
+                .map(normalizeAnswer);
+
+
+        const normalized =
+            normalizeAnswer(
+                userAnswer
+            );
+
+
+        input.value =
+            userAnswer || "";
+
+
+        input.disabled =
+            true;
+
+
+        input.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+
+        if (
+            accepted.includes(
+                normalized
+            )
+        ) {
+
+            input.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            input.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "div"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                accepted[0];
+
+
+            question.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
             }
-            input.disabled = true;
-            details.push(`Q${index+19}:${userVal}`);
-        });
 
-        const scoreDiv = document.getElementById('final-score');
-        scoreDiv.style.display = "block";
-        scoreDiv.innerText = `Результат: ${score} из 7`;
-        document.getElementById('checkBtn').classList.add('hidden');
 
-        fetch(SHEET_URL, {
-            method: "POST", mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE G1 8D8877 Protopopov Rosetta",
-                result: `${score}/7`,
-                answers: details.join(", ")
-            })
-        });
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+
+
+            document
+                .querySelectorAll(
+                    ".question"
+                )
+                .forEach(question => {
+
+                    const number =
+                        question.dataset.number;
+
+
+                    showQuestionState(
+                        question,
+                        savedAnswers[number] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
     }
+
+
+    function resetQuiz() {
+
+        clearHints();
+
+
+        document
+            .querySelectorAll(
+                ".answer"
+            )
+            .forEach(input => {
+
+                input.value = "";
+
+                input.disabled =
+                    false;
+
+
+                input.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        const firstInput =
+            document.querySelector(
+                ".answer"
+            );
+
+
+        if (firstInput) {
+
+            firstInput.focus();
+
+        }
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to G1 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+
+
+        const questions =
+            document.querySelectorAll(
+                ".question"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+
+        const answers = [];
+
+
+        questions.forEach(question => {
+
+            const number =
+                question.dataset.number;
+
+
+            const accepted =
+                question.dataset.answer
+                    .split("|")
+                    .map(normalizeAnswer);
+
+
+            const input =
+                question.querySelector(
+                    ".answer"
+                );
+
+
+            const userAnswer =
+                normalizeAnswer(
+                    input.value
+                );
+
+
+            answers.push(
+                number +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            input.disabled = true;
+
+
+            input.classList.remove(
+                "correct",
+                "wrong"
+            );
+
+
+            const isCorrect =
+                accepted.includes(
+                    userAnswer
+                );
+
+
+            if (isCorrect) {
+
+                score++;
+
+
+                input.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                mistakes.push(
+                    number
+                );
+
+
+                input.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    accepted[0];
+
+
+                question.appendChild(
+                    correct
+                );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/7";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(
+                                        ", "
+                                    )
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status ===
+                "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
+
+
 </body>
+
 </html>
