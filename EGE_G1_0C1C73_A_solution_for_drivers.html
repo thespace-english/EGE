@@ -1,185 +1,1165 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE G1 0C1C73 A solution for drivers</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Space — 0C1C73</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: 'Verdana', sans-serif; margin: 0; background: #f0f2f5; height: 100vh; display: flex; flex-direction: column; }
-        
-        header { background: #2c3e50; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; flex-shrink: 0; }
-        
-        .main-container { display: flex; flex: 1; overflow: hidden; }
 
-        /* ТЕКСТ СЛЕВА */
-        .text-panel { flex: 1; overflow-y: auto; padding: 40px; background: white; border-right: 2px solid #ddd; line-height: 1.9; font-size: 18px; }
-        .gap-input { 
-            border: none; border-bottom: 2px solid #e67e22; width: 220px; 
-            font-size: 18px; font-weight: bold; text-align: center; color: #2c3e50; outline: none;
-            background: #fff5eb;
+        * {
+            box-sizing: border-box;
         }
 
-        /* ТЕСТ СПРАВА */
-        .quiz-panel { flex: 1; overflow-y: auto; padding: 30px; background: #fdfefe; }
-        
-        .card { 
-            background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e8e8;
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
         }
 
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .card-num { color: #e67e22; font-weight: bold; font-size: 14px; }
-        .base-word { background: #34495e; color: white; padding: 2px 10px; border-radius: 4px; font-weight: bold; }
-        
-        .user-answer { 
-            width: 100%; padding: 12px; border: 2px solid #ebedef; border-radius: 6px; 
-            font-size: 16px; outline: none; text-transform: uppercase;
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #173D43;
+
+            background:
+                radial-gradient(
+                    circle at 8% 88%,
+                    rgba(87,209,198,0.22),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #F7FCFA 0%,
+                    #EDF8F5 52%,
+                    #E4F5F1 100%
+                );
         }
-        .user-answer:focus { border-color: #e67e22; }
 
-        .correct-bg { background: #d4edda !important; border-color: #28a745 !important; }
-        .wrong-bg { background: #f8d7da !important; border-color: #dc3545 !important; }
 
-        .action-area { padding-bottom: 100px; }
-        .btn-main { 
-            width: 100%; padding: 20px; background: #e67e22; color: white; 
-            border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; 
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 900px;
+            height: 900px;
+
+            top: -680px;
+            right: -290px;
+
+            border-radius: 50%;
+
+            border:
+                28px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.92);
+
+            pointer-events: none;
+
+            z-index: 0;
         }
-        .btn-main:hover { background: #d35400; }
 
-        /* ЭКРАН ВХОДА */
-        #auth-screen { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #2c3e50; z-index: 9999; display: flex; align-items: center; justify-content: center; 
+
+        .page {
+            width: 100%;
+            max-width: 980px;
+
+            margin: 0 auto;
+
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
         }
-        .auth-box { background: white; padding: 40px; border-radius: 15px; text-align: center; width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .auth-box input { padding: 12px; width: 100%; border: 1px solid #bdc3c7; border-radius: 6px; margin-bottom: 25px; font-size: 16px; outline: none; }
 
-        .hidden { display: none !important; }
-        #score-msg { text-align: center; font-size: 22px; font-weight: bold; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
-        
-        hr { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border-radius: 10px;
+
+            color: #138E87;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            background:
+                rgba(255,255,255,0.55);
+
+            border:
+                1px solid rgba(255,255,255,0.80);
+        }
+
+
+        .intro-card,
+        .quiz-card,
+        .result-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+        }
+
+
+        .intro-card {
+            margin-bottom: 20px;
+        }
+
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 27px;
+
+            color: #173D43;
+        }
+
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+
+        .quiz-card {
+            padding-bottom: 36px;
+        }
+
+
+        .text-title {
+            margin: 10px 0 22px;
+
+            font-size: 22px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        .text-title.second {
+            margin-top: 38px;
+
+            padding-top: 28px;
+
+            border-top:
+                1px solid rgba(122,160,149,0.18);
+        }
+
+
+        .question {
+            margin-bottom: 27px;
+            padding-bottom: 25px;
+
+            border-bottom:
+                1px solid rgba(122,160,149,0.15);
+        }
+
+
+        .question-row {
+            display: grid;
+
+            grid-template-columns:
+                1fr 160px;
+
+            gap: 24px;
+
+            align-items: start;
+        }
+
+
+        .sentence {
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+
+        .number {
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+
+        .base-word {
+            text-align: right;
+
+            font-size: 17px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            color: #138E87;
+        }
+
+
+        .answer {
+            width: 245px;
+
+            margin-top: 12px;
+            padding: 12px 14px;
+
+            border:
+                1px solid rgba(122,160,149,0.28);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,0.80);
+
+            color: #173D43;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+
+            outline: none;
+        }
+
+
+        .answer:focus {
+            border-color:
+                rgba(19,142,135,0.65);
+
+            box-shadow:
+                0 0 0 3px rgba(19,142,135,0.08);
+        }
+
+
+        .answer.correct {
+            border-color: #4AAE8A;
+            background: rgba(217,245,232,0.76);
+        }
+
+
+        .answer.wrong {
+            border-color: #D48888;
+            background: rgba(250,225,225,0.76);
+        }
+
+
+        .correct-answer {
+            margin-top: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #138E87;
+        }
+
+
+        .check-button {
+            width: 100%;
+
+            margin-top: 10px;
+            padding: 15px 20px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+
+        .check-button:hover {
+            opacity: 0.93;
+        }
+
+
+        .result-card {
+            display: none;
+
+            margin-top: 20px;
+
+            text-align: center;
+        }
+
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+
+        .result-saved {
+            margin-bottom: 20px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+
+        .return-link {
+            display: inline-block;
+
+            color: #138E87;
+
+            text-decoration: none;
+
+            font-weight: 800;
+        }
+
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .brand {
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding:
+                    85px 15px 100px;
+            }
+
+            .intro-card,
+            .quiz-card {
+                padding: 22px;
+            }
+
+            .question-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .base-word {
+                text-align: left;
+            }
+
+            .answer {
+                width: 100%;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
 </head>
+
+
 <body>
 
-<div id="auth-screen">
-    <div class="auth-box">
-        <h3>EGE G1 0C1C73</h3>
-        <input type="text" id="userName" placeholder="Введите ваше имя">
-        <button class="btn-main" onclick="startQuiz()">Начать</button>
+<a
+    id="backTop"
+    href="https://thespace-english.github.io/The-Space-Trainer/ege-g1.html"
+    class="back-button"
+>
+    ← BACK TO G1
+</a>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · G1
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            0C1C73
+        </div>
+
+        <h1>
+            A solution for drivers & Meteora
+        </h1>
+
+        <p class="instruction">
+            Transform the words in capital letters so that they
+            grammatically match the content of the texts.
+        </p>
+
     </div>
+
+
+    <div class="quiz-card">
+
+
+        <div class="text-title">
+            A solution for drivers
+        </div>
+
+
+        <!-- 19 -->
+
+        <div
+            class="question"
+            data-number="19"
+            data-answer="DOES NOT HELP|DOESN'T HELP"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">19.</span>
+                    It’s a problem for any driver to drive in sunny
+                    weather. Wearing sunglasses __________________
+                    much – it’s still very hard to see anything in
+                    front of you.
+                </div>
+
+                <div class="base-word">
+                    NOT HELP
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <!-- 20 -->
+
+        <div
+            class="question"
+            data-number="20"
+            data-answer="WERE INVENTED"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">20.</span>
+                    Now there is a solution to this problem.
+                    In 2011 LCD sunglasses __________________.
+                    They dynamically block direct sunlight.
+                </div>
+
+                <div class="base-word">
+                    INVENT
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <!-- 21 -->
+
+        <div
+            class="question"
+            data-number="21"
+            data-answer="WILL USE"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">21.</span>
+                    There’s no doubt that in the future more drivers
+                    __________________ them.
+                </div>
+
+                <div class="base-word">
+                    USE
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div class="text-title second">
+            Meteora
+        </div>
+
+
+        <!-- 22 -->
+
+        <div
+            class="question"
+            data-number="22"
+            data-answer="IS SITUATED"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">22.</span>
+                    Meteora is an area that attracts thousands
+                    of tourists from all over the world.
+                    Meteora __________________ in Greece.
+                </div>
+
+                <div class="base-word">
+                    SITUATE
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <!-- 23 -->
+
+        <div
+            class="question"
+            data-number="23"
+            data-answer="BUILT"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">23.</span>
+                    It is famous for the ancient monasteries
+                    __________________ right on the eroded rocks.
+                </div>
+
+                <div class="base-word">
+                    BUILD
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <!-- 24 -->
+
+        <div
+            class="question"
+            data-number="24"
+            data-answer="VISITING"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">24.</span>
+                    Now tourists enjoy __________________ them
+                    and they take numerous pictures.
+                </div>
+
+                <div class="base-word">
+                    VISIT
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <!-- 25 -->
+
+        <div
+            class="question"
+            data-number="25"
+            data-answer="BEST"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">25.</span>
+                    The __________________ way to reach this
+                    amazing place is to take a bus from Athens.
+                </div>
+
+                <div class="base-word">
+                    GOOD
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <button
+            id="checkButton"
+            class="check-button"
+            onclick="checkAnswers()"
+        >
+            CHECK ANSWERS
+        </button>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        >
+            Result saved
+        </div>
+
+        <a
+            id="backBottom"
+            class="return-link"
+            href="#"
+        >
+            Back to G1
+        </a>
+
+    </div>
+
+
 </div>
 
-<header>EGE G1 0C1C73 A solution for drivers & Meteora (19–25)</header>
 
-<div class="main-container">
-    <div class="text-panel">
-        <h2>A solution for drivers</h2>
-        <p>It’s a problem for any driver to drive in sunny weather. Wearing sunglasses <input type="text" class="gap-input" id="g19" readonly> (19) much – it’s still very hard to see anything in front of you.</p>
-        
-        <p>Now there is a solution to this problem. In 2011 LCD sunglasses <input type="text" class="gap-input" id="g20" readonly> (20). They dynamically block direct sunlight. There’s no doubt that in the future more drivers <input type="text" class="gap-input" id="g21" readonly> (21) them.</p>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-        <hr>
-
-        <h2>Meteora</h2>
-        <p>Meteora is an area that attracts thousands of tourists from all over the world. Meteora <input type="text" class="gap-input" id="g22" readonly> (22) in Greece. It is famous for the ancient monasteries <input type="text" class="gap-input" id="g23" readonly> (23) right on the eroded rocks.</p>
-        
-        <p>Now tourists enjoy <input type="text" class="gap-input" id="g24" readonly> (24) them and they take numerous pictures. The <input type="text" class="gap-input" id="g25" readonly> (25) way to reach this amazing place is to take a bus from Athens.</p>
-    </div>
-
-    <div class="quiz-panel">
-        <div class="card" data-ans="DOESNOTHELP,DOESN'THELP">
-            <div class="card-header"><span class="card-num">Задание 19</span> <span class="base-word">NOT HELP</span></div>
-            <input type="text" class="user-answer" oninput="sync(19, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="WEREINVENTED">
-            <div class="card-header"><span class="card-num">Задание 20</span> <span class="base-word">INVENT</span></div>
-            <input type="text" class="user-answer" oninput="sync(20, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="WILLUSE">
-            <div class="card-header"><span class="card-num">Задание 21</span> <span class="base-word">USE</span></div>
-            <input type="text" class="user-answer" oninput="sync(21, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="ISSITUATED">
-            <div class="card-header"><span class="card-num">Задание 22</span> <span class="base-word">SITUATE</span></div>
-            <input type="text" class="user-answer" oninput="sync(22, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="BUILT">
-            <div class="card-header"><span class="card-num">Задание 23</span> <span class="base-word">BUILD</span></div>
-            <input type="text" class="user-answer" oninput="sync(23, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="VISITING">
-            <div class="card-header"><span class="card-num">Задание 24</span> <span class="base-word">VISIT</span></div>
-            <input type="text" class="user-answer" oninput="sync(24, this.value)" placeholder="Ваш ответ...">
-        </div>
-        <div class="card" data-ans="BEST">
-            <div class="card-header"><span class="card-num">Задание 25</span> <span class="base-word">GOOD</span></div>
-            <input type="text" class="user-answer" oninput="sync(25, this.value)" placeholder="Ваш ответ...">
-        </div>
-
-        <div id="score-msg" class="hidden"></div>
-        <div class="action-area">
-            <button class="btn-main" id="checkBtn" onclick="runCheck()">Проверить ответы</button>
-        </div>
-    </div>
-</div>
 
 <script>
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
 
-    function startQuiz() {
-        const name = document.getElementById('userName').value.trim();
-        if(name !== "") {
-            document.getElementById('auth-screen').classList.add('hidden');
-        } else { alert("Введите имя!"); }
+    /* =========================================
+       SETTINGS
+    ========================================= */
+
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE =
+        "EGE";
+
+    const SECTION =
+        "G1";
+
+    const TASK_ID =
+        "0C1C73";
+
+
+    /* =========================================
+       STUDENT FROM URL
+    ========================================= */
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function sync(num, val) {
-        document.getElementById('g' + num).value = val.toUpperCase();
+
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
     }
 
-    function runCheck() {
-        let count = 0;
-        let details = [];
-        document.querySelectorAll('.card').forEach((c, idx) => {
-            const acceptedForms = c.dataset.ans.split(',');
-            const input = c.querySelector('.user-answer');
-            
-            // Получаем чистый ответ: верхний регистр, замена кавычек
-            const rawVal = input.value.trim().toUpperCase().replace(/’/g, "'");
-            // Убираем ВСЕ пробелы для сравнения с ключом
-            const compareVal = rawVal.replace(/\s+/g, '');
-            
-            details.push(`Q${idx+19}:${rawVal}`);
-            
-            if(acceptedForms.some(form => form === compareVal)) {
-                input.classList.add('correct-bg');
-                count++;
-            } else {
-                input.classList.add('wrong-bg');
-                input.value = rawVal + " (Right: " + acceptedForms[0] + ")";
-            }
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    /* =========================================
+       BACK LINKS
+    ========================================= */
+
+    const G1_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-g1.html";
+
+
+    const returnUrl =
+        student
+            ? G1_URL +
+              "?student=" +
+              encodeURIComponent(student)
+            : G1_URL;
+
+
+    document.getElementById(
+        "backTop"
+    ).href =
+        returnUrl;
+
+
+    document.getElementById(
+        "backBottom"
+    ).href =
+        returnUrl;
+
+
+    /* =========================================
+       NORMALIZE
+    ========================================= */
+
+    function normalizeAnswer(value) {
+
+        return String(value || "")
+            .trim()
+            .replace(/\s+/g, " ")
+            .replace(/[’‘]/g, "'")
+            .toUpperCase();
+
+    }
+
+
+    /* =========================================
+       CHECK
+    ========================================= */
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to G1 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        const questions =
+            document.querySelectorAll(
+                ".question"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+
+        const answers = [];
+
+
+        questions.forEach(question => {
+
+            const number =
+                question.dataset.number;
+
+
+            const accepted =
+                question.dataset.answer
+                    .split("|")
+                    .map(normalizeAnswer);
+
+
+            const input =
+                question.querySelector(
+                    ".answer"
+                );
+
+
+            const userAnswer =
+                normalizeAnswer(
+                    input.value
+                );
+
+
+            answers.push(
+                number +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
             input.disabled = true;
+
+
+            const isCorrect =
+                accepted.includes(
+                    userAnswer
+                );
+
+
+            if (isCorrect) {
+
+                score++;
+
+                input.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                mistakes.push(
+                    number
+                );
+
+
+                input.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    accepted[0];
+
+
+                question.appendChild(
+                    correct
+                );
+
+            }
+
         });
 
-        const finalScore = `${count} из 7`;
-        const info = document.getElementById('score-msg');
-        info.innerText = "Результат: " + finalScore;
-        info.classList.remove('hidden');
-        info.style.background = count >= 6 ? "#d4edda" : "#f8d7da";
-        document.getElementById('checkBtn').classList.add('hidden');
 
-        fetch(SHEET_URL, {
-            method: "POST", mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE G1 0C1C73 A solution for drivers",
-                result: finalScore,
-                answers: details.join(", ")
-            })
+        const result =
+            score + "/7";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        /* =========================================
+           SEND TO RESULTS
+        ========================================= */
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(
+                                        ", "
+                                    )
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status ===
+                "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
         });
+
     }
+
 </script>
+
+
 </body>
+
 </html>
