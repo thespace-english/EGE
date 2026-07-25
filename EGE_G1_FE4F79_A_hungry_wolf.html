@@ -1,167 +1,1196 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE Grammar FE4F79</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdfdfd; padding: 20px; color: #2d3436; }
-        .container { max-width: 850px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h1 { color: #2980b9; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        .task-descr { background: #ebf5fb; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.5; border-left: 5px solid #3498db; }
-        
-        .q-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #f1f1f1; }
-        .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
-        .text { flex: 3; font-size: 18px; line-height: 1.6; text-align: justify; }
-        .word { flex: 1; text-align: right; font-weight: bold; color: #e67e22; font-size: 19px; letter-spacing: 1px; }
-        
-        input[type="text"] { width: 220px; padding: 10px; border: 2px solid #dfe6e9; border-radius: 6px; font-size: 17px; margin-top: 10px; text-transform: uppercase; transition: 0.3s; outline: none; }
-        
-        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
-        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
-        .ans-hint { display: block; margin-top: 8px; font-weight: bold; color: #27ae60; font-size: 15px; }
 
-        .btn { width: 100%; padding: 15px; background: #2980b9; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; margin-top: 20px; }
-        .btn:hover { background: #2471a3; }
-        
-        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdfdfd; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .hidden { display: none !important; }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Space — FE4F79</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: 'Nunito', sans-serif;
+
+            color: #173D43;
+
+            background:
+                radial-gradient(
+                    circle at 11% 88%,
+                    rgba(87, 209, 198, 0.26) 0%,
+                    rgba(87, 209, 198, 0.10) 28%,
+                    transparent 48%
+                ),
+                radial-gradient(
+                    circle at 74% 10%,
+                    rgba(116, 205, 195, 0.10) 0%,
+                    transparent 42%
+                ),
+                linear-gradient(
+                    135deg,
+                    #F7FCFA 0%,
+                    #EDF8F5 52%,
+                    #E4F5F1 100%
+                );
+
+            overflow-x: hidden;
+
+            position: relative;
+        }
+
+
+        /* верхняя дуга */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 900px;
+            height: 900px;
+
+            top: -680px;
+            right: -290px;
+
+            border-radius: 50%;
+
+            border:
+                28px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.92),
+                0 0 0 1px rgba(255,255,255,0.35),
+                0 12px 34px rgba(100,160,151,0.05);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        /* большой нижний круг */
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 285px;
+            height: 285px;
+
+            left: -45px;
+            bottom: -140px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.17),
+                    rgba(255,255,255,0.04)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.76);
+
+            box-shadow:
+                inset 2px 2px 8px rgba(255,255,255,0.30),
+                inset -3px -3px 10px rgba(82,165,154,0.04);
+
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        .page {
+            width: 100%;
+            max-width: 1040px;
+
+            margin: 0 auto;
+
+            padding:
+                80px
+                24px
+                120px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* средний круг */
+
+        .page::before {
+            content: "";
+
+            position: fixed;
+
+            width: 105px;
+            height: 105px;
+
+            left: 42px;
+            bottom: 105px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.22),
+                    rgba(255,255,255,0.05)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.76);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        /* маленький круг */
+
+        .page::after {
+            content: "";
+
+            position: fixed;
+
+            width: 70px;
+            height: 70px;
+
+            left: 200px;
+            bottom: 22px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.27),
+                    rgba(255,255,255,0.07)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.80);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        header {
+            text-align: center;
+
+            margin-bottom: 36px;
+        }
+
+
+        .logo {
+            margin: 0;
+
+            font-size: 58px;
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+
+        .section-title {
+            margin-top: 18px;
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            letter-spacing: 8px;
+
+            color: #168F89;
+        }
+
+
+        .intro-card,
+        .quiz-card,
+        .result-card {
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.78),
+                    rgba(255,255,255,0.60)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.94);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+        }
+
+
+        .intro-card {
+            padding: 28px 34px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .student-line {
+            font-size: 16px;
+
+            color: #536F68;
+
+            margin-bottom: 8px;
+        }
+
+
+        .task-code {
+            font-size: 17px;
+
+            font-weight: 800;
+
+            color: #138E87;
+
+            margin-bottom: 6px;
+        }
+
+
+        .task-name {
+            margin: 0;
+
+            font-size: 30px;
+
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+
+        .instruction {
+            margin-top: 18px;
+
+            font-size: 17px;
+
+            line-height: 1.6;
+
+            color: #536F68;
+        }
+
+
+        .quiz-card {
+            padding: 34px;
+        }
+
+
+        .subheading {
+            margin:
+                10px
+                0
+                24px;
+
+            font-size: 23px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        .q-item {
+            padding:
+                24px
+                0
+                28px;
+
+            border-bottom:
+                1px solid rgba(122,160,149,0.16);
+        }
+
+
+        .q-item:last-child {
+            border-bottom: none;
+        }
+
+
+        .row {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                150px;
+
+            gap: 24px;
+
+            align-items: start;
+        }
+
+
+        .text {
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #173D43;
+        }
+
+
+        .word {
+            text-align: right;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            color: #138E87;
+        }
+
+
+        input[type="text"] {
+            width: 250px;
+
+            max-width: 100%;
+
+            margin-top: 14px;
+
+            padding: 13px 15px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid rgba(122,160,149,0.28);
+
+            background:
+                rgba(255,255,255,0.78);
+
+            font-family: 'Nunito', sans-serif;
+
+            font-size: 17px;
+
+            color: #173D43;
+
+            text-transform: uppercase;
+
+            outline: none;
+        }
+
+
+        input[type="text"]:focus {
+            border-color:
+                rgba(19,142,135,0.55);
+
+            box-shadow:
+                0 0 0 3px rgba(19,142,135,0.08);
+        }
+
+
+        .correct {
+            margin:
+                0
+                -16px;
+
+            padding:
+                24px
+                16px
+                28px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(112, 200, 164, 0.16);
+        }
+
+
+        .wrong {
+            margin:
+                0
+                -16px;
+
+            padding:
+                24px
+                16px
+                28px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(224, 141, 141, 0.15);
+        }
+
+
+        .ans-hint {
+            display: block;
+
+            margin-top: 10px;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        .btn {
+            width: 100%;
+
+            margin-top: 26px;
+
+            padding: 16px 22px;
+
+            border: none;
+
+            border-radius: 16px;
+
+            background:
+                #138E87;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 28px rgba(19,142,135,0.18);
+        }
+
+
+        .btn:disabled {
+            opacity: 0.65;
+            cursor: default;
+            transform: none;
+        }
+
+
+        .result-card {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 28px 32px;
+
+            text-align: center;
+        }
+
+
+        .result-score {
+            margin: 0 0 8px;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        .result-text {
+            margin: 0;
+
+            color: #536F68;
+
+            font-size: 17px;
+        }
+
+
+        .save-status {
+            margin-top: 10px;
+
+            font-size: 14px;
+
+            color: #536F68;
+        }
+
+
+        .back-link {
+            display: inline-block;
+
+            margin-top: 18px;
+
+            color: #138E87;
+
+            font-weight: 800;
+
+            text-decoration: none;
+        }
+
+
+        .corner-logo {
+            position: fixed;
+
+            right: 28px;
+            bottom: 22px;
+
+            width: 180px;
+            height: auto;
+
+            z-index: 10;
+
+            object-fit: contain;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .page {
+                padding:
+                    70px
+                    18px
+                    110px;
+            }
+
+
+            .logo {
+                font-size: 39px;
+
+                letter-spacing: 5px;
+            }
+
+
+            .section-title {
+                font-size: 16px;
+
+                letter-spacing: 6px;
+            }
+
+
+            .intro-card,
+            .quiz-card {
+                padding: 24px;
+            }
+
+
+            .task-name {
+                font-size: 25px;
+            }
+
+
+            .row {
+                grid-template-columns: 1fr;
+
+                gap: 10px;
+            }
+
+
+            .word {
+                text-align: left;
+            }
+
+
+            .corner-logo {
+                width: 125px;
+
+                right: 15px;
+                bottom: 15px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="setup">
-    <div style="text-align: center; width: 320px;">
-        <h2 style="color:#2980b9">EGE Grammar</h2>
-        <p>A hungry wolf & Light bulb</p>
-        <input type="text" id="studentName" placeholder="Введите ваше Имя" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #3498db; border-radius: 6px;"><br>
-        <button class="btn" onclick="startApp()">Начать тест</button>
+
+    <div class="page">
+
+
+        <header>
+
+            <div class="logo">
+                THE SPACE
+            </div>
+
+            <div class="section-title">
+                EGE · G1
+            </div>
+
+        </header>
+
+
+        <div class="intro-card">
+
+            <div
+                id="studentLine"
+                class="student-line"
+            ></div>
+
+            <div class="task-code">
+                FE4F79
+            </div>
+
+            <h1 class="task-name">
+                A hungry wolf
+            </h1>
+
+            <div class="instruction">
+                Transform the words in capital letters so that they grammatically match the content of the texts.
+            </div>
+
+        </div>
+
+
+        <div class="quiz-card">
+
+            <div id="quiz">
+
+
+                <div class="subheading">
+                    A hungry wolf
+                </div>
+
+
+                <div
+                    class="q-item"
+                    data-res="TOLD"
+                    data-number="19"
+                >
+
+                    <div class="row">
+
+                        <div class="text">
+                            <b>19.</b>
+                            An old nurse was putting a baby to bed. She __________________ the boy to be quiet otherwise she would give him to a wolf.
+                        </div>
+
+                        <div class="word">
+                            TELL
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        class="ans"
+                        placeholder="Your answer"
+                    >
+
+                </div>
+
+
+                <div
+                    class="q-item"
+                    data-res="WAS SCREAMING"
+                    data-number="20"
+                >
+
+                    <div class="row">
+
+                        <div class="text">
+                            <b>20.</b>
+                            But the child __________________ even more and more loudly.
+                        </div>
+
+                        <div class="word">
+                            SCREAM
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        class="ans"
+                        placeholder="Your answer"
+                    >
+
+                </div>
+
+
+                <div
+                    class="q-item"
+                    data-res="HAVE NOT HAD/HAVEN'T HAD"
+                    data-number="21"
+                >
+
+                    <div class="row">
+
+                        <div class="text">
+                            <b>21.</b>
+                            The wolf heard the screams and thought to himself, “I __________________ any lunch yet. This boy is just what I need.” But the old nurse shut the door and all the windows, and the wolf had to go away. Never trust enemies’ promises.
+                        </div>
+
+                        <div class="word">
+                            NOT HAVE
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        class="ans"
+                        placeholder="Your answer"
+                    >
+
+                </div>
+
+
+                <div class="subheading">
+                    The invention of the light bulb
+                </div>
+
+
+                <div
+                    class="q-item"
+                    data-res="WAS INVENTED"
+                    data-number="22"
+                >
+
+                    <div class="row">
+
+                        <div class="text">
+                            <b>22.</b>
+                            Every person in the world knows about Thomas Edison. The electric light bulb __________________ by this famous scientist.
+                        </div>
+
+                        <div class="word">
+                            INVENT
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        class="ans"
+                        placeholder="Your answer"
+                    >
+
+                </div>
+
+
+                <div
+                    class="q-item"
+                    data-res="ILLUMINATING"
+                    data-number="23"
+                >
+
+                    <div class="row">
+
+                        <div class="text">
+                            <b>23.</b>
+                            The electrification of the modern world profoundly changed human life, __________________ the night.
+                        </div>
+
+                        <div class="word">
+                            ILLUMINATE
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        class="ans"
+                        placeholder="Your answer"
+                    >
+
+                </div>
+
+
+                <div
+                    class="q-item"
+                    data-res="FIRST"
+                    data-number="24"
+                >
+
+                    <div class="row">
+
+                        <div class="text">
+                            <b>24.</b>
+                            The __________________ electric bulb made it possible for people to continue their usual day activities after dark.
+                        </div>
+
+                        <div class="word">
+                            ONE
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        class="ans"
+                        placeholder="Your answer"
+                    >
+
+                </div>
+
+
+                <div
+                    class="q-item"
+                    data-res="LIVES"
+                    data-number="25"
+                >
+
+                    <div class="row">
+
+                        <div class="text">
+                            <b>25.</b>
+                            Edison started with a 40-hour life light bulb and finally made a bulb that lasted for 1500 hours. This certainly revolutionized human __________________ at that time.
+                        </div>
+
+                        <div class="word">
+                            LIFE
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        class="ans"
+                        placeholder="Your answer"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="btn"
+                id="finishBtn"
+                onclick="checkAndSend()"
+            >
+                CHECK
+            </button>
+
+        </div>
+
+
+        <div
+            id="resultCard"
+            class="result-card"
+        >
+
+            <h2
+                id="resultScore"
+                class="result-score"
+            ></h2>
+
+            <p
+                id="resultText"
+                class="result-text"
+            ></p>
+
+            <div
+                id="saveStatus"
+                class="save-status"
+            ></div>
+
+            <a
+                href="https://thespace-english.github.io/The-Space-Trainer/ege-g1.html"
+                class="back-link"
+            >
+                Back to G1
+            </a>
+
+        </div>
+
+
     </div>
-</div>
 
-<div class="container">
-    <h1>EGE G1 FE4F79 A hungry wolf</h1>
-    <div class="task-descr">
-        Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–25.
-    </div>
 
-    <div id="quiz">
-        <h3 style="color: #2c3e50;">A hungry wolf</h3>
-        
-        <div class="q-item" data-res="TOLD">
-            <div class="row">
-                <div class="text"><b>19.</b> An old nurse was putting a baby to bed. She __________________ the boy to be quiet otherwise she would give him to a wolf.</div>
-                <div class="word">TELL</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ответ...">
-        </div>
+    <img
+        src="logo.png"
+        class="corner-logo"
+        alt="The Space English Online"
+    >
 
-        <div class="q-item" data-res="WAS SCREAMING">
-            <div class="row">
-                <div class="text"><b>20.</b> But the child __________________ even more and more loudly.</div>
-                <div class="word">SCREAM</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ответ...">
-        </div>
 
-        <div class="q-item" data-res="HAVE NOT HAD/HAVEN'T HAD">
-            <div class="row">
-                <div class="text"><b>21.</b> The wolf heard the screams and thought to himself, “I __________________ any lunch yet. This boy is just what I need.” But the old nurse shut the door and all the windows, and the wolf had to go away. Never trust enemies’ promises.</div>
-                <div class="word">NOT HAVE</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ответ...">
-        </div>
+    <script>
 
-        <h3 style="color: #2c3e50; margin-top: 40px;">The invention of the light bulb</h3>
+        const API_URL =
+            "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
 
-        <div class="q-item" data-res="WAS INVENTED">
-            <div class="row">
-                <div class="text"><b>22.</b> Every person in the world knows about Thomas Edison. The electric light bulb __________________ by this famous scientist.</div>
-                <div class="word">INVENT</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ответ...">
-        </div>
 
-        <div class="q-item" data-res="ILLUMINATING">
-            <div class="row">
-                <div class="text"><b>23.</b> The electrification of the modern world profoundly changed human life, __________________ the night.</div>
-                <div class="word">ILLUMINATE</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ответ...">
-        </div>
+        const COURSE = "EGE";
+        const SECTION = "G1";
+        const TASK_ID = "FE4F79";
 
-        <div class="q-item" data-res="FIRST">
-            <div class="row">
-                <div class="text"><b>24.</b> The __________________ electric bulb made it possible for people to continue their usual day activities after dark.</div>
-                <div class="word">ONE</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ответ...">
-        </div>
 
-        <div class="q-item" data-res="LIVES">
-            <div class="row">
-                <div class="text"><b>25.</b> Edison started with a 40-hour life light bulb and finally made a bulb that lasted for 1500 hours. This certainly revolutionized human __________________ at that time.</div>
-                <div class="word">LIFE</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ответ...">
-        </div>
-    </div>
+        /* =========================================
+           УЧЕНИК ИЗ URL
+        ========================================= */
 
-    <button class="btn" id="finishBtn" onclick="sendResult()">Проверить и отправить результат</button>
-    <div id="final" class="hidden" style="text-align: center; margin-top: 20px;">
-        <h2 id="score" style="color:#27ae60"></h2>
-    </div>
-</div>
+        const params =
+            new URLSearchParams(window.location.search);
 
-<script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+        let student =
+            params.get("student") || "";
 
-    function startApp() {
-        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
-        document.getElementById('setup').classList.add('hidden');
-    }
 
-    function sendResult() {
-        let score = 0;
-        let logs = [];
-        const items = document.querySelectorAll('.q-item');
+        if (!student) {
+            student =
+                localStorage.getItem("theSpaceStudent") || "";
+        }
 
-        items.forEach((item, i) => {
-            const possible = item.getAttribute('data-res').split('/');
-            const input = item.querySelector('.ans');
-            const userAns = input.value.trim().toUpperCase();
-            
-            logs.push(`Q${i+19}:${userAns || "-"}`);
-            input.disabled = true;
 
-            if(possible.includes(userAns)) {
-                score++;
-                input.classList.add('status-correct');
-            } else {
-                input.classList.add('status-wrong');
-                const hint = document.createElement('span');
-                hint.className = 'ans-hint';
-                hint.innerText = "Правильно: " + possible[0];
-                item.appendChild(hint);
+        document.getElementById("studentLine").textContent =
+            student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+        /* =========================================
+           ПРОВЕРКА + ОТПРАВКА
+        ========================================= */
+
+        async function checkAndSend() {
+
+            if (!student) {
+                alert("Please return to G1 and choose your name.");
+                return;
             }
-        });
 
-        const total = score + "/7";
-        document.getElementById('finishBtn').classList.add('hidden');
-        document.getElementById('final').classList.remove('hidden');
-        document.getElementById('score').innerText = "Результат: " + total;
 
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('studentName').value,
-                task: "EGE G1 FE4F79 A hungry wolf",
-                result: total,
-                answers: logs.join(", ")
-            })
-        });
-    }
-</script>
+            const button =
+                document.getElementById("finishBtn");
+
+            button.disabled = true;
+            button.textContent = "CHECKING...";
+
+
+            let score = 0;
+
+            const mistakes = [];
+            const answers = [];
+
+            const items =
+                document.querySelectorAll(".q-item");
+
+
+            items.forEach(item => {
+
+                const number =
+                    item.dataset.number;
+
+                const possible =
+                    item
+                        .dataset
+                        .res
+                        .split("/")
+                        .map(answer => answer.trim().toUpperCase());
+
+
+                const input =
+                    item.querySelector(".ans");
+
+
+                const userAnswer =
+                    input
+                        .value
+                        .trim()
+                        .toUpperCase();
+
+
+                answers.push(
+                    number +
+                    ":" +
+                    (userAnswer || "-")
+                );
+
+
+                input.disabled = true;
+
+
+                if (possible.includes(userAnswer)) {
+
+                    score++;
+
+                    item.classList.add("correct");
+
+                } else {
+
+                    mistakes.push(number);
+
+                    item.classList.add("wrong");
+
+
+                    const hint =
+                        document.createElement("span");
+
+                    hint.className =
+                        "ans-hint";
+
+                    hint.textContent =
+                        "Correct: " +
+                        possible[0];
+
+
+                    item.appendChild(hint);
+
+                }
+
+            });
+
+
+            const total =
+                score + "/" + items.length;
+
+
+            const resultCard =
+                document.getElementById("resultCard");
+
+            const resultScore =
+                document.getElementById("resultScore");
+
+            const resultText =
+                document.getElementById("resultText");
+
+            const saveStatus =
+                document.getElementById("saveStatus");
+
+
+            resultCard.style.display =
+                "block";
+
+
+            resultScore.textContent =
+                total;
+
+
+            if (mistakes.length === 0) {
+
+                resultText.textContent =
+                    "Excellent! All answers are correct.";
+
+            } else {
+
+                resultText.textContent =
+                    "Mistakes: " +
+                    mistakes.join(", ");
+
+            }
+
+
+            saveStatus.textContent =
+                "Saving result...";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        API_URL,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "text/plain;charset=utf-8"
+                            },
+
+                            body: JSON.stringify({
+                                student: student,
+                                course: COURSE,
+                                section: SECTION,
+                                taskId: TASK_ID,
+                                result: total,
+                                mistakes:
+                                    mistakes.length
+                                    ? mistakes.join(", ")
+                                    : "",
+                                answers:
+                                    answers.join(", ")
+                            })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (data.status === "success") {
+
+                    saveStatus.textContent =
+                        "Result saved · Attempt " +
+                        data.attempt;
+
+                } else {
+
+                    throw new Error(
+                        data.message ||
+                        "Save error"
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                saveStatus.textContent =
+                    "Result could not be saved.";
+
+            }
+
+
+            button.style.display =
+                "none";
+
+
+            resultCard.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+    </script>
+
 
 </body>
+
 </html>
