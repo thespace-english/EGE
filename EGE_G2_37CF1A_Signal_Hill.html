@@ -1,152 +1,1335 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE Word Formation: Signal Hill</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Space — 37CF1A</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdfdfd; padding: 20px; color: #2d3436; }
-        .container { max-width: 850px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h1 { color: #27ae60; text-align: center; border-bottom: 2px solid #2ecc71; padding-bottom: 10px; }
-        .task-descr { background: #f0fff4; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.5; border-left: 5px solid #2ecc71; }
-        
-        .q-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #f1f1f1; }
-        .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
-        .text { flex: 3; font-size: 18px; line-height: 1.6; text-align: justify; }
-        .word { flex: 1; text-align: right; font-weight: bold; color: #2980b9; font-size: 19px; letter-spacing: 1px; }
-        
-        input[type="text"] { width: 220px; padding: 10px; border: 2px solid #dfe6e9; border-radius: 6px; font-size: 17px; margin-top: 10px; text-transform: uppercase; transition: 0.3s; }
-        input[type="text"]:focus { border-color: #2ecc71; outline: none; box-shadow: 0 0 5px rgba(46,204,113,0.3); }
 
-        .correct { background: #d4edda !important; border-radius: 8px; padding: 10px; }
-        .wrong { background: #f8d7da !important; border-radius: 8px; padding: 10px; }
-        .ans-hint { display: block; margin-top: 8px; font-weight: bold; color: #27ae60; font-size: 15px; }
+        * {
+            box-sizing: border-box;
+        }
 
-        .btn { width: 100%; padding: 15px; background: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; margin-top: 20px; }
-        .btn:hover { background: #219150; }
-        
-        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #fdfdfd; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .hidden { display: none !important; }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #173D43;
+
+            background:
+                radial-gradient(
+                    circle at 8% 88%,
+                    rgba(87,209,198,0.22),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #F7FCFA 0%,
+                    #EDF8F5 52%,
+                    #E4F5F1 100%
+                );
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 900px;
+            height: 900px;
+            top: -680px;
+            right: -290px;
+            border-radius: 50%;
+            border: 28px solid rgba(255,255,255,0.12);
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.92);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 55px 24px 120px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 7px;
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            z-index: 20;
+            padding: 9px 13px;
+            border: 0;
+            border-radius: 10px;
+            color: #138E87;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.55);
+            cursor: pointer;
+        }
+
+        .intro-card,
+        .quiz-card,
+        .result-card,
+        .review-card {
+            padding: 30px;
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border: 1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card {
+            margin-bottom: 20px;
+        }
+
+        .review-card {
+            display: none;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #536F68;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+            font-size: 27px;
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #607A74;
+        }
+
+        .quiz-card {
+            padding-bottom: 36px;
+        }
+
+        .text-title {
+            margin: 10px 0 22px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #138E87;
+        }
+
+        .question {
+            margin-bottom: 27px;
+            padding-bottom: 25px;
+            border-bottom:
+                1px solid rgba(122,160,149,0.15);
+        }
+
+        .question-row {
+            display: grid;
+            grid-template-columns: 1fr 160px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .sentence {
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .number {
+            font-weight: 800;
+            color: #173D43;
+        }
+
+        .base-word {
+            text-align: right;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #138E87;
+        }
+
+        .answer {
+            width: 245px;
+            margin-top: 12px;
+            padding: 12px 14px;
+
+            border:
+                1px solid rgba(122,160,149,0.28);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,0.80);
+
+            color: #173D43;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .answer:focus {
+            border-color: rgba(19,142,135,0.65);
+            box-shadow:
+                0 0 0 3px rgba(19,142,135,0.08);
+        }
+
+        .answer.correct {
+            border-color: #4AAE8A;
+            background:
+                rgba(217,245,232,0.76);
+        }
+
+        .answer.wrong {
+            border-color: #D48888;
+            background:
+                rgba(250,225,225,0.76);
+        }
+
+        .correct-answer {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #138E87;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .result-card {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+            font-size: 29px;
+            font-weight: 800;
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+            right: 25px;
+            bottom: 18px;
+            width: 145px;
+            z-index: 10;
+        }
+
+        @media (max-width: 700px) {
+
+            .brand {
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding: 85px 15px 100px;
+            }
+
+            .intro-card,
+            .quiz-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .question-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .base-word {
+                text-align: left;
+            }
+
+            .answer {
+                width: 100%;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
-<div id="setup">
-    <div style="text-align: center; width: 320px;">
-        <h2 style="color:#27ae60">EGE Word Formation</h2>
-        <p>Task 37CF1A: Signal Hill</p>
-        <input type="text" id="studentName" placeholder="Ваше Имя" style="text-transform: none; width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #2ecc71; border-radius: 6px;"><br>
-        <button class="btn" onclick="startApp()">Начать тест</button>
+
+<button
+    class="back-button"
+    onclick="goBackToG2()"
+>
+    ← BACK TO G2
+</button>
+
+
+<div class="page">
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · G2
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            37CF1A
+        </div>
+
+        <h1>
+            Signal Hill
+        </h1>
+
+        <p class="instruction">
+            Form a new word from the word in capital letters
+            so that it grammatically and lexically fits the text.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="quiz-card">
+
+        <div class="text-title">
+            Signal Hill
+        </div>
+
+
+        <div
+            class="question"
+            data-number="26"
+            data-answer="BEAUTIFUL"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">26.</span>
+                    Do you know about Signal Hill?
+                    This __________________ place is located
+                    in Canada, at the entrance to St. John’s harbour.
+                </div>
+
+                <div class="base-word">
+                    BEAUTY
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="27"
+            data-answer="ATTRACTION"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">27.</span>
+                    This is an important historical
+                    __________________ of Canada.
+                </div>
+
+                <div class="base-word">
+                    ATTRACT
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="28"
+            data-answer="EXACTLY"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">28.</span>
+                    It was __________________ here, in 1901,
+                    that the first wireless transatlantic signal
+                    was received.
+                </div>
+
+                <div class="base-word">
+                    EXACT
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="29"
+            data-answer="BUILDINGS"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">29.</span>
+                    The Cabot Tower is one of the key
+                    __________________ of Signal Hill.
+                </div>
+
+                <div class="base-word">
+                    BUILD
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="30"
+            data-answer="SYMBOLIZE|SYMBOLISE"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">30.</span>
+                    It was constructed in 1897 to
+                    __________________ the 400th anniversary
+                    of the discovery of Newfoundland.
+                    It also commemorates now G. Marconi’s
+                    reception of the first transatlantic
+                    wireless signal.
+                </div>
+
+                <div class="base-word">
+                    SYMBOL
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="31"
+            data-answer="TOURISTS"
+        >
+
+            <div class="question-row">
+
+                <div class="sentence">
+                    <span class="number">31.</span>
+                    __________________ can enjoy exhibitions
+                    on the history of Signal Hill and the history
+                    of communications (with a special section
+                    on Marconi).
+                </div>
+
+                <div class="base-word">
+                    TOUR
+                </div>
+
+            </div>
+
+            <input
+                class="answer"
+                type="text"
+                autocomplete="off"
+                placeholder="YOUR ANSWER"
+            >
+
+        </div>
+
+
+        <button
+            id="checkButton"
+            class="check-button"
+            onclick="checkAnswers()"
+        >
+            CHECK ANSWERS
+        </button>
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
 </div>
 
-<div class="container">
-    <h1>Signal Hill</h1>
-    <div class="task-descr">
-        Образуйте от слов в конце строк однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста.
-    </div>
 
-    <div id="quiz">
-        <div class="q-item" data-res="BEAUTIFUL">
-            <div class="row">
-                <div class="text"><b>26.</b> Do you know about Signal Hill? This __________________ place is located in Canada, at the entrance to St. John’s harbour.</div>
-                <div class="word">BEAUTY</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ваш ответ...">
-        </div>
-        <div class="q-item" data-res="ATTRACTION">
-            <div class="row">
-                <div class="text"><b>27.</b> This is an important historical __________________ of Canada.</div>
-                <div class="word">ATTRACT</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ваш ответ...">
-        </div>
-        <div class="q-item" data-res="EXACTLY">
-            <div class="row">
-                <div class="text"><b>28.</b> It was __________________ here, in 1901, that the first wireless transatlantic signal was received.</div>
-                <div class="word">EXACT</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ваш ответ...">
-        </div>
-        <div class="q-item" data-res="BUILDINGS">
-            <div class="row">
-                <div class="text"><b>29.</b> The Cabot Tower is one of the key __________________ of Signal Hill.</div>
-                <div class="word">BUILD</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ваш ответ...">
-        </div>
-        <div class="q-item" data-res="SYMBOLIZE/SYMBOLISE">
-            <div class="row">
-                <div class="text"><b>30.</b> It was constructed in 1897 to __________________ the 400th anniversary of the discovery of Newfoundland. It also commemorates now G. Marconi’s reception...</div>
-                <div class="word">SYMBOL</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ваш ответ...">
-        </div>
-        <div class="q-item" data-res="TOURISTS">
-            <div class="row">
-                <div class="text"><b>31.</b> __________________ can enjoy exhibitions on the history of Signal Hill and the history of communications (with a special section on Marconi).</div>
-                <div class="word">TOUR</div>
-            </div>
-            <input type="text" class="ans" placeholder="Ваш ответ...">
-        </div>
-    </div>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-    <button class="btn" id="finishBtn" onclick="sendResult()">Проверить и отправить результат</button>
-    <div id="final" class="hidden" style="text-align: center; margin-top: 20px;">
-        <h2 id="score" style="color:#27ae60"></h2>
-        <p>Результаты сохранены в вашу таблицу.</p>
-    </div>
-</div>
 
 <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
 
-    function startApp() {
-        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
-        document.getElementById('setup').classList.add('hidden');
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "G2";
+    const TASK_ID = "37CF1A";
+
+
+    const G2_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-g2.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function sendResult() {
-        let score = 0;
-        let logs = [];
-        const items = document.querySelectorAll('.q-item');
 
-        items.forEach((item, i) => {
-            const possible = item.getAttribute('data-res').split('/');
-            const input = item.querySelector('.ans');
-            const userAns = input.value.trim().toUpperCase();
-            
-            logs.push(`Q${i+26}:${userAns || "-"}`);
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToG2() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+            return;
+
+        }
+
+
+        let url = G2_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href = url;
+
+    }
+
+
+    function normalizeAnswer(value) {
+
+        return String(value || "")
+            .trim()
+            .replace(/\s+/g, " ")
+            .replace(/[’‘]/g, "'")
+            .toUpperCase();
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const number =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[number] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+
+                element.remove();
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        question,
+        userAnswer
+    ) {
+
+        const input =
+            question.querySelector(
+                ".answer"
+            );
+
+
+        const accepted =
+            question.dataset.answer
+                .split("|")
+                .map(normalizeAnswer);
+
+
+        const normalized =
+            normalizeAnswer(userAnswer);
+
+
+        input.value =
+            userAnswer || "";
+
+
+        input.disabled = true;
+
+
+        input.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+
+        if (
+            accepted.includes(normalized)
+        ) {
+
+            input.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            input.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "div"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                accepted[0];
+
+
+            question.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+
+
+            document
+                .querySelectorAll(
+                    ".question"
+                )
+                .forEach(question => {
+
+                    const number =
+                        question.dataset.number;
+
+
+                    showQuestionState(
+                        question,
+                        savedAnswers[number] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    function resetQuiz() {
+
+        clearHints();
+
+
+        document
+            .querySelectorAll(
+                ".answer"
+            )
+            .forEach(input => {
+
+                input.value = "";
+                input.disabled = false;
+
+                input.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        const firstInput =
+            document.querySelector(
+                ".answer"
+            );
+
+
+        if (firstInput) {
+
+            firstInput.focus();
+
+        }
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to G2 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+
+
+        const questions =
+            document.querySelectorAll(
+                ".question"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        questions.forEach(question => {
+
+            const number =
+                question.dataset.number;
+
+
+            const accepted =
+                question.dataset.answer
+                    .split("|")
+                    .map(normalizeAnswer);
+
+
+            const input =
+                question.querySelector(
+                    ".answer"
+                );
+
+
+            const userAnswer =
+                normalizeAnswer(
+                    input.value
+                );
+
+
+            answers.push(
+                number +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
             input.disabled = true;
 
-            if(possible.includes(userAns)) {
+
+            input.classList.remove(
+                "correct",
+                "wrong"
+            );
+
+
+            const isCorrect =
+                accepted.includes(
+                    userAnswer
+                );
+
+
+            if (isCorrect) {
+
                 score++;
-                item.classList.add('correct');
+
+                input.classList.add(
+                    "correct"
+                );
+
             } else {
-                item.classList.add('wrong');
-                const hint = document.createElement('span');
-                hint.className = 'ans-hint';
-                hint.innerText = "Правильно: " + possible[0];
-                item.appendChild(hint);
+
+                mistakes.push(number);
+
+                input.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    accepted[0];
+
+
+                question.appendChild(
+                    correct
+                );
+
             }
+
         });
 
-        const total = score + "/6";
-        document.getElementById('finishBtn').classList.add('hidden');
-        document.getElementById('final').classList.remove('hidden');
-        document.getElementById('score').innerText = "Результат: " + total;
 
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('studentName').value,
-                task: "EGE G2 37CF1A Signal Hill",
-                result: total,
-                answers: logs.join(", ")
-            })
+        const result =
+            score + "/6";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(", ")
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status === "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
         });
+
     }
+
+
+    loadLastAttempt();
+
 </script>
+
 
 </body>
 </html>
