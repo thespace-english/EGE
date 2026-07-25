@@ -60,8 +60,7 @@
 
             border-radius: 50%;
 
-            border:
-                28px solid rgba(255,255,255,0.12);
+            border: 28px solid rgba(255,255,255,0.12);
 
             box-shadow:
                 inset 0 0 0 1px rgba(255,255,255,0.92);
@@ -94,9 +93,7 @@
         .brand {
             font-size: 52px;
             font-weight: 800;
-
             letter-spacing: 8px;
-
             color: #138E87;
         }
 
@@ -106,7 +103,6 @@
 
             font-size: 18px;
             font-weight: 700;
-
             letter-spacing: 7px;
 
             color: #138E87;
@@ -123,28 +119,26 @@
 
             padding: 9px 13px;
 
+            border: 0;
             border-radius: 10px;
 
             color: #138E87;
 
-            text-decoration: none;
-
+            font-family: 'Nunito', sans-serif;
             font-size: 14px;
             font-weight: 800;
-
             letter-spacing: 1px;
 
-            background:
-                rgba(255,255,255,0.55);
+            background: rgba(255,255,255,0.55);
 
-            border:
-                1px solid rgba(255,255,255,0.80);
+            cursor: pointer;
         }
 
 
         .intro-card,
         .quiz-card,
-        .result-card {
+        .result-card,
+        .review-card {
             padding: 30px;
 
             border-radius: 24px;
@@ -161,11 +155,42 @@
 
             box-shadow:
                 0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
         }
 
 
         .intro-card {
             margin-bottom: 20px;
+        }
+
+
+        .review-card {
+            display: none;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+        }
+
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
         }
 
 
@@ -224,7 +249,6 @@
 
         .text-title.second {
             margin-top: 38px;
-
             padding-top: 28px;
 
             border-top:
@@ -244,8 +268,7 @@
         .question-row {
             display: grid;
 
-            grid-template-columns:
-                1fr 160px;
+            grid-template-columns: 1fr 160px;
 
             gap: 24px;
 
@@ -271,7 +294,6 @@
 
             font-size: 17px;
             font-weight: 800;
-
             letter-spacing: 1px;
 
             color: #138E87;
@@ -289,8 +311,7 @@
 
             border-radius: 11px;
 
-            background:
-                rgba(255,255,255,0.80);
+            background: rgba(255,255,255,0.80);
 
             color: #173D43;
 
@@ -302,8 +323,7 @@
 
 
         .answer:focus {
-            border-color:
-                rgba(19,142,135,0.65);
+            border-color: rgba(19,142,135,0.65);
 
             box-shadow:
                 0 0 0 3px rgba(19,142,135,0.08);
@@ -312,13 +332,17 @@
 
         .answer.correct {
             border-color: #4AAE8A;
-            background: rgba(217,245,232,0.76);
+
+            background:
+                rgba(217,245,232,0.76);
         }
 
 
         .answer.wrong {
             border-color: #D48888;
-            background: rgba(250,225,225,0.76);
+
+            background:
+                rgba(250,225,225,0.76);
         }
 
 
@@ -332,7 +356,8 @@
         }
 
 
-        .check-button {
+        .check-button,
+        .try-button {
             width: 100%;
 
             margin-top: 10px;
@@ -354,8 +379,14 @@
         }
 
 
-        .check-button:hover {
+        .check-button:hover,
+        .try-button:hover {
             opacity: 0.93;
+        }
+
+
+        .try-button {
+            margin-top: 18px;
         }
 
 
@@ -386,22 +417,11 @@
 
 
         .result-saved {
-            margin-bottom: 20px;
+            margin-bottom: 6px;
 
             font-size: 14px;
 
             color: #607A74;
-        }
-
-
-        .return-link {
-            display: inline-block;
-
-            color: #138E87;
-
-            text-decoration: none;
-
-            font-weight: 800;
         }
 
 
@@ -424,28 +444,36 @@
                 letter-spacing: 5px;
             }
 
+
             .page {
                 padding:
                     85px 15px 100px;
             }
 
+
             .intro-card,
-            .quiz-card {
+            .quiz-card,
+            .review-card {
                 padding: 22px;
             }
 
+
             .question-row {
                 grid-template-columns: 1fr;
+
                 gap: 8px;
             }
+
 
             .base-word {
                 text-align: left;
             }
 
+
             .answer {
                 width: 100%;
             }
+
 
             .corner-logo {
                 width: 105px;
@@ -459,13 +487,13 @@
 
 <body>
 
-<a
-    id="backTop"
-    href="https://thespace-english.github.io/The-Space-Trainer/ege-g1.html"
+
+<button
     class="back-button"
+    onclick="goBackToG1()"
 >
     ← BACK TO G1
-</a>
+</button>
 
 
 <div class="page">
@@ -507,6 +535,35 @@
     </div>
 
 
+    <!-- ПОСЛЕДНЯЯ ПОПЫТКА -->
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div
+            id="reviewTitle"
+            class="review-title"
+        >
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
     <div class="quiz-card">
 
 
@@ -514,8 +571,6 @@
             A solution for drivers
         </div>
 
-
-        <!-- 19 -->
 
         <div
             class="question"
@@ -549,8 +604,6 @@
         </div>
 
 
-        <!-- 20 -->
-
         <div
             class="question"
             data-number="20"
@@ -581,8 +634,6 @@
 
         </div>
 
-
-        <!-- 21 -->
 
         <div
             class="question"
@@ -619,8 +670,6 @@
         </div>
 
 
-        <!-- 22 -->
-
         <div
             class="question"
             data-number="22"
@@ -652,8 +701,6 @@
         </div>
 
 
-        <!-- 23 -->
-
         <div
             class="question"
             data-number="23"
@@ -684,8 +731,6 @@
         </div>
 
 
-        <!-- 24 -->
-
         <div
             class="question"
             data-number="24"
@@ -715,8 +760,6 @@
 
         </div>
 
-
-        <!-- 25 -->
 
         <div
             class="question"
@@ -778,17 +821,14 @@
         <div
             id="resultSaved"
             class="result-saved"
-        >
-            Result saved
-        </div>
+        ></div>
 
-        <a
-            id="backBottom"
-            class="return-link"
-            href="#"
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
         >
-            Back to G1
-        </a>
+            TRY AGAIN
+        </button>
 
     </div>
 
@@ -813,18 +853,17 @@
         "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
 
 
-    const COURSE =
-        "EGE";
+    const COURSE = "EGE";
+    const SECTION = "G1";
+    const TASK_ID = "0C1C73";
 
-    const SECTION =
-        "G1";
 
-    const TASK_ID =
-        "0C1C73";
+    const G1_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-g1.html";
 
 
     /* =========================================
-       STUDENT FROM URL
+       STUDENT
     ========================================= */
 
     const params =
@@ -866,31 +905,35 @@
 
 
     /* =========================================
-       BACK LINKS
+       BACK
     ========================================= */
 
-    const G1_URL =
-        "https://thespace-english.github.io/The-Space-Trainer/ege-g1.html";
+    function goBackToG1() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
+        }
 
 
-    const returnUrl =
-        student
-            ? G1_URL +
-              "?student=" +
-              encodeURIComponent(student)
-            : G1_URL;
+        let url = G1_URL;
 
 
-    document.getElementById(
-        "backTop"
-    ).href =
-        returnUrl;
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
 
 
-    document.getElementById(
-        "backBottom"
-    ).href =
-        returnUrl;
+        window.location.href = url;
+
+    }
 
 
     /* =========================================
@@ -909,7 +952,331 @@
 
 
     /* =========================================
-       CHECK
+       PARSE SAVED ANSWERS
+    ========================================= */
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const number =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[number] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    /* =========================================
+       REMOVE OLD HINTS
+    ========================================= */
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+
+                element.remove();
+
+            });
+
+    }
+
+
+    /* =========================================
+       SHOW ANSWER STATE
+    ========================================= */
+
+    function showQuestionState(
+        question,
+        userAnswer
+    ) {
+
+        const input =
+            question.querySelector(
+                ".answer"
+            );
+
+
+        const accepted =
+            question.dataset.answer
+                .split("|")
+                .map(normalizeAnswer);
+
+
+        const normalized =
+            normalizeAnswer(
+                userAnswer
+            );
+
+
+        input.value =
+            userAnswer || "";
+
+
+        input.disabled =
+            true;
+
+
+        input.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+
+        if (
+            accepted.includes(
+                normalized
+            )
+        ) {
+
+            input.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            input.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "div"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                accepted[0];
+
+
+            question.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       LOAD LAST ATTEMPT
+    ========================================= */
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+
+
+            document
+                .querySelectorAll(
+                    ".question"
+                )
+                .forEach(question => {
+
+                    const number =
+                        question.dataset.number;
+
+
+                    showQuestionState(
+                        question,
+                        savedAnswers[number] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       RESET / TRY AGAIN
+    ========================================= */
+
+    function resetQuiz() {
+
+        clearHints();
+
+
+        document
+            .querySelectorAll(
+                ".answer"
+            )
+            .forEach(input => {
+
+                input.value = "";
+
+                input.disabled =
+                    false;
+
+
+                input.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        const firstInput =
+            document.querySelector(
+                ".answer"
+            );
+
+
+        if (firstInput) {
+
+            firstInput.focus();
+
+        }
+
+    }
+
+
+    /* =========================================
+       CHECK ANSWERS
     ========================================= */
 
     async function checkAnswers() {
@@ -923,6 +1290,9 @@
             return;
 
         }
+
+
+        clearHints();
 
 
         const questions =
@@ -971,7 +1341,14 @@
             );
 
 
-            input.disabled = true;
+            input.disabled =
+                true;
+
+
+            input.classList.remove(
+                "correct",
+                "wrong"
+            );
 
 
             const isCorrect =
@@ -983,6 +1360,7 @@
             if (isCorrect) {
 
                 score++;
+
 
                 input.classList.add(
                     "correct"
@@ -1050,9 +1428,21 @@
 
 
         document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
             "resultCard"
         ).style.display =
             "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
 
 
         document.getElementById(
@@ -1062,7 +1452,7 @@
 
 
         /* =========================================
-           SEND TO RESULTS
+           SEND RESULT
         ========================================= */
 
         try {
@@ -1156,6 +1546,13 @@
         });
 
     }
+
+
+    /* =========================================
+       START
+    ========================================= */
+
+    loadLastAttempt();
 
 </script>
 
