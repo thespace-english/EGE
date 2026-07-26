@@ -9,7 +9,13 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>The Space — 6EC77E</title>
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <title>The Space — 4827B3</title>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
@@ -90,6 +96,7 @@
             font-size: 52px;
             font-weight: 800;
             letter-spacing: 8px;
+
             color: #138E87;
         }
 
@@ -129,9 +136,10 @@
         }
 
         .intro-card,
+        .headings-card,
         .quiz-card,
-        .result-card,
-        .review-card {
+        .review-card,
+        .result-card {
             padding: 30px;
 
             border-radius: 24px;
@@ -153,33 +161,10 @@
             z-index: 3;
         }
 
-        .intro-card {
-            margin-bottom: 20px;
-        }
-
+        .intro-card,
+        .headings-card,
         .review-card {
-            display: none;
-
             margin-bottom: 20px;
-
-            text-align: center;
-        }
-
-        .review-title {
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: 2px;
-
-            color: #138E87;
-        }
-
-        .review-details {
-            margin-top: 7px;
-
-            font-size: 16px;
-            font-weight: 700;
-
-            color: #536F68;
         }
 
         .student-line {
@@ -202,7 +187,7 @@
         h1 {
             margin: 4px 0 16px;
 
-            font-size: 27px;
+            font-size: 29px;
 
             color: #173D43;
         }
@@ -216,71 +201,101 @@
             color: #607A74;
         }
 
-        .quiz-card {
-            padding-bottom: 36px;
+        .headings-title {
+            margin-bottom: 18px;
+
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
         }
 
-        .text-title {
-            margin: 10px 0 22px;
+        .headings-list {
+            display: grid;
 
-            font-size: 22px;
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px 24px;
+        }
+
+        .heading-item {
+            padding: 8px 0;
+
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .heading-number {
+            display: inline-block;
+
+            min-width: 26px;
+
             font-weight: 800;
 
             color: #138E87;
         }
 
-        .text-title.second {
-            margin-top: 38px;
-            padding-top: 28px;
-
-            border-top:
-                1px solid rgba(122,160,149,0.18);
-        }
-
-        .question {
-            margin-bottom: 27px;
-            padding-bottom: 25px;
+        .text-card {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
 
             border-bottom:
                 1px solid rgba(122,160,149,0.15);
         }
 
-        .question-row {
-            display: grid;
-
-            grid-template-columns: 1fr 160px;
-
-            gap: 24px;
-
-            align-items: start;
+        .text-card:last-of-type {
+            border-bottom: none;
         }
 
-        .sentence {
+        .text-content {
             font-size: 17px;
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
-        .number {
+        .letter {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 34px;
+            height: 34px;
+
+            margin-right: 10px;
+
+            border-radius: 10px;
+
+            background: #15968F;
+
+            color: white;
+
             font-weight: 800;
-
-            color: #173D43;
         }
 
-        .base-word {
-            text-align: right;
+        .answer-row {
+            display: flex;
 
-            font-size: 17px;
+            align-items: center;
+
+            gap: 14px;
+
+            margin-top: 16px;
+        }
+
+        .answer-label {
+            font-size: 14px;
             font-weight: 800;
             letter-spacing: 1px;
 
-            color: #138E87;
+            color: #607A74;
         }
 
-        .answer {
-            width: 245px;
+        .answer-select {
+            min-width: 115px;
 
-            margin-top: 12px;
-            padding: 12px 14px;
+            padding: 11px 14px;
 
             border:
                 1px solid rgba(122,160,149,0.28);
@@ -293,29 +308,42 @@
 
             font-family: 'Nunito', sans-serif;
             font-size: 16px;
+            font-weight: 700;
 
             outline: none;
+
+            cursor: pointer;
         }
 
-        .answer:focus {
+        .answer-select:focus {
             border-color: rgba(19,142,135,0.65);
 
             box-shadow:
                 0 0 0 3px rgba(19,142,135,0.08);
         }
 
-        .answer.correct {
-            border-color: #4AAE8A;
+        .text-card.correct {
+            padding: 18px;
+
+            border:
+                1px solid rgba(74,174,138,0.48);
+
+            border-radius: 16px;
 
             background:
-                rgba(217,245,232,0.76);
+                rgba(217,245,232,0.52);
         }
 
-        .answer.wrong {
-            border-color: #D48888;
+        .text-card.wrong {
+            padding: 18px;
+
+            border:
+                1px solid rgba(212,136,136,0.48);
+
+            border-radius: 16px;
 
             background:
-                rgba(250,225,225,0.76);
+                rgba(250,225,225,0.52);
         }
 
         .correct-answer {
@@ -355,6 +383,29 @@
 
         .try-button {
             margin-top: 18px;
+        }
+
+        .review-card {
+            display: none;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
         }
 
         .result-card {
@@ -411,22 +462,22 @@
             }
 
             .intro-card,
+            .headings-card,
             .quiz-card,
             .review-card {
                 padding: 22px;
             }
 
-            .question-row {
+            .headings-list {
                 grid-template-columns: 1fr;
-
-                gap: 8px;
             }
 
-            .base-word {
-                text-align: left;
+            .answer-row {
+                align-items: flex-start;
+                flex-direction: column;
             }
 
-            .answer {
+            .answer-select {
                 width: 100%;
             }
 
@@ -445,9 +496,9 @@
 
 <button
     class="back-button"
-    onclick="goBackToG1()"
+    onclick="goBackToR1()"
 >
-    ← BACK TO G1
+    ← BACK TO R1
 </button>
 
 
@@ -461,7 +512,7 @@
         </div>
 
         <div class="section-name">
-            EGE · G1
+            EGE · R1
         </div>
 
     </header>
@@ -475,16 +526,17 @@
         ></div>
 
         <div class="task-id">
-            6EC77E
+            4827B3
         </div>
 
         <h1>
-            A strange story & A tasty cup
+            Music
         </h1>
 
         <p class="instruction">
-            Transform the words in capital letters so that they
-            grammatically match the content of the texts.
+            Match texts A–G with headings 1–8.
+            Use each number only once.
+            There is one extra heading.
         </p>
 
     </div>
@@ -514,220 +566,421 @@
     </div>
 
 
+    <div class="headings-card">
+
+        <div class="headings-title">
+            HEADINGS
+        </div>
+
+        <div class="headings-list">
+
+            <div class="heading-item">
+                <span class="heading-number">1.</span>
+                The power of music
+            </div>
+
+            <div class="heading-item">
+                <span class="heading-number">2.</span>
+                Sound producers
+            </div>
+
+            <div class="heading-item">
+                <span class="heading-number">3.</span>
+                Special knowledge needed
+            </div>
+
+            <div class="heading-item">
+                <span class="heading-number">4.</span>
+                Musical sound characteristics
+            </div>
+
+            <div class="heading-item">
+                <span class="heading-number">5.</span>
+                Differences in perception
+            </div>
+
+            <div class="heading-item">
+                <span class="heading-number">6.</span>
+                The history of music
+            </div>
+
+            <div class="heading-item">
+                <span class="heading-number">7.</span>
+                The choice of music matters
+            </div>
+
+            <div class="heading-item">
+                <span class="heading-number">8.</span>
+                Different types of music
+            </div>
+
+        </div>
+
+    </div>
+
+
     <div class="quiz-card">
 
 
-        <div class="text-title">
-            A strange story
-        </div>
-
+        <!-- A -->
 
         <div
-            class="question"
-            data-number="19"
-            data-answer="CAME"
+            class="text-card"
+            data-letter="A"
+            data-answer="3"
         >
-            <div class="question-row">
 
-                <div class="sentence">
-                    <span class="number">19.</span>
-                    Boris Kustodiev was a famous Soviet painter.
-                    One day two young scientists __________________
-                    to see him.
-                </div>
+            <div class="text-content">
 
-                <div class="base-word">
-                    COME
-                </div>
+                <span class="letter">A</span>
+
+                Music is a group of sounds that people have arranged
+                in a meaningful way. Some musicians make up music as
+                they perform. Others sing songs or play pieces that
+                someone else created. Musicians have developed a
+                system for writing down music so that others can play
+                it again. They use certain symbols, called notes, to
+                indicate the tones to be played or sung. The
+                arrangement of the notes shows the order in which the
+                tones should be played. Other numbers and symbols show
+                how fast to play each note. They are known as musical
+                notation.
 
             </div>
 
-            <input
-                class="answer"
-                type="text"
-                autocomplete="off"
-                placeholder="YOUR ANSWER"
-            >
-        </div>
+            <div class="answer-row">
 
-
-        <div
-            class="question"
-            data-number="20"
-            data-answer="FIRST"
-        >
-            <div class="question-row">
-
-                <div class="sentence">
-                    <span class="number">20.</span>
-                    They wanted to have their portraits painted.
-                    Kustodiev painted portraits of famous people
-                    only and his __________________ wish was to
-                    refuse them.
+                <div class="answer-label">
+                    HEADING
                 </div>
 
-                <div class="base-word">
-                    ONE
-                </div>
+                <select class="answer-select">
+
+                    <option value="">
+                        —
+                    </option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+
+                </select>
 
             </div>
 
-            <input
-                class="answer"
-                type="text"
-                autocomplete="off"
-                placeholder="YOUR ANSWER"
-            >
         </div>
 
 
+        <!-- B -->
+
         <div
-            class="question"
-            data-number="21"
-            data-answer="WOULD BE"
+            class="text-card"
+            data-letter="B"
+            data-answer="8"
         >
-            <div class="question-row">
 
-                <div class="sentence">
-                    <span class="number">21.</span>
-                    Still, the scientists insisted they
-                    __________________ famous in the near future.
-                    They were P. Kapitsa and N. Semenov, who both
-                    later got the Nobel Prizes.
-                </div>
+            <div class="text-content">
 
-                <div class="base-word">
-                    BE
-                </div>
+                <span class="letter">B</span>
+
+                Some music goes along with religious ceremonies.
+                Other music is a part of everyday life. Traditional
+                music made by everyday people is called folk music.
+                Classical music is formal and artistic music that
+                developed in Europe over hundreds of years.
+                Orchestras, choirs, and chamber ensembles (small
+                groups of musicians) often perform classical music.
+                Opera is a type of classical music that features
+                dramatic singing. When large numbers of people enjoy
+                a type of music, it is called popular music.
 
             </div>
 
-            <input
-                class="answer"
-                type="text"
-                autocomplete="off"
-                placeholder="YOUR ANSWER"
-            >
-        </div>
+            <div class="answer-row">
 
-
-        <div class="text-title second">
-            A tasty cup
-        </div>
-
-
-        <div
-            class="question"
-            data-number="22"
-            data-answer="BEST"
-        >
-            <div class="question-row">
-
-                <div class="sentence">
-                    <span class="number">22.</span>
-                    Can you imagine a person who drinks his cup of
-                    coffee, then has his empty cup for dessert and
-                    leaves the café? A lot of Italian restaurants
-                    now serve the __________________ coffee in the
-                    country in the cups which one can eat.
+                <div class="answer-label">
+                    HEADING
                 </div>
 
-                <div class="base-word">
-                    GOOD
-                </div>
+                <select class="answer-select">
+
+                    <option value="">—</option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+
+                </select>
 
             </div>
 
-            <input
-                class="answer"
-                type="text"
-                autocomplete="off"
-                placeholder="YOUR ANSWER"
-            >
         </div>
 
 
+        <!-- C -->
+
         <div
-            class="question"
-            data-number="23"
-            data-answer="IS COVERED"
+            class="text-card"
+            data-letter="C"
+            data-answer="2"
         >
-            <div class="question-row">
 
-                <div class="sentence">
-                    <span class="number">23.</span>
-                    The cup __________________ with a substance
-                    which keeps the liquid inside.
-                </div>
+            <div class="text-content">
 
-                <div class="base-word">
-                    COVER
-                </div>
+                <span class="letter">C</span>
+
+                People use their voices to sing. To make other kinds
+                of music, they use musical instruments. Stringed
+                instruments, like violins and harps, have tight
+                strings that make sounds when people pluck or rub
+                them. Wind instruments, like trumpets and saxophones,
+                make sounds when people blow into them. Percussion
+                instruments, like drums and rattles, make sounds when
+                people hit or shake them. Keyboard instruments, like
+                pianos and accordions, make sounds when people press
+                their keys, buttons, or levers.
 
             </div>
 
-            <input
-                class="answer"
-                type="text"
-                autocomplete="off"
-                placeholder="YOUR ANSWER"
-            >
+            <div class="answer-row">
+
+                <div class="answer-label">
+                    HEADING
+                </div>
+
+                <select class="answer-select">
+
+                    <option value="">—</option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+
+                </select>
+
+            </div>
+
         </div>
 
 
+        <!-- D -->
+
         <div
-            class="question"
-            data-number="24"
-            data-answer="DO NOT NEED|DON'T NEED"
+            class="text-card"
+            data-letter="D"
+            data-answer="4"
         >
-            <div class="question-row">
 
-                <div class="sentence">
-                    <span class="number">24.</span>
-                    You __________________ to put extra sugar in
-                    your coffee in such a cup because it is sweet.
-                </div>
+            <div class="text-content">
 
-                <div class="base-word">
-                    NOT NEED
-                </div>
+                <span class="letter">D</span>
+
+                Rhythm describes the length of musical sounds. The
+                most important part of rhythm is the pulse, or beat.
+                Melody is a series of different tones, or sounds, in
+                a piece of music. Harmony takes place when people play
+                or sing more than one tone at the same time. Groups
+                of tones played together are called chords. Harmony
+                also describes the way chords go along with a melody.
+                Form is the way that people put rhythm, melody, and
+                harmony together. There are many different types of
+                musical forms. Repeating a short melody is one of the
+                simplest forms.
 
             </div>
 
-            <input
-                class="answer"
-                type="text"
-                autocomplete="off"
-                placeholder="YOUR ANSWER"
-            >
+            <div class="answer-row">
+
+                <div class="answer-label">
+                    HEADING
+                </div>
+
+                <select class="answer-select">
+
+                    <option value="">—</option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+
+                </select>
+
+            </div>
+
         </div>
 
 
+        <!-- E -->
+
         <div
-            class="question"
-            data-number="25"
-            data-answer="WILL BECOME"
+            class="text-card"
+            data-letter="E"
+            data-answer="1"
         >
-            <div class="question-row">
 
-                <div class="sentence">
-                    <span class="number">25.</span>
-                    There is no doubt that soon such cups
-                    __________________ popular all over the world.
-                </div>
+            <div class="text-content">
 
-                <div class="base-word">
-                    BECOME
-                </div>
+                <span class="letter">E</span>
+
+                If you want to firm up your body, head to the gym.
+                If you want to exercise your brain, listen to music.
+                Many of us instinctively know the effects of music on
+                our mood and energy. There are few things that
+                stimulate the brain the way music does. If you want
+                to keep your brain engaged throughout the aging
+                process, listening to or playing music is a great
+                tool. It provides a total brain workout. Research has
+                shown that listening to music can reduce anxiety,
+                blood pressure, and pain, as well as improve sleep
+                quality, mood, mental alertness, and memory.
 
             </div>
 
-            <input
-                class="answer"
-                type="text"
-                autocomplete="off"
-                placeholder="YOUR ANSWER"
-            >
+            <div class="answer-row">
+
+                <div class="answer-label">
+                    HEADING
+                </div>
+
+                <select class="answer-select">
+
+                    <option value="">—</option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- F -->
+
+        <div
+            class="text-card"
+            data-letter="F"
+            data-answer="7"
+        >
+
+            <div class="text-content">
+
+                <span class="letter">F</span>
+
+                Listening to classical music has a wide range of
+                benefits for your brain and body. For example, it can
+                help you with relaxation, concentration, memory, and
+                cognition. Listening to relaxing music, such as
+                smooth jazz, can induce an alpha-wave state in your
+                brain. These waves occur when you’re awake but
+                relaxed, making smooth jazz one of the best ways to
+                wind down at the end of a long day. Rap music often
+                tells stories of people overcoming obstacles or
+                achieving success in the face of unlikely odds.
+
+            </div>
+
+            <div class="answer-row">
+
+                <div class="answer-label">
+                    HEADING
+                </div>
+
+                <select class="answer-select">
+
+                    <option value="">—</option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- G -->
+
+        <div
+            class="text-card"
+            data-letter="G"
+            data-answer="5"
+        >
+
+            <div class="text-content">
+
+                <span class="letter">G</span>
+
+                If you ask some people about the benefits of
+                listening to music while trying to concentrate, you
+                could hear mixed reviews. Listening to music to help
+                us concentrate works differently for everyone. Some
+                people might think it’s a remarkable study habit,
+                while others may find it useless because it only
+                distracts them. But branching out and trying new ways
+                of boosting your concentration might help you find a
+                practice that works well. It isn’t easy to find
+                strategies that work specifically for you.
+
+            </div>
+
+            <div class="answer-row">
+
+                <div class="answer-label">
+                    HEADING
+                </div>
+
+                <select class="answer-select">
+
+                    <option value="">—</option>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+
+                </select>
+
+            </div>
+
         </div>
 
 
@@ -790,12 +1043,12 @@
 
 
     const COURSE = "EGE";
-    const SECTION = "G1";
-    const TASK_ID = "6EC77E";
+    const SECTION = "R1";
+    const TASK_ID = "4827B3";
 
 
-    const G1_URL =
-        "https://thespace-english.github.io/The-Space-Trainer/ege-g1.html";
+    const R1_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r1.html";
 
 
     const params =
@@ -836,7 +1089,7 @@
             : "Student not selected";
 
 
-    function goBackToG1() {
+    function goBackToR1() {
 
         if (window.history.length > 1) {
 
@@ -847,7 +1100,8 @@
         }
 
 
-        let url = G1_URL;
+        let url =
+            R1_URL;
 
 
         if (student) {
@@ -859,18 +1113,8 @@
         }
 
 
-        window.location.href = url;
-
-    }
-
-
-    function normalizeAnswer(value) {
-
-        return String(value || "")
-            .trim()
-            .replace(/\s+/g, " ")
-            .replace(/[’‘]/g, "'")
-            .toUpperCase();
+        window.location.href =
+            url;
 
     }
 
@@ -881,7 +1125,9 @@
 
 
         if (!text) {
+
             return result;
+
         }
 
 
@@ -894,11 +1140,13 @@
 
 
                 if (separator === -1) {
+
                     return;
+
                 }
 
 
-                const number =
+                const letter =
                     part
                         .slice(0, separator)
                         .trim();
@@ -910,7 +1158,7 @@
                         .trim();
 
 
-                result[number] =
+                result[letter] =
                     answer === "-"
                         ? ""
                         : answer;
@@ -938,56 +1186,59 @@
     }
 
 
+    function clearCardStates() {
+
+        document
+            .querySelectorAll(
+                ".text-card"
+            )
+            .forEach(card => {
+
+                card.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+    }
+
+
     function showQuestionState(
-        question,
+        card,
         userAnswer
     ) {
 
-        const input =
-            question.querySelector(
-                ".answer"
+        const select =
+            card.querySelector(
+                ".answer-select"
             );
 
 
-        const accepted =
-            question.dataset.answer
-                .split("|")
-                .map(normalizeAnswer);
+        const correctAnswer =
+            card.dataset.answer;
 
 
-        const normalized =
-            normalizeAnswer(
-                userAnswer
-            );
-
-
-        input.value =
+        select.value =
             userAnswer || "";
 
 
-        input.disabled =
+        select.disabled =
             true;
 
 
-        input.classList.remove(
-            "correct",
-            "wrong"
-        );
-
-
         if (
-            accepted.includes(
-                normalized
-            )
+            userAnswer ===
+            correctAnswer
         ) {
 
-            input.classList.add(
+            card.classList.add(
                 "correct"
             );
 
         } else {
 
-            input.classList.add(
+            card.classList.add(
                 "wrong"
             );
 
@@ -1004,12 +1255,16 @@
 
             correct.textContent =
                 "Correct: " +
-                accepted[0];
+                correctAnswer;
 
 
-            question.appendChild(
-                correct
-            );
+            card
+                .querySelector(
+                    ".answer-row"
+                )
+                .appendChild(
+                    correct
+                );
 
         }
 
@@ -1019,7 +1274,9 @@
     async function loadLastAttempt() {
 
         if (!student) {
+
             return;
+
         }
 
 
@@ -1068,21 +1325,22 @@
 
 
             clearHints();
+            clearCardStates();
 
 
             document
                 .querySelectorAll(
-                    ".question"
+                    ".text-card"
                 )
-                .forEach(question => {
+                .forEach(card => {
 
-                    const number =
-                        question.dataset.number;
+                    const letter =
+                        card.dataset.letter;
 
 
                     showQuestionState(
-                        question,
-                        savedAnswers[number] || ""
+                        card,
+                        savedAnswers[letter] || ""
                     );
 
                 });
@@ -1124,24 +1382,19 @@
     function resetQuiz() {
 
         clearHints();
+        clearCardStates();
 
 
         document
             .querySelectorAll(
-                ".answer"
+                ".answer-select"
             )
-            .forEach(input => {
+            .forEach(select => {
 
-                input.value = "";
+                select.value = "";
 
-                input.disabled =
+                select.disabled =
                     false;
-
-
-                input.classList.remove(
-                    "correct",
-                    "wrong"
-                );
 
             });
 
@@ -1163,19 +1416,6 @@
         ).style.display =
             "block";
 
-
-        const firstInput =
-            document.querySelector(
-                ".answer"
-            );
-
-
-        if (firstInput) {
-
-            firstInput.focus();
-
-        }
-
     }
 
 
@@ -1184,7 +1424,7 @@
         if (!student) {
 
             alert(
-                "Please return to G1 and choose your name."
+                "Please return to R1 and choose your name."
             );
 
             return;
@@ -1193,47 +1433,43 @@
 
 
         clearHints();
+        clearCardStates();
 
 
-        const questions =
+        const cards =
             document.querySelectorAll(
-                ".question"
+                ".text-card"
             );
 
 
         let score = 0;
 
         const mistakes = [];
-
         const answers = [];
 
 
-        questions.forEach(question => {
+        cards.forEach(card => {
 
-            const number =
-                question.dataset.number;
-
-
-            const accepted =
-                question.dataset.answer
-                    .split("|")
-                    .map(normalizeAnswer);
+            const letter =
+                card.dataset.letter;
 
 
-            const input =
-                question.querySelector(
-                    ".answer"
+            const correctAnswer =
+                card.dataset.answer;
+
+
+            const select =
+                card.querySelector(
+                    ".answer-select"
                 );
 
 
             const userAnswer =
-                normalizeAnswer(
-                    input.value
-                );
+                select.value;
 
 
             answers.push(
-                number +
+                letter +
                 ":" +
                 (
                     userAnswer || "-"
@@ -1241,38 +1477,29 @@
             );
 
 
-            input.disabled = true;
+            select.disabled =
+                true;
 
 
-            input.classList.remove(
-                "correct",
-                "wrong"
-            );
-
-
-            const isCorrect =
-                accepted.includes(
-                    userAnswer
-                );
-
-
-            if (isCorrect) {
+            if (
+                userAnswer ===
+                correctAnswer
+            ) {
 
                 score++;
 
-
-                input.classList.add(
+                card.classList.add(
                     "correct"
                 );
 
             } else {
 
                 mistakes.push(
-                    number
+                    letter
                 );
 
 
-                input.classList.add(
+                card.classList.add(
                     "wrong"
                 );
 
@@ -1289,12 +1516,16 @@
 
                 correct.textContent =
                     "Correct: " +
-                    accepted[0];
+                    correctAnswer;
 
 
-                question.appendChild(
-                    correct
-                );
+                card
+                    .querySelector(
+                        ".answer-row"
+                    )
+                    .appendChild(
+                        correct
+                    );
 
             }
 
