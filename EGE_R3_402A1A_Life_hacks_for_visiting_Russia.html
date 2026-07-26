@@ -1,166 +1,1947 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE R3: Life hacks for visiting Russia</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://thespace-english.github.io/The-Space-Trainer/favicon.png"
+    >
+
+    <title>The Space — 402A1A</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        
-        .main-content { display: flex; gap: 30px; margin-top: 20px; }
-        .text-column { flex: 1.2; height: 75vh; overflow-y: auto; padding-right: 20px; border-right: 1px solid #eee; line-height: 1.6; font-size: 17px; text-align: justify; }
-        .quiz-column { flex: 1; height: 75vh; overflow-y: auto; padding-left: 5px; }
 
-        .q-block { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #3498db; }
-        .q-title { font-weight: bold; margin-bottom: 10px; display: block; }
-        
-        label { display: block; background: white; padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: 0.2s; }
-        label:hover { background: #edf7ff; }
-        input[type="radio"] { margin-right: 10px; }
+        * {
+            box-sizing: border-box;
+        }
 
-        .correct { background: #d4edda !important; border-color: #28a745 !important; }
-        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
 
-        #setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f0f2f5; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .login-box { background: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .btn { background: #3498db; color: white; border: none; padding: 12px 30px; border-radius: 6px; cursor: pointer; font-size: 18px; width: 100%; margin-top: 15px; }
-        .hidden { display: none !important; }
+        body {
+            overflow-x: hidden;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 1380px;
+            margin: 0 auto;
+
+            padding: 55px 24px 100px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 30;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.78);
+        }
+
+        .intro-card,
+        .text-card,
+        .questions-card,
+        .review-card,
+        .result-card {
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card {
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 29px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+        .reading-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.08fr)
+                minmax(420px, 0.92fr);
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        .text-card,
+        .questions-card {
+            height: calc(100vh - 245px);
+            min-height: 600px;
+
+            overflow-y: auto;
+
+            scrollbar-width: thin;
+        }
+
+        .text-card {
+            padding: 32px 34px;
+        }
+
+        .article-title {
+            margin: 0 0 24px;
+
+            text-align: center;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .article-text {
+            font-size: 17px;
+            line-height: 1.78;
+
+            color: #173D43;
+        }
+
+        .article-text p {
+            margin: 0 0 22px;
+        }
+
+        .highlight {
+            font-weight: 800;
+
+            color: #138E87;
+
+            border-bottom:
+                2px solid rgba(19,142,135,0.35);
+        }
+
+        .questions-card {
+            padding: 28px;
+        }
+
+        .questions-title {
+            margin: 0 0 20px;
+
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .q-card {
+            margin-bottom: 18px;
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.72);
+
+            border: 1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 8px 20px rgba(97,155,147,0.08);
+        }
+
+        .q-title {
+            display: block;
+
+            margin-bottom: 14px;
+
+            font-size: 16px;
+            line-height: 1.45;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .opt-label {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin: 8px 0;
+            padding: 11px 12px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid rgba(122,160,149,0.16);
+
+            background:
+                rgba(255,255,255,0.58);
+
+            font-size: 15px;
+            line-height: 1.4;
+
+            cursor: pointer;
+        }
+
+        .opt-label:hover {
+            background:
+                rgba(231,248,243,0.75);
+        }
+
+        .opt-label input {
+            margin-top: 3px;
+            flex-shrink: 0;
+
+            accent-color: #15968F;
+        }
+
+        .opt-label.correct-ans {
+            border-color:
+                rgba(74,174,138,0.5);
+
+            background:
+                rgba(217,245,232,0.72);
+
+            color: #22634E;
+
+            font-weight: 700;
+        }
+
+        .opt-label.wrong-ans {
+            border-color:
+                rgba(212,136,136,0.5);
+
+            background:
+                rgba(250,225,225,0.72);
+
+            color: #854545;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button {
+            margin-top: 8px;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .review-card {
+            display: none;
+
+            margin-bottom: 20px;
+            padding: 26px 30px;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .result-card {
+            display: none;
+
+            max-width: 900px;
+
+            margin: 20px auto 0;
+            padding: 28px;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 20;
+        }
+
+        @media (max-width: 820px) {
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+
+                overflow: hidden;
+            }
+
+            body {
+                height: 100dvh;
+            }
+
+            .page {
+                width: 100%;
+                height: 100dvh;
+
+                padding:
+                    62px
+                    10px
+                    8px;
+
+                display: flex;
+                flex-direction: column;
+
+                overflow: hidden;
+            }
+
+            header {
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+            }
+
+            .brand {
+                font-size: 30px;
+                line-height: 1;
+
+                letter-spacing: 5px;
+            }
+
+            .section-name {
+                margin-top: 5px;
+
+                font-size: 13px;
+                line-height: 1;
+
+                letter-spacing: 4px;
+            }
+
+            .back-button {
+                top: 10px;
+                left: 10px;
+
+                padding: 8px 10px;
+
+                font-size: 12px;
+            }
+
+            .intro-card {
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+
+                padding: 10px 14px;
+
+                border-radius: 16px;
+            }
+
+            .student-line {
+                margin-bottom: 2px;
+
+                font-size: 13px;
+            }
+
+            .task-id {
+                display: inline-block;
+
+                margin-right: 8px;
+                margin-bottom: 0;
+
+                font-size: 13px;
+            }
+
+            h1 {
+                display: inline;
+
+                margin: 0;
+
+                font-size: 17px;
+                line-height: 1.2;
+            }
+
+            .instruction {
+                display: none;
+            }
+
+            .review-card {
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+                padding: 8px 12px;
+
+                border-radius: 15px;
+            }
+
+            .review-title {
+                font-size: 13px;
+                letter-spacing: 1px;
+            }
+
+            .review-details {
+                margin-top: 2px;
+                font-size: 13px;
+            }
+
+            .review-card .try-button {
+                margin-top: 6px;
+                padding: 8px;
+
+                font-size: 13px;
+            }
+
+            .reading-layout {
+                flex: 1;
+                min-height: 0;
+
+                display: grid;
+
+                grid-template-columns: 1fr;
+
+                grid-template-rows:
+                    minmax(0, 2fr)
+                    minmax(0, 1fr);
+
+                gap: 7px;
+
+                overflow: hidden;
+            }
+
+            .text-card {
+                width: 100%;
+                height: auto;
+                min-height: 0;
+
+                overflow-y: auto;
+
+                -webkit-overflow-scrolling: touch;
+
+                padding:
+                    18px
+                    17px;
+
+                border-radius: 18px;
+            }
+
+            .article-title {
+                margin: 0 0 16px;
+
+                font-size: 22px;
+                line-height: 1.25;
+            }
+
+            .article-text {
+                font-size: 19px;
+                line-height: 1.72;
+            }
+
+            .article-text p {
+                margin-bottom: 22px;
+            }
+
+            .questions-card {
+                width: 100%;
+                height: auto;
+                min-height: 0;
+
+                overflow-y: auto;
+
+                -webkit-overflow-scrolling: touch;
+
+                padding:
+                    14px
+                    13px;
+
+                border-radius: 18px;
+            }
+
+            .questions-title {
+                position: sticky;
+
+                top: -14px;
+
+                z-index: 5;
+
+                margin:
+                    -14px
+                    -13px
+                    12px;
+
+                padding:
+                    11px
+                    13px;
+
+                background:
+                    rgba(243,251,248,0.96);
+
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+
+                font-size: 16px;
+
+                letter-spacing: 1.5px;
+            }
+
+            .q-card {
+                margin-bottom: 12px;
+
+                padding: 15px;
+
+                border-radius: 14px;
+            }
+
+            .q-title {
+                margin-bottom: 11px;
+
+                font-size: 18px;
+                line-height: 1.4;
+            }
+
+            .opt-label {
+                gap: 9px;
+
+                margin: 7px 0;
+
+                padding:
+                    11px
+                    10px;
+
+                font-size: 17px;
+                line-height: 1.4;
+            }
+
+            .opt-label input {
+                width: 18px;
+                height: 18px;
+
+                margin-top: 2px;
+            }
+
+            .check-button {
+                padding: 13px;
+
+                font-size: 16px;
+            }
+
+            .result-card {
+                position: fixed;
+
+                left: 12px;
+                right: 12px;
+                bottom: 12px;
+
+                width: auto;
+                max-width: none;
+
+                margin: 0;
+                padding: 18px;
+
+                border-radius: 18px;
+
+                z-index: 50;
+
+                box-shadow:
+                    0 18px 45px
+                    rgba(66,114,106,0.25);
+            }
+
+            .result-score {
+                font-size: 25px;
+            }
+
+            .result-mistakes {
+                font-size: 15px;
+            }
+
+            .result-saved {
+                font-size: 13px;
+            }
+
+            .result-card .try-button {
+                margin-top: 10px;
+                padding: 12px;
+
+                font-size: 15px;
+            }
+
+            .corner-logo {
+                display: none;
+            }
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="setup">
-    <div class="login-box">
-        <h2>Reading Task: Life Hacks</h2>
-        <input type="text" id="userName" placeholder="Имя Фамилия" style="padding: 12px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"><br>
-        <button class="btn" onclick="start()">Начать тест</button>
-    </div>
-</div>
 
-<div class="container">
-    <h1>Life hacks for visiting Russia</h1>
-    
-    <div class="main-content">
-        <div class="text-column">
-            <p>Planning a holiday in Russia and don’t want to break the bank? Here are a few hacks to help your journey around the world’s biggest country on a shoestring.</p>
-            <p>Like people from all over the world, many Russians are open to volunteering in exchange for food, accommodation, and new experiences. There is, for example, the <i>Help Exchange</i> advertising service. Foreigners are invited as volunteers by small companies, families, children’s camps, and even the Academy of Sciences. The conditions depend on the host but be sure that for interesting offers there will be stiff competition: you have to monitor the offers and respond quickly. It helps if you have recommendations. Last year, on a competitive basis, me and my friends managed to go to Ferapontovo (an ancient monastery on the UNESCO World Heritage list), to Kamchatka and Siberia, and to a summer camp on Lake Baikal. The “hottest” time is the summer season. The obvious plus – apart from the fact that you pay almost nothing – is that many hosts provide help with visas and pay for your journey. And the minus is that you will really have to work.</p>
-            <p>Big cities like Moscow and St. Petersburg offer the Russian tourist the <i>CityPass</i>, which entitles you to free museum admissions and excursions, admission without queuing, river cruises, discounts for taxis and restaurants, unlimited calls within Russia, and many other benefits. <b>It</b> may seem a bit costly but it will save you much more. You can also save money without a tourist pass. If you are not too shy, remember: in Russia, you can enter many museums and parks at the exits but I wouldn’t go for it.</p>
-            <p>Another life hack is to check on free admission days. Every museum has free admission days. At the Hermitage in St. Petersburg the first Thursday of each month is a free day, while at the New Tretyakov Gallery in the Russian capital it is every Wednesday.</p>
-            <p>As a rule, tickets to museums and art galleries cost more for foreign nationals than locals. Tourists who don’t want to pay extra can ask a Russian to buy tickets for them. And don’t waste money on an audio guide. To be honest, you won’t need it. You can download audio guides in English for many popular museums in Russia from the App Store.</p>
-            <p>As for eating out while travelling in Russia, there are a number of pretty cheap options. You can find special offers in Russian cafés and restaurants at any time of the day. Canteens (cheap restaurants that serve homemade dishes) are a win-win option. Here, a soup, main course, drink, and dessert will cost you just 250-300 rubles or cheaper.</p>
-            <p>I had the following routine when travelling around Russia. In the morning I had breakfast in canteens attached to institutes or ordinary public canteens, which you can find on 2Gis (a multilingual digital service that has city maps and tells you how much the average bill in different eateries will be). For lunch I would go to any place serving business lunches (many restaurants offer them between 12:00 and 17:00), giving preference to places with a high rating. And for dinner I would use coupons from special websites available only in Russian – a sushi selection at a 50-percent discount is very filling and very tasty. Or on some evenings I cooked my own dinner buying food in a supermarket.</p>
-            <p>Not many people know how to save while travelling but if you prepare yourself in advance by reading tips from experienced travellers, you may visit more places and spend less money while enjoying it none the less.</p>
+<div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
+
+
+<button
+    class="back-button"
+    onclick="goBackToR3()"
+>
+    ← BACK TO R3
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
         </div>
 
-        <div class="quiz-column" id="quiz">
-            <div class="q-block" data-ans="1">
-                <span class="q-title">12. The purpose of the article is to...</span>
-                <label><input type="radio" name="q1" value="1"> 1) give advice to budget travellers.</label>
-                <label><input type="radio" name="q1" value="2"> 2) describe advantages of travelling.</label>
-                <label><input type="radio" name="q1" value="3"> 3) introduce foreigners to Russia.</label>
-                <label><input type="radio" name="q1" value="4"> 4) warn against the dangers of travel.</label>
-            </div>
-
-            <div class="q-block" data-ans="4">
-                <span class="q-title">13. Which is NOT true about volunteering?</span>
-                <label><input type="radio" name="q2" value="1"> 1) Travel expenses can be covered.</label>
-                <label><input type="radio" name="q2" value="2"> 2) You have to go through a selection process.</label>
-                <label><input type="radio" name="q2" value="3"> 3) There is a range of host institutions.</label>
-                <label><input type="radio" name="q2" value="4"> 4) You have to share eating and living costs.</label>
-            </div>
-
-            <div class="q-block" data-ans="2">
-                <span class="q-title">14. "It" in Paragraph 3 refers to...</span>
-                <label><input type="radio" name="q3" value="1"> 1) international calls.</label>
-                <label><input type="radio" name="q3" value="2"> 2) a tourist’s discount card.</label>
-                <label><input type="radio" name="q3" value="3"> 3) eating in restaurants.</label>
-                <label><input type="radio" name="q3" value="4"> 4) visiting museums in cities.</label>
-            </div>
-
-            <div class="q-block" data-ans="4">
-                <span class="q-title">15. The author’s advice about museums is to...</span>
-                <label><input type="radio" name="q4" value="1"> 1) buy a museum audio guide tour.</label>
-                <label><input type="radio" name="q4" value="2"> 2) visit only one museum a week.</label>
-                <label><input type="radio" name="q4" value="3"> 3) buy tickets from local people.</label>
-                <label><input type="radio" name="q4" value="4"> 4) visit museums on certain days.</label>
-            </div>
-
-            <div class="q-block" data-ans="3">
-                <span class="q-title">16. Canteens are a “win-win option” because they...</span>
-                <label><input type="radio" name="q5" value="1"> 1) often have special offers.</label>
-                <label><input type="radio" name="q5" value="2"> 2) serve delicious meals.</label>
-                <label><input type="radio" name="q5" value="3"> 3) offer inexpensive dishes.</label>
-                <label><input type="radio" name="q5" value="4"> 4) are open at any time.</label>
-            </div>
-
-            <div class="q-block" data-ans="2">
-                <span class="q-title">17. While staying in Russia, the author...</span>
-                <label><input type="radio" name="q6" value="1"> 1) chose mainly Japanese food.</label>
-                <label><input type="radio" name="q6" value="2"> 2) checked where to eat beforehand.</label>
-                <label><input type="radio" name="q6" value="3"> 3) ordered his food online.</label>
-                <label><input type="radio" name="q6" value="4"> 4) bought ready-made food in supermarkets.</label>
-            </div>
-
-            <div class="q-block" data-ans="3">
-                <span class="q-title">18. Main idea of the last paragraph?</span>
-                <label><input type="radio" name="q7" value="1"> 1) It is difficult to enjoy travelling with little money.</label>
-                <label><input type="radio" name="q7" value="2"> 2) Budget travel requires too much planning.</label>
-                <label><input type="radio" name="q7" value="3"> 3) Planning helps you to travel cheaper.</label>
-                <label><input type="radio" name="q7" value="4"> 4) Experienced travellers avoid spending money.</label>
-            </div>
-
-            <button class="btn" onclick="check()">Отправить результат</button>
-            <h2 id="res" style="text-align:center;"></h2>
+        <div class="section-name">
+            EGE · R3
         </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            402A1A
+        </div>
+
+        <h1>
+            Life hacks for visiting Russia
+        </h1>
+
+        <p class="instruction">
+            Read the text and complete questions 12–18.
+            Choose one answer for each question.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="reading-layout">
+
+
+        <section class="text-card">
+
+            <h2 class="article-title">
+                Life hacks for visiting Russia
+            </h2>
+
+
+            <div class="article-text">
+
+                <p>
+                    Planning a holiday in Russia and don’t want to break the bank?
+                    Here are a few hacks to help your journey around the world’s
+                    biggest country on a shoestring.
+                </p>
+
+                <p>
+                    Like people from all over the world, many Russians are open
+                    to volunteering in exchange for food, accommodation, and new
+                    experiences. There is, for example, the <i>Help Exchange</i>
+                    advertising service. Foreigners are invited as volunteers
+                    by small companies, families, children’s camps, and even the
+                    Academy of Sciences. The conditions depend on the host but be
+                    sure that for interesting offers there will be stiff competition:
+                    you have to monitor the offers and respond quickly. It helps if
+                    you have recommendations. Last year, on a competitive basis,
+                    me and my friends managed to go to Ferapontovo (an ancient
+                    monastery on the UNESCO World Heritage list), to Kamchatka
+                    and Siberia, and to a summer camp on Lake Baikal. The “hottest”
+                    time is the summer season. The obvious plus – apart from the fact
+                    that you pay almost nothing – is that many hosts provide help
+                    with visas and pay for your journey. And the minus is that you
+                    will really have to work.
+                </p>
+
+                <p>
+                    Big cities like Moscow and St. Petersburg offer the Russian
+                    tourist the <i>CityPass</i>, which entitles you to free museum
+                    admissions and excursions, admission without queuing, river
+                    cruises, discounts for taxis and restaurants, unlimited calls
+                    within Russia, and many other benefits.
+                    <strong class="highlight">It</strong>
+                    may seem a bit costly but it will save you much more.
+                    You can also save money without a tourist pass. If you are not
+                    too shy, remember: in Russia, you can enter many museums and
+                    parks at the exits but I wouldn’t go for it.
+                </p>
+
+                <p>
+                    Another life hack is to check on free admission days.
+                    Every museum has free admission days. At the Hermitage in
+                    St. Petersburg the first Thursday of each month is a free day,
+                    while at the New Tretyakov Gallery in the Russian capital
+                    it is every Wednesday.
+                </p>
+
+                <p>
+                    As a rule, tickets to museums and art galleries cost more
+                    for foreign nationals than locals. Tourists who don’t want
+                    to pay extra can ask a Russian to buy tickets for them.
+                    And don’t waste money on an audio guide. To be honest,
+                    you won’t need it. You can download audio guides in English
+                    for many popular museums in Russia from the App Store.
+                </p>
+
+                <p>
+                    As for eating out while travelling in Russia, there are
+                    a number of pretty cheap options. You can find special offers
+                    in Russian cafés and restaurants at any time of the day.
+                    Canteens (cheap restaurants that serve homemade dishes) are
+                    a win-win option. Here, a soup, main course, drink, and dessert
+                    will cost you just 250-300 rubles or cheaper.
+                </p>
+
+                <p>
+                    I had the following routine when travelling around Russia.
+                    In the morning I had breakfast in canteens attached to institutes
+                    or ordinary public canteens, which you can find on 2Gis
+                    (a multilingual digital service that has city maps and tells
+                    you how much the average bill in different eateries will be).
+                    For lunch I would go to any place serving business lunches
+                    (many restaurants offer them between 12:00 and 17:00),
+                    giving preference to places with a high rating.
+                    And for dinner I would use coupons from special websites
+                    available only in Russian – a sushi selection at a 50-percent
+                    discount is very filling and very tasty. Or on some evenings
+                    I cooked my own dinner buying food in a supermarket.
+                </p>
+
+                <p>
+                    Not many people know how to save while travelling but if you
+                    prepare yourself in advance by reading tips from experienced
+                    travellers, you may visit more places and spend less money
+                    while enjoying it none the less.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="questions-card">
+
+            <div class="questions-title">
+                QUESTIONS 12–18
+            </div>
+
+
+            <form id="quizForm">
+
+
+                <div
+                    class="q-card"
+                    data-question="12"
+                    data-answer="1"
+                >
+
+                    <span class="q-title">
+                        12. The purpose of the article is to...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q12" value="1">
+                        <span>1) give advice to budget travellers.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q12" value="2">
+                        <span>2) describe advantages of travelling.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q12" value="3">
+                        <span>3) introduce foreigners to Russia.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q12" value="4">
+                        <span>4) warn against the dangers of travel.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="13"
+                    data-answer="4"
+                >
+
+                    <span class="q-title">
+                        13. Which is NOT true about volunteering?
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="1">
+                        <span>1) Travel expenses can be covered.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="2">
+                        <span>2) You have to go through a selection process.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="3">
+                        <span>3) There is a range of host institutions.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="4">
+                        <span>4) You have to share eating and living costs.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="14"
+                    data-answer="2"
+                >
+
+                    <span class="q-title">
+                        14. "It" in Paragraph 3 refers to...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="1">
+                        <span>1) international calls.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="2">
+                        <span>2) a tourist’s discount card.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="3">
+                        <span>3) eating in restaurants.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="4">
+                        <span>4) visiting museums in cities.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="15"
+                    data-answer="4"
+                >
+
+                    <span class="q-title">
+                        15. The author’s advice about museums is to...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="1">
+                        <span>1) buy a museum audio guide tour.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="2">
+                        <span>2) visit only one museum a week.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="3">
+                        <span>3) buy tickets from local people.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="4">
+                        <span>4) visit museums on certain days.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="16"
+                    data-answer="3"
+                >
+
+                    <span class="q-title">
+                        16. Canteens are a “win-win option” because they...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="1">
+                        <span>1) often have special offers.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="2">
+                        <span>2) serve delicious meals.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="3">
+                        <span>3) offer inexpensive dishes.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="4">
+                        <span>4) are open at any time.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="17"
+                    data-answer="2"
+                >
+
+                    <span class="q-title">
+                        17. While staying in Russia, the author...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="1">
+                        <span>1) chose mainly Japanese food.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="2">
+                        <span>2) checked where to eat beforehand.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="3">
+                        <span>3) ordered his food online.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="4">
+                        <span>4) bought ready-made food in supermarkets.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="18"
+                    data-answer="3"
+                >
+
+                    <span class="q-title">
+                        18. Main idea of the last paragraph?
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="1">
+                        <span>
+                            1) It is difficult to enjoy travelling with little money.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="2">
+                        <span>
+                            2) Budget travel requires too much planning.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="3">
+                        <span>
+                            3) Planning helps you to travel cheaper.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="4">
+                        <span>
+                            4) Experienced travellers avoid spending money.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="checkButton"
+                    class="check-button"
+                >
+                    CHECK ANSWERS
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
+
+
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
+
 
 <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
 
-    function start() {
-        if(document.getElementById('userName').value.trim()) {
-            document.getElementById('setup').classList.add('hidden');
-        } else alert("Введите имя!");
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "R3";
+    const TASK_ID = "402A1A";
+
+
+    const R3_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r3.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function check() {
-        let score = 0;
-        let log = [];
-        const blocks = document.querySelectorAll('.q-block');
-        
-        blocks.forEach((block, i) => {
-            const correct = block.getAttribute('data-ans');
-            const selected = block.querySelector('input:checked');
-            const val = selected ? selected.value : "-";
-            log.push(`Q${i+12}:${val}`);
 
-            const labels = block.querySelectorAll('label');
-            labels.forEach(l => {
-                const inp = l.querySelector('input');
-                if(inp.value === correct) l.classList.add('correct');
-                if(selected && inp.value === val && val !== correct) l.classList.add('wrong');
-                inp.disabled = true;
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToR3() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+        }
+
+
+        let url =
+            R3_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href =
+            url;
+
+    }
+
+
+    function clearStates() {
+
+        document
+            .querySelectorAll(
+                ".opt-label"
+            )
+            .forEach(label => {
+
+                label.classList.remove(
+                    "correct-ans",
+                    "wrong-ans"
+                );
+
             });
-            if(val === correct) score++;
-        });
 
-        const total = score + "/7";
-        document.getElementById('res').innerText = "Результат: " + total;
-
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE R3 402A1A Russia Hacks",
-                result: total,
-                answers: log.join(", ")
-            })
-        });
     }
+
+
+    function getSelectedAnswer(card) {
+
+        const checked =
+            card.querySelector(
+                'input[type="radio"]:checked'
+            );
+
+
+        return checked
+            ? checked.value
+            : "";
+
+    }
+
+
+    function disableAnswers() {
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.disabled =
+                    true;
+
+            });
+
+    }
+
+
+    function enableAnswers() {
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.disabled =
+                    false;
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        card,
+        userAnswer
+    ) {
+
+        const correctAnswer =
+            card.dataset.answer;
+
+
+        card
+            .querySelectorAll(
+                ".opt-label"
+            )
+            .forEach(label => {
+
+                const input =
+                    label.querySelector(
+                        'input[type="radio"]'
+                    );
+
+
+                if (
+                    input.value ===
+                    userAnswer
+                ) {
+
+                    input.checked =
+                        true;
+
+                }
+
+
+                if (
+                    input.value ===
+                    correctAnswer
+                ) {
+
+                    label.classList.add(
+                        "correct-ans"
+                    );
+
+                }
+
+
+                if (
+                    input.value ===
+                        userAnswer &&
+                    userAnswer !==
+                        correctAnswer
+                ) {
+
+                    label.classList.add(
+                        "wrong-ans"
+                    );
+
+                }
+
+            });
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+
+            return result;
+
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (
+                    separator === -1
+                ) {
+
+                    return;
+
+                }
+
+
+                let question =
+                    part
+                        .slice(
+                            0,
+                            separator
+                        )
+                        .trim()
+                        .toLowerCase();
+
+
+                question =
+                    question.replace(
+                        "q",
+                        ""
+                    );
+
+
+                const answer =
+                    part
+                        .slice(
+                            separator + 1
+                        )
+                        .trim();
+
+
+                result[question] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+
+            return;
+
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearStates();
+
+
+            document
+                .querySelectorAll(
+                    ".q-card"
+                )
+                .forEach(card => {
+
+                    const question =
+                        card.dataset.question;
+
+
+                    showQuestionState(
+                        card,
+                        savedAnswers[question] || ""
+                    );
+
+                });
+
+
+            disableAnswers();
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    function resetQuiz() {
+
+        clearStates();
+
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.checked =
+                    false;
+
+            });
+
+
+        enableAnswers();
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        const textCard =
+            document.querySelector(
+                ".text-card"
+            );
+
+
+        const questionsCard =
+            document.querySelector(
+                ".questions-card"
+            );
+
+
+        if (textCard) {
+
+            textCard.scrollTop =
+                0;
+
+        }
+
+
+        if (questionsCard) {
+
+            questionsCard.scrollTop =
+                0;
+
+        }
+
+    }
+
+
+    document.getElementById(
+        "quizForm"
+    ).addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            if (!student) {
+
+                alert(
+                    "Please return to R3 and choose your name."
+                );
+
+                return;
+
+            }
+
+
+            clearStates();
+
+
+            const cards =
+                document.querySelectorAll(
+                    ".q-card"
+                );
+
+
+            let score = 0;
+
+            const mistakes = [];
+
+            const answers = [];
+
+
+            cards.forEach(card => {
+
+                const question =
+                    card.dataset.question;
+
+
+                const correctAnswer =
+                    card.dataset.answer;
+
+
+                const userAnswer =
+                    getSelectedAnswer(
+                        card
+                    );
+
+
+                answers.push(
+                    question +
+                    ":" +
+                    (
+                        userAnswer ||
+                        "-"
+                    )
+                );
+
+
+                card
+                    .querySelectorAll(
+                        ".opt-label"
+                    )
+                    .forEach(label => {
+
+                        const input =
+                            label.querySelector(
+                                'input[type="radio"]'
+                            );
+
+
+                        if (
+                            input.value ===
+                            correctAnswer
+                        ) {
+
+                            label.classList.add(
+                                "correct-ans"
+                            );
+
+                        }
+
+
+                        if (
+                            input.value ===
+                                userAnswer &&
+                            userAnswer !==
+                                correctAnswer
+                        ) {
+
+                            label.classList.add(
+                                "wrong-ans"
+                            );
+
+                        }
+
+                    });
+
+
+                if (
+                    userAnswer ===
+                    correctAnswer
+                ) {
+
+                    score++;
+
+                } else {
+
+                    mistakes.push(
+                        question
+                    );
+
+                }
+
+            });
+
+
+            disableAnswers();
+
+
+            const result =
+                score + "/7";
+
+
+            const mistakesText =
+                mistakes.length
+                    ? mistakes.join(", ")
+                    : "—";
+
+
+            document.getElementById(
+                "resultScore"
+            ).textContent =
+                result;
+
+
+            document.getElementById(
+                "resultMistakes"
+            ).textContent =
+                mistakes.length
+                    ? "Mistakes: " +
+                      mistakes.join(", ")
+                    : "No mistakes";
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Saving result...";
+
+
+            document.getElementById(
+                "resultCard"
+            ).style.display =
+                "block";
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        API_URL,
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    student:
+                                        student,
+
+                                    course:
+                                        COURSE,
+
+                                    section:
+                                        SECTION,
+
+                                    taskId:
+                                        TASK_ID,
+
+                                    result:
+                                        result,
+
+                                    mistakes:
+                                        mistakesText,
+
+                                    answers:
+                                        answers.join(
+                                            ", "
+                                        )
+
+                                })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    data.status ===
+                    "success"
+                ) {
+
+                    document.getElementById(
+                        "resultSaved"
+                    ).textContent =
+                        "Result saved · Attempt " +
+                        data.attempt;
+
+                } else {
+
+                    document.getElementById(
+                        "resultSaved"
+                    ).textContent =
+                        "Could not save result";
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+        }
+    );
+
+
+    loadLastAttempt();
+
 </script>
 
+
 </body>
+
 </html>
