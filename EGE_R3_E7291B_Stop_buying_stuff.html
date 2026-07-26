@@ -1,173 +1,182 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EGE Reading 12-18 E7291B</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 20px; color: #333; }
-        .container { max-width: 1100px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        
-        .main-layout { display: flex; gap: 40px; margin-top: 25px; }
-        .text-part { flex: 1.3; line-height: 1.7; font-size: 17px; text-align: justify; background: #fff; padding: 25px; border: 1px solid #e1e8ed; border-radius: 8px; height: 80vh; overflow-y: auto; }
-        .quiz-part { flex: 1; height: 80vh; overflow-y: auto; padding-right: 10px; }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .q-card { background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 5px solid #3498db; }
-        .q-text { font-weight: bold; margin-bottom: 15px; display: block; font-size: 16px; }
-        
-        .opt-label { display: block; background: white; padding: 12px; margin: 8px 0; border: 1px solid #dcdde1; border-radius: 6px; cursor: pointer; transition: 0.2s; font-size: 15px; }
-        .opt-label:hover { border-color: #3498db; background: #f0f7ff; }
-        input[type="radio"] { margin-right: 10px; }
+    <title>The Space — E7291B</title>
 
-        /* ЦВЕТОВАЯ ИНДИКАЦИЯ */
-        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
-        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
-
-        #setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f4f7f6; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .login-box { background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .btn { background: #3498db; color: white; border: none; padding: 15px 30px; border-radius: 6px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%; margin-top: 20px; }
-        .hidden { display: none !important; }
-        #finalMsg { text-align: center; font-size: 22px; font-weight: bold; margin-top: 20px; padding: 20px; background: #e8f4fd; border-radius: 8px; color: #2980b9; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://thespace-english.github.io/The-Space-Trainer/theme.css">
+    <link rel="stylesheet" href="https://thespace-english.github.io/The-Space-Trainer/reading.css">
 </head>
+
 <body>
 
-<div id="setup">
-    <div class="login-box">
-        <h2 style="color: #3498db;">EGE Reading Practice</h2>
-        <p>Stop buying stuff (12–18)</p>
-        <input type="text" id="userName" placeholder="Ваше Имя" style="padding: 12px; width: 260px; border: 2px solid #3498db; border-radius: 6px; outline: none;"><br>
-        <button class="btn" onclick="start()">Начать тест</button>
-    </div>
-</div>
-
-<div class="container">
-    <h1>Stop buying stuff</h1>
-    
-    <div class="main-layout">
-        <div class="text-part">
-            <p>Did you know that spending 1,000 rubles a day adds up to spending more than 365,000 a year? And I don’t know about you, but hardly anything costs under 1,000 where we live. So thoughtless spending can add up very quickly. As I try to live more simply, I have been trying to mend what we have and make what we need. I recently made linen napkins with some fabric we had. This way of living has required me to slow down and question whether what I want to buy is truly essential. If you also want to live more simply and stop buying stuff you don’t need, here are some tips that I’ve found useful.</p>
-            <p>First, you need to identify your motivation. Take a few minutes to think about why you want to buy less stuff. Your goal is to buy less, but <i>why</i> are you chasing that goal. Some reasons might be to save money, to reduce clutter, to live more sustainably, to get out of debt, or to live a more handmade and simple life. Once you have your motivation identified, you can refer back to it when you are tempted to buy something <b>frivolous</b>.</p>
-            <p>Next, it’s very useful to record your expenses. Don’t worry about setting up a fancy budget right now. Just write down everything you buy and how much you spend for one week. This is to make you more conscious of your spending habits and help you to stop buying stuff you don’t need. Also for one week, write down what prompted you to buy something. For example, imagine you bought a new T-shirt. Write it down and think about what made you want to buy it. Did you see someone you follow on social media wearing it? Did you buy it late at night after a date went badly? The goal is to make your invisible purchasing habits more visible. As you write down what prompted you to buy something, think about whether the spending was emotional or not. Did you get a rush when you pushed ‘buy now’? That’s probably an emotional purchase. Try to identify which emotion you’re avoiding. Do you feel self-conscious? Or depressed? Once we can name what we’re trying to avoid, then we can take steps to meaningfully address <b>it</b>.</p>
-            <p>Have you heard about the One-Year Test? Look around your space. Do you see anything you haven’t used in a year? Strongly consider selling or donating it. Once you have an understanding of how much you spend and what your spending triggers are, it’s time to clean the slate. Unsubscribe from brands on social media and from email newsletters from companies or influencers. You want to set yourself up for success and protect yourself from being bombarded with emails promising ‘irresistible’ sales. Once you know when you are triggered to buy things, you can pre-empt the urge by filling the time with something else. For example, if you browse and buy late at night on your phone, you can do yoga or meditate or read a good book before bed. You don’t need to do this forever – just try to do it once to begin with, and see how you feel.</p>
-            <p>Another very good tip can be summed up as ‘cost versus work.’ Before you buy something, calculate how much you will need to work to cover the cost. If you get paid 300 rubles/hour and something costs 2,500, that’s more than 8 hours of work. Is it worth it to you?</p>
-            <p>Before buying something, wait 24 hours. This is a good way to weed out impulse buying. Instead of buying things every day, choose one day a week. Bookmark everything you want to buy and on the buying day, review all of your bookmarks. This is a good way to remove emotional or impulse buying, too.</p>
-            <p>So, buying stuff you don’t need is a major problem for a lot of people. The material possessions that you’ve desired and eventually purchased will lose their sparkle, and you’ll return to your happiness set point. <i>Things</i> can’t make you happy, but <i>people</i> can.</p>
-        </div>
-
-        <div class="quiz-part" id="quiz">
-            <div class="q-card" data-ans="4">
-                <span class="q-text">12. The author started making hand-made things because she …</span>
-                <label class="opt-label"><input type="radio" name="q12" value="1"> 1) spends too much annually.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="2"> 2) lives in an expensive district.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="3"> 3) slowed down her pace of life.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="4"> 4) wishes to reduce her purchases.</label>
-            </div>
-
-            <div class="q-card" data-ans="4">
-                <span class="q-text">13. The word <b>frivolous</b> in paragraph 2 is closest in meaning to …</span>
-                <label class="opt-label"><input type="radio" name="q13" value="1"> 1) unplanned.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="2"> 2) unusual.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="3"> 3) unlimited.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="4"> 4) unnecessary.</label>
-            </div>
-
-            <div class="q-card" data-ans="1">
-                <span class="q-text">14. According to the author, writing down what you buy helps to …</span>
-                <label class="opt-label"><input type="radio" name="q14" value="1"> 1) analyse your real motivation.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="2"> 2) stop social media influence.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="3"> 3) cope with depressive state.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="4"> 4) protect you from criminals.</label>
-            </div>
-
-            <div class="q-card" data-ans="3">
-                <span class="q-text">15. <b>It</b> in "address it" (paragraph 3) refers to …</span>
-                <label class="opt-label"><input type="radio" name="q15" value="1"> 1) buying.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="2"> 2) rushing.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="3"> 3) emotion.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="4"> 4) action.</label>
-            </div>
-
-            <div class="q-card" data-ans="3">
-                <span class="q-text">16. It is implied that one of the ways to avoid buying is to …</span>
-                <label class="opt-label"><input type="radio" name="q16" value="1"> 1) spend more time cleaning up.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="2"> 2) replace online shopping with traditional.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="3"> 3) find out shopping motives and replace them.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="4"> 4) be busy all the time.</label>
-            </div>
-
-            <div class="q-card" data-ans="2">
-                <span class="q-text">17. What advice is given to prevent impulse buying?</span>
-                <label class="opt-label"><input type="radio" name="q17" value="1"> 1) Never buy expensive items.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="2"> 2) Introduce a purchase day once a week.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="3"> 3) Delete your bookmarks in online shops.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="4"> 4) Discuss what you want to buy at work.</label>
-            </div>
-
-            <div class="q-card" data-ans="3">
-                <span class="q-text">18. Which is the best summary of the article?</span>
-                <label class="opt-label"><input type="radio" name="q18" value="1"> 1) There are many ways to reduce purchases.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="2"> 2) Buy only what makes you happy.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="3"> 3) Buying less stuff is a way to happiness.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="4"> 4) People tend to spend more than they afford.</label>
-            </div>
-
-            <button class="btn" id="submitBtn" onclick="check()">Проверить ответы</button>
-            <div id="finalMsg" class="hidden"></div>
-        </div>
-    </div>
-</div>
+<div id="readingApp"></div>
 
 <script>
-    const G_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
+const READING_TASK = {
 
-    function start() {
-        if(document.getElementById('userName').value.trim()) {
-            document.getElementById('setup').classList.add('hidden');
-        } else alert("Пожалуйста, введите имя!");
-    }
+    id: "E7291B",
 
-    function check() {
-        let score = 0;
-        let log = [];
-        const cards = document.querySelectorAll('.q-card');
-        
-        cards.forEach((card, index) => {
-            const correct = card.getAttribute('data-ans');
-            const selected = card.querySelector('input:checked');
-            const userVal = selected ? selected.value : null;
-            
-            log.push(`Q${index+12}:${userVal || "-"}`);
+    title: "Stop buying stuff",
 
-            const labels = card.querySelectorAll('.opt-label');
-            labels.forEach(lbl => {
-                const inp = lbl.querySelector('input');
-                inp.disabled = true;
-                if(inp.value === correct) lbl.classList.add('status-correct');
-                if(userVal && inp.value === userVal && userVal !== correct) lbl.classList.add('status-wrong');
-            });
+    text: `
+        <p>
+            Did you know that spending 1,000 rubles a day adds up to spending more than 365,000 a year?
+            And I don’t know about you, but hardly anything costs under 1,000 where we live.
+            So thoughtless spending can add up very quickly. As I try to live more simply,
+            I have been trying to mend what we have and make what we need.
+            I recently made linen napkins with some fabric we had.
+            This way of living has required me to slow down and question whether what I want to buy
+            is truly essential. If you also want to live more simply and stop buying stuff you don’t need,
+            here are some tips that I’ve found useful.
+        </p>
 
-            if(userVal === correct) score++;
-        });
+        <p>
+            First, you need to identify your motivation. Take a few minutes to think about why you want
+            to buy less stuff. Your goal is to buy less, but <i>why</i> are you chasing that goal.
+            Some reasons might be to save money, to reduce clutter, to live more sustainably,
+            to get out of debt, or to live a more handmade and simple life.
+            Once you have your motivation identified, you can refer back to it when you are tempted
+            to buy something <b>frivolous</b>.
+        </p>
 
-        const total = score + "/7";
-        document.getElementById('submitBtn').classList.add('hidden');
-        const msg = document.getElementById('finalMsg');
-        msg.innerHTML = "Результат: " + total;
-        msg.classList.remove('hidden');
+        <p>
+            Next, it’s very useful to record your expenses. Don’t worry about setting up a fancy budget
+            right now. Just write down everything you buy and how much you spend for one week.
+            This is to make you more conscious of your spending habits and help you to stop buying stuff
+            you don’t need. Also for one week, write down what prompted you to buy something.
+            For example, imagine you bought a new T-shirt. Write it down and think about what made you
+            want to buy it. Did you see someone you follow on social media wearing it?
+            Did you buy it late at night after a date went badly?
+            The goal is to make your invisible purchasing habits more visible.
+            As you write down what prompted you to buy something, think about whether the spending
+            was emotional or not. Did you get a rush when you pushed ‘buy now’?
+            That’s probably an emotional purchase. Try to identify which emotion you’re avoiding.
+            Do you feel self-conscious? Or depressed? Once we can name what we’re trying to avoid,
+            then we can take steps to meaningfully address <b>it</b>.
+        </p>
 
-        fetch(G_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE R3 E7291B Stop buying stuff",
-                result: total,
-                answers: log.join(", ")
-            })
-        });
-    }
+        <p>
+            Have you heard about the One-Year Test? Look around your space.
+            Do you see anything you haven’t used in a year? Strongly consider selling or donating it.
+            Once you have an understanding of how much you spend and what your spending triggers are,
+            it’s time to clean the slate. Unsubscribe from brands on social media and from email newsletters
+            from companies or influencers. You want to set yourself up for success and protect yourself
+            from being bombarded with emails promising ‘irresistible’ sales.
+            Once you know when you are triggered to buy things, you can pre-empt the urge by filling
+            the time with something else. For example, if you browse and buy late at night on your phone,
+            you can do yoga or meditate or read a good book before bed.
+            You don’t need to do this forever – just try to do it once to begin with, and see how you feel.
+        </p>
+
+        <p>
+            Another very good tip can be summed up as ‘cost versus work.’
+            Before you buy something, calculate how much you will need to work to cover the cost.
+            If you get paid 300 rubles/hour and something costs 2,500, that’s more than 8 hours of work.
+            Is it worth it to you?
+        </p>
+
+        <p>
+            Before buying something, wait 24 hours. This is a good way to weed out impulse buying.
+            Instead of buying things every day, choose one day a week.
+            Bookmark everything you want to buy and on the buying day, review all of your bookmarks.
+            This is a good way to remove emotional or impulse buying, too.
+        </p>
+
+        <p>
+            So, buying stuff you don’t need is a major problem for a lot of people.
+            The material possessions that you’ve desired and eventually purchased will lose their sparkle,
+            and you’ll return to your happiness set point.
+            <i>Things</i> can’t make you happy, but <i>people</i> can.
+        </p>
+    `,
+
+    questions: [
+        {
+            number: 12,
+            answer: "4",
+            text: "The author started making hand-made things because she …",
+            options: [
+                "spends too much annually.",
+                "lives in an expensive district.",
+                "slowed down her pace of life.",
+                "wishes to reduce her purchases."
+            ]
+        },
+        {
+            number: 13,
+            answer: "4",
+            text: "The word <b>frivolous</b> in paragraph 2 is closest in meaning to …",
+            options: [
+                "unplanned.",
+                "unusual.",
+                "unlimited.",
+                "unnecessary."
+            ]
+        },
+        {
+            number: 14,
+            answer: "1",
+            text: "According to the author, writing down what you buy helps to …",
+            options: [
+                "analyse your real motivation.",
+                "stop social media influence.",
+                "cope with depressive state.",
+                "protect you from criminals."
+            ]
+        },
+        {
+            number: 15,
+            answer: "3",
+            text: "<b>It</b> in \"address it\" (paragraph 3) refers to …",
+            options: [
+                "buying.",
+                "rushing.",
+                "emotion.",
+                "action."
+            ]
+        },
+        {
+            number: 16,
+            answer: "3",
+            text: "It is implied that one of the ways to avoid buying is to …",
+            options: [
+                "spend more time cleaning up.",
+                "replace online shopping with traditional.",
+                "find out shopping motives and replace them.",
+                "be busy all the time."
+            ]
+        },
+        {
+            number: 17,
+            answer: "2",
+            text: "What advice is given to prevent impulse buying?",
+            options: [
+                "Never buy expensive items.",
+                "Introduce a purchase day once a week.",
+                "Delete your bookmarks in online shops.",
+                "Discuss what you want to buy at work."
+            ]
+        },
+        {
+            number: 18,
+            answer: "3",
+            text: "Which is the best summary of the article?",
+            options: [
+                "There are many ways to reduce purchases.",
+                "Buy only what makes you happy.",
+                "Buying less stuff is a way to happiness.",
+                "People tend to spend more than they afford."
+            ]
+        }
+    ]
+};
 </script>
+
+<script src="https://thespace-english.github.io/The-Space-Trainer/r3.js"></script>
 
 </body>
 </html>
