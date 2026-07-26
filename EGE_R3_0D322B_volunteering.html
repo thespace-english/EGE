@@ -1,178 +1,2345 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE R3 0D322B Volunteering</title>
-    <style>
-        :root { 
-            --primary: #2c3e50; --accent: #8e44ad; --bg: #fdfeff; 
-            --correct: #27ae60; --wrong: #e74c3c;
-        }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
-        header { background: var(--primary); color: white; padding: 15px 25px; flex-shrink: 0; font-weight: bold; }
-        
-        .main-layout { display: flex; flex: 1; overflow: hidden; }
-        
-        .text-pane { flex: 1; padding: 40px; overflow-y: auto; background: white; border-right: 2px solid #eee; line-height: 1.8; font-size: 18px; color: #333; }
-        .questions-pane { flex: 1; padding: 40px; overflow-y: auto; background: #f9f9f9; }
-        
-        .highlight { color: #8e44ad; font-weight: bold; border-bottom: 2px solid #8e44ad; }
-        
-        .name-section { background: #fff; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .name-field { width: 100%; padding: 12px; border: 2px solid #bdc3c7; border-radius: 6px; font-size: 16px; box-sizing: border-box; }
-        
-        .q-card { background: white; padding: 25px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 5px solid var(--accent); }
-        .q-title { font-weight: bold; display: block; margin-bottom: 15px; color: var(--primary); }
-        .opt-label { display: block; margin: 8px 0; padding: 12px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        .opt-label:hover { background: #f0f4f8; }
-        
-        .opt-label.correct-ans { background: #d4edda !important; border-color: var(--correct) !important; color: #155724; font-weight: bold; }
-        .opt-label.wrong-ans { background: #f8d7da !important; border-color: var(--wrong) !important; color: #721c24; }
 
-        .submit-btn { background: var(--accent); color: white; border: none; padding: 20px; font-size: 18px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
-        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-        .submit-btn:disabled { background: #95a5a6; transform: none; }
-        #status { margin-top: 20px; text-align: center; font-weight: bold; padding-bottom: 40px; font-size: 20px; }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://thespace-english.github.io/The-Space-Trainer/favicon.png"
+    >
+
+    <title>The Space — 0D322B</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+            width: 100%;
+            max-width: 1380px;
+
+            margin: 0 auto;
+
+            padding: 55px 24px 100px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+
+        /* =========================================
+           BACK
+        ========================================= */
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 30;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            background:
+                rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background:
+                rgba(255,255,255,0.78);
+        }
+
+
+        /* =========================================
+           CARDS
+        ========================================= */
+
+        .intro-card,
+        .text-card,
+        .questions-card,
+        .review-card,
+        .result-card {
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px
+                rgba(97,155,147,0.14);
+
+            position: relative;
+
+            z-index: 3;
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro-card {
+            padding: 30px;
+
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 29px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+
+        /* =========================================
+           DESKTOP — TEXT + QUESTIONS
+        ========================================= */
+
+        .reading-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.08fr)
+                minmax(420px, 0.92fr);
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+
+        .text-card,
+        .questions-card {
+
+            height:
+                calc(100vh - 245px);
+
+            min-height: 600px;
+
+            overflow-y: auto;
+
+            scrollbar-width: thin;
+        }
+
+
+        /* =========================================
+           TEXT
+        ========================================= */
+
+        .text-card {
+            padding: 32px 34px;
+        }
+
+        .article-title {
+            margin: 0 0 24px;
+
+            text-align: center;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .article-text {
+            font-size: 17px;
+
+            line-height: 1.78;
+
+            color: #173D43;
+        }
+
+        .article-text p {
+            margin: 0 0 22px;
+        }
+
+        .highlight {
+            font-weight: 800;
+
+            color: #138E87;
+
+            border-bottom:
+                2px solid
+                rgba(19,142,135,0.35);
+        }
+
+
+        /* =========================================
+           QUESTIONS
+        ========================================= */
+
+        .questions-card {
+            padding: 28px;
+        }
+
+        .questions-title {
+            margin: 0 0 20px;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .q-card {
+
+            margin-bottom: 18px;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,0.72);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 8px 20px
+                rgba(97,155,147,0.08);
+        }
+
+        .q-title {
+            display: block;
+
+            margin-bottom: 14px;
+
+            font-size: 16px;
+            line-height: 1.45;
+
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .opt-label {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin: 8px 0;
+
+            padding: 11px 12px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid
+                rgba(122,160,149,0.16);
+
+            background:
+                rgba(255,255,255,0.58);
+
+            font-size: 15px;
+
+            line-height: 1.4;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .opt-label:hover {
+            background:
+                rgba(231,248,243,0.75);
+        }
+
+        .opt-label input {
+            margin-top: 3px;
+
+            flex-shrink: 0;
+
+            accent-color: #15968F;
+        }
+
+        .opt-label.correct-ans {
+
+            border-color:
+                rgba(74,174,138,0.5);
+
+            background:
+                rgba(217,245,232,0.72);
+
+            color: #22634E;
+
+            font-weight: 700;
+        }
+
+        .opt-label.wrong-ans {
+
+            border-color:
+                rgba(212,136,136,0.5);
+
+            background:
+                rgba(250,225,225,0.72);
+
+            color: #854545;
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .check-button,
+        .try-button {
+
+            width: 100%;
+
+            padding: 15px 20px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family:
+                'Nunito',
+                sans-serif;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button {
+            margin-top: 8px;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+
+        /* =========================================
+           LAST ATTEMPT
+        ========================================= */
+
+        .review-card {
+
+            display: none;
+
+            margin-bottom: 20px;
+
+            padding: 26px 30px;
+
+            text-align: center;
+        }
+
+        .review-title {
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+
+            margin-top: 7px;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+
+        /* =========================================
+           RESULT
+        ========================================= */
+
+        .result-card {
+
+            display: none;
+
+            max-width: 900px;
+
+            margin: 20px auto 0;
+
+            padding: 28px;
+
+            text-align: center;
+        }
+
+        .result-score {
+
+            margin-bottom: 8px;
+
+            font-size: 29px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .corner-logo {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 20;
+        }
+
+
+        /* =========================================
+           MOBILE
+           TEXT = 2/3
+           QUESTIONS = 1/3
+        ========================================= */
+
+        @media (max-width: 820px) {
+
+            html,
+            body {
+                width: 100%;
+
+                height: 100%;
+
+                overflow: hidden;
+            }
+
+
+            body {
+                height: 100dvh;
+            }
+
+
+            .page {
+
+                width: 100%;
+
+                height: 100dvh;
+
+                padding:
+                    62px
+                    10px
+                    8px;
+
+                display: flex;
+
+                flex-direction: column;
+
+                overflow: hidden;
+            }
+
+
+            /* compact platform header */
+
+            header {
+
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+            }
+
+            .brand {
+
+                font-size: 30px;
+
+                line-height: 1;
+
+                letter-spacing: 5px;
+            }
+
+            .section-name {
+
+                margin-top: 5px;
+
+                font-size: 13px;
+
+                line-height: 1;
+
+                letter-spacing: 4px;
+            }
+
+
+            /* back */
+
+            .back-button {
+
+                top: 10px;
+
+                left: 10px;
+
+                padding: 8px 10px;
+
+                font-size: 12px;
+            }
+
+
+            /* compact task information */
+
+            .intro-card {
+
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+
+                padding:
+                    10px
+                    14px;
+
+                border-radius: 16px;
+            }
+
+            .student-line {
+
+                margin-bottom: 2px;
+
+                font-size: 13px;
+            }
+
+            .task-id {
+
+                display: inline-block;
+
+                margin-right: 8px;
+
+                margin-bottom: 0;
+
+                font-size: 13px;
+            }
+
+            h1 {
+
+                display: inline;
+
+                margin: 0;
+
+                font-size: 17px;
+
+                line-height: 1.2;
+            }
+
+            .instruction {
+
+                display: none;
+            }
+
+
+            /* last attempt */
+
+            .review-card {
+
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+
+                padding: 8px 12px;
+
+                border-radius: 15px;
+            }
+
+            .review-title {
+
+                font-size: 13px;
+
+                letter-spacing: 1px;
+            }
+
+            .review-details {
+
+                margin-top: 2px;
+
+                font-size: 13px;
+            }
+
+            .review-card .try-button {
+
+                margin-top: 6px;
+
+                padding: 8px;
+
+                font-size: 13px;
+            }
+
+
+            /* THE MAIN MOBILE AREA */
+
+            .reading-layout {
+
+                flex: 1;
+
+                min-height: 0;
+
+                display: grid;
+
+                grid-template-columns: 1fr;
+
+                grid-template-rows:
+                    minmax(0, 2fr)
+                    minmax(0, 1fr);
+
+                gap: 7px;
+
+                overflow: hidden;
+            }
+
+
+            /* TEXT = upper 2/3 */
+
+            .text-card {
+
+                width: 100%;
+
+                height: auto;
+
+                min-height: 0;
+
+                overflow-y: auto;
+
+                -webkit-overflow-scrolling:
+                    touch;
+
+                padding:
+                    18px
+                    17px;
+
+                border-radius: 18px;
+
+                scrollbar-width: thin;
+            }
+
+            .article-title {
+
+                margin:
+                    0
+                    0
+                    16px;
+
+                font-size: 22px;
+
+                line-height: 1.25;
+            }
+
+            .article-text {
+
+                font-size: 19px;
+
+                line-height: 1.72;
+            }
+
+            .article-text p {
+
+                margin-bottom: 22px;
+            }
+
+
+            /* QUESTIONS = lower 1/3 */
+
+            .questions-card {
+
+                width: 100%;
+
+                height: auto;
+
+                min-height: 0;
+
+                overflow-y: auto;
+
+                -webkit-overflow-scrolling:
+                    touch;
+
+                padding:
+                    14px
+                    13px;
+
+                border-radius: 18px;
+
+                scrollbar-width: thin;
+            }
+
+            .questions-title {
+
+                position: sticky;
+
+                top: -14px;
+
+                z-index: 5;
+
+                margin:
+                    -14px
+                    -13px
+                    12px;
+
+                padding:
+                    11px
+                    13px;
+
+                background:
+                    rgba(
+                        243,
+                        251,
+                        248,
+                        0.96
+                    );
+
+                backdrop-filter:
+                    blur(12px);
+
+                -webkit-backdrop-filter:
+                    blur(12px);
+
+                font-size: 16px;
+
+                letter-spacing: 1.5px;
+            }
+
+            .q-card {
+
+                margin-bottom: 12px;
+
+                padding: 15px;
+
+                border-radius: 14px;
+            }
+
+            .q-title {
+
+                margin-bottom: 11px;
+
+                font-size: 18px;
+
+                line-height: 1.4;
+            }
+
+            .opt-label {
+
+                gap: 9px;
+
+                margin: 7px 0;
+
+                padding:
+                    11px
+                    10px;
+
+                font-size: 17px;
+
+                line-height: 1.4;
+            }
+
+            .opt-label input {
+
+                width: 18px;
+
+                height: 18px;
+
+                margin-top: 2px;
+            }
+
+
+            .check-button {
+
+                padding: 13px;
+
+                font-size: 16px;
+            }
+
+
+            /* result after checking */
+
+            .result-card {
+
+                position: fixed;
+
+                left: 12px;
+
+                right: 12px;
+
+                bottom: 12px;
+
+                width: auto;
+
+                max-width: none;
+
+                margin: 0;
+
+                padding: 18px;
+
+                border-radius: 18px;
+
+                z-index: 50;
+
+                box-shadow:
+                    0 18px 45px
+                    rgba(
+                        66,
+                        114,
+                        106,
+                        0.25
+                    );
+            }
+
+            .result-score {
+
+                font-size: 25px;
+            }
+
+            .result-mistakes {
+
+                font-size: 15px;
+            }
+
+            .result-saved {
+
+                font-size: 13px;
+            }
+
+            .result-card .try-button {
+
+                margin-top: 10px;
+
+                padding: 12px;
+
+                font-size: 15px;
+            }
+
+
+            .corner-logo {
+
+                display: none;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<header>EGE R3 0D322B: Прочитайте текст и выполните задания 12–18</header>
 
-<div class="main-layout">
-    <section class="text-pane">
-        <h2>What volunteering taught me</h2>
-        <p>Today I am member of the UN Global Education First Youth Advocacy Group. Many young people have come to me to ask how I got to be in such an initiative. It has always been a pleasure for me to share my volunteer experiences, and it is because of these experiences that I was selected out of 500 applications to serve in this group. It all started when I was in secondary school. I was engaged in student affairs as the president of the UNESCO club, a school platform that brings students together to discuss school matters and the pressing current issues concerning them.</p>
+<div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
 
-        <p>After secondary school, I started volunteering within non-governmental organizations. It was at this moment that I began to understand a lot about community development. I was involved in projects and activities relating to peace, human rights and the environment. It was a great pleasure for me to contribute to the development of my community through volunteering because the impact was visible.</p>
 
-        <p>I had many obstacles while volunteering because people don’t value volunteer work. In Cameroon and especially in my community, people consider volunteering as waste of time and resources. They cannot conceive the fact that someone can work without remuneration or a salary. My friends and family advised me on several occasions to stop volunteering. I felt very discouraged at some point, but I could not stop because I loved doing it. Volunteering was the top priority in my life. I decided not to pay attention to their advice but to concentrate on my work.</p>
+<button
+    class="back-button"
+    onclick="goBackToR3()"
+>
+    ← BACK TO R3
+</button>
 
-        <p>By spending time with host families in various regions I got used to cultural differences, which was really helpful during the projects. I learned a lot about what belonged to the norms and values of the local people. For example, how to dress appropriately, eat and even how to shower and go to the bathroom the local way. Most of the things are totally different than in my area, so it took some time to adapt.</p>
 
-        <p>In Nigeria I taught English conversation, 3 times a day. I had the opportunity to come up with my own ideas for the classes and tried to be as creative as possible making my lessons not only informative, but also fun. Apart from having conversations, we also cooked food, listened to English music and painted. Having a lot of conversations in English on different topics, I understood how to look at things from a different perspective. It also made me think in a more creative way, out of the box, one can say. I think this will help me in the future, looking at things through different glasses.</p>
+<div class="page">
 
-        <p>One day, a group of young people came to me and said they had something to say. I was very surprised. They said they were all grateful for the changes I brought into their lives through peer education. I was so happy to hear <strong class="highlight">this</strong> that it aroused joy in my heart. This experience made me understand that only volunteer work can have such a <strong class="highlight">profound</strong> impact on people’s lives.</p>
 
-        <p>There are three elements that permitted me to succeed in a life dedicated to volunteering: passion, determination and patience. Volunteering helped me become a job creator, not a job seeker.</p>
+    <header>
 
-        <p>My advice to my peers is that we cannot succeed in life overnight. We have to work hard to enjoy the fruits of our labor. Even if you have a diploma from the best school in the world, it is not enough because what matters most is your skills, your talent. The best way to discover who you are in order to integrate yourself into society is to volunteer. Volunteering not only allows you to offer your services, but to learn and discover new things and improve your skills. One secret in volunteer work is to avoid thinking about money because that is where the problem is. Young people expect to be paid as they are volunteering.</p>
-    </section>
-
-    <section class="questions-pane">
-        <div class="name-section">
-            <input type="text" id="userName" class="name-field" placeholder="Введите ваше имя для сохранения результата" required>
+        <div class="brand">
+            THE SPACE
         </div>
 
-        <form id="quizForm">
-            <div class="q-card" id="card-q12">
-                <span class="q-title">12. The author was chosen for her current position because of …</span>
-                <label class="opt-label"><input type="radio" name="q12" value="1" required> 1) her passion for volunteering.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="2"> 2) the advice she gave others.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="3"> 3) her volunteering background.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="4"> 4) her leadership skills.</label>
+        <div class="section-name">
+            EGE · R3
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            0D322B
+        </div>
+
+        <h1>
+            What volunteering taught me
+        </h1>
+
+        <p class="instruction">
+            Read the text and complete questions 12–18.
+            Choose one answer for each question.
+        </p>
+
+    </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="reading-layout">
+
+
+        <!-- TEXT -->
+
+        <section class="text-card">
+
+            <h2 class="article-title">
+                What volunteering taught me
+            </h2>
+
+
+            <div class="article-text">
+
+                <p>
+                    Today I am member of the UN Global Education First Youth Advocacy Group.
+                    Many young people have come to me to ask how I got to be in such an initiative.
+                    It has always been a pleasure for me to share my volunteer experiences,
+                    and it is because of these experiences that I was selected out of 500
+                    applications to serve in this group. It all started when I was in secondary
+                    school. I was engaged in student affairs as the president of the UNESCO club,
+                    a school platform that brings students together to discuss school matters
+                    and the pressing current issues concerning them.
+                </p>
+
+                <p>
+                    After secondary school, I started volunteering within non-governmental
+                    organizations. It was at this moment that I began to understand a lot about
+                    community development. I was involved in projects and activities relating
+                    to peace, human rights and the environment. It was a great pleasure for me
+                    to contribute to the development of my community through volunteering
+                    because the impact was visible.
+                </p>
+
+                <p>
+                    I had many obstacles while volunteering because people don’t value volunteer
+                    work. In Cameroon and especially in my community, people consider volunteering
+                    as waste of time and resources. They cannot conceive the fact that someone can
+                    work without remuneration or a salary. My friends and family advised me on
+                    several occasions to stop volunteering. I felt very discouraged at some point,
+                    but I could not stop because I loved doing it. Volunteering was the top priority
+                    in my life. I decided not to pay attention to their advice but to concentrate
+                    on my work.
+                </p>
+
+                <p>
+                    By spending time with host families in various regions I got used to cultural
+                    differences, which was really helpful during the projects. I learned a lot
+                    about what belonged to the norms and values of the local people. For example,
+                    how to dress appropriately, eat and even how to shower and go to the bathroom
+                    the local way. Most of the things are totally different than in my area,
+                    so it took some time to adapt.
+                </p>
+
+                <p>
+                    In Nigeria I taught English conversation, 3 times a day. I had the opportunity
+                    to come up with my own ideas for the classes and tried to be as creative as
+                    possible making my lessons not only informative, but also fun. Apart from having
+                    conversations, we also cooked food, listened to English music and painted.
+                    Having a lot of conversations in English on different topics, I understood
+                    how to look at things from a different perspective. It also made me think
+                    in a more creative way, out of the box, one can say. I think this will help
+                    me in the future, looking at things through different glasses.
+                </p>
+
+                <p>
+                    One day, a group of young people came to me and said they had something to say.
+                    I was very surprised. They said they were all grateful for the changes I brought
+                    into their lives through peer education. I was so happy to hear
+                    <strong class="highlight">this</strong>
+                    that it aroused joy in my heart. This experience made me understand that only
+                    volunteer work can have such a
+                    <strong class="highlight">profound</strong>
+                    impact on people’s lives.
+                </p>
+
+                <p>
+                    There are three elements that permitted me to succeed in a life dedicated
+                    to volunteering: passion, determination and patience. Volunteering helped
+                    me become a job creator, not a job seeker.
+                </p>
+
+                <p>
+                    My advice to my peers is that we cannot succeed in life overnight.
+                    We have to work hard to enjoy the fruits of our labor. Even if you have
+                    a diploma from the best school in the world, it is not enough because
+                    what matters most is your skills, your talent. The best way to discover
+                    who you are in order to integrate yourself into society is to volunteer.
+                    Volunteering not only allows you to offer your services, but to learn
+                    and discover new things and improve your skills. One secret in volunteer
+                    work is to avoid thinking about money because that is where the problem is.
+                    Young people expect to be paid as they are volunteering.
+                </p>
+
             </div>
 
-            <div class="q-card" id="card-q13">
-                <span class="q-title">13. Why did the author enjoy her work in community development?</span>
-                <label class="opt-label"><input type="radio" name="q13" value="1" required> 1) She took part in interesting events.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="2"> 2) She became part of the community.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="3"> 3) She developed her skills.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="4"> 4) She saw the results of her work.</label>
+        </section>
+
+
+        <!-- QUESTIONS -->
+
+        <section class="questions-card">
+
+            <div class="questions-title">
+                QUESTIONS 12–18
             </div>
 
-            <div class="q-card" id="card-q14">
-                <span class="q-title">14. Why did the author have difficulties when volunteering?</span>
-                <label class="opt-label"><input type="radio" name="q14" value="1" required> 1) People did not understand the purpose of volunteering.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="2"> 2) Employers did not want to pay volunteers.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="3"> 3) She spent too much time volunteering.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="4"> 4) Her family did not approve of her work.</label>
-            </div>
 
-            <div class="q-card" id="card-q15">
-                <span class="q-title">15. The main idea expressed in paragraphs 4 and 5 is that volunteering …</span>
-                <label class="opt-label"><input type="radio" name="q15" value="1" required> 1) develops creativity and talent.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="2"> 2) becomes more adaptive and flexible.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="3"> 3) helps build closer relations with locals.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="4"> 4) helps understand other cultures and lifestyles.</label>
-            </div>
+            <form id="quizForm">
 
-            <div class="q-card" id="card-q16">
-                <span class="q-title">16. The pronoun "this" in paragraph 6 refers to the …</span>
-                <label class="opt-label"><input type="radio" name="q16" value="1" required> 1) offer to study together.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="2"> 2) young men's gratitude.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="3"> 3) surprising information.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="4"> 4) advice on how to change her life.</label>
-            </div>
 
-            <div class="q-card" id="card-q17">
-                <span class="q-title">17. The word "profound" in paragraph 6 means …</span>
-                <label class="opt-label"><input type="radio" name="q17" value="1" required> 1) significant.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="2"> 2) instant.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="3"> 3) severe.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="4"> 4) visual.</label>
-            </div>
+                <div
+                    class="q-card"
+                    data-question="12"
+                    data-answer="3"
+                >
 
-            <div class="q-card" id="card-q18">
-                <span class="q-title">18. Which piece of advice does the author NOT give to her peers?</span>
-                <label class="opt-label"><input type="radio" name="q18" value="1" required> 1) Do not to expect quick results.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="2"> 2) Develop through volunteering.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="3"> 3) Become part of a social group.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="4"> 4) Do not count on earning money.</label>
-            </div>
+                    <span class="q-title">
+                        12. The author was chosen for her current position because of …
+                    </span>
 
-            <button type="submit" id="submitBtn" class="submit-btn">ПРОВЕРИТЬ РЕЗУЛЬТАТ</button>
-            <div id="status"></div>
-        </form>
-    </section>
+                    <label class="opt-label">
+                        <input
+                            type="radio"
+                            name="q12"
+                            value="1"
+                        >
+                        <span>
+                            1) her passion for volunteering.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input
+                            type="radio"
+                            name="q12"
+                            value="2"
+                        >
+                        <span>
+                            2) the advice she gave others.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input
+                            type="radio"
+                            name="q12"
+                            value="3"
+                        >
+                        <span>
+                            3) her volunteering background.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input
+                            type="radio"
+                            name="q12"
+                            value="4"
+                        >
+                        <span>
+                            4) her leadership skills.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="13"
+                    data-answer="4"
+                >
+
+                    <span class="q-title">
+                        13. Why did the author enjoy her work in community development?
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="1">
+                        <span>
+                            1) She took part in interesting events.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="2">
+                        <span>
+                            2) She became part of the community.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="3">
+                        <span>
+                            3) She developed her skills.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="4">
+                        <span>
+                            4) She saw the results of her work.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="14"
+                    data-answer="1"
+                >
+
+                    <span class="q-title">
+                        14. Why did the author have difficulties when volunteering?
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="1">
+                        <span>
+                            1) People did not understand the purpose of volunteering.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="2">
+                        <span>
+                            2) Employers did not want to pay volunteers.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="3">
+                        <span>
+                            3) She spent too much time volunteering.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="4">
+                        <span>
+                            4) Her family did not approve of her work.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="15"
+                    data-answer="4"
+                >
+
+                    <span class="q-title">
+                        15. The main idea expressed in paragraphs 4 and 5 is that volunteering …
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="1">
+                        <span>
+                            1) develops creativity and talent.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="2">
+                        <span>
+                            2) becomes more adaptive and flexible.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="3">
+                        <span>
+                            3) helps build closer relations with locals.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="4">
+                        <span>
+                            4) helps understand other cultures and lifestyles.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="16"
+                    data-answer="2"
+                >
+
+                    <span class="q-title">
+                        16. The pronoun "this" in paragraph 6 refers to the …
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="1">
+                        <span>
+                            1) offer to study together.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="2">
+                        <span>
+                            2) young men's gratitude.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="3">
+                        <span>
+                            3) surprising information.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="4">
+                        <span>
+                            4) advice on how to change her life.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="17"
+                    data-answer="1"
+                >
+
+                    <span class="q-title">
+                        17. The word "profound" in paragraph 6 means …
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="1">
+                        <span>
+                            1) significant.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="2">
+                        <span>
+                            2) instant.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="3">
+                        <span>
+                            3) severe.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="4">
+                        <span>
+                            4) visual.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="18"
+                    data-answer="3"
+                >
+
+                    <span class="q-title">
+                        18. Which piece of advice does the author NOT give to her peers?
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="1">
+                        <span>
+                            1) Do not to expect quick results.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="2">
+                        <span>
+                            2) Develop through volunteering.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="3">
+                        <span>
+                            3) Become part of a social group.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="4">
+                        <span>
+                            4) Do not count on earning money.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="checkButton"
+                    class="check-button"
+                >
+                    CHECK ANSWERS
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
+
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
+
+
 <script>
-    // Используем ваш URL для скрипта
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec';
-    const KEYS = { q12:"3", q13:"4", q14:"1", q15:"4", q16:"2", q17:"1", q18:"3" };
 
-    document.getElementById('quizForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const nameInput = document.getElementById('userName').value.trim();
-        if (!nameInput) { alert("Введите имя!"); return; }
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
 
-        let score = 0;
-        let details = [];
-        const formData = new FormData(this);
 
-        for (let q in KEYS) {
-            const userVal = formData.get(q);
-            const card = document.getElementById('card-' + q);
-            const labels = card.querySelectorAll('.opt-label');
-            details.push(`${q}:${userVal}`);
+    const COURSE = "EGE";
 
-            labels.forEach(l => {
-                const val = l.querySelector('input').value;
-                l.classList.remove('correct-ans', 'wrong-ans');
-                if (val === KEYS[q]) l.classList.add('correct-ans');
-                if (userVal === val && val !== KEYS[q]) l.classList.add('wrong-ans');
-            });
-            if (userVal === KEYS[q]) score++;
+    const SECTION = "R3";
+
+    const TASK_ID = "0D322B";
+
+
+    const R3_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r3.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
+    }
+
+
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    /* =========================================
+       BACK TO R3
+    ========================================= */
+
+
+    function goBackToR3() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
         }
 
-        const payload = {
-            name: nameInput,
-            task: "EGE R3 0D322B volunteering",
-            result: `${score}/7`,
-            answers: details.join(', ')
-        };
 
-        document.getElementById('submitBtn').disabled = true;
-        
-        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) })
-        .then(() => { 
-            document.getElementById('status').innerHTML = `<span style="color:var(--correct)">Задание выполнено! Ваш балл: ${score} из 7</span>`; 
-        })
-        .catch(err => {
-            document.getElementById('status').innerHTML = `Ошибка при отправке, но ваш балл: ${score}/7`;
+        let url =
+            R3_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(
+                    student
+                );
+
+        }
+
+
+        window.location.href =
+            url;
+
+    }
+
+
+    /* =========================================
+       HELPERS
+    ========================================= */
+
+
+    function clearStates() {
+
+        document
+            .querySelectorAll(
+                ".opt-label"
+            )
+            .forEach(label => {
+
+                label.classList.remove(
+                    "correct-ans",
+                    "wrong-ans"
+                );
+
+            });
+
+    }
+
+
+    function getSelectedAnswer(
+        card
+    ) {
+
+        const checked =
+            card.querySelector(
+                'input[type="radio"]:checked'
+            );
+
+
+        return checked
+            ? checked.value
+            : "";
+
+    }
+
+
+    function disableAnswers() {
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.disabled =
+                    true;
+
+            });
+
+    }
+
+
+    function enableAnswers() {
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.disabled =
+                    false;
+
+            });
+
+    }
+
+
+    /* =========================================
+       SHOW SAVED QUESTION
+    ========================================= */
+
+
+    function showQuestionState(
+        card,
+        userAnswer
+    ) {
+
+        const correctAnswer =
+            card.dataset.answer;
+
+
+        const labels =
+            card.querySelectorAll(
+                ".opt-label"
+            );
+
+
+        labels.forEach(label => {
+
+            const input =
+                label.querySelector(
+                    'input[type="radio"]'
+                );
+
+
+            if (
+                input.value ===
+                userAnswer
+            ) {
+
+                input.checked =
+                    true;
+
+            }
+
+
+            if (
+                input.value ===
+                correctAnswer
+            ) {
+
+                label.classList.add(
+                    "correct-ans"
+                );
+
+            }
+
+
+            if (
+                input.value ===
+                    userAnswer &&
+                userAnswer !==
+                    correctAnswer
+            ) {
+
+                label.classList.add(
+                    "wrong-ans"
+                );
+
+            }
+
         });
-    });
+
+    }
+
+
+    /* =========================================
+       PARSE SAVED ANSWERS
+    ========================================= */
+
+
+    function parseSavedAnswers(
+        text
+    ) {
+
+        const result = {};
+
+
+        if (!text) {
+
+            return result;
+
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (
+                    separator === -1
+                ) {
+
+                    return;
+
+                }
+
+
+                let question =
+                    part
+                        .slice(
+                            0,
+                            separator
+                        )
+                        .trim()
+                        .toLowerCase();
+
+
+                question =
+                    question.replace(
+                        "q",
+                        ""
+                    );
+
+
+                const answer =
+                    part
+                        .slice(
+                            separator + 1
+                        )
+                        .trim();
+
+
+                result[question] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    /* =========================================
+       LOAD LAST ATTEMPT
+    ========================================= */
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+
+            return;
+
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(
+                    student
+                ) +
+                "&course=" +
+                encodeURIComponent(
+                    COURSE
+                ) +
+                "&section=" +
+                encodeURIComponent(
+                    SECTION
+                ) +
+                "&taskId=" +
+                encodeURIComponent(
+                    TASK_ID
+                );
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !==
+                    "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearStates();
+
+
+            document
+                .querySelectorAll(
+                    ".q-card"
+                )
+                .forEach(card => {
+
+                    const question =
+                        card.dataset.question;
+
+
+                    showQuestionState(
+                        card,
+                        savedAnswers[
+                            question
+                        ] || ""
+                    );
+
+                });
+
+
+            disableAnswers();
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       TRY AGAIN
+    ========================================= */
+
+
+    function resetQuiz() {
+
+        clearStates();
+
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.checked =
+                    false;
+
+            });
+
+
+        enableAnswers();
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        const textCard =
+            document.querySelector(
+                ".text-card"
+            );
+
+
+        const questionsCard =
+            document.querySelector(
+                ".questions-card"
+            );
+
+
+        if (textCard) {
+
+            textCard.scrollTop =
+                0;
+
+        }
+
+
+        if (questionsCard) {
+
+            questionsCard.scrollTop =
+                0;
+
+        }
+
+
+        if (
+            window.innerWidth >
+            820
+        ) {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    }
+
+
+    /* =========================================
+       CHECK
+    ========================================= */
+
+
+    document.getElementById(
+        "quizForm"
+    ).addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            if (!student) {
+
+                alert(
+                    "Please return to R3 and choose your name."
+                );
+
+                return;
+
+            }
+
+
+            clearStates();
+
+
+            const cards =
+                document.querySelectorAll(
+                    ".q-card"
+                );
+
+
+            let score = 0;
+
+
+            const mistakes = [];
+
+            const answers = [];
+
+
+            cards.forEach(card => {
+
+                const question =
+                    card.dataset.question;
+
+
+                const correctAnswer =
+                    card.dataset.answer;
+
+
+                const userAnswer =
+                    getSelectedAnswer(
+                        card
+                    );
+
+
+                answers.push(
+                    question +
+                    ":" +
+                    (
+                        userAnswer ||
+                        "-"
+                    )
+                );
+
+
+                const labels =
+                    card.querySelectorAll(
+                        ".opt-label"
+                    );
+
+
+                labels.forEach(
+                    label => {
+
+                        const input =
+                            label.querySelector(
+                                'input[type="radio"]'
+                            );
+
+
+                        if (
+                            input.value ===
+                            correctAnswer
+                        ) {
+
+                            label.classList.add(
+                                "correct-ans"
+                            );
+
+                        }
+
+
+                        if (
+                            input.value ===
+                                userAnswer &&
+                            userAnswer !==
+                                correctAnswer
+                        ) {
+
+                            label.classList.add(
+                                "wrong-ans"
+                            );
+
+                        }
+
+                    }
+                );
+
+
+                if (
+                    userAnswer ===
+                    correctAnswer
+                ) {
+
+                    score++;
+
+                } else {
+
+                    mistakes.push(
+                        question
+                    );
+
+                }
+
+            });
+
+
+            disableAnswers();
+
+
+            const result =
+                score + "/7";
+
+
+            const mistakesText =
+                mistakes.length
+                    ? mistakes.join(", ")
+                    : "—";
+
+
+            document.getElementById(
+                "resultScore"
+            ).textContent =
+                result;
+
+
+            document.getElementById(
+                "resultMistakes"
+            ).textContent =
+                mistakes.length
+                    ? "Mistakes: " +
+                      mistakes.join(", ")
+                    : "No mistakes";
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Saving result...";
+
+
+            document.getElementById(
+                "resultCard"
+            ).style.display =
+                "block";
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        API_URL,
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    student:
+                                        student,
+
+                                    course:
+                                        COURSE,
+
+                                    section:
+                                        SECTION,
+
+                                    taskId:
+                                        TASK_ID,
+
+                                    result:
+                                        result,
+
+                                    mistakes:
+                                        mistakesText,
+
+                                    answers:
+                                        answers.join(
+                                            ", "
+                                        )
+
+                                })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    data.status ===
+                    "success"
+                ) {
+
+                    document.getElementById(
+                        "resultSaved"
+                    ).textContent =
+                        "Result saved · Attempt " +
+                        data.attempt;
+
+                } else {
+
+                    document.getElementById(
+                        "resultSaved"
+                    ).textContent =
+                        "Could not save result";
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+            if (
+                window.innerWidth >
+                820
+            ) {
+
+                document.getElementById(
+                    "resultCard"
+                ).scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "center"
+
+                });
+
+            }
+
+        }
+    );
+
+
+    loadLastAttempt();
+
 </script>
+
+
 </body>
+
 </html>
