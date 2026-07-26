@@ -1,118 +1,1477 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE Reading R2: State History Museum</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://thespace-english.github.io/The-Space-Trainer/favicon.png"
+    >
+
+    <title>The Space — B6BB0D</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 20px; color: #333; }
-        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        h1 { color: #c0392b; text-align: center; }
-        .text-area { line-height: 1.8; font-size: 18px; text-align: justify; background: #fff; padding: 20px; border: 1px solid #eee; border-radius: 8px; }
-        
-        .gap { display: inline-block; min-width: 50px; border-bottom: 2px solid #c0392b; color: #c0392b; font-weight: bold; cursor: pointer; padding: 0 5px; }
-        
-        .options-box { margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
-        .opt-item { margin-bottom: 10px; font-size: 16px; line-height: 1.4; }
-        .opt-item b { color: #c0392b; margin-right: 10px; }
 
-        .controls { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-        select { padding: 5px; border: 2px solid #c0392b; border-radius: 4px; font-size: 16px; }
+        * {
+            box-sizing: border-box;
+        }
 
-        .correct-cell { background: #d4edda !important; }
-        .wrong-cell { background: #f8d7da !important; }
-        
-        #setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f4f7f6; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
-        .btn { padding: 15px 30px; background: #c0392b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%; max-width: 300px; }
-        .hidden { display: none !important; }
-        #resultDisplay { text-align: center; font-size: 22px; margin-top: 20px; font-weight: bold; color: #2c3e50; }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.78);
+        }
+
+        .intro-card,
+        .options-card,
+        .text-card,
+        .review-card,
+        .result-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card,
+        .review-card {
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 29px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+        .reading-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                360px;
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        .text-card {
+            min-width: 0;
+        }
+
+        .options-card {
+            position: sticky;
+
+            top: 24px;
+
+            margin: 0;
+        }
+
+        .options-title {
+            margin-bottom: 18px;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .options-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .option-item {
+            padding: 9px 0;
+
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .option-number {
+            display: inline-block;
+
+            min-width: 27px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .article-title {
+            margin: 0 0 22px;
+
+            text-align: center;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .article-text {
+            font-size: 17px;
+            line-height: 1.82;
+        }
+
+        .article-text p {
+            margin: 0 0 24px;
+        }
+
+        .gap-block {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin: 0 3px;
+
+            white-space: nowrap;
+        }
+
+        .gap-letter {
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .gap-select {
+            min-width: 68px;
+
+            padding: 6px 8px;
+
+            border:
+                1px solid rgba(122,160,149,0.35);
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,0.85);
+
+            color: #173D43;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        .gap-select:focus {
+            border-color:
+                rgba(19,142,135,0.65);
+
+            box-shadow:
+                0 0 0 3px rgba(19,142,135,0.08);
+        }
+
+        .gap-block.correct {
+            padding: 3px 6px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(217,245,232,0.75);
+        }
+
+        .gap-block.wrong {
+            padding: 3px 6px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(250,225,225,0.75);
+        }
+
+        .correct-answer {
+            margin-left: 4px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 14px;
+
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .review-card {
+            display: none;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .result-card {
+            display: none;
+
+            max-width: 880px;
+
+            margin: 20px 0 0;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+        @media (max-width: 1000px) {
+
+            .reading-layout {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    310px;
+            }
+
+        }
+
+        @media (max-width: 760px) {
+
+            .brand {
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding:
+                    85px
+                    15px
+                    100px;
+            }
+
+            .intro-card,
+            .options-card,
+            .text-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .reading-layout {
+                grid-template-columns: 1fr;
+                align-items: start;
+            }
+
+            .options-card {
+                position: sticky;
+
+                top: 0;
+
+                order: -1;
+
+                max-height: 38vh;
+
+                overflow-y: auto;
+
+                z-index: 20;
+
+                margin-bottom: 14px;
+
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+
+                scrollbar-width: thin;
+            }
+
+            .gap-block {
+                white-space: normal;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="setup">
-    <h1>EGE Reading R2</h1>
-    <p>State History Museum (B6BB0D)</p>
-    <input type="text" id="studentName" placeholder="Имя и Фамилия" style="padding: 12px; width: 280px; margin-bottom: 20px; border-radius: 6px; border: 2px solid #ddd;">
-    <button class="btn" onclick="startApp()">Начать</button>
-</div>
 
-<div class="container">
-    <h1>State History Museum</h1>
-    
-    <div class="text-area">
-        The State History Museum is the largest historical museum in Russia. It is situated at the northern end of Red Square in the heart of Moscow. What once was the Principal Medicine Store now houses a huge collection <b>A</b> <select class="ans" data-correct="5"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select> the Stone Age. It was founded in 1872 and opened to the public in 1883. The museum is housed in a neo-Russian style building, <b>B</b> <select class="ans" data-correct="1"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select>. It is one of the most prominent buildings in Red Square. Each room is in the style of a different period or region. The walls in some rooms are decorated in the style of Russian churches. 
-        <br><br>
-        The impressive collection of the State History Museum includes relics of prehistoric tribes <b>C</b> <select class="ans" data-correct="2"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select> present-day Russia. The exhibits about medieval Russia are excellent. Several rooms of this period cover the Mongol invasions <b>D</b> <select class="ans" data-correct="4"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select>. 
-        <br><br>
-        The 2nd floor is dedicated to the Imperial period. The exhibits include personal items of the royal family members, furniture and decoration from the palace interiors. There are also various pieces of artworks and documents from the era. Specific rooms are dedicated to the reigns of various tsars. An unexpected highlight is an exhibition <b>E</b> <select class="ans" data-correct="7"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select> by examining the growing network of roads and how people travelled in the past. The State History Museum has also the country’s largest coin collection, the 6th-century manuscripts and artworks <b>F</b> <select class="ans" data-correct="6"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select> during their reign.
+<div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
+
+
+<button
+    class="back-button"
+    onclick="goBackToR2()"
+>
+    ← BACK TO R2
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · R2
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            B6BB0D
+        </div>
+
+        <h1>
+            State History Museum
+        </h1>
+
+        <p class="instruction">
+            Complete gaps A–F with options 1–7.
+            Use each option only once.
+            There is one extra option.
+        </p>
+
     </div>
 
-    <div class="options-box">
-        <div class="opt-item"><b>1.</b> which is an attraction in its own right</div>
-        <div class="opt-item"><b>2.</b> that once inhabited the big territory of</div>
-        <div class="opt-item"><b>3.</b> and cave paintings of prehistoric times</div>
-        <div class="opt-item"><b>4.</b> and the consolidation of the Russian state</div>
-        <div class="opt-item"><b>5.</b> covering Russian history since the time of</div>
-        <div class="opt-item"><b>6.</b> that were collected by the Romanov dynasty</div>
-        <div class="opt-item"><b>7.</b> addressing the expansion of the Russian Empire</div>
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
     </div>
 
-    <button class="btn" id="sendBtn" style="margin-top: 30px; max-width: none;" onclick="checkR2()">Проверить и отправить результат</button>
-    <div id="resultDisplay" class="hidden"></div>
+
+    <div class="reading-layout">
+
+
+        <div class="text-card">
+
+            <h2 class="article-title">
+                State History Museum
+            </h2>
+
+
+            <div class="article-text">
+
+                <p>
+                    The State History Museum is the largest historical museum
+                    in Russia. It is situated at the northern end of Red Square
+                    in the heart of Moscow. What once was the Principal Medicine
+                    Store now houses a huge collection
+
+                    <span
+                        class="gap-block"
+                        data-letter="A"
+                        data-answer="5"
+                    >
+                        <span class="gap-letter">A</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    the Stone Age. It was founded in 1872 and opened to the
+                    public in 1883. The museum is housed in a neo-Russian style
+                    building,
+
+                    <span
+                        class="gap-block"
+                        data-letter="B"
+                        data-answer="1"
+                    >
+                        <span class="gap-letter">B</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+
+                    It is one of the most prominent buildings in Red Square.
+                    Each room is in the style of a different period or region.
+                    The walls in some rooms are decorated in the style of
+                    Russian churches.
+                </p>
+
+
+                <p>
+                    The impressive collection of the State History Museum
+                    includes relics of prehistoric tribes
+
+                    <span
+                        class="gap-block"
+                        data-letter="C"
+                        data-answer="2"
+                    >
+                        <span class="gap-letter">C</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    present-day Russia. The exhibits about medieval Russia are
+                    excellent. Several rooms of this period cover the Mongol
+                    invasions
+
+                    <span
+                        class="gap-block"
+                        data-letter="D"
+                        data-answer="4"
+                    >
+                        <span class="gap-letter">D</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+                </p>
+
+
+                <p>
+                    The 2nd floor is dedicated to the Imperial period.
+                    The exhibits include personal items of the royal family
+                    members, furniture and decoration from the palace interiors.
+                    There are also various pieces of artworks and documents from
+                    the era. Specific rooms are dedicated to the reigns of
+                    various tsars. An unexpected highlight is an exhibition
+
+                    <span
+                        class="gap-block"
+                        data-letter="E"
+                        data-answer="7"
+                    >
+                        <span class="gap-letter">E</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    by examining the growing network of roads and how people
+                    travelled in the past. The State History Museum has also the
+                    country’s largest coin collection, the 6th-century manuscripts
+                    and artworks
+
+                    <span
+                        class="gap-block"
+                        data-letter="F"
+                        data-answer="6"
+                    >
+                        <span class="gap-letter">F</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    during their reign.
+                </p>
+
+            </div>
+
+
+            <button
+                id="checkButton"
+                class="check-button"
+                onclick="checkAnswers()"
+            >
+                CHECK ANSWERS
+            </button>
+
+        </div>
+
+
+        <div class="options-card">
+
+            <div class="options-title">
+                OPTIONS
+            </div>
+
+            <div class="options-list">
+
+                <div class="option-item">
+                    <span class="option-number">1.</span>
+                    which is an attraction in its own right
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">2.</span>
+                    that once inhabited the big territory of
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">3.</span>
+                    and cave paintings of prehistoric times
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">4.</span>
+                    and the consolidation of the Russian state
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">5.</span>
+                    covering Russian history since the time of
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">6.</span>
+                    that were collected by the Romanov dynasty
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">7.</span>
+                    addressing the expansion of the Russian Empire
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
+
+
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
+
 
 <script>
-    const G_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
 
-    function startApp() {
-        if(document.getElementById('studentName').value.trim() === "") return alert("Введите имя!");
-        document.getElementById('setup').classList.add('hidden');
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "R2";
+    const TASK_ID = "B6BB0D";
+
+
+    const R2_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r2.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function checkR2() {
-        let score = 0;
-        let log = [];
-        const selects = document.querySelectorAll('.ans');
-        const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
 
-        selects.forEach((sel, i) => {
-            const userVal = sel.value;
-            const correctVal = sel.getAttribute('data-correct');
-            log.push(`${letters[i]}:${userVal || '-'}`);
-            sel.disabled = true;
+    if (student) {
 
-            if(userVal === correctVal) {
-                score++;
-                sel.classList.add('correct-cell');
-            } else {
-                sel.classList.add('wrong-cell');
-                // Маленькая подсказка рядом при ошибке
-                const hint = document.createElement('span');
-                hint.style.fontSize = '12px';
-                hint.style.color = 'green';
-                hint.innerText = '(' + correctVal + ')';
-                sel.after(hint);
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToR2() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+            return;
+
+        }
+
+
+        let url =
+            R2_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href =
+            url;
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const letter =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[letter] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+                element.remove();
+            });
+
+    }
+
+
+    function clearStates() {
+
+        document
+            .querySelectorAll(
+                ".gap-block"
+            )
+            .forEach(block => {
+
+                block.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        block,
+        userAnswer
+    ) {
+
+        const select =
+            block.querySelector(
+                ".gap-select"
+            );
+
+
+        const correctAnswer =
+            block.dataset.answer;
+
+
+        select.value =
+            userAnswer || "";
+
+
+        select.disabled =
+            true;
+
+
+        if (
+            userAnswer ===
+            correctAnswer
+        ) {
+
+            block.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            block.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "span"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                correctAnswer;
+
+
+            block.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+                return;
             }
-        });
 
-        const final = score + "/6";
-        document.getElementById('sendBtn').classList.add('hidden');
-        const resDiv = document.getElementById('resultDisplay');
-        resDiv.innerText = "Результат: " + final;
-        resDiv.classList.remove('hidden');
 
-        fetch(G_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('studentName').value,
-                task: "EGE R2 B6BB0D History Museum",
-                result: final,
-                answers: log.join(", ")
-            })
-        });
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+            clearStates();
+
+
+            document
+                .querySelectorAll(
+                    ".gap-block"
+                )
+                .forEach(block => {
+
+                    const letter =
+                        block.dataset.letter;
+
+
+                    showQuestionState(
+                        block,
+                        savedAnswers[letter] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
     }
+
+
+    function resetQuiz() {
+
+        clearHints();
+        clearStates();
+
+
+        document
+            .querySelectorAll(
+                ".gap-select"
+            )
+            .forEach(select => {
+
+                select.value = "";
+
+                select.disabled =
+                    false;
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to R2 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+        clearStates();
+
+
+        const blocks =
+            document.querySelectorAll(
+                ".gap-block"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        blocks.forEach(block => {
+
+            const letter =
+                block.dataset.letter;
+
+
+            const correctAnswer =
+                block.dataset.answer;
+
+
+            const select =
+                block.querySelector(
+                    ".gap-select"
+                );
+
+
+            const userAnswer =
+                select.value;
+
+
+            answers.push(
+                letter +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            select.disabled =
+                true;
+
+
+            if (
+                userAnswer ===
+                correctAnswer
+            ) {
+
+                score++;
+
+                block.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                mistakes.push(
+                    letter
+                );
+
+
+                block.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    correctAnswer;
+
+
+                block.appendChild(
+                    correct
+                );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/6";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(", ")
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status ===
+                "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
 
+
 </body>
+
 </html>
