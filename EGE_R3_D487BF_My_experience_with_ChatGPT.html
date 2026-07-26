@@ -1,156 +1,230 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE Practice ChatGPT</title>
-    <style>
-        body { font-family: sans-serif; background: #f0f0f0; padding: 20px; display: flex; justify-content: center; }
-        .main { background: white; max-width: 1000px; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .content { display: flex; gap: 30px; }
-        .text { flex: 1; height: 70vh; overflow-y: auto; padding-right: 15px; border-right: 1px solid #ddd; line-height: 1.5; }
-        .questions { flex: 1; height: 70vh; overflow-y: auto; }
-        .q-block { margin-bottom: 25px; padding: 10px; border-radius: 5px; }
-        label { display: block; margin: 8px 0; cursor: pointer; padding: 5px; border: 1px solid #eee; }
-        .correct { background: #d4edda; border-color: #28a745; }
-        .wrong { background: #f8d7da; border-color: #dc3545; }
-        input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; }
-        button { background: #007bff; color: white; border: none; padding: 15px 30px; cursor: pointer; width: 100%; font-size: 18px; border-radius: 5px; }
-        button:hover { background: #0056b3; }
-        h1 { color: #007bff; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Space — D487BF</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/reading.css"
+    >
 </head>
+
 <body>
 
-<div class="main">
-    <h1>EGE R3 D487BF: ChatGPT</h1>
-    
-    <div class="content">
-        <div class="text">
-            <h3>My experience with ChatGPT</h3>
-            <p>A few weeks ago, I asked ChatGPT to write an article and I have to say, it exceeded my expectations. Not only did ChatGPT write a comprehensive article, but it also included helpful headlines for each section. Since then, I’ve been thinking a lot about Artificial Intelligence (AI) and what it could mean for the future world.</p>
-            <p>I’ve been keeping up with news about AI developments, but ChatGPT really stood out to me. While there are other models out there doing similar things, there must be a reason why <b>ChatGPT made such big headlines</b>. I think it’s because people like me started using AI models for the first time and got very tangible results. However, as useful and unique it can be, I do have some concerns.</p>
-            <p>After receiving the article from ChatGPT, I requested another one using similar keywords. ChatGPT delivered, but the resulting article was 62% similar to the first one. I doubt this would happen if I asked two people to write an article using the same keywords. As humans, we all have unique minds and experiences that shape our thoughts and words. Each person’s creativity is unique because it requires unique brain networks to fire simultaneously.</p>
-            <p>It’s no surprise that ChatGPT lacks originality, since it’s trained on millions of pieces of information from various sources. AI relies on pre-existing information to produce content. In contrast, humans learn in various ways and may draw different conclusions from similar experiences.</p>
-            <p>Another challenge with AI is intolerance. AI algorithms are only as good as the data they’re trained on, which can lead to intolerant results. Microsoft experienced this firsthand in 2016 when their AI chatbot on social networks became racist and misogynistic within 24 hours.</p>
-            <p>Even OpenAI, the creator of ChatGPT, acknowledges the limitations of AI. They warn that it “may occasionally generate incorrect information,” “may occasionally produce harmful instructions or biased content,” and has “limited knowledge of the world and events after 2021.”</p>
-            <p>The last limitation is telling. Is it possible for an AI chatbot to “live in the present?” Today’s reality is so fragmented and dependent on individual perspectives that even humans struggle to identify the truth. How can scientists train an AI model to differentiate truth from falsehood? If this were possible (let alone easy), why haven’t humans mastered <b>this ability</b> yet?</p>
-            <p>I wonder to what extent technological innovation occurs for the sake of innovation itself, rather than to address and solve a specific problem. Are we using AI to solve significant global issues, or are we merely using it to fix inconveniences?</p>
-            <p>Recently, I read news about a robo-dog for people with visual impairment. Equipped with AI, it talks and aids them in navigating cities. Why were living service dogs not good enough?</p>
-            <p>Apparently, they are expensive to train and maintain, so the answer technology offered was – what else? – robots. That would be quite reasonable, but 90% of vision loss is preventable or treatable with spectacles or eye surgery. Millions of people have visual impairment because they don’t have access to such treatments, making it a significant and global problem. Shouldn’t we use our resources to prevent and treat vision loss in the first place?</p>
-            <p>We have built a world so dependent on technology and so obsessed with growth that we are now willing to put a price on the only thing that makes us unique in this world: our brain. While we have not fully comprehended its capabilities, we are trying to make a digital copy of it. Are we sure we know what this means?</p>
-        </div>
-
-        <div class="questions" id="quizForm">
-            <div class="q-block" data-ans="1">
-                <p><b>12. What does the author think of the article?</b></p>
-                <label><input type="radio" name="q1" value="1"> 1) Quality was a surprise.</label>
-                <label><input type="radio" name="q1" value="2"> 2) Worse than thought.</label>
-                <label><input type="radio" name="q1" value="3"> 3) Headlines were bad.</label>
-                <label><input type="radio" name="q1" value="4"> 4) Thought of his future.</label>
-            </div>
-            <div class="q-block" data-ans="2">
-                <p><b>13. "Made such big headlines" means:</b></p>
-                <label><input type="radio" name="q2" value="1"> 1) Wrote good headlines.</label>
-                <label><input type="radio" name="q2" value="2"> 2) Discussed in media.</label>
-                <label><input type="radio" name="q2" value="3"> 3) Better than others.</label>
-                <label><input type="radio" name="q2" value="4"> 4) Used by many.</label>
-            </div>
-            <div class="q-block" data-ans="1">
-                <p><b>14. Why are humans unique?</b></p>
-                <label><input type="radio" name="q3" value="1"> 1) Lives/thoughts are different.</label>
-                <label><input type="radio" name="q3" value="2"> 2) Don't use existing info.</label>
-                <label><input type="radio" name="q3" value="3"> 3) Different keywords.</label>
-                <label><input type="radio" name="q3" value="4"> 4) Brain cells work at once.</label>
-            </div>
-            <div class="q-block" data-ans="1">
-                <p><b>15. Why did AI become racist?</b></p>
-                <label><input type="radio" name="q4" value="1"> 1) Training data was racist.</label>
-                <label><input type="radio" name="q4" value="2"> 2) Users taught it.</label>
-                <label><input type="radio" name="q4" value="3"> 3) Bad design.</label>
-                <label><input type="radio" name="q4" value="4"> 4) No current values.</label>
-            </div>
-            <div class="q-block" data-ans="1">
-                <p><b>16. "This ability" refers to:</b></p>
-                <label><input type="radio" name="q5" value="1"> 1) Telling truth from lie.</label>
-                <label><input type="radio" name="q5" value="2"> 2) Living in present.</label>
-                <label><input type="radio" name="q5" value="3"> 3) Training AI.</label>
-                <label><input type="radio" name="q5" value="4"> 4) Solving problems.</label>
-            </div>
-            <div class="q-block" data-ans="3">
-                <p><b>17. Which is TRUE?</b></p>
-                <label><input type="radio" name="q6" value="1"> 1) Robo-dogs are better.</label>
-                <label><input type="radio" name="q6" value="2"> 2) Real dogs are cheaper.</label>
-                <label><input type="radio" name="q6" value="3"> 3) Use resources differently.</label>
-                <label><input type="radio" name="q6" value="4"> 4) Eyesight is global.</label>
-            </div>
-            <div class="q-block" data-ans="4">
-                <p><b>18. Main idea of last paragraph?</b></p>
-                <label><input type="radio" name="q7" value="1"> 1) Ready to sell anything.</label>
-                <label><input type="radio" name="q7" value="2"> 2) Too dependent.</label>
-                <label><input type="radio" name="q7" value="3"> 3) Brain makes us unique.</label>
-                <label><input type="radio" name="q7" value="4"> 4) Don't toy with unknown.</label>
-            </div>
-
-            <hr>
-            <input type="text" id="userName" placeholder="Введите Имя Фамилию">
-            <button id="finalBtn" onclick="checkAll()">Завершить и Отправить</button>
-            <h2 id="resultText" style="display:none; text-align:center; color: #28a745;"></h2>
-        </div>
-    </div>
-</div>
+<div id="readingApp"></div>
 
 <script>
-    function checkAll() {
-        const name = document.getElementById('userName').value.trim();
-        if (!name) {
-            alert("Пожалуйста, введите имя перед отправкой!");
-            return;
+
+const READING_TASK = {
+
+    id: "D487BF",
+
+    title: "My experience with ChatGPT",
+
+    text: `
+
+        <p>
+            A few weeks ago, I asked ChatGPT to write an article and I have to say,
+            it exceeded my expectations. Not only did ChatGPT write a comprehensive
+            article, but it also included helpful headlines for each section.
+            Since then, I’ve been thinking a lot about Artificial Intelligence (AI)
+            and what it could mean for the future world.
+        </p>
+
+        <p>
+            I’ve been keeping up with news about AI developments, but ChatGPT really
+            stood out to me. While there are other models out there doing similar
+            things, there must be a reason why
+            <strong>ChatGPT made such big headlines</strong>. I think it’s because
+            people like me started using AI models for the first time and got very
+            tangible results. However, as useful and unique it can be, I do have
+            some concerns.
+        </p>
+
+        <p>
+            After receiving the article from ChatGPT, I requested another one using
+            similar keywords. ChatGPT delivered, but the resulting article was 62%
+            similar to the first one. I doubt this would happen if I asked two
+            people to write an article using the same keywords. As humans, we all
+            have unique minds and experiences that shape our thoughts and words.
+            Each person’s creativity is unique because it requires unique brain
+            networks to fire simultaneously.
+        </p>
+
+        <p>
+            It’s no surprise that ChatGPT lacks originality, since it’s trained on
+            millions of pieces of information from various sources. AI relies on
+            pre-existing information to produce content. In contrast, humans learn
+            in various ways and may draw different conclusions from similar
+            experiences.
+        </p>
+
+        <p>
+            Another challenge with AI is intolerance. AI algorithms are only as
+            good as the data they’re trained on, which can lead to intolerant
+            results. Microsoft experienced this firsthand in 2016 when their AI
+            chatbot on social networks became racist and misogynistic within
+            24 hours.
+        </p>
+
+        <p>
+            Even OpenAI, the creator of ChatGPT, acknowledges the limitations of AI.
+            They warn that it “may occasionally generate incorrect information,”
+            “may occasionally produce harmful instructions or biased content,”
+            and has “limited knowledge of the world and events after 2021.”
+        </p>
+
+        <p>
+            The last limitation is telling. Is it possible for an AI chatbot to
+            “live in the present?” Today’s reality is so fragmented and dependent
+            on individual perspectives that even humans struggle to identify the
+            truth. How can scientists train an AI model to differentiate truth
+            from falsehood? If this were possible (let alone easy), why haven’t
+            humans mastered <strong>this ability</strong> yet?
+        </p>
+
+        <p>
+            I wonder to what extent technological innovation occurs for the sake
+            of innovation itself, rather than to address and solve a specific
+            problem. Are we using AI to solve significant global issues, or are
+            we merely using it to fix inconveniences?
+        </p>
+
+        <p>
+            Recently, I read news about a robo-dog for people with visual
+            impairment. Equipped with AI, it talks and aids them in navigating
+            cities. Why were living service dogs not good enough?
+        </p>
+
+        <p>
+            Apparently, they are expensive to train and maintain, so the answer
+            technology offered was – what else? – robots. That would be quite
+            reasonable, but 90% of vision loss is preventable or treatable with
+            spectacles or eye surgery. Millions of people have visual impairment
+            because they don’t have access to such treatments, making it a
+            significant and global problem. Shouldn’t we use our resources to
+            prevent and treat vision loss in the first place?
+        </p>
+
+        <p>
+            We have built a world so dependent on technology and so obsessed with
+            growth that we are now willing to put a price on the only thing that
+            makes us unique in this world: our brain. While we have not fully
+            comprehended its capabilities, we are trying to make a digital copy
+            of it. Are we sure we know what this means?
+        </p>
+
+    `,
+
+    questions: [
+
+        {
+            number: 12,
+            answer: "1",
+            text: "What does the author think of the article?",
+            options: [
+                "Quality was a surprise.",
+                "Worse than thought.",
+                "Headlines were bad.",
+                "Thought of his future."
+            ]
+        },
+
+        {
+            number: 13,
+            answer: "2",
+            text: "“Made such big headlines” means:",
+            options: [
+                "Wrote good headlines.",
+                "Discussed in media.",
+                "Better than others.",
+                "Used by many."
+            ]
+        },
+
+        {
+            number: 14,
+            answer: "1",
+            text: "Why are humans unique?",
+            options: [
+                "Lives/thoughts are different.",
+                "Don't use existing info.",
+                "Different keywords.",
+                "Brain cells work at once."
+            ]
+        },
+
+        {
+            number: 15,
+            answer: "1",
+            text: "Why did AI become racist?",
+            options: [
+                "Training data was racist.",
+                "Users taught it.",
+                "Bad design.",
+                "No current values."
+            ]
+        },
+
+        {
+            number: 16,
+            answer: "1",
+            text: "“This ability” refers to:",
+            options: [
+                "Telling truth from lie.",
+                "Living in present.",
+                "Training AI.",
+                "Solving problems."
+            ]
+        },
+
+        {
+            number: 17,
+            answer: "3",
+            text: "Which is TRUE?",
+            options: [
+                "Robo-dogs are better.",
+                "Real dogs are cheaper.",
+                "Use resources differently.",
+                "Eyesight is global."
+            ]
+        },
+
+        {
+            number: 18,
+            answer: "4",
+            text: "Main idea of last paragraph?",
+            options: [
+                "Ready to sell anything.",
+                "Too dependent.",
+                "Brain makes us unique.",
+                "Don't toy with unknown."
+            ]
         }
 
-        let score = 0;
-        let answers = [];
-        const blocks = document.querySelectorAll('.q-block');
+    ]
 
-        blocks.forEach((block, i) => {
-            const correct = block.getAttribute('data-ans');
-            const selected = block.querySelector('input:checked');
-            const userVal = selected ? selected.value : "нет ответа";
-            
-            answers.push("Q" + (i+12) + ":" + userVal);
+};
 
-            const labels = block.querySelectorAll('label');
-            labels.forEach(label => {
-                const radio = label.querySelector('input');
-                if (radio.value === correct) label.className = 'correct';
-                if (selected && radio.value === userVal && userVal !== correct) label.className = 'wrong';
-                radio.disabled = true;
-            });
-
-            if (userVal === correct) score++;
-        });
-
-        const finalScore = score + " / 7";
-        document.getElementById('finalBtn').style.display = 'none';
-        document.getElementById('userName').style.display = 'none';
-        const resH = document.getElementById('resultText');
-        resH.innerText = "Ваш результат: " + finalScore;
-        resH.style.display = 'block';
-
-        // Отправка (Ваша вторая ссылка)
-        const url = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
-        
-        fetch(url, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: JSON.stringify({
-                name: name,
-                task: "EGE R3 D487BF ChatGPT",
-                result: finalScore,
-                answers: answers.join(", ")
-            })
-        });
-    }
 </script>
+
+<script
+    src="https://thespace-english.github.io/The-Space-Trainer/r3.js"
+></script>
 
 </body>
 </html>
