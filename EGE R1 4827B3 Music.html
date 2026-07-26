@@ -21,15 +21,19 @@
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
-<link
-    rel="stylesheet"
-    href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
->
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
+
     <style>
 
         * {
             box-sizing: border-box;
         }
+
 
         html,
         body {
@@ -37,10 +41,14 @@
             min-height: 100%;
         }
 
-       
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
         .page {
             width: 100%;
-            max-width: 980px;
+            max-width: 1260px;
 
             margin: 0 auto;
 
@@ -50,28 +58,42 @@
             z-index: 2;
         }
 
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
         header {
             text-align: center;
             margin-bottom: 30px;
         }
 
+
         .brand {
             font-size: 52px;
             font-weight: 800;
+
             letter-spacing: 8px;
 
             color: #138E87;
         }
+
 
         .section-name {
             margin-top: 12px;
 
             font-size: 18px;
             font-weight: 700;
+
             letter-spacing: 7px;
 
             color: #138E87;
         }
+
+
+        /* =========================================
+           BACK
+        ========================================= */
 
         .back-button {
             position: fixed;
@@ -97,6 +119,16 @@
 
             cursor: pointer;
         }
+
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.78);
+        }
+
+
+        /* =========================================
+           CARDS
+        ========================================= */
 
         .intro-card,
         .headings-card,
@@ -124,11 +156,16 @@
             z-index: 3;
         }
 
+
         .intro-card,
-        .headings-card,
         .review-card {
             margin-bottom: 20px;
         }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
 
         .student-line {
             margin-bottom: 8px;
@@ -137,6 +174,7 @@
 
             color: #607A74;
         }
+
 
         .task-id {
             margin-bottom: 4px;
@@ -147,6 +185,7 @@
             color: #138E87;
         }
 
+
         h1 {
             margin: 4px 0 16px;
 
@@ -154,6 +193,7 @@
 
             color: #173D43;
         }
+
 
         .instruction {
             margin: 0;
@@ -164,58 +204,104 @@
             color: #607A74;
         }
 
+
+        /* =========================================
+           READING LAYOUT
+           TEXTS LEFT / HEADINGS RIGHT
+        ========================================= */
+
+        .reading-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                350px;
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+
+        .quiz-card {
+            min-width: 0;
+        }
+
+
+        /* HEADINGS остаются на экране */
+
+        .headings-card {
+            position: sticky;
+
+            top: 24px;
+
+            margin: 0;
+        }
+
+
         .headings-title {
             margin-bottom: 18px;
 
             font-size: 18px;
             font-weight: 800;
+
             letter-spacing: 2px;
 
             color: #138E87;
         }
 
+
         .headings-list {
             display: grid;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: 1fr;
 
-            gap: 10px 24px;
+            gap: 6px;
         }
 
+
         .heading-item {
-            padding: 8px 0;
+            padding: 7px 0;
 
             font-size: 16px;
             line-height: 1.45;
         }
 
+
         .heading-number {
             display: inline-block;
 
-            min-width: 26px;
+            min-width: 27px;
 
             font-weight: 800;
 
             color: #138E87;
         }
 
+
+        /* =========================================
+           TEXTS
+        ========================================= */
+
         .text-card {
-            margin-bottom: 24px;
-            padding-bottom: 24px;
+            margin-bottom: 26px;
+            padding-bottom: 26px;
 
             border-bottom:
                 1px solid rgba(122,160,149,0.15);
         }
 
+
         .text-card:last-of-type {
             border-bottom: none;
         }
 
+
         .text-content {
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.72;
         }
+
 
         .letter {
             display: inline-flex;
@@ -227,6 +313,7 @@
             height: 34px;
 
             margin-right: 10px;
+            margin-bottom: 3px;
 
             border-radius: 10px;
 
@@ -235,7 +322,14 @@
             color: white;
 
             font-weight: 800;
+
+            vertical-align: middle;
         }
+
+
+        /* =========================================
+           ANSWERS
+        ========================================= */
 
         .answer-row {
             display: flex;
@@ -247,13 +341,16 @@
             margin-top: 16px;
         }
 
+
         .answer-label {
             font-size: 14px;
             font-weight: 800;
+
             letter-spacing: 1px;
 
             color: #607A74;
         }
+
 
         .answer-select {
             min-width: 115px;
@@ -265,7 +362,8 @@
 
             border-radius: 11px;
 
-            background: rgba(255,255,255,0.80);
+            background:
+                rgba(255,255,255,0.80);
 
             color: #173D43;
 
@@ -278,12 +376,20 @@
             cursor: pointer;
         }
 
+
         .answer-select:focus {
-            border-color: rgba(19,142,135,0.65);
+            border-color:
+                rgba(19,142,135,0.65);
 
             box-shadow:
-                0 0 0 3px rgba(19,142,135,0.08);
+                0 0 0 3px
+                rgba(19,142,135,0.08);
         }
+
+
+        /* =========================================
+           RESULT STATES
+        ========================================= */
 
         .text-card.correct {
             padding: 18px;
@@ -297,6 +403,7 @@
                 rgba(217,245,232,0.52);
         }
 
+
         .text-card.wrong {
             padding: 18px;
 
@@ -309,6 +416,7 @@
                 rgba(250,225,225,0.52);
         }
 
+
         .correct-answer {
             margin-top: 8px;
 
@@ -318,11 +426,17 @@
             color: #138E87;
         }
 
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
         .check-button,
         .try-button {
             width: 100%;
 
             margin-top: 10px;
+
             padding: 15px 20px;
 
             border: none;
@@ -333,20 +447,28 @@
             color: white;
 
             font-family: 'Nunito', sans-serif;
+
             font-size: 17px;
             font-weight: 800;
 
             cursor: pointer;
         }
 
+
         .check-button:hover,
         .try-button:hover {
             opacity: 0.93;
         }
 
+
         .try-button {
             margin-top: 18px;
         }
+
+
+        /* =========================================
+           LAST ATTEMPT
+        ========================================= */
 
         .review-card {
             display: none;
@@ -354,13 +476,16 @@
             text-align: center;
         }
 
+
         .review-title {
             font-size: 18px;
             font-weight: 800;
+
             letter-spacing: 2px;
 
             color: #138E87;
         }
+
 
         .review-details {
             margin-top: 7px;
@@ -371,13 +496,21 @@
             color: #536F68;
         }
 
+
+        /* =========================================
+           RESULT
+        ========================================= */
+
         .result-card {
             display: none;
 
-            margin-top: 20px;
+            max-width: 880px;
+
+            margin: 20px 0 0;
 
             text-align: center;
         }
+
 
         .result-score {
             margin-bottom: 8px;
@@ -388,11 +521,13 @@
             color: #138E87;
         }
 
+
         .result-mistakes {
             margin-bottom: 8px;
 
             color: #607A74;
         }
+
 
         .result-saved {
             margin-bottom: 6px;
@@ -401,6 +536,11 @@
 
             color: #607A74;
         }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
 
         .corner-logo {
             position: fixed;
@@ -413,16 +553,42 @@
             z-index: 10;
         }
 
-        @media (max-width: 700px) {
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .reading-layout {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    300px;
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 760px) {
 
             .brand {
                 font-size: 36px;
+
                 letter-spacing: 5px;
             }
 
+
             .page {
-                padding: 85px 15px 100px;
+                padding:
+                    85px
+                    15px
+                    100px;
             }
+
 
             .intro-card,
             .headings-card,
@@ -431,18 +597,32 @@
                 padding: 22px;
             }
 
-            .headings-list {
+
+            .reading-layout {
                 grid-template-columns: 1fr;
             }
 
+
+            /* на телефоне headings сначала */
+
+            .headings-card {
+                position: static;
+
+                order: -1;
+            }
+
+
             .answer-row {
                 align-items: flex-start;
+
                 flex-direction: column;
             }
+
 
             .answer-select {
                 width: 100%;
             }
+
 
             .corner-logo {
                 width: 105px;
@@ -451,14 +631,17 @@
         }
 
     </style>
+
 </head>
 
 
 <body>
 
+
 <div class="space-decor space-decor-medium"></div>
 <div class="space-decor space-decor-small"></div>
-    
+
+
 <button
     class="back-button"
     onclick="goBackToR1()"
@@ -482,6 +665,10 @@
 
     </header>
 
+
+    <!-- =========================================
+         TASK INFO
+    ========================================== -->
 
     <div class="intro-card">
 
@@ -507,6 +694,10 @@
     </div>
 
 
+    <!-- =========================================
+         LAST ATTEMPT
+    ========================================== -->
+
     <div
         id="reviewCard"
         class="review-card"
@@ -531,435 +722,462 @@
     </div>
 
 
-    <div class="headings-card">
+    <!-- =========================================
+         READING
+    ========================================== -->
 
-        <div class="headings-title">
-            HEADINGS
+    <div class="reading-layout">
+
+
+        <!-- =====================================
+             LEFT — TEXTS
+        ====================================== -->
+
+        <div class="quiz-card">
+
+
+            <!-- A -->
+
+            <div
+                class="text-card"
+                data-letter="A"
+                data-answer="3"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">A</span>
+
+                    Music is a group of sounds that people have
+                    arranged in a meaningful way. Some musicians make
+                    up music as they perform. Others sing songs or
+                    play pieces that someone else created. Musicians
+                    have developed a system for writing down music so
+                    that others can play it again. They use certain
+                    symbols, called notes, to indicate the tones to be
+                    played or sung. The arrangement of the notes shows
+                    the order in which the tones should be played.
+                    Other numbers and symbols show how fast to play
+                    each note. They are known as musical notation.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+
+                        <option value="">—</option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- B -->
+
+            <div
+                class="text-card"
+                data-letter="B"
+                data-answer="8"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">B</span>
+
+                    Some music goes along with religious ceremonies.
+                    Other music is a part of everyday life.
+                    Traditional music made by everyday people is
+                    called folk music. Classical music is formal and
+                    artistic music that developed in Europe over
+                    hundreds of years. Orchestras, choirs, and chamber
+                    ensembles (small groups of musicians) often
+                    perform classical music. Opera is a type of
+                    classical music that features dramatic singing.
+                    When large numbers of people enjoy a type of
+                    music, it is called popular music.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+
+                        <option value="">—</option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- C -->
+
+            <div
+                class="text-card"
+                data-letter="C"
+                data-answer="2"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">C</span>
+
+                    People use their voices to sing. To make other
+                    kinds of music, they use musical instruments.
+                    Stringed instruments, like violins and harps, have
+                    tight strings that make sounds when people pluck
+                    or rub them. Wind instruments, like trumpets and
+                    saxophones, make sounds when people blow into
+                    them. Percussion instruments, like drums and
+                    rattles, make sounds when people hit or shake
+                    them. Keyboard instruments, like pianos and
+                    accordions, make sounds when people press their
+                    keys, buttons, or levers.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+
+                        <option value="">—</option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- D -->
+
+            <div
+                class="text-card"
+                data-letter="D"
+                data-answer="4"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">D</span>
+
+                    Rhythm describes the length of musical sounds.
+                    The most important part of rhythm is the pulse,
+                    or beat. Melody is a series of different tones,
+                    or sounds, in a piece of music. Harmony takes
+                    place when people play or sing more than one tone
+                    at the same time. Groups of tones played together
+                    are called chords. Harmony also describes the way
+                    chords go along with a melody. Form is the way
+                    that people put rhythm, melody, and harmony
+                    together. There are many different types of
+                    musical forms. Repeating a short melody is one of
+                    the simplest forms.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+
+                        <option value="">—</option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- E -->
+
+            <div
+                class="text-card"
+                data-letter="E"
+                data-answer="1"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">E</span>
+
+                    If you want to firm up your body, head to the gym.
+                    If you want to exercise your brain, listen to
+                    music. Many of us instinctively know the effects
+                    of music on our mood and energy. There are few
+                    things that stimulate the brain the way music
+                    does. If you want to keep your brain engaged
+                    throughout the aging process, listening to or
+                    playing music is a great tool. It provides a total
+                    brain workout. Research has shown that listening
+                    to music can reduce anxiety, blood pressure, and
+                    pain, as well as improve sleep quality, mood,
+                    mental alertness, and memory.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+
+                        <option value="">—</option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- F -->
+
+            <div
+                class="text-card"
+                data-letter="F"
+                data-answer="7"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">F</span>
+
+                    Listening to classical music has a wide range of
+                    benefits for your brain and body. For example, it
+                    can help you with relaxation, concentration,
+                    memory, and cognition. Listening to relaxing
+                    music, such as smooth jazz, can induce an
+                    alpha-wave state in your brain. These waves occur
+                    when you’re awake but relaxed, making smooth jazz
+                    one of the best ways to wind down at the end of a
+                    long day. Rap music often tells stories of people
+                    overcoming obstacles or achieving success in the
+                    face of unlikely odds.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+
+                        <option value="">—</option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- G -->
+
+            <div
+                class="text-card"
+                data-letter="G"
+                data-answer="5"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">G</span>
+
+                    If you ask some people about the benefits of
+                    listening to music while trying to concentrate,
+                    you could hear mixed reviews. Listening to music
+                    to help us concentrate works differently for
+                    everyone. Some people might think it’s a
+                    remarkable study habit, while others may find it
+                    useless because it only distracts them. But
+                    branching out and trying new ways of boosting your
+                    concentration might help you find a practice that
+                    works well. It isn’t easy to find strategies that
+                    work specifically for you.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+
+                        <option value="">—</option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="checkButton"
+                class="check-button"
+                onclick="checkAnswers()"
+            >
+                CHECK ANSWERS
+            </button>
+
+
         </div>
 
-        <div class="headings-list">
 
-            <div class="heading-item">
-                <span class="heading-number">1.</span>
-                The power of music
+        <!-- =====================================
+             RIGHT — STICKY HEADINGS
+        ====================================== -->
+
+        <div class="headings-card">
+
+            <div class="headings-title">
+                HEADINGS
             </div>
 
-            <div class="heading-item">
-                <span class="heading-number">2.</span>
-                Sound producers
-            </div>
 
-            <div class="heading-item">
-                <span class="heading-number">3.</span>
-                Special knowledge needed
-            </div>
+            <div class="headings-list">
 
-            <div class="heading-item">
-                <span class="heading-number">4.</span>
-                Musical sound characteristics
-            </div>
+                <div class="heading-item">
+                    <span class="heading-number">1.</span>
+                    The power of music
+                </div>
 
-            <div class="heading-item">
-                <span class="heading-number">5.</span>
-                Differences in perception
-            </div>
+                <div class="heading-item">
+                    <span class="heading-number">2.</span>
+                    Sound producers
+                </div>
 
-            <div class="heading-item">
-                <span class="heading-number">6.</span>
-                The history of music
-            </div>
+                <div class="heading-item">
+                    <span class="heading-number">3.</span>
+                    Special knowledge needed
+                </div>
 
-            <div class="heading-item">
-                <span class="heading-number">7.</span>
-                The choice of music matters
-            </div>
+                <div class="heading-item">
+                    <span class="heading-number">4.</span>
+                    Musical sound characteristics
+                </div>
 
-            <div class="heading-item">
-                <span class="heading-number">8.</span>
-                Different types of music
+                <div class="heading-item">
+                    <span class="heading-number">5.</span>
+                    Differences in perception
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">6.</span>
+                    The history of music
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">7.</span>
+                    The choice of music matters
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">8.</span>
+                    Different types of music
+                </div>
+
             </div>
 
         </div>
+
 
     </div>
 
 
-    <div class="quiz-card">
-
-
-        <!-- A -->
-
-        <div
-            class="text-card"
-            data-letter="A"
-            data-answer="3"
-        >
-
-            <div class="text-content">
-
-                <span class="letter">A</span>
-
-                Music is a group of sounds that people have arranged
-                in a meaningful way. Some musicians make up music as
-                they perform. Others sing songs or play pieces that
-                someone else created. Musicians have developed a
-                system for writing down music so that others can play
-                it again. They use certain symbols, called notes, to
-                indicate the tones to be played or sung. The
-                arrangement of the notes shows the order in which the
-                tones should be played. Other numbers and symbols show
-                how fast to play each note. They are known as musical
-                notation.
-
-            </div>
-
-            <div class="answer-row">
-
-                <div class="answer-label">
-                    HEADING
-                </div>
-
-                <select class="answer-select">
-
-                    <option value="">
-                        —
-                    </option>
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <!-- B -->
-
-        <div
-            class="text-card"
-            data-letter="B"
-            data-answer="8"
-        >
-
-            <div class="text-content">
-
-                <span class="letter">B</span>
-
-                Some music goes along with religious ceremonies.
-                Other music is a part of everyday life. Traditional
-                music made by everyday people is called folk music.
-                Classical music is formal and artistic music that
-                developed in Europe over hundreds of years.
-                Orchestras, choirs, and chamber ensembles (small
-                groups of musicians) often perform classical music.
-                Opera is a type of classical music that features
-                dramatic singing. When large numbers of people enjoy
-                a type of music, it is called popular music.
-
-            </div>
-
-            <div class="answer-row">
-
-                <div class="answer-label">
-                    HEADING
-                </div>
-
-                <select class="answer-select">
-
-                    <option value="">—</option>
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <!-- C -->
-
-        <div
-            class="text-card"
-            data-letter="C"
-            data-answer="2"
-        >
-
-            <div class="text-content">
-
-                <span class="letter">C</span>
-
-                People use their voices to sing. To make other kinds
-                of music, they use musical instruments. Stringed
-                instruments, like violins and harps, have tight
-                strings that make sounds when people pluck or rub
-                them. Wind instruments, like trumpets and saxophones,
-                make sounds when people blow into them. Percussion
-                instruments, like drums and rattles, make sounds when
-                people hit or shake them. Keyboard instruments, like
-                pianos and accordions, make sounds when people press
-                their keys, buttons, or levers.
-
-            </div>
-
-            <div class="answer-row">
-
-                <div class="answer-label">
-                    HEADING
-                </div>
-
-                <select class="answer-select">
-
-                    <option value="">—</option>
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <!-- D -->
-
-        <div
-            class="text-card"
-            data-letter="D"
-            data-answer="4"
-        >
-
-            <div class="text-content">
-
-                <span class="letter">D</span>
-
-                Rhythm describes the length of musical sounds. The
-                most important part of rhythm is the pulse, or beat.
-                Melody is a series of different tones, or sounds, in
-                a piece of music. Harmony takes place when people play
-                or sing more than one tone at the same time. Groups
-                of tones played together are called chords. Harmony
-                also describes the way chords go along with a melody.
-                Form is the way that people put rhythm, melody, and
-                harmony together. There are many different types of
-                musical forms. Repeating a short melody is one of the
-                simplest forms.
-
-            </div>
-
-            <div class="answer-row">
-
-                <div class="answer-label">
-                    HEADING
-                </div>
-
-                <select class="answer-select">
-
-                    <option value="">—</option>
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <!-- E -->
-
-        <div
-            class="text-card"
-            data-letter="E"
-            data-answer="1"
-        >
-
-            <div class="text-content">
-
-                <span class="letter">E</span>
-
-                If you want to firm up your body, head to the gym.
-                If you want to exercise your brain, listen to music.
-                Many of us instinctively know the effects of music on
-                our mood and energy. There are few things that
-                stimulate the brain the way music does. If you want
-                to keep your brain engaged throughout the aging
-                process, listening to or playing music is a great
-                tool. It provides a total brain workout. Research has
-                shown that listening to music can reduce anxiety,
-                blood pressure, and pain, as well as improve sleep
-                quality, mood, mental alertness, and memory.
-
-            </div>
-
-            <div class="answer-row">
-
-                <div class="answer-label">
-                    HEADING
-                </div>
-
-                <select class="answer-select">
-
-                    <option value="">—</option>
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <!-- F -->
-
-        <div
-            class="text-card"
-            data-letter="F"
-            data-answer="7"
-        >
-
-            <div class="text-content">
-
-                <span class="letter">F</span>
-
-                Listening to classical music has a wide range of
-                benefits for your brain and body. For example, it can
-                help you with relaxation, concentration, memory, and
-                cognition. Listening to relaxing music, such as
-                smooth jazz, can induce an alpha-wave state in your
-                brain. These waves occur when you’re awake but
-                relaxed, making smooth jazz one of the best ways to
-                wind down at the end of a long day. Rap music often
-                tells stories of people overcoming obstacles or
-                achieving success in the face of unlikely odds.
-
-            </div>
-
-            <div class="answer-row">
-
-                <div class="answer-label">
-                    HEADING
-                </div>
-
-                <select class="answer-select">
-
-                    <option value="">—</option>
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <!-- G -->
-
-        <div
-            class="text-card"
-            data-letter="G"
-            data-answer="5"
-        >
-
-            <div class="text-content">
-
-                <span class="letter">G</span>
-
-                If you ask some people about the benefits of
-                listening to music while trying to concentrate, you
-                could hear mixed reviews. Listening to music to help
-                us concentrate works differently for everyone. Some
-                people might think it’s a remarkable study habit,
-                while others may find it useless because it only
-                distracts them. But branching out and trying new ways
-                of boosting your concentration might help you find a
-                practice that works well. It isn’t easy to find
-                strategies that work specifically for you.
-
-            </div>
-
-            <div class="answer-row">
-
-                <div class="answer-label">
-                    HEADING
-                </div>
-
-                <select class="answer-select">
-
-                    <option value="">—</option>
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <button
-            id="checkButton"
-            class="check-button"
-            onclick="checkAnswers()"
-        >
-            CHECK ANSWERS
-        </button>
-
-
-    </div>
-
+    <!-- =========================================
+         RESULT
+    ========================================== -->
 
     <div
         id="resultCard"
@@ -1003,6 +1221,10 @@
 
 <script>
 
+    /* =========================================
+       SETTINGS
+    ========================================= */
+
     const API_URL =
         "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
 
@@ -1015,6 +1237,10 @@
     const R1_URL =
         "https://thespace-english.github.io/The-Space-Trainer/ege-r1.html";
 
+
+    /* =========================================
+       STUDENT
+    ========================================= */
 
     const params =
         new URLSearchParams(
@@ -1054,6 +1280,10 @@
             : "Student not selected";
 
 
+    /* =========================================
+       BACK TO R1
+    ========================================= */
+
     function goBackToR1() {
 
         if (window.history.length > 1) {
@@ -1083,6 +1313,10 @@
 
     }
 
+
+    /* =========================================
+       SAVED ANSWERS
+    ========================================= */
 
     function parseSavedAnswers(text) {
 
@@ -1169,6 +1403,10 @@
     }
 
 
+    /* =========================================
+       SHOW SAVED STATE
+    ========================================= */
+
     function showQuestionState(
         card,
         userAnswer
@@ -1235,6 +1473,10 @@
 
     }
 
+
+    /* =========================================
+       LAST ATTEMPT
+    ========================================= */
 
     async function loadLastAttempt() {
 
@@ -1344,6 +1586,10 @@
     }
 
 
+    /* =========================================
+       TRY AGAIN
+    ========================================= */
+
     function resetQuiz() {
 
         clearHints();
@@ -1381,8 +1627,18 @@
         ).style.display =
             "block";
 
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
     }
 
+
+    /* =========================================
+       CHECK
+    ========================================= */
 
     async function checkAnswers() {
 
@@ -1452,6 +1708,7 @@
             ) {
 
                 score++;
+
 
                 card.classList.add(
                     "correct"
@@ -1546,6 +1803,10 @@
             "none";
 
 
+        /* =====================================
+           SAVE RESULT
+        ====================================== */
+
         try {
 
             const response =
@@ -1638,6 +1899,10 @@
 
     }
 
+
+    /* =========================================
+       START
+    ========================================= */
 
     loadLastAttempt();
 
