@@ -1,185 +1,1624 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE Reading R1 6DA073 UK</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://thespace-english.github.io/The-Space-Trainer/favicon.png"
+    >
+
+    <title>The Space — 6DA073</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 20px; color: #333; }
-        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; margin-bottom: 20px; }
-        .task-descr { background: #e8f4fd; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.6; font-weight: 500; }
-        
-        .headings-box { background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 10px; margin-bottom: 30px; }
-        .headings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .heading-item { font-weight: bold; color: #2980b9; font-size: 16px; }
 
-        .text-section { margin-bottom: 30px; padding: 20px; border: 1px solid #f1f1f1; border-radius: 10px; position: relative; transition: 0.3s; }
-        .text-letter { font-weight: bold; color: #e67e22; font-size: 22px; margin-right: 12px; }
-        .text-content { font-size: 17px; line-height: 1.7; text-align: justify; display: inline; }
-        
-        .ans-row { margin-top: 15px; display: flex; align-items: center; gap: 15px; }
-        .ans-select { padding: 10px; border-radius: 6px; border: 2px solid #ddd; width: 220px; font-size: 16px; cursor: pointer; outline: none; }
-        
-        /* ЦВЕТОВОЙ КОД */
-        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
-        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
-        .hint { color: #28a745; font-weight: bold; font-size: 14px; margin-left: 10px; display: none; }
+        * {
+            box-sizing: border-box;
+        }
 
-        .btn { width: 100%; padding: 18px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; transition: 0.3s; margin-top: 20px; }
-        .btn:hover { background: #2980b9; box-shadow: 0 4px 12px rgba(52,152,219,0.3); }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
 
-        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #f0f2f5; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .hidden { display: none !important; }
-        #result-area { text-align: center; font-size: 26px; font-weight: bold; margin-top: 30px; color: #2c3e50; padding: 20px; background: #f8f9fa; border-radius: 10px; }
+        .page {
+            width: 100%;
+            max-width: 1260px;
+
+            margin: 0 auto;
+
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.78);
+        }
+
+        .intro-card,
+        .headings-card,
+        .quiz-card,
+        .review-card,
+        .result-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card,
+        .review-card {
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 29px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+        .reading-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                350px;
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        .quiz-card {
+            min-width: 0;
+        }
+
+        .headings-card {
+            position: sticky;
+
+            top: 24px;
+
+            margin: 0;
+        }
+
+        .headings-title {
+            margin-bottom: 18px;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .headings-list {
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 6px;
+        }
+
+        .heading-item {
+            padding: 7px 0;
+
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .heading-number {
+            display: inline-block;
+
+            min-width: 27px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .text-card {
+            margin-bottom: 26px;
+            padding-bottom: 26px;
+
+            border-bottom:
+                1px solid rgba(122,160,149,0.15);
+        }
+
+        .text-card:last-of-type {
+            border-bottom: none;
+        }
+
+        .text-content {
+            font-size: 17px;
+            line-height: 1.72;
+        }
+
+        .letter {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 34px;
+            height: 34px;
+
+            margin-right: 10px;
+            margin-bottom: 3px;
+
+            border-radius: 10px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-weight: 800;
+
+            vertical-align: middle;
+        }
+
+        .answer-row {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-top: 16px;
+        }
+
+        .answer-label {
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            color: #607A74;
+        }
+
+        .answer-select {
+            min-width: 115px;
+
+            padding: 11px 14px;
+
+            border:
+                1px solid rgba(122,160,149,0.28);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,0.80);
+
+            color: #173D43;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        .answer-select:focus {
+            border-color:
+                rgba(19,142,135,0.65);
+
+            box-shadow:
+                0 0 0 3px rgba(19,142,135,0.08);
+        }
+
+        .text-card.correct {
+            padding: 18px;
+
+            border:
+                1px solid rgba(74,174,138,0.48);
+
+            border-radius: 16px;
+
+            background:
+                rgba(217,245,232,0.52);
+        }
+
+        .text-card.wrong {
+            padding: 18px;
+
+            border:
+                1px solid rgba(212,136,136,0.48);
+
+            border-radius: 16px;
+
+            background:
+                rgba(250,225,225,0.52);
+        }
+
+        .correct-answer {
+            margin-top: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #138E87;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .review-card {
+            display: none;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .result-card {
+            display: none;
+
+            max-width: 880px;
+
+            margin: 20px 0 0;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+        @media (max-width: 1000px) {
+
+            .reading-layout {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    300px;
+            }
+
+        }
+
+        @media (max-width: 760px) {
+
+            .brand {
+                font-size: 36px;
+
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding:
+                    85px
+                    15px
+                    100px;
+            }
+
+            .intro-card,
+            .headings-card,
+            .quiz-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .reading-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .headings-card {
+                position: static;
+
+                order: -1;
+            }
+
+            .answer-row {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .answer-select {
+                width: 100%;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="setup">
-    <div style="text-align: center; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
-        <h2 style="color:#3498db; margin-bottom: 20px;">EGE Reading</h2>
-        <input type="text" id="studentName" placeholder="Ваше Имя" style="padding: 15px; width: 280px; border: 2px solid #3498db; border-radius: 8px; font-size: 16px;"><br><br>
-        <button class="btn" onclick="startApp()">Начать тест</button>
+
+<div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
+
+
+<button
+    class="back-button"
+    onclick="goBackToR1()"
+>
+    ← BACK TO R1
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · R1
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            6DA073
+        </div>
+
+        <h1>
+            UK
+        </h1>
+
+        <p class="instruction">
+            Match texts A–G with headings 1–8.
+            Use each number only once.
+            There is one extra heading.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="reading-layout">
+
+
+        <div class="quiz-card">
+
+
+            <div
+                class="text-card"
+                data-letter="A"
+                data-answer="2"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">A</span>
+
+                    The English have a very ironic sense of humour, and it may become clear when you discover what some of the towns and villages across England and the United Kingdom are called. Some are hilarious, while others are just plain rude. It is important to keep an eye out when you pass through the English countryside to see if you can spot a few on your travels. There’s Sheepy Parva and Sheepy Magna in Lancashire, Greedy Gut in Somerset, No Place in Derbyshire. There is always something to keep people entertained during their trip!
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="B"
+                data-answer="5"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">B</span>
+
+                    England is part of the British Isles and a large archipelago off the coast of Europe. It is not a very big country. In fact, you could fit all the United Kingdom, that is, England, Wales, Scotland, and Northern Ireland, inside Texas, the USA, over 2.8 times. So, it shouldn’t come as too much surprise to know that you are never far from the sea when you are in England. In fact, even if you are standing in the very center of the country, you are still no more than 70 miles away from the coast. What a shame that the English weather doesn’t often encourage a beach day!
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="C"
+                data-answer="4"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">C</span>
+
+                    Badgers are not always a farmer’s best friends, but Badger Watch farm in deepest rural Dorset has decided to exploit rather than fight Britain’s cutest large mammals. Extremely difficult to spot, a badger seen in the wild is an unforgettable experience. Two specially designed hides at Badger Watch Dorset offer one of the best chances of finding one. Each hide can be booked privately for up to eight people, from 6.30 pm until the lights are shut off at midnight. Alongside badgers, the hides offer a good chance of seeing foxes, deer, and rabbits.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="D"
+                data-answer="1"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">D</span>
+
+                    Holidays are the best opportunity to explore the UK and overseas territories, spending quality time with family or friends including a four-legged one. In fact, holidays are the best excuse to go on some nice dog adventure and give your dog the best time. To plan your perfect holiday, it’s a matter of finding a place suitable for dogs. The good news is that there is more choice than you may think. We found that almost all holiday accommodation and hotels have a filter which you can use to navigate your options, although some are better presented than others.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="E"
+                data-answer="8"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">E</span>
+
+                    The Hebrides are a beautiful archipelago, where Scottish Gaelic is still spoken. Each day will be a combination of relaxation and adventure. On a full day’s excursion, we may spend four or five hours in the kayaks and cover between seven and ten miles, with plenty of opportunities to land and explore islands on foot. One of the best ways to explore its coastline and spot some of the many bird species, otters and seals is by kayak. We can offer full-day guided trips, taking in hidden coves, long sandy beaches, and hidden ancient sites.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="F"
+                data-answer="6"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">F</span>
+
+                    You never forget your first whale. Such sightings are, of course, down to good fortune and timing, but once you’ve seen your first whale, you will want to see another and another. Famous for its whaling fleet, the Yorkshire coast is one of the best places in England to spot Minke whales, which appear in late summer, following the mackerel. From the coastline of the Outer Hebrides, you can spot up to 23 species of whales, more than a quarter of the world’s 89 known species, which pass through the waters off the west coast of Scotland.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="G"
+                data-answer="7"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">G</span>
+
+                    In summer the possibility of finding a calm area away from the crowds of holiday-goers can be a difficult task. Known as the Heritage Coast, the Northumberland coast area of outstanding natural beauty is surprisingly crowd-free, even in high summer. If you’re willing to relax, you’ll find a number of excellent bathing beaches here. Heritage hunters and nature watchers are spoiled with fantastically arresting castles. Most striking is the mighty fortress at Bamburgh. Many architectural historians have declared this the most wondrous of all England’s coastal castles.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">
+                        HEADING
+                    </div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="checkButton"
+                class="check-button"
+                onclick="checkAnswers()"
+            >
+                CHECK ANSWERS
+            </button>
+
+
+        </div>
+
+
+        <div class="headings-card">
+
+            <div class="headings-title">
+                HEADINGS
+            </div>
+
+            <div class="headings-list">
+
+                <div class="heading-item">
+                    <span class="heading-number">1.</span>
+                    Pet-friendly booking
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">2.</span>
+                    Funny names
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">3.</span>
+                    Different tactics
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">4.</span>
+                    Seeing wild animals
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">5.</span>
+                    Almost at the shore
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">6.</span>
+                    Seaside observation point
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">7.</span>
+                    Quiet places to explore
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">8.</span>
+                    Various activities to do
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
-<div class="container">
-    <h1>EGE R1 6DA073 UK</h1>
-    <div class="task-descr">
-        Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.
-    </div>
 
-    <div class="headings-box">
-        <div class="headings-grid">
-            <div class="heading-item">1. Pet-friendly booking</div>
-            <div class="heading-item">2. Funny names</div>
-            <div class="heading-item">3. Different tactics</div>
-            <div class="heading-item">4. Seeing wild animals</div>
-            <div class="heading-item">5. Almost at the shore</div>
-            <div class="heading-item">6. Seaside observation point</div>
-            <div class="heading-item">7. Quiet places to explore</div>
-            <div class="heading-item">8. Various activities to do</div>
-        </div>
-    </div>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-    <div id="quiz">
-        <div class="text-section" data-ans="2">
-            <span class="text-letter">A.</span>
-            <div class="text-content">The English have a very ironic sense of humour, and it may become clear when you discover what some of the towns and villages across England and the United Kingdom are called. Some are hilarious, while others are just plain rude. It is important to keep an eye out when you pass through the English countryside to see if you can spot a few on your travels. There’s Sheepy Parva and Sheepy Magna in Lancashire, Greedy Gut in Somerset, No Place in Derbyshire. There is always something to keep people entertained during their trip!</div>
-            <div class="ans-row">
-                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
-                <span class="hint">Верно: 2</span>
-            </div>
-        </div>
-
-        <div class="text-section" data-ans="5">
-            <span class="text-letter">B.</span>
-            <div class="text-content">England is part of the British Isles and a large archipelago off the coast of Europe. It is not a very big country. In fact, you could fit all the United Kingdom, that is, England, Wales, Scotland, and Northern Ireland, inside Texas, the USA, over 2.8 times. So, it shouldn’t come as too much surprise to know that you are never far from the sea when you are in England. In fact, even if you are standing in the very center of the country, you are still no more than 70 miles away from the coast. What a shame that the English weather doesn’t often encourage a beach day!</div>
-            <div class="ans-row">
-                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
-                <span class="hint">Верно: 5</span>
-            </div>
-        </div>
-
-        <div class="text-section" data-ans="4">
-            <span class="text-letter">C.</span>
-            <div class="text-content">Badgers are not always a farmer’s best friends, but Badger Watch farm in deepest rural Dorset has decided to exploit rather than fight Britain’s cutest large mammals. Extremely difficult to spot, a badger seen in the wild is an unforgettable experience. Two specially designed hides at Badger Watch Dorset offer one of the best chances of finding one. Each hide can be booked privately for up to eight people, from 6.30 pm until the lights are shut off at midnight. Alongside badgers, the hides offer a good chance of seeing foxes, deer, and rabbits.</div>
-            <div class="ans-row">
-                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
-                <span class="hint">Верно: 4</span>
-            </div>
-        </div>
-
-        <div class="text-section" data-ans="1">
-            <span class="text-letter">D.</span>
-            <div class="text-content">Holidays are the best opportunity to explore the UK and overseas territories, spending quality time with family or friends including a four-legged one. In fact, holidays are the best excuse to go on some nice dog adventure and give your dog the best time. To plan your perfect holiday, it’s a matter of finding a place suitable for dogs. The good news is that there is more choice than you may think. We found that almost all holiday accommodation and hotels have a filter which you can use to navigate your options, although some are better presented than others.</div>
-            <div class="ans-row">
-                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
-                <span class="hint">Верно: 1</span>
-            </div>
-        </div>
-
-        <div class="text-section" data-ans="8">
-            <span class="text-letter">E.</span>
-            <div class="text-content">The Hebrides are a beautiful archipelago, where Scottish Gaelic is still spoken. Each day will be a combination of relaxation and adventure. On a full day’s excursion, we may spend four or five hours in the kayaks and cover between seven and ten miles, with plenty of opportunities to land and explore islands on foot. One of the best ways to explore its coastline and spot some of the many bird species, otters and seals is by kayak. We can offer full-day guided trips, taking in hidden coves, long sandy beaches, and hidden ancient sites.</div>
-            <div class="ans-row">
-                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
-                <span class="hint">Верно: 8</span>
-            </div>
-        </div>
-
-        <div class="text-section" data-ans="6">
-            <span class="text-letter">F.</span>
-            <div class="text-content">You never forget your first whale. Such sightings are, of course, down to good fortune and timing, but once you’ve seen your first whale, you will want to see another and another. Famous for its whaling fleet, the Yorkshire coast is one of the best places in England to spot Minke whales, which appear in late summer, following the mackerel. From the coastline of the Outer Hebrides, you can spot up to 23 species of whales, more than a quarter of the world’s 89 known species, which pass through the waters off the west coast of Scotland.</div>
-            <div class="ans-row">
-                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
-                <span class="hint">Верно: 6</span>
-            </div>
-        </div>
-
-        <div class="text-section" data-ans="7">
-            <span class="text-letter">G.</span>
-            <div class="text-content">In summer the possibility of finding a calm area away from the crowds of holiday-goers can be a difficult task. Known as the Heritage Coast, the Northumberland coast area of outstanding natural beauty is surprisingly crowd-free, even in high summer. If you’re willing to relax, you’ll find a number of excellent bathing beaches here. Heritage hunters and nature watchers are spoiled with fantastically arresting castles. Most striking is the mighty fortress at Bamburgh. Many architectural historians have declared this the most wondrous of all England’s coastal castles.</div>
-            <div class="ans-row">
-                <select class="ans-select"><option value="">Выберите заголовок...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
-                <span class="hint">Верно: 7</span>
-            </div>
-        </div>
-    </div>
-
-    <button class="btn" id="finishBtn" onclick="checkResults()">Проверить и отправить результат</button>
-    <div id="result-area" class="hidden"></div>
-</div>
 
 <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec";
 
-    function startApp() {
-        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
-        document.getElementById('setup').classList.add('hidden');
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "R1";
+    const TASK_ID = "6DA073";
+
+
+    const R1_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r1.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function checkResults() {
-        let score = 0;
-        let logs = [];
-        const sections = document.querySelectorAll('.text-section');
 
-        sections.forEach((sec) => {
-            const correct = sec.getAttribute('data-ans');
-            const select = sec.querySelector('.ans-select');
-            const userAns = select.value;
-            const letter = sec.querySelector('.text-letter').innerText;
-            
-            logs.push(`${letter}:${userAns || "-"}`);
-            select.disabled = true;
+    if (student) {
 
-            if(userAns === correct) {
-                score++;
-                select.classList.add('status-correct');
-            } else {
-                select.classList.add('status-wrong');
-                sec.querySelector('.hint').style.display = 'inline';
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToR1() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
+        }
+
+
+        let url =
+            R1_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href =
+            url;
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+
+            return result;
+
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+
+                    return;
+
+                }
+
+
+                const letter =
+                    part
+                        .slice(0, separator)
+                        .trim()
+                        .replace(".", "");
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[letter] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+
+                element.remove();
+
+            });
+
+    }
+
+
+    function clearCardStates() {
+
+        document
+            .querySelectorAll(
+                ".text-card"
+            )
+            .forEach(card => {
+
+                card.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        card,
+        userAnswer
+    ) {
+
+        const select =
+            card.querySelector(
+                ".answer-select"
+            );
+
+
+        const correctAnswer =
+            card.dataset.answer;
+
+
+        select.value =
+            userAnswer || "";
+
+
+        select.disabled =
+            true;
+
+
+        if (
+            userAnswer ===
+            correctAnswer
+        ) {
+
+            card.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            card.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "div"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                correctAnswer;
+
+
+            card
+                .querySelector(
+                    ".answer-row"
+                )
+                .appendChild(
+                    correct
+                );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+
+            return;
+
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
             }
-        });
 
-        const finalScore = score + "/7";
-        document.getElementById('finishBtn').classList.add('hidden');
-        const resArea = document.getElementById('result-area');
-        resArea.innerHTML = "Результат: " + finalScore;
-        resArea.classList.remove('hidden');
 
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('studentName').value,
-                task: "EGE R1 6DA073 UK",
-                result: finalScore,
-                answers: logs.join(", ")
-            })
-        });
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+            clearCardStates();
+
+
+            document
+                .querySelectorAll(
+                    ".text-card"
+                )
+                .forEach(card => {
+
+                    const letter =
+                        card.dataset.letter;
+
+
+                    showQuestionState(
+                        card,
+                        savedAnswers[letter] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
     }
+
+
+    function resetQuiz() {
+
+        clearHints();
+        clearCardStates();
+
+
+        document
+            .querySelectorAll(
+                ".answer-select"
+            )
+            .forEach(select => {
+
+                select.value = "";
+
+                select.disabled =
+                    false;
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to R1 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+        clearCardStates();
+
+
+        const cards =
+            document.querySelectorAll(
+                ".text-card"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        cards.forEach(card => {
+
+            const letter =
+                card.dataset.letter;
+
+
+            const correctAnswer =
+                card.dataset.answer;
+
+
+            const select =
+                card.querySelector(
+                    ".answer-select"
+                );
+
+
+            const userAnswer =
+                select.value;
+
+
+            answers.push(
+                letter +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            select.disabled =
+                true;
+
+
+            if (
+                userAnswer ===
+                correctAnswer
+            ) {
+
+                score++;
+
+
+                card.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                mistakes.push(
+                    letter
+                );
+
+
+                card.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    correctAnswer;
+
+
+                card
+                    .querySelector(
+                        ".answer-row"
+                    )
+                    .appendChild(
+                        correct
+                    );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/7";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(
+                                        ", "
+                                    )
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status ===
+                "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
 
+
 </body>
+
 </html>
