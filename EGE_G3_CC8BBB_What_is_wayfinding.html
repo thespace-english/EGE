@@ -1,174 +1,1551 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE Lexis CC8BBB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Space — CC8BBB</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; padding: 20px; color: #333; }
-        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        
-        .main-layout { display: flex; gap: 30px; margin-top: 20px; }
-        .text-part { flex: 1.2; line-height: 1.8; font-size: 18px; text-align: justify; background: #fff; padding: 20px; border: 1px solid #e1e8ed; border-radius: 8px; }
-        .quiz-part { flex: 1; height: 75vh; overflow-y: auto; padding-right: 15px; }
 
-        .gap-ref { color: #3498db; font-weight: bold; border-bottom: 2px solid #3498db; padding: 0 4px; }
-        
-        .q-card { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #3498db; transition: 0.3s; }
-        .q-num { font-weight: bold; color: #2c3e50; margin-bottom: 10px; display: block; }
-        
-        .opt-label { display: block; background: white; padding: 10px; margin: 6px 0; border: 1px solid #dcdde1; border-radius: 6px; cursor: pointer; transition: 0.2s; }
-        .opt-label:hover { border-color: #3498db; }
-        input[type="radio"] { margin-right: 10px; }
+        * {
+            box-sizing: border-box;
+        }
 
-        /* ЦВЕТОВОЙ КОД */
-        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
-        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
 
-        #setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f4f7f6; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .login-box { background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .btn { background: #3498db; color: white; border: none; padding: 14px 25px; border-radius: 6px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%; margin-top: 15px; }
-        .hidden { display: none !important; }
-        #finalMsg { text-align: center; font-size: 22px; font-weight: bold; margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 8px; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #173D43;
+
+            background:
+                radial-gradient(
+                    circle at 8% 88%,
+                    rgba(87,209,198,0.22),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #F7FCFA 0%,
+                    #EDF8F5 52%,
+                    #E4F5F1 100%
+                );
+        }
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 900px;
+            height: 900px;
+
+            top: -680px;
+            right: -290px;
+
+            border-radius: 50%;
+
+            border: 28px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.92);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 980px;
+
+            margin: 0 auto;
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+            background: rgba(255,255,255,0.55);
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            cursor: pointer;
+        }
+
+        .intro-card,
+        .text-card,
+        .result-card,
+        .review-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border: 1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card {
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 27px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+        .review-card {
+            display: none;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .text-title {
+            margin: 0 0 22px;
+
+            font-size: 22px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .story {
+            font-size: 17px;
+            line-height: 1.85;
+
+            color: #173D43;
+        }
+
+        .gap-number {
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .question {
+            margin-top: 28px;
+            padding-top: 25px;
+
+            border-top:
+                1px solid rgba(122,160,149,0.16);
+        }
+
+        .question-title {
+            margin-bottom: 14px;
+
+            font-size: 17px;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+
+            min-height: 50px;
+
+            padding: 12px 16px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid rgba(122,160,149,0.24);
+
+            background:
+                rgba(255,255,255,0.70);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.18s ease,
+                border-color 0.18s ease,
+                background 0.18s ease;
+        }
+
+        .option:hover {
+            transform: translateY(-1px);
+
+            border-color:
+                rgba(19,142,135,0.42);
+        }
+
+        .option input {
+            margin: 0 11px 0 0;
+
+            accent-color: #15968F;
+
+            cursor: pointer;
+        }
+
+        .option.correct {
+            border-color: #4AAE8A;
+
+            background:
+                rgba(217,245,232,0.76);
+        }
+
+        .option.wrong {
+            border-color: #D48888;
+
+            background:
+                rgba(250,225,225,0.76);
+        }
+
+        .correct-answer {
+            margin-top: 9px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #138E87;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 28px;
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .result-card {
+            display: none;
+
+            margin-top: 20px;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+        @media (max-width: 700px) {
+
+            .brand {
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding: 85px 15px 100px;
+            }
+
+            .intro-card,
+            .text-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="setup">
-    <div class="login-box">
-        <h2>EGE Lexis Practice</h2>
-        <p>What is wayfinding?</p>
-        <input type="text" id="userName" placeholder="Введите ваше Имя" style="padding: 12px; width: 260px; border: 2px solid #3498db; border-radius: 6px;"><br>
-        <button class="btn" onclick="start()">Начать задание</button>
-    </div>
-</div>
 
-<div class="container">
-    <h1>What is wayfinding?</h1>
-    
-    <div class="main-layout">
-        <div class="text-part">
-            Traditional Polynesian navigation – also called wayfinding – means finding your way without any of the tools modern navigators <span class="gap-ref">30</span> for granted. You use no GPS, no compass, no radio or satellite reports to help you navigate. Besides your brain, the only “tool” you might <span class="gap-ref">31</span> on in traditional navigation is an outstretched hand, which helps for measuring angles in the sky. Instead, your clues about position, direction, and distance come from the stars, sun, and moon, from clouds, and even from wildlife. Navigators must pay close <span class="gap-ref">32</span> to characteristic patterns of winds, currents, and weather.
-            <br><br>
-            Hawaiians in the voyaging community joke that the best way to spot the navigator on a voyaging canoe is to <span class="gap-ref">33</span> for the person with red eyes. Navigators get little sleep while voyaging because traditional navigation <span class="gap-ref">34</span> non-stop analysis of the natural world. Reading these clues involves all the senses, coupled with deep knowledge of sea and sky.
-            <br><br>
-            However, traditional navigation without computers and satellite can be more precise. For instance, in 1985 when master navigator <span class="gap-ref">35</span> that the ship was within a few miles of land, nobody believed him because their satellite navigation system reported no land for over a hundred miles. Yet the island <span class="gap-ref">36</span> by the traditional method appeared shortly after, as promised – a triumph of no-tech over high-tech.
+<button
+    class="back-button"
+    onclick="goBackToG3()"
+>
+    ← BACK TO G3
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
         </div>
 
-        <div class="quiz-part" id="quiz">
-            <div class="q-card" data-ans="3">
-                <span class="q-num">30.</span>
-                <label class="opt-label"><input type="radio" name="q30" value="1"> 1) make</label>
-                <label class="opt-label"><input type="radio" name="q30" value="2"> 2) keep</label>
-                <label class="opt-label"><input type="radio" name="q30" value="3"> 3) take</label>
-                <label class="opt-label"><input type="radio" name="q30" value="4"> 4) hold</label>
-            </div>
-
-            <div class="q-card" data-ans="1">
-                <span class="q-num">31.</span>
-                <label class="opt-label"><input type="radio" name="q31" value="1"> 1) rely</label>
-                <label class="opt-label"><input type="radio" name="q31" value="2"> 2) recall</label>
-                <label class="opt-label"><input type="radio" name="q31" value="3"> 3) refer</label>
-                <label class="opt-label"><input type="radio" name="q31" value="4"> 4) reply</label>
-            </div>
-
-            <div class="q-card" data-ans="4">
-                <span class="q-num">32.</span>
-                <label class="opt-label"><input type="radio" name="q32" value="1"> 1) attraction</label>
-                <label class="opt-label"><input type="radio" name="q32" value="2"> 2) application</label>
-                <label class="opt-label"><input type="radio" name="q32" value="3"> 3) addition</label>
-                <label class="opt-label"><input type="radio" name="q32" value="4"> 4) attention</label>
-            </div>
-
-            <div class="q-card" data-ans="2">
-                <span class="q-num">33.</span>
-                <label class="opt-label"><input type="radio" name="q33" value="1"> 1) watch</label>
-                <label class="opt-label"><input type="radio" name="q33" value="2"> 2) look</label>
-                <label class="opt-label"><input type="radio" name="q33" value="3"> 3) glance</label>
-                <label class="opt-label"><input type="radio" name="q33" value="4"> 4) see</label>
-            </div>
-
-            <div class="q-card" data-ans="3">
-                <span class="q-num">34.</span>
-                <label class="opt-label"><input type="radio" name="q34" value="1"> 1) reserves</label>
-                <label class="opt-label"><input type="radio" name="q34" value="2"> 2) requests</label>
-                <label class="opt-label"><input type="radio" name="q34" value="3"> 3) requires</label>
-                <label class="opt-label"><input type="radio" name="q34" value="4"> 4) reckons</label>
-            </div>
-
-            <div class="q-card" data-ans="2">
-                <span class="q-num">35.</span>
-                <label class="opt-label"><input type="radio" name="q35" value="1"> 1) extended</label>
-                <label class="opt-label"><input type="radio" name="q35" value="2"> 2) announced</label>
-                <label class="opt-label"><input type="radio" name="q35" value="3"> 3) promoted</label>
-                <label class="opt-label"><input type="radio" name="q35" value="4"> 4) presented</label>
-            </div>
-
-            <div class="q-card" data-ans="4">
-                <span class="q-num">36.</span>
-                <label class="opt-label"><input type="radio" name="q36" value="1"> 1) pretended</label>
-                <label class="opt-label"><input type="radio" name="q36" value="2"> 2) prevented</label>
-                <label class="opt-label"><input type="radio" name="q36" value="3"> 3) prepared</label>
-                <label class="opt-label"><input type="radio" name="q36" value="4"> 4) predicted</label>
-            </div>
-
-            <button class="btn" id="submitBtn" onclick="check()">Проверить ответы</button>
-            <div id="finalMsg" class="hidden"></div>
+        <div class="section-name">
+            EGE · G3
         </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            CC8BBB
+        </div>
+
+        <h1>
+            What is wayfinding?
+        </h1>
+
+        <p class="instruction">
+            Read the text and choose the correct option
+            for each gap.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="text-card">
+
+
+        <div class="text-title">
+            What is wayfinding?
+        </div>
+
+
+        <div class="story">
+
+            Traditional Polynesian navigation – also called wayfinding –
+            means finding your way without any of the tools modern
+            navigators
+            <span class="gap-number">30</span>
+            ______ for granted.
+
+            You use no GPS, no compass, no radio or satellite reports
+            to help you navigate.
+
+            Besides your brain, the only “tool” you might
+            <span class="gap-number">31</span>
+            ______ on in traditional navigation is an outstretched hand,
+            which helps for measuring angles in the sky.
+
+            Instead, your clues about position, direction, and distance
+            come from the stars, sun, and moon, from clouds,
+            and even from wildlife.
+
+            <br><br>
+
+            Navigators must pay close
+            <span class="gap-number">32</span>
+            ______ to characteristic patterns of winds, currents,
+            and weather.
+
+            Hawaiians in the voyaging community joke that the best way
+            to spot the navigator on a voyaging canoe is to
+            <span class="gap-number">33</span>
+            ______ for the person with red eyes.
+
+            Navigators get little sleep while voyaging because
+            traditional navigation
+            <span class="gap-number">34</span>
+            ______ non-stop analysis of the natural world.
+
+            Reading these clues involves all the senses, coupled
+            with deep knowledge of sea and sky.
+
+            <br><br>
+
+            However, traditional navigation without computers and
+            satellite can be more precise.
+
+            For instance, in 1985 when master navigator
+            <span class="gap-number">35</span>
+            ______ that the ship was within a few miles of land,
+            nobody believed him because their satellite navigation
+            system reported no land for over a hundred miles.
+
+            Yet the island
+            <span class="gap-number">36</span>
+            ______ by the traditional method appeared shortly after,
+            as promised – a triumph of no-tech over high-tech.
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="30"
+            data-answer="3"
+        >
+
+            <div class="question-title">
+                30
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q30" value="1">
+                    1) make
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q30" value="2">
+                    2) keep
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q30" value="3">
+                    3) take
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q30" value="4">
+                    4) hold
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="31"
+            data-answer="1"
+        >
+
+            <div class="question-title">
+                31
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q31" value="1">
+                    1) rely
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q31" value="2">
+                    2) recall
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q31" value="3">
+                    3) refer
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q31" value="4">
+                    4) reply
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="32"
+            data-answer="4"
+        >
+
+            <div class="question-title">
+                32
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q32" value="1">
+                    1) attraction
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="2">
+                    2) application
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="3">
+                    3) addition
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="4">
+                    4) attention
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="33"
+            data-answer="2"
+        >
+
+            <div class="question-title">
+                33
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q33" value="1">
+                    1) watch
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="2">
+                    2) look
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="3">
+                    3) glance
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="4">
+                    4) see
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="34"
+            data-answer="3"
+        >
+
+            <div class="question-title">
+                34
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q34" value="1">
+                    1) reserves
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="2">
+                    2) requests
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="3">
+                    3) requires
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="4">
+                    4) reckons
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="35"
+            data-answer="2"
+        >
+
+            <div class="question-title">
+                35
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q35" value="1">
+                    1) extended
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="2">
+                    2) announced
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="3">
+                    3) promoted
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="4">
+                    4) presented
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="36"
+            data-answer="4"
+        >
+
+            <div class="question-title">
+                36
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q36" value="1">
+                    1) pretended
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q36" value="2">
+                    2) prevented
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q36" value="3">
+                    3) prepared
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q36" value="4">
+                    4) predicted
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="checkButton"
+            class="check-button"
+            onclick="checkAnswers()"
+        >
+            CHECK ANSWERS
+        </button>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
+
+
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
+
 
 <script>
-    const G_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
 
-    function start() {
-        if(document.getElementById('userName').value.trim()) {
-            document.getElementById('setup').classList.add('hidden');
-        } else alert("Пожалуйста, введите имя!");
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "G3";
+    const TASK_ID = "CC8BBB";
+
+
+    const G3_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-g3.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function check() {
-        let score = 0;
-        let log = [];
-        const cards = document.querySelectorAll('.q-card');
-        
-        cards.forEach((card) => {
-            const correct = card.getAttribute('data-ans');
-            const selected = card.querySelector('input:checked');
-            const userVal = selected ? selected.value : null;
-            const qNum = card.querySelector('.q-num').innerText;
-            
-            log.push(`${qNum}${userVal || "-"}`);
 
-            const labels = card.querySelectorAll('.opt-label');
-            labels.forEach(lbl => {
-                const inp = lbl.querySelector('input');
-                inp.disabled = true;
-                if(inp.value === correct) lbl.classList.add('status-correct');
-                if(userVal && inp.value === userVal && userVal !== correct) lbl.classList.add('status-wrong');
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToG3() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
+        }
+
+
+        let url = G3_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href = url;
+
+    }
+
+
+    function clearStates() {
+
+        document
+            .querySelectorAll(".option")
+            .forEach(option => {
+
+                option.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
             });
 
-            if(userVal === correct) score++;
-        });
 
-        const total = score + "/7";
-        document.getElementById('submitBtn').classList.add('hidden');
-        const msg = document.getElementById('finalMsg');
-        msg.innerHTML = "Тест завершен. Ваш результат: " + total;
-        msg.classList.remove('hidden');
+        document
+            .querySelectorAll(".correct-answer")
+            .forEach(element => {
 
-        fetch(G_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE G3 CC8BBB What is wayfinding",
-                result: total,
-                answers: log.join(", ")
-            })
-        });
+                element.remove();
+
+            });
+
     }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const number =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[number] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function showQuestionState(
+        question,
+        userAnswer
+    ) {
+
+        const correctAnswer =
+            question.dataset.answer;
+
+
+        const radios =
+            question.querySelectorAll(
+                'input[type="radio"]'
+            );
+
+
+        radios.forEach(radio => {
+
+            radio.disabled = true;
+
+
+            if (
+                radio.value === userAnswer
+            ) {
+
+                radio.checked = true;
+
+
+                if (
+                    userAnswer === correctAnswer
+                ) {
+
+                    radio
+                        .closest(".option")
+                        .classList.add("correct");
+
+                } else {
+
+                    radio
+                        .closest(".option")
+                        .classList.add("wrong");
+
+                }
+
+            }
+
+
+            if (
+                radio.value === correctAnswer &&
+                userAnswer !== correctAnswer
+            ) {
+
+                radio
+                    .closest(".option")
+                    .classList.add("correct");
+
+            }
+
+        });
+
+
+        if (
+            userAnswer !== correctAnswer
+        ) {
+
+            const correct =
+                document.createElement("div");
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct option: " +
+                correctAnswer;
+
+
+            question.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearStates();
+
+
+            document
+                .querySelectorAll(".question")
+                .forEach(question => {
+
+                    const number =
+                        question.dataset.number;
+
+
+                    showQuestionState(
+                        question,
+                        savedAnswers[number] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    function resetQuiz() {
+
+        clearStates();
+
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(radio => {
+
+                radio.checked = false;
+                radio.disabled = false;
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to G3 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearStates();
+
+
+        const questions =
+            document.querySelectorAll(
+                ".question"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        questions.forEach(question => {
+
+            const number =
+                question.dataset.number;
+
+
+            const correctAnswer =
+                question.dataset.answer;
+
+
+            const selected =
+                question.querySelector(
+                    'input[type="radio"]:checked'
+                );
+
+
+            const userAnswer =
+                selected
+                    ? selected.value
+                    : "";
+
+
+            answers.push(
+                number +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            const radios =
+                question.querySelectorAll(
+                    'input[type="radio"]'
+                );
+
+
+            radios.forEach(radio => {
+
+                radio.disabled = true;
+
+            });
+
+
+            if (
+                userAnswer === correctAnswer
+            ) {
+
+                score++;
+
+
+                if (selected) {
+
+                    selected
+                        .closest(".option")
+                        .classList.add(
+                            "correct"
+                        );
+
+                }
+
+            } else {
+
+                mistakes.push(
+                    number
+                );
+
+
+                if (selected) {
+
+                    selected
+                        .closest(".option")
+                        .classList.add(
+                            "wrong"
+                        );
+
+                }
+
+
+                const correctRadio =
+                    question.querySelector(
+                        'input[value="' +
+                        correctAnswer +
+                        '"]'
+                    );
+
+
+                if (correctRadio) {
+
+                    correctRadio
+                        .closest(".option")
+                        .classList.add(
+                            "correct"
+                        );
+
+                }
+
+
+                const correct =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct option: " +
+                    correctAnswer;
+
+
+                question.appendChild(
+                    correct
+                );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/7";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(", ")
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status === "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
 
+
 </body>
+
 </html>
