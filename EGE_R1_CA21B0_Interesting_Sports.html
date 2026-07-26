@@ -1,254 +1,1522 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE Reading CA21B0 Interesting Sports</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://thespace-english.github.io/The-Space-Trainer/favicon.png"
+    >
+
+    <title>The Space — CA21B0</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
     <style>
-        * { box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            /* Спортивный фон с наложением градиента для читаемости */
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
-                        url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=2070') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
-            min-height: 100vh;
+
+        * {
+            box-sizing: border-box;
         }
-        
-        header { background: #e67e22; color: white; padding: 25px; text-align: center; font-size: 24px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 1000; }
-        
-        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
 
-        .headings-box { background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); border-top: 5px solid #e67e22; }
-        .headings-box h3 { margin-top: 0; color: #d35400; text-align: center; }
-        .headings-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; list-style: none; padding: 0; }
-        .headings-list li { background: #fff; padding: 10px 15px; border-radius: 8px; font-size: 15px; border: 1px solid #ddd; font-weight: 500; }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
 
-        .text-item { background: rgba(255, 255, 255, 0.98); padding: 30px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); line-height: 1.8; position: relative; font-size: 17px; }
-        .letter-badge { position: absolute; left: -20px; top: -10px; background: #e67e22; color: white; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 24px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transform: rotate(-5deg); }
-        
-        /* Выбор под текстом */
-        .local-select { margin-top: 20px; padding-top: 15px; border-top: 2px dashed #eee; display: flex; align-items: center; gap: 15px; }
-        .local-select span { font-weight: bold; color: #e67e22; }
-        
-        select { padding: 10px 15px; font-size: 16px; font-weight: bold; border: 2px solid #bdc3c7; border-radius: 8px; cursor: pointer; background: white; transition: 0.3s; }
-        select:focus { border-color: #e67e22; outline: none; }
+        .page {
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 55px 24px 120px;
 
-        .answer-table-container { background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #eee; padding: 12px; text-align: center; font-size: 18px; font-weight: bold; }
-        th { background: #f8f9fa; color: #7f8c8d; font-size: 14px; }
-        .sync-val { color: #e67e22; }
+            position: relative;
+            z-index: 2;
+        }
 
-        .btn-check { width: 100%; padding: 22px; background: #27ae60; color: white; border: none; border-radius: 12px; font-size: 22px; font-weight: bold; cursor: pointer; margin: 20px 0; transition: 0.3s; box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4); }
-        .btn-check:hover { background: #219150; transform: translateY(-3px); }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-        .correct { background-color: #d4edda !important; border-color: #28a745 !important; }
-        .wrong { background-color: #f8d7da !important; border-color: #dc3545 !important; }
-        
-        #final-score { text-align: center; font-size: 28px; font-weight: bold; padding: 20px; border-radius: 12px; display: none; background: white; margin-bottom: 50px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: #138E87;
+        }
 
-        #auth-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #2c3e50; z-index: 10000; display: flex; align-items: center; justify-content: center; }
-        .auth-box { background: white; padding: 40px; border-radius: 20px; text-align: center; width: 400px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .auth-box input { padding: 15px; width: 100%; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 25px; font-size: 18px; outline: none; }
+        .section-name {
+            margin-top: 12px;
 
-        .hidden { display: none !important; }
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.78);
+        }
+
+        .intro-card,
+        .headings-card,
+        .quiz-card,
+        .review-card,
+        .result-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border: 1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card,
+        .review-card {
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 29px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+        .reading-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                350px;
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        .quiz-card {
+            min-width: 0;
+        }
+
+        .headings-card {
+            position: sticky;
+            top: 24px;
+            margin: 0;
+        }
+
+        .headings-title {
+            margin-bottom: 18px;
+
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .headings-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+        }
+
+        .heading-item {
+            padding: 7px 0;
+
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .heading-number {
+            display: inline-block;
+
+            min-width: 27px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .text-card {
+            margin-bottom: 26px;
+            padding-bottom: 26px;
+
+            border-bottom:
+                1px solid rgba(122,160,149,0.15);
+        }
+
+        .text-card:last-of-type {
+            border-bottom: none;
+        }
+
+        .text-content {
+            font-size: 17px;
+            line-height: 1.72;
+        }
+
+        .letter {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 34px;
+            height: 34px;
+
+            margin-right: 10px;
+            margin-bottom: 3px;
+
+            border-radius: 10px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-weight: 800;
+
+            vertical-align: middle;
+        }
+
+        .answer-row {
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            margin-top: 16px;
+        }
+
+        .answer-label {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            color: #607A74;
+        }
+
+        .answer-select {
+            min-width: 115px;
+
+            padding: 11px 14px;
+
+            border:
+                1px solid rgba(122,160,149,0.28);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,0.80);
+
+            color: #173D43;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+
+            outline: none;
+            cursor: pointer;
+        }
+
+        .answer-select:focus {
+            border-color:
+                rgba(19,142,135,0.65);
+
+            box-shadow:
+                0 0 0 3px rgba(19,142,135,0.08);
+        }
+
+        .text-card.correct {
+            padding: 18px;
+
+            border:
+                1px solid rgba(74,174,138,0.48);
+
+            border-radius: 16px;
+
+            background:
+                rgba(217,245,232,0.52);
+        }
+
+        .text-card.wrong {
+            padding: 18px;
+
+            border:
+                1px solid rgba(212,136,136,0.48);
+
+            border-radius: 16px;
+
+            background:
+                rgba(250,225,225,0.52);
+        }
+
+        .correct-answer {
+            margin-top: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #138E87;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .review-card {
+            display: none;
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .result-card {
+            display: none;
+
+            max-width: 880px;
+
+            margin: 20px 0 0;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+        @media (max-width: 1000px) {
+
+            .reading-layout {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    300px;
+            }
+
+        }
+
+        @media (max-width: 760px) {
+
+            .brand {
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding: 85px 15px 100px;
+            }
+
+            .intro-card,
+            .headings-card,
+            .quiz-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .reading-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .headings-card {
+                position: static;
+                order: -1;
+            }
+
+            .answer-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .answer-select {
+                width: 100%;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="auth-screen">
-    <div class="auth-box">
-        <h2 style="color:#2c3e50">Interesting Sports</h2>
-        <p>Введите имя для начала тренировки</p>
-        <input type="text" id="userName" placeholder="Ваше имя">
-        <button class="btn-check" style="margin:0; width:100%" onclick="startSession()">Поехали!</button>
+
+<div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
+
+
+<button
+    class="back-button"
+    onclick="goBackToR1()"
+>
+    ← BACK TO R1
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · R1
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            CA21B0
+        </div>
+
+        <h1>
+            Interesting Sports
+        </h1>
+
+        <p class="instruction">
+            Match texts A–G with headings 1–8.
+            Use each number only once.
+            There is one extra heading.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="reading-layout">
+
+
+        <div class="quiz-card">
+
+
+            <div
+                class="text-card"
+                data-letter="A"
+                data-answer="6"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">A</span>
+
+                    Poohsticks is a sport first mentioned in “The House at Pooh Corner”, a Winnie-the-Pooh book by A. A. Milne. It is a simple sport which may be played on any bridge over running water. Each player drops a stick on the upstream side of a bridge and the one whose stick first appears on the downstream side is the winner. The annual World Poohsticks Championships have been held at Day’s Lock on the River Thames in the UK since 1984.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">HEADING</div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="B"
+                data-answer="2"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">B</span>
+
+                    Chess boxing is a hybrid sport that consists of chess and boxing in alternating rounds. The sport was invented by French artist and filmmaker Enki Bilal in his comic book “Froid Equateur” in 1992. The first real event of chess-boxing was organized by Dutch artist Iepe Rubingh in 2003. Chess boxing is a fast growing sport. The sport alternates between games of boxing and chess after each round – waiting for a checkmate or knockout to decide the match.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">HEADING</div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="C"
+                data-answer="7"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">C</span>
+
+                    In heliskiing people pay a large sum of money to get helicoptered to a remote snow-covered area only to ski down the white slope. These skiers spend hundreds of dollars to ski down a natural landscape unlike the artificial slopes of a ski-resort. Most obviously, the natural environment involves greater risks and discomfort. Even the journey into the interior part of a mountainous area has often been life-threatening in the past.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">HEADING</div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="D"
+                data-answer="3"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">D</span>
+
+                    Cheese rolling is something that has been around for over 200 years and is still practiced today. During the Spring Bank Holiday in England, people gather at the top of Coopers Hill and prepare for something very exciting. At the top of the hill, a judge rolls a round of cheese down the slope and the participants follow. People try to run down the slope but often end up rolling down like the cheese. The winner of the race wins the round of cheese as well as a few bruises and scars.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">HEADING</div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="E"
+                data-answer="1"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">E</span>
+
+                    It’s possible that extreme sports became trendy in the late 20th century as a reaction to the greater safety of modern life. Lacking a feeling of danger in their everyday activities, people wanted more excitement or risk. Another reason is improved sports technology. For example, the invention of sticky rubber-soled climbing shoes and artificial climbing walls increased the appeal of rock climbing. And advances in ski design allowed more skiers to try extreme feats.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">HEADING</div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="F"
+                data-answer="4"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">F</span>
+
+                    Extreme Ironing is an extreme sport and a performance art. People who play this unusual sport go to a remote location and iron clothes! They call themselves “ironists”, and get a thrill from taking their ironing board, unplugged iron and some of their clothes to some extreme places and photograph themselves doing it. Such places that they have reached include extreme altitude, underwater, hanging from cliffs, and on top of vehicles.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">HEADING</div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-card"
+                data-letter="G"
+                data-answer="8"
+            >
+
+                <div class="text-content">
+
+                    <span class="letter">G</span>
+
+                    Approximately 65 thousand people in the United States alone do not know how to swim. Many of them learned as young children but never go to a pool, lake, river, or ocean anymore and have forgotten how to swim over the years. Others were never taught and continue to avoid the activity altogether. It was once thought that knowing how to swim was important for safety reasons, but now it is pretty much left up to the individual.
+
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-label">HEADING</div>
+
+                    <select class="answer-select">
+                        <option value="">—</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="checkButton"
+                class="check-button"
+                onclick="checkAnswers()"
+            >
+                CHECK ANSWERS
+            </button>
+
+
+        </div>
+
+
+        <div class="headings-card">
+
+            <div class="headings-title">
+                HEADINGS
+            </div>
+
+            <div class="headings-list">
+
+                <div class="heading-item">
+                    <span class="heading-number">1.</span>
+                    Why extreme sports are popular
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">2.</span>
+                    Combination of two sports
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">3.</span>
+                    Competition with food
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">4.</span>
+                    Sport or performance?
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">5.</span>
+                    Known to everybody
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">6.</span>
+                    Taken from literature
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">7.</span>
+                    Danger in the snow
+                </div>
+
+                <div class="heading-item">
+                    <span class="heading-number">8.</span>
+                    A skill not used
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
-<header>EGE Reading CA21B0: Matching Headings</header>
 
-<div class="container">
-    <div class="headings-box">
-        <h3>СПИСОК ЗАГОЛОВКОВ:</h3>
-        <ul class="headings-list">
-            <li>1. Why extreme sports are popular</li>
-            <li>2. Combination of two sports</li>
-            <li>3. Competition with food</li>
-            <li>4. Sport or performance?</li>
-            <li>5. Known to everybody</li>
-            <li>6. Taken from literature</li>
-            <li>7. Danger in the snow</li>
-            <li>8. A skill not used</li>
-        </ul>
-    </div>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-    <div class="text-item">
-        <div class="letter-badge">A</div>
-        Poohsticks is a sport first mentioned in “The House at Pooh Corner”, a Winnie-the-Pooh book by A. A. Milne. It is a simple sport which may be played on any bridge over running water. Each player drops a stick on the upstream side of a bridge and the one whose stick first appears on the downstream side is the winner. The annual World Poohsticks Championships have been held at Day’s Lock on the River Thames in the UK since 1984.
-        <div class="local-select">
-            <span>Выберите заголовок:</span>
-            <select class="q-select" id="ansA" data-letter="A" onchange="syncTable('A', this.value)">
-                <option value="">-</option>
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                <option value="7">7</option><option value="8">8</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="letter-badge">B</div>
-        Chess boxing is a hybrid sport that consists of chess and boxing in alternating rounds. The sport was invented by French artist and filmmaker Enki Bilal in his comic book “Froid Equateur” in 1992. The first real event of chess-boxing was organized by Dutch artist Iepe Rubingh in 2003. Chess boxing is a fast growing sport. The sport alternates between games of boxing and chess after each round – waiting for a checkmate or knockout to decide the match.
-        <div class="local-select">
-            <span>Выберите заголовок:</span>
-            <select class="q-select" id="ansB" data-letter="B" onchange="syncTable('B', this.value)">
-                <option value="">-</option>
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                <option value="7">7</option><option value="8">8</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="letter-badge">C</div>
-        In heliskiing people pay a large sum of money to get helicoptered to a remote snow-covered area only to ski down the white slope. These skiers spend hundreds of dollars to ski down a natural landscape unlike the artificial slopes of a ski-resort. Most obviously, the natural environment involves greater risks and discomfort. Even the journey into the interior part of a mountainous area has often been life-threatening in the past.
-        <div class="local-select">
-            <span>Выберите заголовок:</span>
-            <select class="q-select" id="ansC" data-letter="C" onchange="syncTable('C', this.value)">
-                <option value="">-</option>
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                <option value="7">7</option><option value="8">8</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="letter-badge">D</div>
-        Cheese rolling is something that has been around for over 200 years and is still practiced today. During the Spring Bank Holiday in England, people gather at the top of Coopers Hill and prepare for something very exciting. At the top of the hill, a judge rolls a round of cheese down the slope and the participants follow. People try to run down the slope but often end up rolling down like the cheese. The winner of the race wins the round of cheese as well as a few bruises and scars.
-        <div class="local-select">
-            <span>Выберите заголовок:</span>
-            <select class="q-select" id="ansD" data-letter="D" onchange="syncTable('D', this.value)">
-                <option value="">-</option>
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                <option value="7">7</option><option value="8">8</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="letter-badge">E</div>
-        It’s possible that extreme sports became trendy in the late 20th century as a reaction to the greater safety of modern life. Lacking a feeling of danger in their everyday activities, people wanted more excitement or risk. Another reason is improved sports technology. For example, the invention of sticky rubber-soled climbing shoes and artificial climbing walls increased the appeal of rock climbing. And advances in ski design allowed more skiers to try extreme feats.
-        <div class="local-select">
-            <span>Выберите заголовок:</span>
-            <select class="q-select" id="ansE" data-letter="E" onchange="syncTable('E', this.value)">
-                <option value="">-</option>
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                <option value="7">7</option><option value="8">8</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="letter-badge">F</div>
-        Extreme Ironing is an extreme sport and a performance art. People who play this unusual sport go to a remote location and iron clothes! They call themselves “ironists”, and get a thrill from taking their ironing board, unplugged iron and some of their clothes to some extreme places and photograph themselves doing it. Such places that they have reached include extreme altitude, underwater, hanging from cliffs, and on top of vehicles.
-        <div class="local-select">
-            <span>Выберите заголовок:</span>
-            <select class="q-select" id="ansF" data-letter="F" onchange="syncTable('F', this.value)">
-                <option value="">-</option>
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                <option value="7">7</option><option value="8">8</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="text-item">
-        <div class="letter-badge">G</div>
-        Approximately 65 thousand people in the United States alone do not know how to swim. Many of them learned as young children but never go to a pool, lake, river, or ocean anymore and have forgotten how to swim over the years. Others were never taught and continue to avoid the activity altogether. It was once thought that knowing how to swim was important for safety reasons, but now it is pretty much left up to the individual.
-        <div class="local-select">
-            <span>Выберите заголовок:</span>
-            <select class="q-select" id="ansG" data-letter="G" onchange="syncTable('G', this.value)">
-                <option value="">-</option>
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                <option value="7">7</option><option value="8">8</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="answer-table-container">
-        <h3 style="color:#2c3e50; margin-top:0">Итоговая таблица ответов:</h3>
-        <table>
-            <tr><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr>
-            <tr>
-                <td id="cellA" class="sync-val">-</td><td id="cellB" class="sync-val">-</td>
-                <td id="cellC" class="sync-val">-</td><td id="cellD" class="sync-val">-</td>
-                <td id="cellE" class="sync-val">-</td><td id="cellF" class="sync-val">-</td>
-                <td id="cellG" class="sync-val">-</td>
-            </tr>
-        </table>
-    </div>
-
-    <button class="btn-check" id="checkBtn" onclick="finishTest()">ОТПРАВИТЬ НА ПРОВЕРКУ</button>
-    <div id="final-score"></div>
-</div>
 
 <script>
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SC1ID0DFk3KA/exec";
-    const keys = { ansA: "6", ansB: "2", ansC: "7", ansD: "3", ansE: "1", ansF: "4", ansG: "8" };
 
-    function startSession() {
-        if(document.getElementById('userName').value.trim()) document.getElementById('auth-screen').classList.add('hidden');
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "R1";
+    const TASK_ID = "CA21B0";
+
+
+    const R1_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r1.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function syncTable(letter, val) {
-        document.getElementById('cell' + letter).innerText = val || "-";
+
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
     }
 
-    function finishTest() {
-        let score = 0;
-        let details = [];
-        
-        for (let id in keys) {
-            let sel = document.getElementById(id);
-            let letter = sel.dataset.letter;
-            let cell = document.getElementById('cell' + letter);
-            
-            if (sel.value === keys[id]) {
-                sel.classList.add('correct');
-                cell.classList.add('correct');
-                score++;
-            } else {
-                sel.classList.add('wrong');
-                cell.classList.add('wrong');
-            }
-            sel.disabled = true;
-            details.push(`${letter}:${sel.value || 'нет'}`);
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToR1() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+            return;
+
         }
 
-        const scoreDiv = document.getElementById('final-score');
-        scoreDiv.style.display = "block";
-        scoreDiv.innerHTML = `ИТОГО: ${score} из 7<br><span style="font-size:16px">${score >= 6 ? "Отличный результат!" : "Нужно еще потренироваться."}</span>`;
-        scoreDiv.style.color = score >= 5 ? "#27ae60" : "#c0392b";
-        
-        document.getElementById('checkBtn').classList.add('hidden');
 
-        fetch(SHEET_URL, {
-            method: "POST", mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "CA21B0 Interesting Sports (Full + BG)",
-                result: `${score}/7`,
-                answers: details.join(", ")
-            })
-        });
+        let url =
+            R1_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href =
+            url;
+
     }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const letter =
+                    part
+                        .slice(0, separator)
+                        .trim()
+                        .replace(".", "");
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[letter] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(".correct-answer")
+            .forEach(element => {
+                element.remove();
+            });
+
+    }
+
+
+    function clearCardStates() {
+
+        document
+            .querySelectorAll(".text-card")
+            .forEach(card => {
+
+                card.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        card,
+        userAnswer
+    ) {
+
+        const select =
+            card.querySelector(".answer-select");
+
+
+        const correctAnswer =
+            card.dataset.answer;
+
+
+        select.value =
+            userAnswer || "";
+
+
+        select.disabled =
+            true;
+
+
+        if (userAnswer === correctAnswer) {
+
+            card.classList.add("correct");
+
+        } else {
+
+            card.classList.add("wrong");
+
+
+            const correct =
+                document.createElement("div");
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                correctAnswer;
+
+
+            card
+                .querySelector(".answer-row")
+                .appendChild(correct);
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+                return;
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(last.answers);
+
+
+            clearHints();
+            clearCardStates();
+
+
+            document
+                .querySelectorAll(".text-card")
+                .forEach(card => {
+
+                    const letter =
+                        card.dataset.letter;
+
+
+                    showQuestionState(
+                        card,
+                        savedAnswers[letter] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    function resetQuiz() {
+
+        clearHints();
+        clearCardStates();
+
+
+        document
+            .querySelectorAll(".answer-select")
+            .forEach(select => {
+
+                select.value = "";
+                select.disabled = false;
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to R1 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+        clearCardStates();
+
+
+        const cards =
+            document.querySelectorAll(".text-card");
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        cards.forEach(card => {
+
+            const letter =
+                card.dataset.letter;
+
+
+            const correctAnswer =
+                card.dataset.answer;
+
+
+            const select =
+                card.querySelector(".answer-select");
+
+
+            const userAnswer =
+                select.value;
+
+
+            answers.push(
+                letter +
+                ":" +
+                (userAnswer || "-")
+            );
+
+
+            select.disabled =
+                true;
+
+
+            if (userAnswer === correctAnswer) {
+
+                score++;
+
+                card.classList.add("correct");
+
+            } else {
+
+                mistakes.push(letter);
+
+                card.classList.add("wrong");
+
+
+                const correct =
+                    document.createElement("div");
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    correctAnswer;
+
+
+                card
+                    .querySelector(".answer-row")
+                    .appendChild(correct);
+
+            }
+
+        });
+
+
+        const result =
+            score + "/7";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(", ")
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (data.status === "success") {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
+
+
 </body>
+
 </html>
