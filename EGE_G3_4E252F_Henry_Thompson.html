@@ -1,214 +1,1566 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE G3 4E252F Henry Thompson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Space — 4E252F</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: 'Verdana', sans-serif; margin: 0; background: #f0f2f5; height: 100vh; display: flex; flex-direction: column; }
-        
-        header { background: #2c3e50; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; flex-shrink: 0; }
-        
-        .main-container { display: flex; flex: 1; overflow: hidden; }
 
-        /* ТЕКСТ СЛЕВА */
-        .text-panel { flex: 1; overflow-y: auto; padding: 40px; background: white; border-right: 2px solid #ddd; line-height: 1.9; font-size: 18px; }
-        .gap { font-weight: bold; color: #d35400; background: #fef5e7; padding: 2px 6px; border: 1px solid #f5b041; border-radius: 4px; }
-
-        /* ТЕСТ СПРАВА */
-        .quiz-panel { flex: 1; overflow-y: auto; padding: 30px; background: #fdfefe; }
-        
-        .card { 
-            background: white; border-radius: 10px; padding: 20px; margin-bottom: 30px; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e8e8;
-            display: block;
+        * {
+            box-sizing: border-box;
         }
 
-        .card-num { color: #2980b9; font-weight: bold; font-size: 14px; margin-bottom: 12px; display: block; border-bottom: 1px solid #f2f4f4; padding-bottom: 5px; }
-        
-        .options { display: flex; flex-direction: column; gap: 10px; }
-        .opt { 
-            padding: 12px 15px; border: 2px solid #ebedef; border-radius: 6px; 
-            cursor: pointer; transition: 0.2s; font-size: 16px; 
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
         }
-        .opt:hover { border-color: #3498db; background: #f4faff; }
-        .opt.selected { border-color: #3498db; background: #ebf5fb; font-weight: bold; }
 
-        .correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724 !important; }
-        .wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #173D43;
 
-        .action-area { padding-bottom: 100px; }
-        .btn-main { 
-            width: 100%; padding: 20px; background: #2c3e50; color: white; 
-            border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; 
+            background:
+                radial-gradient(
+                    circle at 8% 88%,
+                    rgba(87,209,198,0.22),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #F7FCFA 0%,
+                    #EDF8F5 52%,
+                    #E4F5F1 100%
+                );
         }
-        .btn-main:hover { background: #1a252f; }
 
-        /* ЭКРАН ВХОДА */
-        #auth-screen { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #2c3e50; z-index: 9999; display: flex; align-items: center; justify-content: center; 
+        body::before {
+            content: "";
+
+            position: fixed;
+            width: 900px;
+            height: 900px;
+
+            top: -680px;
+            right: -290px;
+
+            border-radius: 50%;
+
+            border: 28px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.92);
+
+            pointer-events: none;
+            z-index: 0;
         }
-        .auth-box { background: white; padding: 40px; border-radius: 15px; text-align: center; width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .auth-box h3 { margin-bottom: 25px; color: #2c3e50; }
-        .auth-box input { padding: 12px; width: 100%; border: 1px solid #bdc3c7; border-radius: 6px; margin-bottom: 25px; font-size: 16px; outline: none; }
 
-        .hidden { display: none !important; }
-        #score-msg { text-align: center; font-size: 22px; font-weight: bold; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
+        .page {
+            width: 100%;
+            max-width: 980px;
+
+            margin: 0 auto;
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+            background: rgba(255,255,255,0.55);
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            cursor: pointer;
+        }
+
+        .intro-card,
+        .text-card,
+        .result-card,
+        .review-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border: 1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card {
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 27px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+        .review-card {
+            display: none;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .text-title {
+            margin: 0 0 22px;
+
+            font-size: 22px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .story {
+            font-size: 17px;
+            line-height: 1.85;
+
+            color: #173D43;
+        }
+
+        .gap-number {
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .question {
+            margin-top: 28px;
+            padding-top: 25px;
+
+            border-top:
+                1px solid rgba(122,160,149,0.16);
+        }
+
+        .question-title {
+            margin-bottom: 14px;
+
+            font-size: 17px;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .options {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+
+            min-height: 50px;
+
+            padding: 12px 16px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid rgba(122,160,149,0.24);
+
+            background:
+                rgba(255,255,255,0.70);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.18s ease,
+                border-color 0.18s ease,
+                background 0.18s ease;
+        }
+
+        .option:hover {
+            transform: translateY(-1px);
+
+            border-color:
+                rgba(19,142,135,0.42);
+        }
+
+        .option input {
+            margin: 0 11px 0 0;
+
+            accent-color: #15968F;
+
+            cursor: pointer;
+        }
+
+        .option.correct {
+            border-color: #4AAE8A;
+
+            background:
+                rgba(217,245,232,0.76);
+        }
+
+        .option.wrong {
+            border-color: #D48888;
+
+            background:
+                rgba(250,225,225,0.76);
+        }
+
+        .correct-answer {
+            margin-top: 9px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #138E87;
+        }
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 28px;
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+        .result-card {
+            display: none;
+
+            margin-top: 20px;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+        @media (max-width: 700px) {
+
+            .brand {
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding: 85px 15px 100px;
+            }
+
+            .intro-card,
+            .text-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="auth-screen">
-    <div class="auth-box">
-        <h3>EGE G3 4E252F</h3>
-        <input type="text" id="userName" placeholder="Введите ваше имя">
-        <button class="btn-main" onclick="startQuiz()">Начать</button>
+
+<button
+    class="back-button"
+    onclick="goBackToG3()"
+>
+    ← BACK TO G3
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · G3
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            4E252F
+        </div>
+
+        <h1>
+            Henry Thompson
+        </h1>
+
+        <p class="instruction">
+            Read the text and choose the correct option
+            for each gap.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="text-card">
+
+
+        <div class="text-title">
+            Henry Thompson
+        </div>
+
+
+        <div class="story">
+
+            Henry was the most talented child in the Thompson family.
+            The whole family were really proud
+            <span class="gap-number">32</span>
+            ______ him.
+
+            Henry’s mother Mrs. Linda Thompson never tired of
+            <span class="gap-number">33</span>
+            ______ everybody what fine letters and essays he could
+            write when he studied at school.
+
+            She bought a lot of different books to help Henry
+            develop his skills.
+
+            <br><br>
+
+            Just as his mother hoped, when Henry
+            <span class="gap-number">34</span>
+            ______ up, he decided to be a writer.
+
+            To begin with, he taught at school a while and gave
+            lectures which people did not understand very well,
+            for he had strange ideas for those times.
+
+            <span class="gap-number">35</span>
+            ______, Henry didn’t give up his philosophy and devoted
+            his time to writing his thoughts down.
+
+            <br><br>
+
+            No
+            <span class="gap-number">36</span>
+            ______ how tired or busy he was, he wrote page after page,
+            sitting in the woods, as he liked that activity better than
+            anything else.
+
+            It helped Henry to express his ideas and understand the
+            world around him.
+
+            He first wrote a report on a week's trip on the Concord
+            and Merrimac rivers.
+
+            <br><br>
+
+            This book did not sell very well, and one time he carried
+            home from the publishers seven hundred copies that no one
+            would buy, saying:
+
+            “Well, I have quite a respectably sized library now —
+            all my own writing, too!”
+
+            His sense of humour never
+            <span class="gap-number">37</span>
+            ______ him.
+
+            <br><br>
+
+            Henry’s mother Linda was always by his side supporting him,
+            reading his books.
+
+            Mrs. Thompson often kept
+            <span class="gap-number">38</span>
+            ______ Henry of his wonderful talent.
+
+            She had no doubt that her son would succeed one day;
+            it was only a question of time.
+
+            And she was absolutely right.
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="32"
+            data-answer="3"
+        >
+
+            <div class="question-title">
+                32
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q32" value="1">
+                    1) by
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="2">
+                    2) to
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="3">
+                    3) of
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="4">
+                    4) at
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="33"
+            data-answer="3"
+        >
+
+            <div class="question-title">
+                33
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q33" value="1">
+                    1) saying
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="2">
+                    2) talking
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="3">
+                    3) telling
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="4">
+                    4) speaking
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="34"
+            data-answer="1"
+        >
+
+            <div class="question-title">
+                34
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q34" value="1">
+                    1) grew
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="2">
+                    2) got
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="3">
+                    3) came
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="4">
+                    4) rose
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="35"
+            data-answer="2"
+        >
+
+            <div class="question-title">
+                35
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q35" value="1">
+                    1) Otherwise
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="2">
+                    2) However
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="3">
+                    3) Moreover
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="4">
+                    4) Therefore
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="36"
+            data-answer="4"
+        >
+
+            <div class="question-title">
+                36
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q36" value="1">
+                    1) chance
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q36" value="2">
+                    2) wonder
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q36" value="3">
+                    3) problem
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q36" value="4">
+                    4) matter
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="37"
+            data-answer="2"
+        >
+
+            <div class="question-title">
+                37
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q37" value="1">
+                    1) ruined
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q37" value="2">
+                    2) failed
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q37" value="3">
+                    3) turned
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q37" value="4">
+                    4) spoiled
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="question"
+            data-number="38"
+            data-answer="3"
+        >
+
+            <div class="question-title">
+                38
+            </div>
+
+            <div class="options">
+
+                <label class="option">
+                    <input type="radio" name="q38" value="1">
+                    1) recovering
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q38" value="2">
+                    2) realizing
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q38" value="3">
+                    3) reminding
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q38" value="4">
+                    4) remembering
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="checkButton"
+            class="check-button"
+            onclick="checkAnswers()"
+        >
+            CHECK ANSWERS
+        </button>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
-<header>EGE G3 4E252F Henry Thompson (32–38)</header>
 
-<div class="main-container">
-    <div class="text-panel">
-        <h2>Henry Thompson</h2>
-        <p>Henry was the most talented child in the Thompson family. The whole family were really proud <span class="gap">32</span> him. Henry’s mother Mrs. Linda Thompson never tired of <span class="gap">33</span> everybody what fine letters and essays he could write when he studied at school. She bought a lot of different books to help Henry develop his skills.</p>
-        
-        <p>Just as his mother hoped, when Henry <span class="gap">34</span> up, he decided to be a writer. To begin with, he taught at school a while and gave lectures which people did not understand very well, for he had strange ideas for those times. <span class="gap">35</span>, Henry didn’t give up his philosophy and devoted his time to writing his thoughts down.</p>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-        <p>No <span class="gap">36</span> how tired or busy he was, he wrote page after page, sitting in the woods, as he liked that activity better than anything else. It helped Henry to express his ideas and understand the world around him. He first wrote a report on a week's trip on the Concord and Merrimac rivers. </p>
-
-        <p>This book did not sell very well, and one time he carried home from the publishers seven hundred copies that no one would buy, saying: “Well, I have quite a respectably sized library now — all my own writing, too!” His sense of humour never <span class="gap">37</span> him. </p>
-        
-        <p>Henry’s mother Linda was always by his side supporting him, reading his books. Mrs. Thompson often kept <span class="gap">38</span> Henry of his wonderful talent. She had no doubt that her son would succeed one day; it was only a question of time. And she was absolutely right.</p>
-    </div>
-
-    <div class="quiz-panel">
-        <div class="card" data-ans="3">
-            <span class="card-num">Задание №1 (32)</span>
-            <div class="options">
-                <div class="opt" data-v="1">1) by</div>
-                <div class="opt" data-v="2">2) to</div>
-                <div class="opt" data-v="3">3) of</div>
-                <div class="opt" data-v="4">4) at</div>
-            </div>
-        </div>
-        <div class="card" data-ans="3">
-            <span class="card-num">Задание №2 (33)</span>
-            <div class="options">
-                <div class="opt" data-v="1">1) saying</div>
-                <div class="opt" data-v="2">2) talking</div>
-                <div class="opt" data-v="3">3) telling</div>
-                <div class="opt" data-v="4">4) speaking</div>
-            </div>
-        </div>
-        <div class="card" data-ans="1">
-            <span class="card-num">Задание №3 (34)</span>
-            <div class="options">
-                <div class="opt" data-v="1">1) grew</div>
-                <div class="opt" data-v="2">2) got</div>
-                <div class="opt" data-v="3">3) came</div>
-                <div class="opt" data-v="4">4) rose</div>
-            </div>
-        </div>
-        <div class="card" data-ans="2">
-            <span class="card-num">Задание №4 (35)</span>
-            <div class="options">
-                <div class="opt" data-v="1">1) Otherwise</div>
-                <div class="opt" data-v="2">2) However</div>
-                <div class="opt" data-v="3">3) Moreover</div>
-                <div class="opt" data-v="4">4) Therefore</div>
-            </div>
-        </div>
-        <div class="card" data-ans="4">
-            <span class="card-num">Задание №5 (36)</span>
-            <div class="options">
-                <div class="opt" data-v="1">1) chance</div>
-                <div class="opt" data-v="2">2) wonder</div>
-                <div class="opt" data-v="3">3) problem</div>
-                <div class="opt" data-v="4">4) matter</div>
-            </div>
-        </div>
-        <div class="card" data-ans="2">
-            <span class="card-num">Задание №6 (37)</span>
-            <div class="options">
-                <div class="opt" data-v="1">1) ruined</div>
-                <div class="opt" data-v="2">2) failed</div>
-                <div class="opt" data-v="3">3) turned</div>
-                <div class="opt" data-v="4">4) spoiled</div>
-            </div>
-        </div>
-        <div class="card" data-ans="3">
-            <span class="card-num">Задание №7 (38)</span>
-            <div class="options">
-                <div class="opt" data-v="1">1) recovering</div>
-                <div class="opt" data-v="2">2) realizing</div>
-                <div class="opt" data-v="3">3) reminding</div>
-                <div class="opt" data-v="4">4) remembering</div>
-            </div>
-        </div>
-
-        <div id="score-msg" class="hidden"></div>
-        <div class="action-area">
-            <button class="btn-main" id="checkBtn" onclick="runCheck()">Проверить ответы</button>
-        </div>
-    </div>
-</div>
 
 <script>
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
 
-    function startQuiz() {
-        if(document.getElementById('userName').value.trim() !== "") {
-            document.getElementById('auth-screen').classList.add('hidden');
-        } else {
-            alert("Пожалуйста, введите ваше имя");
-        }
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "G3";
+    const TASK_ID = "4E252F";
+
+
+    const G3_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-g3.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    document.querySelectorAll('.opt').forEach(el => {
-        el.onclick = function() {
-            const wrap = this.parentElement;
-            wrap.querySelectorAll('.opt').forEach(i => i.classList.remove('selected'));
-            this.classList.add('selected');
-        }
-    });
 
-    function runCheck() {
-        let count = 0;
-        let details = [];
-        document.querySelectorAll('.card').forEach((c, idx) => {
-            const correct = c.dataset.ans;
-            const chosen = c.querySelector('.opt.selected');
-            const val = chosen ? chosen.dataset.v : "0";
-            
-            details.push(`Q${idx+1}:${val}`);
-            
-            c.querySelectorAll('.opt').forEach(btn => {
-                if(btn.dataset.v === correct) btn.classList.add('correct');
-                if(chosen && btn === chosen && btn.dataset.v !== correct) btn.classList.add('wrong');
-                btn.style.pointerEvents = "none";
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToG3() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
+        }
+
+
+        let url = G3_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href = url;
+
+    }
+
+
+    function clearStates() {
+
+        document
+            .querySelectorAll(".option")
+            .forEach(option => {
+
+                option.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
             });
-            if(val === correct) count++;
-        });
 
-        const finalScore = `${count} из 7`;
-        const info = document.getElementById('score-msg');
-        info.innerText = "Результат: " + finalScore;
-        info.classList.remove('hidden');
-        info.style.background = count >= 5 ? "#d4edda" : "#f8d7da";
-        document.getElementById('checkBtn').classList.add('hidden');
 
-        fetch(SHEET_URL, {
-            method: "POST", mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE G3 4E252F Henry Thompson",
-                result: finalScore,
-                answers: details.join(", ")
-            })
-        });
+        document
+            .querySelectorAll(".correct-answer")
+            .forEach(element => {
+
+                element.remove();
+
+            });
+
     }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const number =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[number] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function showQuestionState(
+        question,
+        userAnswer
+    ) {
+
+        const correctAnswer =
+            question.dataset.answer;
+
+
+        const radios =
+            question.querySelectorAll(
+                'input[type="radio"]'
+            );
+
+
+        radios.forEach(radio => {
+
+            radio.disabled = true;
+
+
+            if (
+                radio.value === userAnswer
+            ) {
+
+                radio.checked = true;
+
+
+                if (
+                    userAnswer === correctAnswer
+                ) {
+
+                    radio
+                        .closest(".option")
+                        .classList.add("correct");
+
+                } else {
+
+                    radio
+                        .closest(".option")
+                        .classList.add("wrong");
+
+                }
+
+            }
+
+
+            if (
+                radio.value === correctAnswer &&
+                userAnswer !== correctAnswer
+            ) {
+
+                radio
+                    .closest(".option")
+                    .classList.add("correct");
+
+            }
+
+        });
+
+
+        if (
+            userAnswer !== correctAnswer
+        ) {
+
+            const correct =
+                document.createElement("div");
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct option: " +
+                correctAnswer;
+
+
+            question.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearStates();
+
+
+            document
+                .querySelectorAll(".question")
+                .forEach(question => {
+
+                    const number =
+                        question.dataset.number;
+
+
+                    showQuestionState(
+                        question,
+                        savedAnswers[number] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    function resetQuiz() {
+
+        clearStates();
+
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(radio => {
+
+                radio.checked = false;
+                radio.disabled = false;
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to G3 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearStates();
+
+
+        const questions =
+            document.querySelectorAll(
+                ".question"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        questions.forEach(question => {
+
+            const number =
+                question.dataset.number;
+
+
+            const correctAnswer =
+                question.dataset.answer;
+
+
+            const selected =
+                question.querySelector(
+                    'input[type="radio"]:checked'
+                );
+
+
+            const userAnswer =
+                selected
+                    ? selected.value
+                    : "";
+
+
+            answers.push(
+                number +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            const radios =
+                question.querySelectorAll(
+                    'input[type="radio"]'
+                );
+
+
+            radios.forEach(radio => {
+
+                radio.disabled = true;
+
+            });
+
+
+            if (
+                userAnswer === correctAnswer
+            ) {
+
+                score++;
+
+
+                if (selected) {
+
+                    selected
+                        .closest(".option")
+                        .classList.add(
+                            "correct"
+                        );
+
+                }
+
+            } else {
+
+                mistakes.push(
+                    number
+                );
+
+
+                if (selected) {
+
+                    selected
+                        .closest(".option")
+                        .classList.add(
+                            "wrong"
+                        );
+
+                }
+
+
+                const correctRadio =
+                    question.querySelector(
+                        'input[value="' +
+                        correctAnswer +
+                        '"]'
+                    );
+
+
+                if (correctRadio) {
+
+                    correctRadio
+                        .closest(".option")
+                        .classList.add(
+                            "correct"
+                        );
+
+                }
+
+
+                const correct =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct option: " +
+                    correctAnswer;
+
+
+                question.appendChild(
+                    correct
+                );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/7";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(", ")
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status === "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
+
+
 </body>
+
 </html>
