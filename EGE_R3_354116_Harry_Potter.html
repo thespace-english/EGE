@@ -1,163 +1,2107 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE R3 354116 Harry Potter</title>
-    <style>
-        :root { 
-            --primary: #2c3e50; --accent: #3498db; --bg: #f4f7f6; 
-            --correct: #27ae60; --wrong: #e74c3c;
-        }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
-        header { background: var(--primary); color: white; padding: 15px 25px; flex-shrink: 0; }
-        
-        .main-layout { display: flex; flex: 1; overflow: hidden; }
-        
-        .text-pane { flex: 1; padding: 40px; overflow-y: auto; background: white; border-right: 2px solid #ddd; line-height: 1.8; font-size: 18px; }
-        .questions-pane { flex: 1; padding: 40px; overflow-y: auto; }
-        
-        .highlight { color: #d35400; font-weight: bold; text-decoration: underline; }
-        
-        .name-section { background: #fff; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .name-field { width: 100%; padding: 12px; border: 2px solid #bdc3c7; border-radius: 6px; font-size: 16px; box-sizing: border-box; }
-        
-        .q-card { background: white; padding: 25px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 2px solid transparent; }
-        .opt-label { display: block; margin: 10px 0; padding: 12px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-        
-        .opt-label.correct-ans { background: #d4edda !important; border-color: var(--correct) !important; color: #155724; font-weight: bold; }
-        .opt-label.wrong-ans { background: #f8d7da !important; border-color: var(--wrong) !important; color: #721c24; }
 
-        .submit-btn { background: #27ae60; color: white; border: none; padding: 20px; font-size: 18px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
-        .submit-btn:disabled { background: #95a5a6; }
-        #status { margin-top: 20px; text-align: center; font-weight: bold; padding-bottom: 40px; }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://thespace-english.github.io/The-Space-Trainer/favicon.png"
+    >
+
+    <title>The Space — 354116</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+            width: 100%;
+            max-width: 1380px;
+
+            margin: 0 auto;
+
+            padding: 55px 24px 100px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+
+        /* =========================================
+           BACK
+        ========================================= */
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 30;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.78);
+        }
+
+
+        /* =========================================
+           CARDS
+        ========================================= */
+
+        .intro-card,
+        .text-card,
+        .questions-card,
+        .review-card,
+        .result-card {
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+
+            z-index: 3;
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro-card {
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 29px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+
+        /* =========================================
+           DESKTOP
+        ========================================= */
+
+        .reading-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.08fr)
+                minmax(420px, 0.92fr);
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        .text-card,
+        .questions-card {
+
+            height:
+                calc(100vh - 245px);
+
+            min-height: 600px;
+
+            overflow-y: auto;
+
+            scrollbar-width: thin;
+        }
+
+
+        /* =========================================
+           TEXT
+        ========================================= */
+
+        .text-card {
+            padding: 32px 34px;
+        }
+
+        .article-title {
+            margin: 0 0 24px;
+
+            text-align: center;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .article-text {
+            font-size: 17px;
+            line-height: 1.78;
+
+            color: #173D43;
+        }
+
+        .article-text p {
+            margin: 0 0 22px;
+        }
+
+        .highlight {
+            font-weight: 800;
+
+            color: #138E87;
+
+            border-bottom:
+                2px solid rgba(19,142,135,0.35);
+        }
+
+
+        /* =========================================
+           QUESTIONS
+        ========================================= */
+
+        .questions-card {
+            padding: 28px;
+        }
+
+        .questions-title {
+            margin: 0 0 20px;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .q-card {
+            margin-bottom: 18px;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,0.72);
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 8px 20px rgba(97,155,147,0.08);
+        }
+
+        .q-title {
+            display: block;
+
+            margin-bottom: 14px;
+
+            font-size: 16px;
+            line-height: 1.45;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .opt-label {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin: 8px 0;
+            padding: 11px 12px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid rgba(122,160,149,0.16);
+
+            background:
+                rgba(255,255,255,0.58);
+
+            font-size: 15px;
+            line-height: 1.4;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .opt-label:hover {
+            background:
+                rgba(231,248,243,0.75);
+        }
+
+        .opt-label input {
+            margin-top: 3px;
+
+            flex-shrink: 0;
+
+            accent-color: #15968F;
+        }
+
+        .opt-label.correct-ans {
+            border-color:
+                rgba(74,174,138,0.5);
+
+            background:
+                rgba(217,245,232,0.72);
+
+            color: #22634E;
+
+            font-weight: 700;
+        }
+
+        .opt-label.wrong-ans {
+            border-color:
+                rgba(212,136,136,0.5);
+
+            background:
+                rgba(250,225,225,0.72);
+
+            color: #854545;
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .check-button,
+        .try-button {
+
+            width: 100%;
+
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button {
+            margin-top: 8px;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+
+        /* =========================================
+           LAST ATTEMPT
+        ========================================= */
+
+        .review-card {
+            display: none;
+
+            margin-bottom: 20px;
+            padding: 26px 30px;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+
+        /* =========================================
+           RESULT
+        ========================================= */
+
+        .result-card {
+            display: none;
+
+            max-width: 900px;
+
+            margin: 20px auto 0;
+            padding: 28px;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 20;
+        }
+
+
+        /* =========================================
+           MOBILE
+           TEXT = 2/3
+           QUESTIONS = 1/3
+        ========================================= */
+
+        @media (max-width: 820px) {
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+
+                overflow: hidden;
+            }
+
+            body {
+                height: 100dvh;
+            }
+
+            .page {
+                width: 100%;
+                height: 100dvh;
+
+                padding:
+                    62px
+                    10px
+                    8px;
+
+                display: flex;
+                flex-direction: column;
+
+                overflow: hidden;
+            }
+
+
+            header {
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+            }
+
+            .brand {
+                font-size: 30px;
+                line-height: 1;
+
+                letter-spacing: 5px;
+            }
+
+            .section-name {
+                margin-top: 5px;
+
+                font-size: 13px;
+                line-height: 1;
+
+                letter-spacing: 4px;
+            }
+
+
+            .back-button {
+                top: 10px;
+                left: 10px;
+
+                padding: 8px 10px;
+
+                font-size: 12px;
+            }
+
+
+            .intro-card {
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+
+                padding:
+                    10px
+                    14px;
+
+                border-radius: 16px;
+            }
+
+            .student-line {
+                margin-bottom: 2px;
+
+                font-size: 13px;
+            }
+
+            .task-id {
+                display: inline-block;
+
+                margin-right: 8px;
+                margin-bottom: 0;
+
+                font-size: 13px;
+            }
+
+            h1 {
+                display: inline;
+
+                margin: 0;
+
+                font-size: 17px;
+                line-height: 1.2;
+            }
+
+            .instruction {
+                display: none;
+            }
+
+
+            .review-card {
+                flex-shrink: 0;
+
+                margin-bottom: 7px;
+
+                padding: 8px 12px;
+
+                border-radius: 15px;
+            }
+
+            .review-title {
+                font-size: 13px;
+
+                letter-spacing: 1px;
+            }
+
+            .review-details {
+                margin-top: 2px;
+
+                font-size: 13px;
+            }
+
+            .review-card .try-button {
+                margin-top: 6px;
+
+                padding: 8px;
+
+                font-size: 13px;
+            }
+
+
+            .reading-layout {
+                flex: 1;
+
+                min-height: 0;
+
+                display: grid;
+
+                grid-template-columns: 1fr;
+
+                grid-template-rows:
+                    minmax(0, 2fr)
+                    minmax(0, 1fr);
+
+                gap: 7px;
+
+                overflow: hidden;
+            }
+
+
+            /* TOP 2/3 */
+
+            .text-card {
+                width: 100%;
+
+                height: auto;
+                min-height: 0;
+
+                overflow-y: auto;
+
+                -webkit-overflow-scrolling: touch;
+
+                padding:
+                    18px
+                    17px;
+
+                border-radius: 18px;
+
+                scrollbar-width: thin;
+            }
+
+            .article-title {
+                margin:
+                    0
+                    0
+                    16px;
+
+                font-size: 22px;
+                line-height: 1.25;
+            }
+
+            .article-text {
+                font-size: 19px;
+                line-height: 1.72;
+            }
+
+            .article-text p {
+                margin-bottom: 22px;
+            }
+
+
+            /* BOTTOM 1/3 */
+
+            .questions-card {
+                width: 100%;
+
+                height: auto;
+                min-height: 0;
+
+                overflow-y: auto;
+
+                -webkit-overflow-scrolling: touch;
+
+                padding:
+                    14px
+                    13px;
+
+                border-radius: 18px;
+
+                scrollbar-width: thin;
+            }
+
+            .questions-title {
+                position: sticky;
+
+                top: -14px;
+
+                z-index: 5;
+
+                margin:
+                    -14px
+                    -13px
+                    12px;
+
+                padding:
+                    11px
+                    13px;
+
+                background:
+                    rgba(243,251,248,0.96);
+
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+
+                font-size: 16px;
+
+                letter-spacing: 1.5px;
+            }
+
+            .q-card {
+                margin-bottom: 12px;
+
+                padding: 15px;
+
+                border-radius: 14px;
+            }
+
+            .q-title {
+                margin-bottom: 11px;
+
+                font-size: 18px;
+                line-height: 1.4;
+            }
+
+            .opt-label {
+                gap: 9px;
+
+                margin: 7px 0;
+
+                padding:
+                    11px
+                    10px;
+
+                font-size: 17px;
+                line-height: 1.4;
+            }
+
+            .opt-label input {
+                width: 18px;
+                height: 18px;
+
+                margin-top: 2px;
+            }
+
+            .check-button {
+                padding: 13px;
+
+                font-size: 16px;
+            }
+
+
+            .result-card {
+                position: fixed;
+
+                left: 12px;
+                right: 12px;
+                bottom: 12px;
+
+                width: auto;
+                max-width: none;
+
+                margin: 0;
+
+                padding: 18px;
+
+                border-radius: 18px;
+
+                z-index: 50;
+
+                box-shadow:
+                    0 18px 45px
+                    rgba(66,114,106,0.25);
+            }
+
+            .result-score {
+                font-size: 25px;
+            }
+
+            .result-mistakes {
+                font-size: 15px;
+            }
+
+            .result-saved {
+                font-size: 13px;
+            }
+
+            .result-card .try-button {
+                margin-top: 10px;
+
+                padding: 12px;
+
+                font-size: 15px;
+            }
+
+            .corner-logo {
+                display: none;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<header>Прочитайте текст и выполните задания 12–18</header>
 
-<div class="main-layout">
-    <section class="text-pane">
-        <h2>How Harry Potter saved one small town</h2>
-        <p>Mallaig is far from the prettiest of Highland settlements, even when the weather is fine. Several rows of what could be prewar council houses stretch across the hill beyond the harbour. A <strong class="highlight">mishmash</strong> of car parks, jetties and workaday buildings squats close to the railway terminus. When I last stayed in Mallaig, it was known as the biggest herring port in Europe.</p>
-        <p>Today, the herring have vanished, and yet Mallaig remains a busy place. Ferries come and go and fishing boats land shellfish, which is driven away in lorries to the markets of France and Spain. None of this activity, however, explains the hundreds of people who can be seen roaming Mallaig’s few streets every afternoon between the beginning of May and the end of October, or the presence of so many restaurants. What do explain them are two enthusiasms, one for low fact and the other for high fiction, which are kindled in childhood and among many adults never entirely disappear.</p>
-        <p>The railway reached Mallaig from Fort William and the south in 1901. It was among the last big lines to be built in Britain, late enough to have its viaducts built of concrete. It traversed one of Europe’s most spectacular and emptiest landscapes, with hardly anything large enough to be called a village along its 40-mile length.</p>
-        <p>The construction needed a large government subsidy, but the traffic never grew much beyond the two or three trains a day that carried fish boxes and a few dozen travellers to and from the Hebrides. It made little economic sense. Only 60 years after the line opened, it began to be threatened with closure. Few people would have guessed then that its commercial salvation would be owed to a novel and a film, and first of all, to a hobby.</p>
-        <p>Railways became an amateur pastime as well as a means of transport during the last decades of the 19th century. Then professional men such as vicars and lawyers began to see the large variety of trains and their technical progress as a hobby offering a similar kind of pleasure to philately and butterfly-hunting. By the end of the century they had their own magazine and their own club, the Railway Club, the world’s first society for railway enthusiasts. It was founded in London in 1899 and had its own premises with a library and leather armchairs. It was from these elite beginnings that the 20th century’s great cult of trainspotting spread, reinforcing a more general fondness for steam locomotives that many people had without knowing quite why. So a sense of loss ran through Britain when, in the 1960s, it became clear that their day was nearly done.</p>
-        <p>Hundreds of <strong>them</strong> were saved from the scrapyards and restored to working order; dozens of branch lines repaired and reopened so that in the holidays Britain could be charmed by how it once was. It’s hard to think that anywhere in the world has seen a more popular or successful preservation movement, or at least one run and largely funded by volunteers. Out of this business grew the West Coast Railway Company, which hires out engines, coaches and crew for steam excursions.</p>
-        <p>A film producer looking to shoot a fantastical train in a dramatic location would naturally turn to such a company, and so in three Harry Potter films the train to Hogwarts is seen crossing Glenfinnan’s viaduct.</p>
-        <p>Today, the Jacobite Express fills with Potter fans from all parts of the globe and always stops for a photo opportunity at Glenfinnan, which is where the real Bonnie Prince Charlie really raised his standard in '45 and marked as such by a real memorial. All of which reality is cast into shadow by the film of a modern fairytale.</p>
-    </section>
+<div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
 
-    <section class="questions-pane">
-        <div class="name-section">
-            <input type="text" id="userName" class="name-field" placeholder="Введите ваше имя (обязательно)" required>
+
+<button
+    class="back-button"
+    onclick="goBackToR3()"
+>
+    ← BACK TO R3
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
         </div>
 
-        <form id="quizForm">
-            <div class="q-card" id="card-q12">
-                <span class="q-title">12. Which adjective could best describe Mallaig?</span>
-                <label class="opt-label"><input type="radio" name="q12" value="1" required> 1) Derelict.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="2"> 2) Beautiful.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="3"> 3) Abandoned.</label>
-                <label class="opt-label"><input type="radio" name="q12" value="4"> 4) Unsightly.</label>
+        <div class="section-name">
+            EGE · R3
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            354116
+        </div>
+
+        <h1>
+            Harry Potter
+        </h1>
+
+        <p class="instruction">
+            Read the text and complete questions 12–18.
+            Choose one answer for each question.
+        </p>
+
+    </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="reading-layout">
+
+
+        <!-- =========================================
+             TEXT
+        ========================================== -->
+
+        <section class="text-card">
+
+            <h2 class="article-title">
+                How Harry Potter saved one small town
+            </h2>
+
+
+            <div class="article-text">
+
+                <p>
+                    Mallaig is far from the prettiest of Highland settlements,
+                    even when the weather is fine. Several rows of what could be
+                    prewar council houses stretch across the hill beyond the harbour.
+                    A <strong class="highlight">mishmash</strong> of car parks,
+                    jetties and workaday buildings squats close to the railway terminus.
+                    When I last stayed in Mallaig, it was known as the biggest
+                    herring port in Europe.
+                </p>
+
+                <p>
+                    Today, the herring have vanished, and yet Mallaig remains a busy
+                    place. Ferries come and go and fishing boats land shellfish,
+                    which is driven away in lorries to the markets of France and Spain.
+                    None of this activity, however, explains the hundreds of people
+                    who can be seen roaming Mallaig’s few streets every afternoon
+                    between the beginning of May and the end of October, or the presence
+                    of so many restaurants. What do explain them are two enthusiasms,
+                    one for low fact and the other for high fiction, which are kindled
+                    in childhood and among many adults never entirely disappear.
+                </p>
+
+                <p>
+                    The railway reached Mallaig from Fort William and the south in 1901.
+                    It was among the last big lines to be built in Britain, late enough
+                    to have its viaducts built of concrete. It traversed one of Europe’s
+                    most spectacular and emptiest landscapes, with hardly anything
+                    large enough to be called a village along its 40-mile length.
+                </p>
+
+                <p>
+                    The construction needed a large government subsidy, but the traffic
+                    never grew much beyond the two or three trains a day that carried
+                    fish boxes and a few dozen travellers to and from the Hebrides.
+                    It made little economic sense. Only 60 years after the line opened,
+                    it began to be threatened with closure. Few people would have guessed
+                    then that its commercial salvation would be owed to a novel and a film,
+                    and first of all, to a hobby.
+                </p>
+
+                <p>
+                    Railways became an amateur pastime as well as a means of transport
+                    during the last decades of the 19th century. Then professional men
+                    such as vicars and lawyers began to see the large variety of trains
+                    and their technical progress as a hobby offering a similar kind of
+                    pleasure to philately and butterfly-hunting. By the end of the century
+                    they had their own magazine and their own club, the Railway Club,
+                    the world’s first society for railway enthusiasts. It was founded
+                    in London in 1899 and had its own premises with a library and leather
+                    armchairs. It was from these elite beginnings that the 20th century’s
+                    great cult of trainspotting spread, reinforcing a more general fondness
+                    for steam locomotives that many people had without knowing quite why.
+                    So a sense of loss ran through Britain when, in the 1960s, it became
+                    clear that their day was nearly done.
+                </p>
+
+                <p>
+                    Hundreds of <strong class="highlight">them</strong> were saved
+                    from the scrapyards and restored to working order; dozens of branch
+                    lines repaired and reopened so that in the holidays Britain could
+                    be charmed by how it once was. It’s hard to think that anywhere
+                    in the world has seen a more popular or successful preservation
+                    movement, or at least one run and largely funded by volunteers.
+                    Out of this business grew the West Coast Railway Company, which hires
+                    out engines, coaches and crew for steam excursions.
+                </p>
+
+                <p>
+                    A film producer looking to shoot a fantastical train in a dramatic
+                    location would naturally turn to such a company, and so in three
+                    Harry Potter films the train to Hogwarts is seen crossing
+                    Glenfinnan’s viaduct.
+                </p>
+
+                <p>
+                    Today, the Jacobite Express fills with Potter fans from all parts
+                    of the globe and always stops for a photo opportunity at Glenfinnan,
+                    which is where the real Bonnie Prince Charlie really raised his
+                    standard in '45 and marked as such by a real memorial. All of which
+                    reality is cast into shadow by the film of a modern fairytale.
+                </p>
+
             </div>
 
-            <div class="q-card" id="card-q13">
-                <span class="q-title">13. The word <i>mishmash</i> in paragraph 1 means ...</span>
-                <label class="opt-label"><input type="radio" name="q13" value="1" required> 1) a ruin.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="2"> 2) a mixture.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="3"> 3) a sight.</label>
-                <label class="opt-label"><input type="radio" name="q13" value="4"> 4) a queue.</label>
+        </section>
+
+
+        <!-- =========================================
+             QUESTIONS
+        ========================================== -->
+
+        <section class="questions-card">
+
+            <div class="questions-title">
+                QUESTIONS 12–18
             </div>
 
-            <div class="q-card" id="card-q14">
-                <span class="q-title">14. Which statement is TRUE about the railway line?</span>
-                <label class="opt-label"><input type="radio" name="q14" value="1" required> 1) It was the last big line constructed in Britain.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="2"> 2) The traffic on it was busy at the beginning.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="3"> 3) It finally became profitable.</label>
-                <label class="opt-label"><input type="radio" name="q14" value="4"> 4) It was closed shortly after its opening.</label>
-            </div>
 
-            <div class="q-card" id="card-q15">
-                <span class="q-title">15. The author compares trains to philately because ...</span>
-                <label class="opt-label"><input type="radio" name="q15" value="1" required> 1) it turned into a pastime.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="2"> 2) they all require patience.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="3"> 3) they all became unpopular.</label>
-                <label class="opt-label"><input type="radio" name="q15" value="4"> 4) they all are fashionable.</label>
-            </div>
+            <form id="quizForm">
 
-            <div class="q-card" id="card-q16">
-                <span class="q-title">16. The author mentions a library and armchairs to illustrate ...</span>
-                <label class="opt-label"><input type="radio" name="q16" value="1" required> 1) how important trains were.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="2"> 2) how successful the Railway Club became.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="3"> 3) the amount of corruption.</label>
-                <label class="opt-label"><input type="radio" name="q16" value="4"> 4) the number of members.</label>
-            </div>
 
-            <div class="q-card" id="card-q17">
-                <span class="q-title">17. The word <i>them</i> in paragraph 6 refers to ...</span>
-                <label class="opt-label"><input type="radio" name="q17" value="1" required> 1) people.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="2"> 2) locomotives.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="3"> 3) train spotters.</label>
-                <label class="opt-label"><input type="radio" name="q17" value="4"> 4) lines.</label>
-            </div>
+                <div
+                    class="q-card"
+                    data-question="12"
+                    data-answer="4"
+                >
 
-            <div class="q-card" id="card-q18">
-                <span class="q-title">18. How does the author feel about Glenfinnan?</span>
-                <label class="opt-label"><input type="radio" name="q18" value="1" required> 1) Enthusiastic.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="2"> 2) Indifferent.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="3"> 3) Sad.</label>
-                <label class="opt-label"><input type="radio" name="q18" value="4"> 4) Outraged.</label>
-            </div>
+                    <span class="q-title">
+                        12. Which adjective could best describe Mallaig?
+                    </span>
 
-            <button type="submit" id="submitBtn" class="submit-btn">ПРОВЕРИТЬ И ОТПРАВИТЬ</button>
-            <div id="status"></div>
-        </form>
-    </section>
+                    <label class="opt-label">
+                        <input type="radio" name="q12" value="1">
+                        <span>1) Derelict.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q12" value="2">
+                        <span>2) Beautiful.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q12" value="3">
+                        <span>3) Abandoned.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q12" value="4">
+                        <span>4) Unsightly.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="13"
+                    data-answer="2"
+                >
+
+                    <span class="q-title">
+                        13. The word <i>mishmash</i> in paragraph 1 means ...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="1">
+                        <span>1) a ruin.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="2">
+                        <span>2) a mixture.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="3">
+                        <span>3) a sight.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q13" value="4">
+                        <span>4) a queue.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="14"
+                    data-answer="3"
+                >
+
+                    <span class="q-title">
+                        14. Which statement is TRUE about the railway line?
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="1">
+                        <span>
+                            1) It was the last big line constructed in Britain.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="2">
+                        <span>
+                            2) The traffic on it was busy at the beginning.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="3">
+                        <span>
+                            3) It finally became profitable.
+                        </span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q14" value="4">
+                        <span>
+                            4) It was closed shortly after its opening.
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="15"
+                    data-answer="1"
+                >
+
+                    <span class="q-title">
+                        15. The author compares trains to philately because ...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="1">
+                        <span>1) it turned into a pastime.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="2">
+                        <span>2) they all require patience.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="3">
+                        <span>3) they all became unpopular.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q15" value="4">
+                        <span>4) they all are fashionable.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="16"
+                    data-answer="2"
+                >
+
+                    <span class="q-title">
+                        16. The author mentions a library and armchairs to illustrate ...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="1">
+                        <span>1) how important trains were.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="2">
+                        <span>2) how successful the Railway Club became.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="3">
+                        <span>3) the amount of corruption.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q16" value="4">
+                        <span>4) the number of members.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="17"
+                    data-answer="2"
+                >
+
+                    <span class="q-title">
+                        17. The word <i>them</i> in paragraph 6 refers to ...
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="1">
+                        <span>1) people.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="2">
+                        <span>2) locomotives.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="3">
+                        <span>3) train spotters.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q17" value="4">
+                        <span>4) lines.</span>
+                    </label>
+
+                </div>
+
+
+                <div
+                    class="q-card"
+                    data-question="18"
+                    data-answer="3"
+                >
+
+                    <span class="q-title">
+                        18. How does the author feel about Glenfinnan?
+                    </span>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="1">
+                        <span>1) Enthusiastic.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="2">
+                        <span>2) Indifferent.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="3">
+                        <span>3) Sad.</span>
+                    </label>
+
+                    <label class="opt-label">
+                        <input type="radio" name="q18" value="4">
+                        <span>4) Outraged.</span>
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="checkButton"
+                    class="check-button"
+                >
+                    CHECK ANSWERS
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
+
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
+
+
 <script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykW7iIm36uXp7BigkVVk0dpplF2kkXimE-WN9vNdU7oTnvBdP5rUO74D4_byeiojXUKw/exec';
-    // Обновлен правильный ответ для q14 на "3"
-    const KEYS = { q12:"4", q13:"2", q14:"3", q15:"1", q16:"2", q17:"2", q18:"3" };
 
-    document.getElementById('quizForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const nameInput = document.getElementById('userName').value.trim();
-        if (!nameInput) { alert("Без имени запуск невозможен!"); return; }
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
 
-        const firstName = nameInput.split(' ')[0];
-        let score = 0;
-        let details = [];
-        const formData = new FormData(this);
 
-        for (let q in KEYS) {
-            const userVal = formData.get(q);
-            const card = document.getElementById('card-' + q);
-            const labels = card.querySelectorAll('.opt-label');
-            details.push(`${q.toUpperCase()}:${userVal}`);
+    const COURSE = "EGE";
 
-            labels.forEach(l => {
-                const val = l.querySelector('input').value;
-                l.classList.remove('correct-ans', 'wrong-ans');
-                if (val === KEYS[q]) l.classList.add('correct-ans');
-                if (userVal === val && val !== KEYS[q]) l.classList.add('wrong-ans');
-            });
-            if (userVal === KEYS[q]) score++;
+    const SECTION = "R3";
+
+    const TASK_ID = "354116";
+
+
+    const R3_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r3.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
+    }
+
+
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    /* =========================================
+       BACK
+    ========================================= */
+
+    function goBackToR3() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
         }
 
-        const payload = {
-            name: firstName,
-            task: "EGE R3 354116 Harry Potter",
-            result: `${score}/7`,
-            answers: details.join(', ')
-        };
 
-        document.getElementById('submitBtn').disabled = true;
-        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) })
-        .then(() => { document.getElementById('status').innerHTML = `<span style="color:green">Успешно сохранено! Результат: ${score}/7</span>`; });
-    });
+        let url =
+            R3_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href =
+            url;
+
+    }
+
+
+    /* =========================================
+       HELPERS
+    ========================================= */
+
+    function clearStates() {
+
+        document
+            .querySelectorAll(".opt-label")
+            .forEach(label => {
+
+                label.classList.remove(
+                    "correct-ans",
+                    "wrong-ans"
+                );
+
+            });
+
+    }
+
+
+    function getSelectedAnswer(card) {
+
+        const checked =
+            card.querySelector(
+                'input[type="radio"]:checked'
+            );
+
+
+        return checked
+            ? checked.value
+            : "";
+
+    }
+
+
+    function disableAnswers() {
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.disabled = true;
+
+            });
+
+    }
+
+
+    function enableAnswers() {
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.disabled = false;
+
+            });
+
+    }
+
+
+    /* =========================================
+       SAVED ANSWERS
+    ========================================= */
+
+    function showQuestionState(
+        card,
+        userAnswer
+    ) {
+
+        const correctAnswer =
+            card.dataset.answer;
+
+
+        const labels =
+            card.querySelectorAll(
+                ".opt-label"
+            );
+
+
+        labels.forEach(label => {
+
+            const input =
+                label.querySelector(
+                    'input[type="radio"]'
+                );
+
+
+            if (
+                input.value ===
+                userAnswer
+            ) {
+
+                input.checked = true;
+
+            }
+
+
+            if (
+                input.value ===
+                correctAnswer
+            ) {
+
+                label.classList.add(
+                    "correct-ans"
+                );
+
+            }
+
+
+            if (
+                input.value === userAnswer &&
+                userAnswer !== correctAnswer
+            ) {
+
+                label.classList.add(
+                    "wrong-ans"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+
+            return result;
+
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+
+                    return;
+
+                }
+
+
+                let question =
+                    part
+                        .slice(0, separator)
+                        .trim()
+                        .toLowerCase();
+
+
+                question =
+                    question.replace(
+                        "q",
+                        ""
+                    );
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[question] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    /* =========================================
+       LAST ATTEMPT
+    ========================================= */
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+
+            return;
+
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
+            }
+
+
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearStates();
+
+
+            document
+                .querySelectorAll(
+                    ".q-card"
+                )
+                .forEach(card => {
+
+                    const question =
+                        card.dataset.question;
+
+
+                    showQuestionState(
+                        card,
+                        savedAnswers[question] || ""
+                    );
+
+                });
+
+
+            disableAnswers();
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       TRY AGAIN
+    ========================================= */
+
+    function resetQuiz() {
+
+        clearStates();
+
+
+        document
+            .querySelectorAll(
+                'input[type="radio"]'
+            )
+            .forEach(input => {
+
+                input.checked = false;
+
+            });
+
+
+        enableAnswers();
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        const textCard =
+            document.querySelector(
+                ".text-card"
+            );
+
+
+        const questionsCard =
+            document.querySelector(
+                ".questions-card"
+            );
+
+
+        if (textCard) {
+
+            textCard.scrollTop = 0;
+
+        }
+
+
+        if (questionsCard) {
+
+            questionsCard.scrollTop = 0;
+
+        }
+
+
+        if (window.innerWidth > 820) {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    }
+
+
+    /* =========================================
+       CHECK + SAVE
+    ========================================= */
+
+    document.getElementById(
+        "quizForm"
+    ).addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            if (!student) {
+
+                alert(
+                    "Please return to R3 and choose your name."
+                );
+
+                return;
+
+            }
+
+
+            clearStates();
+
+
+            const cards =
+                document.querySelectorAll(
+                    ".q-card"
+                );
+
+
+            let score = 0;
+
+
+            const mistakes = [];
+
+            const answers = [];
+
+
+            cards.forEach(card => {
+
+                const question =
+                    card.dataset.question;
+
+
+                const correctAnswer =
+                    card.dataset.answer;
+
+
+                const userAnswer =
+                    getSelectedAnswer(card);
+
+
+                /*
+                    В ТАБЛИЦУ ИДЁТ:
+                    12:4, 13:2 ...
+                    БЕЗ Q
+                */
+
+                answers.push(
+                    question +
+                    ":" +
+                    (
+                        userAnswer || "-"
+                    )
+                );
+
+
+                const labels =
+                    card.querySelectorAll(
+                        ".opt-label"
+                    );
+
+
+                labels.forEach(label => {
+
+                    const input =
+                        label.querySelector(
+                            'input[type="radio"]'
+                        );
+
+
+                    if (
+                        input.value ===
+                        correctAnswer
+                    ) {
+
+                        label.classList.add(
+                            "correct-ans"
+                        );
+
+                    }
+
+
+                    if (
+                        input.value === userAnswer &&
+                        userAnswer !== correctAnswer
+                    ) {
+
+                        label.classList.add(
+                            "wrong-ans"
+                        );
+
+                    }
+
+                });
+
+
+                if (
+                    userAnswer ===
+                    correctAnswer
+                ) {
+
+                    score++;
+
+                } else {
+
+                    mistakes.push(
+                        question
+                    );
+
+                }
+
+            });
+
+
+            disableAnswers();
+
+
+            const result =
+                score + "/7";
+
+
+            const mistakesText =
+                mistakes.length
+                    ? mistakes.join(", ")
+                    : "—";
+
+
+            document.getElementById(
+                "resultScore"
+            ).textContent =
+                result;
+
+
+            document.getElementById(
+                "resultMistakes"
+            ).textContent =
+                mistakes.length
+                    ? "Mistakes: " +
+                      mistakes.join(", ")
+                    : "No mistakes";
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Saving result...";
+
+
+            document.getElementById(
+                "resultCard"
+            ).style.display =
+                "block";
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        API_URL,
+                        {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    student:
+                                        student,
+
+                                    course:
+                                        COURSE,
+
+                                    section:
+                                        SECTION,
+
+                                    taskId:
+                                        TASK_ID,
+
+                                    result:
+                                        result,
+
+                                    mistakes:
+                                        mistakesText,
+
+                                    answers:
+                                        answers.join(", ")
+
+                                })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    data.status ===
+                    "success"
+                ) {
+
+                    document.getElementById(
+                        "resultSaved"
+                    ).textContent =
+                        "Result saved · Attempt " +
+                        data.attempt;
+
+                } else {
+
+                    document.getElementById(
+                        "resultSaved"
+                    ).textContent =
+                        "Could not save result";
+
+                }
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+            if (
+                window.innerWidth >
+                820
+            ) {
+
+                document.getElementById(
+                    "resultCard"
+                ).scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+
+        }
+    );
+
+
+    loadLastAttempt();
+
 </script>
+
+
 </body>
+
 </html>
