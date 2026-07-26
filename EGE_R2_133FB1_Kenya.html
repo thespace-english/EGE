@@ -479,45 +479,58 @@
 
         @media (max-width: 760px) {
 
-            .brand {
-                font-size: 36px;
+    .brand {
+        font-size: 36px;
+        letter-spacing: 5px;
+    }
 
-                letter-spacing: 5px;
-            }
+    .page {
+        padding:
+            85px
+            15px
+            100px;
+    }
 
-            .page {
-                padding:
-                    85px
-                    15px
-                    100px;
-            }
+    .intro-card,
+    .options-card,
+    .text-card,
+    .review-card {
+        padding: 22px;
+    }
 
-            .intro-card,
-            .options-card,
-            .text-card,
-            .review-card {
-                padding: 22px;
-            }
+    .reading-layout {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
 
-            .reading-layout {
-                grid-template-columns: 1fr;
-            }
+    .options-card {
+        position: sticky;
+        top: 0;
 
-            .options-card {
-                position: static;
+        order: -1;
 
-                order: -1;
-            }
+        max-height: 38vh;
+        overflow-y: auto;
 
-            .gap-block {
-                white-space: normal;
-            }
+        z-index: 20;
 
-            .corner-logo {
-                width: 105px;
-            }
+        margin-bottom: 14px;
 
-        }
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+
+        scrollbar-width: thin;
+    }
+
+    .gap-block {
+        white-space: normal;
+    }
+
+    .corner-logo {
+        width: 105px;
+    }
+
+}
 
     </style>
 
