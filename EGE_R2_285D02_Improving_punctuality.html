@@ -1,125 +1,1553 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE Reading 285D02</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://thespace-english.github.io/The-Space-Trainer/favicon.png"
+    >
+
+    <title>The Space — 285D02</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; padding: 20px; color: #34495e; }
-        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        h1 { color: #2980b9; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        .task-descr { background: #e1f5fe; padding: 15px; border-radius: 8px; margin-bottom: 25px; line-height: 1.6; border-left: 5px solid #3498db; font-style: italic; }
-        
-        .options-box { background: #fff; border: 2px solid #3498db; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
-        .option-item { margin-bottom: 8px; font-size: 16px; line-height: 1.4; }
-        .opt-num { font-weight: bold; color: #2980b9; margin-right: 10px; }
 
-        .text-content { font-size: 18px; line-height: 2; text-align: justify; background: #fafafa; padding: 25px; border-radius: 10px; border: 1px solid #eee; }
-        .gap-box { display: inline-block; vertical-align: middle; }
-        .ans-select { padding: 5px; border-radius: 4px; border: 2px solid #3498db; font-weight: bold; color: #2980b9; cursor: pointer; outline: none; }
-        
-        /* ЦВЕТОВОЙ КОД */
-        .status-correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
-        .status-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
-        .hint { color: #28a745; font-weight: bold; font-size: 14px; margin-left: 5px; display: none; }
+        * {
+            box-sizing: border-box;
+        }
 
-        .btn { width: 100%; padding: 18px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold; transition: 0.3s; margin-top: 30px; }
-        .btn:hover { background: #2980b9; box-shadow: 0 4px 15px rgba(52,152,219,0.3); }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
 
-        #setup { position: fixed; top:0; left:0; width:100%; height:100%; background: #f0f4f8; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .hidden { display: none !important; }
-        #result-area { text-align: center; font-size: 24px; font-weight: bold; margin-top: 20px; color: #2c3e50; }
+        .page {
+            width: 100%;
+            max-width: 1260px;
+
+            margin: 0 auto;
+
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.78);
+        }
+
+        .intro-card,
+        .options-card,
+        .text-card,
+        .review-card,
+        .result-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card,
+        .review-card {
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 29px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+
+        /* =========================================
+           R2 LAYOUT
+        ========================================= */
+
+        .reading-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                360px;
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        .text-card {
+            min-width: 0;
+        }
+
+        .options-card {
+            position: sticky;
+
+            top: 24px;
+
+            margin: 0;
+        }
+
+        .options-title {
+            margin-bottom: 18px;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .options-list {
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 8px;
+        }
+
+        .option-item {
+            padding: 9px 0;
+
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .option-number {
+            display: inline-block;
+
+            min-width: 27px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        /* =========================================
+           TEXT
+        ========================================= */
+
+        .article-title {
+            margin: 0 0 22px;
+
+            text-align: center;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .article-text {
+            font-size: 17px;
+            line-height: 1.82;
+        }
+
+        .article-text p {
+            margin: 0 0 24px;
+        }
+
+        .gap-block {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin: 0 3px;
+
+            white-space: nowrap;
+        }
+
+        .gap-letter {
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .gap-select {
+            min-width: 68px;
+
+            padding: 6px 8px;
+
+            border:
+                1px solid rgba(122,160,149,0.35);
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,0.85);
+
+            color: #173D43;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        .gap-select:focus {
+            border-color:
+                rgba(19,142,135,0.65);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(19,142,135,0.08);
+        }
+
+        .gap-block.correct {
+            padding: 3px 6px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(217,245,232,0.75);
+        }
+
+        .gap-block.wrong {
+            padding: 3px 6px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(250,225,225,0.75);
+        }
+
+        .correct-answer {
+            margin-left: 4px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 14px;
+
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+
+        /* =========================================
+           LAST ATTEMPT
+        ========================================= */
+
+        .review-card {
+            display: none;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+
+        /* =========================================
+           RESULT
+        ========================================= */
+
+        .result-card {
+            display: none;
+
+            max-width: 880px;
+
+            margin: 20px 0 0;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .reading-layout {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    310px;
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            .brand {
+                font-size: 36px;
+
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding:
+                    85px
+                    15px
+                    100px;
+            }
+
+            .intro-card,
+            .options-card,
+            .text-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .reading-layout {
+                grid-template-columns: 1fr;
+
+                align-items: start;
+            }
+
+            .options-card {
+                position: sticky;
+
+                top: 0;
+
+                order: -1;
+
+                max-height: 38vh;
+
+                overflow-y: auto;
+
+                z-index: 20;
+
+                margin-bottom: 14px;
+
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+
+                scrollbar-width: thin;
+            }
+
+            .gap-block {
+                white-space: normal;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="setup">
-    <div style="text-align: center; background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <h2 style="color:#2980b9">EGE Reading Practice</h2>
-        <p>285D02 Improving punctuality</p>
-        <input type="text" id="studentName" placeholder="Введите Имя" style="padding: 12px; width: 250px; border: 2px solid #3498db; border-radius: 6px;"><br><br>
-        <button class="btn" onclick="startApp()">Начать</button>
+
+<div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
+
+
+<button
+    class="back-button"
+    onclick="goBackToR2()"
+>
+    ← BACK TO R2
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · R2
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            285D02
+        </div>
+
+        <h1>
+            Improving punctuality
+        </h1>
+
+        <p class="instruction">
+            Complete gaps A–F with options 1–7.
+            Use each option only once.
+            There is one extra option.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="reading-layout">
+
+
+        <!-- LEFT — TEXT -->
+
+        <div class="text-card">
+
+            <h2 class="article-title">
+                Improving punctuality
+            </h2>
+
+
+            <div class="article-text">
+
+                <p>
+                    Some people fall into the trap of thinking that it's really
+                    no big deal to be consistently late. There’s a saying that
+                    goes, “90% of life is just showing up”. If that's the case,
+                    then showing up on time is 100% of life!
+                </p>
+
+
+                <p>
+                    There are
+
+                    <span
+                        class="gap-block"
+                        data-letter="A"
+                        data-answer="3"
+                    >
+                        <span class="gap-letter">A</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    others wait for you. If you keep your friends waiting too
+                    often, they’ll start to think that you don’t care about your
+                    friendship enough to be there on time.
+                </p>
+
+
+                <p>
+                    Being consistently late for your job is grounds for contract
+                    termination at most workplaces, while being late
+
+                    <span
+                        class="gap-block"
+                        data-letter="B"
+                        data-answer="1"
+                    >
+                        <span class="gap-letter">B</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    on important information. Whatever the situation, there are
+                    always benefits of being on time, while there are rarely ever
+                    benefits of being late.
+                </p>
+
+
+                <p>
+                    First, you’re only using more energy by being late. Having to
+                    come up with an excuse for
+
+                    <span
+                        class="gap-block"
+                        data-letter="C"
+                        data-answer="2"
+                    >
+                        <span class="gap-letter">C</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    to do it too often.
+                </p>
+
+
+                <p>
+                    You could concentrate
+
+                    <span
+                        class="gap-block"
+                        data-letter="D"
+                        data-answer="5"
+                    >
+                        <span class="gap-letter">D</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    time, freeing up your mental resources. Being late also causes
+                    stress, so you’ll save yourself from a stressful situation
+                    just by arriving at the correct time.
+                </p>
+
+
+                <p>
+                    Think about it this way: if you come to work on time every day
+                    while another co-worker has a less-than-stellar record when it
+                    comes to tardiness, who will the bosses be more willing to
+                    promote? All other things being equal, being punctual will
+                    display good time management skills,
+
+                    <span
+                        class="gap-block"
+                        data-letter="E"
+                        data-answer="7"
+                    >
+                        <span class="gap-letter">E</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+                </p>
+
+
+                <p>
+                    However you look at it, it’s always going to be more
+                    advantageous to arrive at your destination on time. The negative
+
+                    <span
+                        class="gap-block"
+                        data-letter="F"
+                        data-answer="4"
+                    >
+                        <span class="gap-letter">F</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>
+
+                    any positive aspects. Make punctuality a part of your personality.
+                </p>
+
+            </div>
+
+
+            <button
+                id="checkButton"
+                class="check-button"
+                onclick="checkAnswers()"
+            >
+                CHECK ANSWERS
+            </button>
+
+        </div>
+
+
+        <!-- RIGHT — OPTIONS -->
+
+        <div class="options-card">
+
+            <div class="options-title">
+                OPTIONS
+            </div>
+
+            <div class="options-list">
+
+                <div class="option-item">
+                    <span class="option-number">1.</span>
+                    for class could cause you to miss out
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">2.</span>
+                    your lateness is mentally draining if you have
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">3.</span>
+                    very few situations where it’s not rude to make
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">4.</span>
+                    consequences of being late always far outweigh
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">5.</span>
+                    on more important things instead by simply being on
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">6.</span>
+                    aspect of being on time is that you may find yourself
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">7.</span>
+                    and that could mean the difference in getting you the next promotion
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
-<div class="container">
-    <h1>Improving punctuality</h1>
-    <div class="task-descr">
-        Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке лишняя.
-    </div>
 
-    <div class="options-box">
-        <div class="option-item"><span class="opt-num">1.</span> for class could cause you to miss out</div>
-        <div class="option-item"><span class="opt-num">2.</span> your lateness is mentally draining if you have</div>
-        <div class="option-item"><span class="opt-num">3.</span> very few situations where it’s not rude to make</div>
-        <div class="option-item"><span class="opt-num">4.</span> consequences of being late always far outweigh</div>
-        <div class="option-item"><span class="opt-num">5.</span> on more important things instead by simply being on</div>
-        <div class="option-item"><span class="opt-num">6.</span> aspect of being on time is that you may find yourself</div>
-        <div class="option-item"><span class="opt-num">7.</span> and that could mean the difference in getting you the next promotion</div>
-    </div>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-    <div class="text-content">
-        Some people fall into the trap of thinking that it's really no big deal to be consistently late. There’s a saying that goes, “90% of life is just showing up”. If that's the case, then showing up on time is 100% of life! <br><br>
-        There are <span class="gap-box" data-ans="3"><b>A</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(3)</span></span> others wait for you. If you keep your friends waiting too often, they’ll start to think that you don’t care about your friendship enough to be there on time. <br><br>
-        Being consistently late for your job is grounds for contract termination at most workplaces, while being late <span class="gap-box" data-ans="1"><b>B</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(1)</span></span> on important information. Whatever the situation, there are always benefits of being on time, while there are rarely ever benefits of being late. <br><br>
-        First, you’re only using more energy by being late. Having to come up with an excuse for <span class="gap-box" data-ans="2"><b>C</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(2)</span></span> to do it too often. <br><br>
-        You could concentrate <span class="gap-box" data-ans="5"><b>D</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(5)</span></span> time, freeing up your mental resources. Being late also causes stress, so you’ll save yourself from a stressful situation just by arriving at the correct time. <br><br>
-        Think about it this way: if you come to work on time every day while another co-worker has a less-than-stellar record when it comes to tardiness, who will the bosses be more willing to promote? All other things being equal, being punctual will display good time management skills, <span class="gap-box" data-ans="7"><b>E</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(7)</span></span>. <br><br>
-        However you look at it, it’s always going to be more advantageous to arrive at your destination on time. The negative <span class="gap-box" data-ans="4"><b>F</b> <select class="ans-select"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select><span class="hint">(4)</span></span> any positive aspects. Make punctuality a part of your personality.
-    </div>
-
-    <button class="btn" id="finishBtn" onclick="checkResults()">Проверить и отправить результат</button>
-    <div id="result-area" class="hidden"></div>
-</div>
 
 <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
 
-    function startApp() {
-        if(document.getElementById('studentName').value.trim() === "") return alert("Пожалуйста, введите имя!");
-        document.getElementById('setup').classList.add('hidden');
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "R2";
+    const TASK_ID = "285D02";
+
+
+    const R2_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r2.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function checkResults() {
-        let score = 0;
-        let logs = [];
-        const gaps = document.querySelectorAll('.gap-box');
 
-        gaps.forEach((gap) => {
-            const correct = gap.getAttribute('data-ans');
-            const select = gap.querySelector('.ans-select');
-            const userAns = select.value;
-            const label = gap.firstChild.textContent.trim();
-            
-            logs.push(`${label}:${userAns || "-"}`);
-            select.disabled = true;
+    if (student) {
 
-            if(userAns === correct) {
-                score++;
-                select.classList.add('status-correct');
-            } else {
-                select.classList.add('status-wrong');
-                gap.querySelector('.hint').style.display = 'inline';
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToR2() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
+        }
+
+
+        let url =
+            R2_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href =
+            url;
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const letter =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[letter] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+                element.remove();
+            });
+
+    }
+
+
+    function clearStates() {
+
+        document
+            .querySelectorAll(
+                ".gap-block"
+            )
+            .forEach(block => {
+
+                block.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        block,
+        userAnswer
+    ) {
+
+        const select =
+            block.querySelector(
+                ".gap-select"
+            );
+
+
+        const correctAnswer =
+            block.dataset.answer;
+
+
+        select.value =
+            userAnswer || "";
+
+
+        select.disabled =
+            true;
+
+
+        if (
+            userAnswer ===
+            correctAnswer
+        ) {
+
+            block.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            block.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "span"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                correctAnswer;
+
+
+            block.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
             }
-        });
 
-        const finalScore = score + "/6";
-        document.getElementById('finishBtn').classList.add('hidden');
-        const resArea = document.getElementById('result-area');
-        resArea.innerText = "Результат: " + finalScore;
-        resArea.classList.remove('hidden');
 
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('studentName').value,
-                task: "EGE R2 285D02 Improving punctuality",
-                result: finalScore,
-                answers: logs.join(", ")
-            })
-        });
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+            clearStates();
+
+
+            document
+                .querySelectorAll(
+                    ".gap-block"
+                )
+                .forEach(block => {
+
+                    const letter =
+                        block.dataset.letter;
+
+
+                    showQuestionState(
+                        block,
+                        savedAnswers[letter] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
     }
+
+
+    function resetQuiz() {
+
+        clearHints();
+        clearStates();
+
+
+        document
+            .querySelectorAll(
+                ".gap-select"
+            )
+            .forEach(select => {
+
+                select.value = "";
+
+                select.disabled =
+                    false;
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to R2 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+        clearStates();
+
+
+        const blocks =
+            document.querySelectorAll(
+                ".gap-block"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        blocks.forEach(block => {
+
+            const letter =
+                block.dataset.letter;
+
+
+            const correctAnswer =
+                block.dataset.answer;
+
+
+            const select =
+                block.querySelector(
+                    ".gap-select"
+                );
+
+
+            const userAnswer =
+                select.value;
+
+
+            answers.push(
+                letter +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            select.disabled =
+                true;
+
+
+            if (
+                userAnswer ===
+                correctAnswer
+            ) {
+
+                score++;
+
+                block.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                mistakes.push(
+                    letter
+                );
+
+
+                block.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    correctAnswer;
+
+
+                block.appendChild(
+                    correct
+                );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/6";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(
+                                        ", "
+                                    )
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status ===
+                "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
 
+
 </body>
+
 </html>
