@@ -1,196 +1,230 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE R3 Online Education (Full Text)</title>
-    <style>
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f6; color: #333; line-height: 1.6; }
-        header { background: #e67e22; color: white; padding: 25px; text-align: center; font-size: 24px; font-weight: bold; position: sticky; top: 0; z-index: 100; }
-        .container { max-width: 1200px; margin: 20px auto; padding: 20px; display: flex; gap: 30px; align-items: flex-start; }
-        
-        .text-column { flex: 1.2; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-height: 85vh; overflow-y: auto; }
-        .questions-column { flex: 1; max-height: 85vh; overflow-y: auto; padding-right: 15px; }
 
-        h2 { color: #e67e22; margin-top: 0; font-size: 22px; line-height: 1.4; }
-        p { margin-bottom: 20px; font-size: 17px; text-align: justify; }
-        .highlight { background: #fff3e0; font-weight: bold; padding: 0 4px; border-bottom: 2px solid #e67e22; }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-        .q-card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid #34495e; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .q-num { font-weight: bold; color: #e67e22; margin-bottom: 12px; display: block; font-size: 16px; }
-        
-        .options-list { list-style: none; padding: 0; margin: 10px 0; }
-        .options-list li { margin-bottom: 10px; }
-        
-        label { display: block; padding: 12px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.2s; font-size: 15px; position: relative; }
-        label:hover { background: #f8f9fa; border-color: #e67e22; }
-        input[type="radio"] { margin-right: 10px; }
-        
-        input[type="radio"]:checked + span { font-weight: bold; color: #e67e22; }
+    <title>The Space — C0E724</title>
 
-        .btn-check { width: 100%; padding: 22px; background: #27ae60; color: white; border: none; border-radius: 12px; font-size: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-bottom: 40px; }
-        .btn-check:hover { background: #219150; transform: translateY(-2px); }
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-        .correct-ans { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
-        .wrong-ans { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
 
-        #final-score { text-align: center; font-size: 24px; font-weight: bold; padding: 25px; margin-bottom: 40px; display: none; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-
-        #auth-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; }
-        .auth-box { background: white; padding: 40px; border-radius: 20px; text-align: center; width: 420px; }
-        .auth-box input { padding: 15px; width: 100%; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 25px; font-size: 18px; outline: none; }
-        .hidden { display: none !important; }
-    </style>
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/reading.css"
+    >
 </head>
+
 <body>
 
-<div id="auth-screen">
-    <div class="auth-box">
-        <h2 style="color:#2c3e50">Reading R3: Final Check</h2>
-        <input type="text" id="userName" placeholder="WRITE YOUR NAME">
-        <button class="btn-check" style="margin:0" onclick="startSession()">Начать задание</button>
-    </div>
-</div>
-
-<header>EGE R3: Online Education (C0E724)</header>
-
-<div class="container">
-    <div class="text-column">
-        <h2>Will online education replace classroom education anytime soon?</h2>
-        <p>Over the last decade, the number of people taking online courses and using technology as a tool to enhance their education has increased dramatically. You can now master a foreign language or complete a whole degree without leaving the comfort of your sofa. You can decide not only when you want to learn but also how you want to learn. Meanwhile, the range of technology used inside the classroom has also boomed, with the rise of smartboards, digital textbooks and, most notably, the tools offered on the Internet. But what does <span class="highlight">this</span> mean for teachers? While many teachers are excited by technology, others are concerned by its rapid development. They wonder whether they themselves could be replaced.</p>
-        
-        <p>Technology gives us abundant opportunities. In a geography lesson, we can now transport students to explore another country. In an English class, we can take them back in time to experience Shakespeare’s plays as they were performed during his lifetime. Students are able to watch videos at home that explain how to use algebra, or allow them to see first-hand the life cycle of a plant. Technology doesn’t discriminate based on a student’s ability or skill. It provides an opportunity to engage students using a medium that they recognise. Technology is growing not just within our classrooms but also in our everyday lives, so it is natural that we should increasingly incorporate it into classrooms.</p>
-        
-        <p>Crucially, the use of technology in the classroom doesn’t lessen the need for great teachers. In fact, it is great teachers who make using technology so significant in students’ education. Whilst technology is able to take on a whole host of tasks, it does have its shortcomings. The most prominent drawback is its inability to interact with humans. Technology can facilitate the learning process. However, it cannot replace the role of the teacher. Computers do not teach children to question, to <span class="highlight">discriminate</span> among sources of information, to weigh perspectives. They do not explain how to think about consequences, to bring contextual meaning to a situation, to be creative, or to make careful judgments. Without a great teacher, technology merely becomes an automated tool and stops inspiring and engaging students. Ultimately, it isn’t about teachers being replaced by technology but how teachers can adapt to incorporate technology in their lessons.</p>
-        
-        <p>As much innovation as the iPad may bring to the classroom, it is not going to replace a teacher anytime soon. In fact, the influx of technology like iPads means there is a greater need for teachers. We need teachers who are part early adopter, part integrator, and part mad scientist. The modern teacher must be willing to take chances and able to figure out not just how technology works, but how it works for each student, and where its use is most appropriate.</p>
-        
-        <p>The question of whether technology will replace teachers is an age-old debate and one that is likely to continue as technology evolves further. In the same way that the calculator didn’t displace maths teachers, technology will continue aiding teachers to educate well-rounded and engaged students. As our Hugo Wernhoff notes, “We’re not only in it to offer flexibility in time and place for students, or lower costs for providers. Our main ambition is instead to deliver better learning.” Technology can only assist in delivering better learning when it is used by a great teacher. Students will always benefit from the guidance and instruction of a teacher at the front of a classroom.</p>
-    </div>
-
-    <div class="questions-column">
-        <div class="q-card">
-            <span class="q-num">12. According to the text, online education is becoming more popular because of its …</span>
-            <div class="options-list">
-                <label><input type="radio" name="q12" value="1"> <span>1) teachers.</span></label>
-                <label><input type="radio" name="q12" value="2"> <span>2) ease.</span></label>
-                <label><input type="radio" name="q12" value="3" data-correct> <span>3) flexibility.</span></label>
-                <label><input type="radio" name="q12" value="4"> <span>4) cost.</span></label>
-            </div>
-        </div>
-
-        <div class="q-card">
-            <span class="q-num">13. This in Paragraph 1 refers to …</span>
-            <div class="options-list">
-                <label><input type="radio" name="q13" value="1" data-correct> <span>1) the continuing growth in education technology.</span></label>
-                <label><input type="radio" name="q13" value="2"> <span>2) the opportunity to take university courses online.</span></label>
-                <label><input type="radio" name="q13" value="3"> <span>3) more people turning to online education.</span></label>
-                <label><input type="radio" name="q13" value="4"> <span>4) the freedom technology gives to people.</span></label>
-            </div>
-        </div>
-
-        <div class="q-card">
-            <span class="q-num">14. Which statement about the use of technology is FALSE?</span>
-            <div class="options-list">
-                <label><input type="radio" name="q14" value="1"> <span>1) Technology gives everyone equal chances.</span></label>
-                <label><input type="radio" name="q14" value="2"> <span>2) It provides the environment students are used to.</span></label>
-                <label><input type="radio" name="q14" value="3"> <span>3) We cannot avoid technology, so we should use it.</span></label>
-                <label><input type="radio" name="q14" value="4" data-correct> <span>4) Students should use technology at home.</span></label>
-            </div>
-        </div>
-
-        <div class="q-card">
-            <span class="q-num">15. Discriminate in Paragraph 3 most probably means …</span>
-            <div class="options-list">
-                <label><input type="radio" name="q15" value="1"> <span>1) favour.</span></label>
-                <label><input type="radio" name="q15" value="2" data-correct> <span>2) distinguish.</span></label>
-                <label><input type="radio" name="q15" value="3"> <span>3) judge.</span></label>
-                <label><input type="radio" name="q15" value="4"> <span>4) characterise.</span></label>
-            </div>
-        </div>
-
-        <div class="q-card">
-            <span class="q-num">16. Which advantage of human teachers over technology is NOT mentioned in Paragraph 3?</span>
-            <div class="options-list">
-                <label><input type="radio" name="q16" value="1"> <span>1) Development of critical thinking skills.</span></label>
-                <label><input type="radio" name="q16" value="2" data-correct> <span>2) Awareness of students’ personal characteristics.</span></label>
-                <label><input type="radio" name="q16" value="3"> <span>3) Student involvement and motivation.</span></label>
-                <label><input type="radio" name="q16" value="4"> <span>4) Communication and interaction.</span></label>
-            </div>
-        </div>
-
-        <div class="q-card">
-            <span class="q-num">17. Before using technology, a teacher has to find out if it is …</span>
-            <div class="options-list">
-                <label><input type="radio" name="q17" value="1"> <span>1) modern.</span></label>
-                <label><input type="radio" name="q17" value="2"> <span>2) safe.</span></label>
-                <label><input type="radio" name="q17" value="3" data-correct> <span>3) suitable.</span></label>
-                <label><input type="radio" name="q17" value="4"> <span>4) enjoyable.</span></label>
-            </div>
-        </div>
-
-        <div class="q-card">
-            <span class="q-num">18. The author draws the conclusion that technology …</span>
-            <div class="options-list">
-                <label><input type="radio" name="q18" value="1"> <span>1) will substitute teachers in the distant future.</span></label>
-                <label><input type="radio" name="q18" value="2" data-correct> <span>2) can help teachers but cannot replace them.</span></label>
-                <label><input type="radio" name="q18" value="3"> <span>3) will never be as effective as human teachers.</span></label>
-                <label><input type="radio" name="q18" value="4"> <span>4) cannot be trusted as human teachers are.</span></label>
-            </div>
-        </div>
-
-        <button class="btn-check" id="checkBtn" onclick="checkR3()">ПРОВЕРИТЬ</button>
-        <div id="final-score"></div>
-    </div>
-</div>
+<div id="readingApp"></div>
 
 <script>
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
 
-    function startSession() {
-        if(document.getElementById('userName').value.trim()) document.getElementById('auth-screen').classList.add('hidden');
-    }
+const READING_TASK = {
 
-    function checkR3() {
-        let score = 0;
-        let details = [];
-        const cards = document.querySelectorAll('.q-card');
+    id: "C0E724",
 
-        cards.forEach((card, idx) => {
-            const selected = card.querySelector('input[type="radio"]:checked');
-            const correct = card.querySelector('input[data-correct]');
-            
-            if (selected) {
-                if (selected === correct) {
-                    selected.parentElement.classList.add('correct-ans');
-                    score++;
-                } else {
-                    selected.parentElement.classList.add('wrong-ans');
-                    correct.parentElement.classList.add('correct-ans');
-                }
-                details.push(selected.value);
-            } else {
-                correct.parentElement.style.border = "2px dashed #27ae60";
-                details.push("X");
-            }
-            card.querySelectorAll('input').forEach(i => i.disabled = true);
-        });
+    title:
+        "Will online education replace classroom education anytime soon?",
 
-        const scoreDiv = document.getElementById('final-score');
-        scoreDiv.style.display = "block";
-        scoreDiv.innerText = `Результат: ${score} из 7`;
-        document.getElementById('checkBtn').classList.add('hidden');
+    text: `
 
-        fetch(SHEET_URL, {
-            method: "POST", mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE R3 C0E724 Education Full",
-                result: `${score}/7`,
-                answers: details.join("")
-            })
-        });
-    }
+        <p>
+            Over the last decade, the number of people taking online
+            courses and using technology as a tool to enhance their
+            education has increased dramatically. You can now master
+            a foreign language or complete a whole degree without
+            leaving the comfort of your sofa. You can decide not only
+            when you want to learn but also how you want to learn.
+            Meanwhile, the range of technology used inside the classroom
+            has also boomed, with the rise of smartboards, digital
+            textbooks and, most notably, the tools offered on the
+            Internet. But what does <strong>this</strong> mean for
+            teachers? While many teachers are excited by technology,
+            others are concerned by its rapid development. They wonder
+            whether they themselves could be replaced.
+        </p>
+
+        <p>
+            Technology gives us abundant opportunities. In a geography
+            lesson, we can now transport students to explore another
+            country. In an English class, we can take them back in time
+            to experience Shakespeare’s plays as they were performed
+            during his lifetime. Students are able to watch videos at
+            home that explain how to use algebra, or allow them to see
+            first-hand the life cycle of a plant. Technology doesn’t
+            discriminate based on a student’s ability or skill. It
+            provides an opportunity to engage students using a medium
+            that they recognise. Technology is growing not just within
+            our classrooms but also in our everyday lives, so it is
+            natural that we should increasingly incorporate it into
+            classrooms.
+        </p>
+
+        <p>
+            Crucially, the use of technology in the classroom doesn’t
+            lessen the need for great teachers. In fact, it is great
+            teachers who make using technology so significant in
+            students’ education. Whilst technology is able to take on
+            a whole host of tasks, it does have its shortcomings. The
+            most prominent drawback is its inability to interact with
+            humans. Technology can facilitate the learning process.
+            However, it cannot replace the role of the teacher.
+            Computers do not teach children to question, to
+            <strong>discriminate</strong> among sources of information,
+            to weigh perspectives. They do not explain how to think
+            about consequences, to bring contextual meaning to a
+            situation, to be creative, or to make careful judgments.
+            Without a great teacher, technology merely becomes an
+            automated tool and stops inspiring and engaging students.
+            Ultimately, it isn’t about teachers being replaced by
+            technology but how teachers can adapt to incorporate
+            technology in their lessons.
+        </p>
+
+        <p>
+            As much innovation as the iPad may bring to the classroom,
+            it is not going to replace a teacher anytime soon. In fact,
+            the influx of technology like iPads means there is a greater
+            need for teachers. We need teachers who are part early
+            adopter, part integrator, and part mad scientist. The modern
+            teacher must be willing to take chances and able to figure
+            out not just how technology works, but how it works for
+            each student, and where its use is most appropriate.
+        </p>
+
+        <p>
+            The question of whether technology will replace teachers
+            is an age-old debate and one that is likely to continue as
+            technology evolves further. In the same way that the
+            calculator didn’t displace maths teachers, technology will
+            continue aiding teachers to educate well-rounded and engaged
+            students. As our Hugo Wernhoff notes, “We’re not only in it
+            to offer flexibility in time and place for students, or
+            lower costs for providers. Our main ambition is instead to
+            deliver better learning.” Technology can only assist in
+            delivering better learning when it is used by a great
+            teacher. Students will always benefit from the guidance and
+            instruction of a teacher at the front of a classroom.
+        </p>
+
+    `,
+
+    questions: [
+
+        {
+            number: 12,
+            answer: "3",
+            text:
+                "According to the text, online education is becoming more popular because of its …",
+            options: [
+                "teachers.",
+                "ease.",
+                "flexibility.",
+                "cost."
+            ]
+        },
+
+        {
+            number: 13,
+            answer: "1",
+            text:
+                "This in Paragraph 1 refers to …",
+            options: [
+                "the continuing growth in education technology.",
+                "the opportunity to take university courses online.",
+                "more people turning to online education.",
+                "the freedom technology gives to people."
+            ]
+        },
+
+        {
+            number: 14,
+            answer: "4",
+            text:
+                "Which statement about the use of technology is FALSE?",
+            options: [
+                "Technology gives everyone equal chances.",
+                "It provides the environment students are used to.",
+                "We cannot avoid technology, so we should use it.",
+                "Students should use technology at home."
+            ]
+        },
+
+        {
+            number: 15,
+            answer: "2",
+            text:
+                "Discriminate in Paragraph 3 most probably means …",
+            options: [
+                "favour.",
+                "distinguish.",
+                "judge.",
+                "characterise."
+            ]
+        },
+
+        {
+            number: 16,
+            answer: "2",
+            text:
+                "Which advantage of human teachers over technology is NOT mentioned in Paragraph 3?",
+            options: [
+                "Development of critical thinking skills.",
+                "Awareness of students’ personal characteristics.",
+                "Student involvement and motivation.",
+                "Communication and interaction."
+            ]
+        },
+
+        {
+            number: 17,
+            answer: "3",
+            text:
+                "Before using technology, a teacher has to find out if it is …",
+            options: [
+                "modern.",
+                "safe.",
+                "suitable.",
+                "enjoyable."
+            ]
+        },
+
+        {
+            number: 18,
+            answer: "2",
+            text:
+                "The author draws the conclusion that technology …",
+            options: [
+                "will substitute teachers in the distant future.",
+                "can help teachers but cannot replace them.",
+                "will never be as effective as human teachers.",
+                "cannot be trusted as human teachers are."
+            ]
+        }
+
+    ]
+
+};
+
 </script>
+
+<script
+    src="https://thespace-english.github.io/The-Space-Trainer/r3.js"
+></script>
+
 </body>
 </html>
