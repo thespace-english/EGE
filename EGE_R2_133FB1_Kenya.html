@@ -1,127 +1,1515 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>EGE R2 133FB1 Kenya</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="https://thespace-english.github.io/The-Space-Trainer/favicon.png"
+    >
+
+    <title>The Space — 133FB1</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://thespace-english.github.io/The-Space-Trainer/theme.css"
+    >
+
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; color: #333; line-height: 1.6; }
-        header { background: #e67e22; color: white; padding: 25px; text-align: center; font-size: 24px; font-weight: bold; position: sticky; top: 0; z-index: 100; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 20px; }
-        
-        .options-box { background: #f8f9fa; border: 2px solid #e67e22; border-radius: 12px; padding: 20px; margin-bottom: 30px; }
-        .option-item { margin-bottom: 8px; padding: 5px 10px; background: white; border: 1px solid #ddd; border-radius: 6px; }
 
-        .text-content { background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 18px; text-align: justify; }
-        .gap { color: #e67e22; font-weight: bold; text-decoration: underline; }
+        * {
+            box-sizing: border-box;
+        }
 
-        .answer-table { width: 100%; border-collapse: collapse; margin: 40px 0; }
-        .answer-table th, .answer-table td { border: 2px solid #ddd; padding: 15px; text-align: center; font-weight: bold; }
-        .answer-table th { background: #34495e; color: white; }
-        
-        select { padding: 10px; font-size: 18px; border-radius: 5px; border: 2px solid #e67e22; cursor: pointer; width: 75px; outline: none; }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
 
-        .btn-check { width: 100%; padding: 22px; background: #27ae60; color: white; border: none; border-radius: 12px; font-size: 22px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-check:hover { background: #219150; transform: translateY(-2px); }
+        .page {
+            width: 100%;
+            max-width: 1260px;
 
-        #final-score { text-align: center; font-size: 26px; font-weight: bold; padding: 25px; margin-top: 30px; display: none; border-radius: 12px; }
-        .correct-res { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .wrong-res { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+            margin: 0 auto;
 
-        #auth-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; }
-        .auth-box { background: white; padding: 40px; border-radius: 20px; text-align: center; width: 420px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .auth-box input { padding: 15px; width: 100%; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 25px; font-size: 18px; outline: none; }
-        .hidden { display: none !important; }
+            padding: 55px 24px 120px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 52px;
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            color: #138E87;
+        }
+
+        .section-name {
+            margin-top: 12px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: 7px;
+
+            color: #138E87;
+        }
+
+        .back-button {
+            position: fixed;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 20;
+
+            padding: 9px 13px;
+
+            border: 0;
+            border-radius: 10px;
+
+            color: #138E87;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.78);
+        }
+
+        .intro-card,
+        .options-card,
+        .text-card,
+        .review-card,
+        .result-card {
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.82),
+                    rgba(255,255,255,0.62)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.95);
+
+            box-shadow:
+                0 18px 36px rgba(97,155,147,0.14);
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .intro-card,
+        .review-card {
+            margin-bottom: 20px;
+        }
+
+        .student-line {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            color: #607A74;
+        }
+
+        .task-id {
+            margin-bottom: 4px;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        h1 {
+            margin: 4px 0 16px;
+
+            font-size: 29px;
+
+            color: #173D43;
+        }
+
+        .instruction {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #607A74;
+        }
+
+
+        /* =========================================
+           R2 LAYOUT
+        ========================================= */
+
+        .reading-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                360px;
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        .text-card {
+            min-width: 0;
+        }
+
+        .options-card {
+            position: sticky;
+
+            top: 24px;
+
+            margin: 0;
+        }
+
+        .options-title {
+            margin-bottom: 18px;
+
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .options-list {
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 8px;
+        }
+
+        .option-item {
+            padding: 9px 0;
+
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .option-number {
+            display: inline-block;
+
+            min-width: 27px;
+
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        /* =========================================
+           TEXT
+        ========================================= */
+
+        .article-title {
+            margin: 0 0 22px;
+
+            text-align: center;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            color: #173D43;
+        }
+
+        .article-text {
+            font-size: 17px;
+            line-height: 1.82;
+        }
+
+        .article-text p {
+            margin: 0 0 24px;
+        }
+
+        .gap-block {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin: 0 3px;
+
+            white-space: nowrap;
+        }
+
+        .gap-letter {
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .gap-select {
+            min-width: 68px;
+
+            padding: 6px 8px;
+
+            border:
+                1px solid rgba(122,160,149,0.35);
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,0.85);
+
+            color: #173D43;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        .gap-select:focus {
+            border-color:
+                rgba(19,142,135,0.65);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(19,142,135,0.08);
+        }
+
+        .gap-block.correct {
+            padding: 3px 6px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(217,245,232,0.75);
+        }
+
+        .gap-block.wrong {
+            padding: 3px 6px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(250,225,225,0.75);
+        }
+
+        .correct-answer {
+            margin-left: 4px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .check-button,
+        .try-button {
+            width: 100%;
+
+            margin-top: 14px;
+
+            padding: 15px 20px;
+
+            border: none;
+            border-radius: 14px;
+
+            background: #15968F;
+
+            color: white;
+
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover,
+        .try-button:hover {
+            opacity: 0.93;
+        }
+
+        .try-button {
+            margin-top: 18px;
+        }
+
+
+        /* =========================================
+           LAST ATTEMPT
+        ========================================= */
+
+        .review-card {
+            display: none;
+
+            text-align: center;
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #138E87;
+        }
+
+        .review-details {
+            margin-top: 7px;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #536F68;
+        }
+
+
+        /* =========================================
+           RESULT
+        ========================================= */
+
+        .result-card {
+            display: none;
+
+            max-width: 880px;
+
+            margin: 20px 0 0;
+
+            text-align: center;
+        }
+
+        .result-score {
+            margin-bottom: 8px;
+
+            font-size: 29px;
+            font-weight: 800;
+
+            color: #138E87;
+        }
+
+        .result-mistakes {
+            margin-bottom: 8px;
+
+            color: #607A74;
+        }
+
+        .result-saved {
+            margin-bottom: 6px;
+
+            font-size: 14px;
+
+            color: #607A74;
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .corner-logo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 18px;
+
+            width: 145px;
+
+            z-index: 10;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .reading-layout {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    310px;
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            .brand {
+                font-size: 36px;
+
+                letter-spacing: 5px;
+            }
+
+            .page {
+                padding:
+                    85px
+                    15px
+                    100px;
+            }
+
+            .intro-card,
+            .options-card,
+            .text-card,
+            .review-card {
+                padding: 22px;
+            }
+
+            .reading-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .options-card {
+                position: static;
+
+                order: -1;
+            }
+
+            .gap-block {
+                white-space: normal;
+            }
+
+            .corner-logo {
+                width: 105px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="auth-screen">
-    <div class="auth-box">
-        <h2 style="color:#2c3e50">Kenya: Text Gaps</h2>
-        <input type="text" id="userName" placeholder="WRITE YOUR NAME">
-        <button class="btn-check" style="margin:0" onclick="startSession()">Начать</button>
+
+<div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
+
+
+<button
+    class="back-button"
+    onclick="goBackToR2()"
+>
+    ← BACK TO R2
+</button>
+
+
+<div class="page">
+
+
+    <header>
+
+        <div class="brand">
+            THE SPACE
+        </div>
+
+        <div class="section-name">
+            EGE · R2
+        </div>
+
+    </header>
+
+
+    <div class="intro-card">
+
+        <div
+            id="studentLine"
+            class="student-line"
+        ></div>
+
+        <div class="task-id">
+            133FB1
+        </div>
+
+        <h1>
+            Kenya
+        </h1>
+
+        <p class="instruction">
+            Complete gaps A–F with options 1–7.
+            Use each option only once.
+            There is one extra option.
+        </p>
+
     </div>
+
+
+    <div
+        id="reviewCard"
+        class="review-card"
+    >
+
+        <div class="review-title">
+            LAST ATTEMPT
+        </div>
+
+        <div
+            id="reviewDetails"
+            class="review-details"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
+    <div class="reading-layout">
+
+
+        <!-- LEFT — TEXT -->
+
+        <div class="text-card">
+
+            <h2 class="article-title">
+                Kenya
+            </h2>
+
+
+            <div class="article-text">
+
+                <p>
+                    Kenya – the name is almost synonymous with the word “safari”.
+                    Few other places on the planet evoke such a spirit of adventure
+                    and romance. The diversity of things to do in Kenya dazzles
+                    all who visit it,
+
+                    <span
+                        class="gap-block"
+                        data-letter="A"
+                        data-answer="2"
+                    >
+                        <span class="gap-letter">A</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+
+                    In those sunny lands, ancient tribes, such as the Maasai,
+                    Kikuyu, and Samburu, retain their traditional customs,
+
+                    <span
+                        class="gap-block"
+                        data-letter="B"
+                        data-answer="7"
+                    >
+                        <span class="gap-letter">B</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+                </p>
+
+
+                <p>
+                    Crowned by Mount Kilimanjaro, Africa’s highest peak,
+                    Amboseli National Reserve is one of Kenya’s most popular
+                    tourist parks. The reserve is one of the best places in
+                    Africa
+
+                    <span
+                        class="gap-block"
+                        data-letter="C"
+                        data-answer="1"
+                    >
+                        <span class="gap-letter">C</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+
+                    Other wildlife commonly spotted in the park includes big cats,
+                    such as lion and cheetah, as well as giraffes, impalas,
+                    gazelles,
+
+                    <span
+                        class="gap-block"
+                        data-letter="D"
+                        data-answer="3"
+                    >
+                        <span class="gap-letter">D</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+
+                    Nature lovers can explore five different habitats there,
+                    ranging from the dried-up bed of Lake Amboseli to wetlands,
+                    savannah, and woodlands.
+                </p>
+
+
+                <p>
+                    Kenya is stunning. Beyond the world-famous safari parks lies
+                    a collection of coastal treasures. Tourists can snorkel and
+                    dive fish-rich coral reefs, relax on pearly beaches,
+                    experience the melting pot of cultures and cuisines,
+
+                    <span
+                        class="gap-block"
+                        data-letter="E"
+                        data-answer="4"
+                    >
+                        <span class="gap-letter">E</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+
+                    Tourists can also climb the snow-covered peaks of Mount Kenya
+                    and fish for trout in crystal-clear streams. To experience
+                    the romance of Kenya’s colourful colonial history, it is
+                    advised to head to Nairobi. That bustling capital is the gateway
+
+                    <span
+                        class="gap-block"
+                        data-letter="F"
+                        data-answer="6"
+                    >
+                        <span class="gap-letter">F</span>
+
+                        <select class="gap-select">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </span>.
+                </p>
+
+            </div>
+
+
+            <button
+                id="checkButton"
+                class="check-button"
+                onclick="checkAnswers()"
+            >
+                CHECK ANSWERS
+            </button>
+
+        </div>
+
+
+        <!-- RIGHT — OPTIONS -->
+
+        <div class="options-card">
+
+            <div class="options-title">
+                OPTIONS
+            </div>
+
+            <div class="options-list">
+
+                <div class="option-item">
+                    <span class="option-number">1.</span>
+                    to view large herds of elephants up close
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">2.</span>
+                    and viewing the country’s wildlife tops the list
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">3.</span>
+                    and more than 600 species of different birds
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">4.</span>
+                    and explore tropical islands frozen in history
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">5.</span>
+                    resting on trees or hunting their prey in the wild
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">6.</span>
+                    to one of the world’s exciting travel destinations
+                </div>
+
+                <div class="option-item">
+                    <span class="option-number">7.</span>
+                    living in relative harmony with the natural world
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        id="resultCard"
+        class="result-card"
+    >
+
+        <div
+            id="resultScore"
+            class="result-score"
+        ></div>
+
+        <div
+            id="resultMistakes"
+            class="result-mistakes"
+        ></div>
+
+        <div
+            id="resultSaved"
+            class="result-saved"
+        ></div>
+
+        <button
+            class="try-button"
+            onclick="resetQuiz()"
+        >
+            TRY AGAIN
+        </button>
+
+    </div>
+
+
 </div>
 
-<header>EGE R2: Kenya (133FB1)</header>
 
-<div class="container">
-    <div class="options-box">
-        <div class="option-item">1. to view large herds of elephants up close</div>
-        <div class="option-item">2. and viewing the country’s wildlife tops the list</div>
-        <div class="option-item">3. and more than 600 species of different birds</div>
-        <div class="option-item">4. and explore tropical islands frozen in history</div>
-        <div class="option-item">5. resting on trees or hunting their prey in the wild</div>
-        <div class="option-item">6. to one of the world’s exciting travel destinations</div>
-        <div class="option-item">7. living in relative harmony with the natural world</div>
-    </div>
+<img
+    src="https://thespace-english.github.io/The-Space-Trainer/logo.png"
+    class="corner-logo"
+    alt="The Space English Online"
+>
 
-    <div class="text-content">
-        <h3 style="text-align:center; color:#e67e22;">Kenya</h3>
-        <p>Kenya – the name is almost synonymous with the word “safari”. Few other places on the planet evoke such a spirit of adventure and romance. The diversity of things to do in Kenya dazzles all who visit it, <span class="gap">A__________</span>. In those sunny lands, ancient tribes, such as the Maasai, Kikuyu, and Samburu, retain their traditional customs, <span class="gap">B__________</span>.</p>
-        
-        <p>Crowned by Mount Kilimanjaro, Africa’s highest peak, Amboseli National Reserve is one of Kenya’s most popular tourist parks. The reserve is one of the best places in Africa <span class="gap">C__________</span>. Other wildlife commonly spotted in the park includes big cats, such as lion and cheetah, as well as giraffes, impalas, gazelles, <span class="gap">D__________</span>. Nature lovers can explore five different habitats there, ranging from the dried-up bed of Lake Amboseli to wetlands, savannah, and woodlands.</p>
-        
-        <p>Kenya is stunning. Beyond the world-famous safari parks lies a collection of coastal treasures. Tourists can snorkel and dive fish-rich coral reefs, relax on pearly beaches, experience the melting pot of cultures and cuisines, <span class="gap">E__________</span>. Tourists can also climb the snow-covered peaks of Mount Kenya and fish for trout in crystal-clear streams. To experience the romance of Kenya’s colourful colonial history, it is advised to head to Nairobi. That bustling capital is the gateway <span class="gap">F__________</span>.</p>
-    </div>
-
-    <table class="answer-table">
-        <tr><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>
-        <tr>
-            <td><select class="user-sel" data-ans="2"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></td>
-            <td><select class="user-sel" data-ans="7"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></td>
-            <td><select class="user-sel" data-ans="1"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></td>
-            <td><select class="user-sel" data-ans="3"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></td>
-            <td><select class="user-sel" data-ans="4"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></td>
-            <td><select class="user-sel" data-ans="6"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></td>
-        </tr>
-    </table>
-
-    <button class="btn-check" id="checkBtn" onclick="checkGaps()">ПРОВЕРИТЬ</button>
-    <div id="final-score"></div>
-</div>
 
 <script>
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwN7I9gaD-988kPDVB_3NCBNOnsZdtbJGOv9sZCaI8JD45mEV73L-Y4U6SCpID0DFk3KA/exec";
 
-    function startSession() {
-        if(document.getElementById('userName').value.trim()) document.getElementById('auth-screen').classList.add('hidden');
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+
+    const COURSE = "EGE";
+    const SECTION = "R2";
+    const TASK_ID = "133FB1";
+
+
+    const R2_URL =
+        "https://thespace-english.github.io/The-Space-Trainer/ege-r2.html";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    let student =
+        params.get("student") || "";
+
+
+    if (!student) {
+
+        student =
+            localStorage.getItem(
+                "theSpaceStudent"
+            ) || "";
+
     }
 
-    function checkGaps() {
-        let score = 0;
-        let results = [];
-        const selects = document.querySelectorAll('.user-sel');
-        
-        selects.forEach(sel => {
-            if(sel.value === sel.dataset.ans) {
-                sel.style.background = "#d4edda";
-                score++;
-            } else {
-                sel.style.background = "#f8d7da";
-                sel.parentElement.innerHTML += `<div style="color:#e74c3c; font-size:14px; margin-top:5px">Key: ${sel.dataset.ans}</div>`;
+
+    if (student) {
+
+        localStorage.setItem(
+            "theSpaceStudent",
+            student
+        );
+
+    }
+
+
+    document.getElementById(
+        "studentLine"
+    ).textContent =
+        student
+            ? "Student: " + student
+            : "Student not selected";
+
+
+    function goBackToR2() {
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+            return;
+
+        }
+
+
+        let url =
+            R2_URL;
+
+
+        if (student) {
+
+            url +=
+                "?student=" +
+                encodeURIComponent(student);
+
+        }
+
+
+        window.location.href =
+            url;
+
+    }
+
+
+    function parseSavedAnswers(text) {
+
+        const result = {};
+
+
+        if (!text) {
+            return result;
+        }
+
+
+        String(text)
+            .split(",")
+            .forEach(part => {
+
+                const separator =
+                    part.indexOf(":");
+
+
+                if (separator === -1) {
+                    return;
+                }
+
+
+                const letter =
+                    part
+                        .slice(0, separator)
+                        .trim();
+
+
+                const answer =
+                    part
+                        .slice(separator + 1)
+                        .trim();
+
+
+                result[letter] =
+                    answer === "-"
+                        ? ""
+                        : answer;
+
+            });
+
+
+        return result;
+
+    }
+
+
+    function clearHints() {
+
+        document
+            .querySelectorAll(
+                ".correct-answer"
+            )
+            .forEach(element => {
+                element.remove();
+            });
+
+    }
+
+
+    function clearStates() {
+
+        document
+            .querySelectorAll(
+                ".gap-block"
+            )
+            .forEach(block => {
+
+                block.classList.remove(
+                    "correct",
+                    "wrong"
+                );
+
+            });
+
+    }
+
+
+    function showQuestionState(
+        block,
+        userAnswer
+    ) {
+
+        const select =
+            block.querySelector(
+                ".gap-select"
+            );
+
+
+        const correctAnswer =
+            block.dataset.answer;
+
+
+        select.value =
+            userAnswer || "";
+
+
+        select.disabled =
+            true;
+
+
+        if (
+            userAnswer ===
+            correctAnswer
+        ) {
+
+            block.classList.add(
+                "correct"
+            );
+
+        } else {
+
+            block.classList.add(
+                "wrong"
+            );
+
+
+            const correct =
+                document.createElement(
+                    "span"
+                );
+
+
+            correct.className =
+                "correct-answer";
+
+
+            correct.textContent =
+                "Correct: " +
+                correctAnswer;
+
+
+            block.appendChild(
+                correct
+            );
+
+        }
+
+    }
+
+
+    async function loadLastAttempt() {
+
+        if (!student) {
+            return;
+        }
+
+
+        try {
+
+            const url =
+                API_URL +
+                "?action=lastattempt" +
+                "&student=" +
+                encodeURIComponent(student) +
+                "&course=" +
+                encodeURIComponent(COURSE) +
+                "&section=" +
+                encodeURIComponent(SECTION) +
+                "&taskId=" +
+                encodeURIComponent(TASK_ID);
+
+
+            const response =
+                await fetch(url);
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status !== "success" ||
+                !data.found ||
+                !data.lastAttempt
+            ) {
+
+                return;
+
             }
-            sel.disabled = true;
-            results.push(sel.value || "X");
-        });
 
-        const scoreDiv = document.getElementById('final-score');
-        scoreDiv.style.display = "block";
-        scoreDiv.className = score === 6 ? "correct-res" : "wrong-res";
-        scoreDiv.innerText = `Ваш результат: ${score} из 6`;
-        document.getElementById('checkBtn').classList.add('hidden');
 
-        fetch(SHEET_URL, {
-            method: "POST", mode: "no-cors",
-            body: JSON.stringify({
-                name: document.getElementById('userName').value,
-                task: "EGE R2 133FB1 Kenya",
-                result: `${score}/6`,
-                answers: results.join("-")
-            })
-        });
+            const last =
+                data.lastAttempt;
+
+
+            const savedAnswers =
+                parseSavedAnswers(
+                    last.answers
+                );
+
+
+            clearHints();
+            clearStates();
+
+
+            document
+                .querySelectorAll(
+                    ".gap-block"
+                )
+                .forEach(block => {
+
+                    const letter =
+                        block.dataset.letter;
+
+
+                    showQuestionState(
+                        block,
+                        savedAnswers[letter] || ""
+                    );
+
+                });
+
+
+            document.getElementById(
+                "checkButton"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "reviewDetails"
+            ).textContent =
+                "Attempt " +
+                last.attempt +
+                " · " +
+                last.result;
+
+
+            document.getElementById(
+                "reviewCard"
+            ).style.display =
+                "block";
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load last attempt",
+                error
+            );
+
+        }
+
     }
+
+
+    function resetQuiz() {
+
+        clearHints();
+        clearStates();
+
+
+        document
+            .querySelectorAll(
+                ".gap-select"
+            )
+            .forEach(select => {
+
+                select.value = "";
+
+                select.disabled =
+                    false;
+
+            });
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    async function checkAnswers() {
+
+        if (!student) {
+
+            alert(
+                "Please return to R2 and choose your name."
+            );
+
+            return;
+
+        }
+
+
+        clearHints();
+        clearStates();
+
+
+        const blocks =
+            document.querySelectorAll(
+                ".gap-block"
+            );
+
+
+        let score = 0;
+
+        const mistakes = [];
+        const answers = [];
+
+
+        blocks.forEach(block => {
+
+            const letter =
+                block.dataset.letter;
+
+
+            const correctAnswer =
+                block.dataset.answer;
+
+
+            const select =
+                block.querySelector(
+                    ".gap-select"
+                );
+
+
+            const userAnswer =
+                select.value;
+
+
+            answers.push(
+                letter +
+                ":" +
+                (
+                    userAnswer || "-"
+                )
+            );
+
+
+            select.disabled =
+                true;
+
+
+            if (
+                userAnswer ===
+                correctAnswer
+            ) {
+
+                score++;
+
+                block.classList.add(
+                    "correct"
+                );
+
+            } else {
+
+                mistakes.push(
+                    letter
+                );
+
+
+                block.classList.add(
+                    "wrong"
+                );
+
+
+                const correct =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                correct.className =
+                    "correct-answer";
+
+
+                correct.textContent =
+                    "Correct: " +
+                    correctAnswer;
+
+
+                block.appendChild(
+                    correct
+                );
+
+            }
+
+        });
+
+
+        const result =
+            score + "/6";
+
+
+        const mistakesText =
+            mistakes.length
+                ? mistakes.join(", ")
+                : "—";
+
+
+        document.getElementById(
+            "resultScore"
+        ).textContent =
+            result;
+
+
+        document.getElementById(
+            "resultMistakes"
+        ).textContent =
+            mistakes.length
+                ? "Mistakes: " +
+                  mistakes.join(", ")
+                : "No mistakes";
+
+
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Saving result...";
+
+
+        document.getElementById(
+            "resultCard"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "reviewCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "checkButton"
+        ).style.display =
+            "none";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                student:
+                                    student,
+
+                                course:
+                                    COURSE,
+
+                                section:
+                                    SECTION,
+
+                                taskId:
+                                    TASK_ID,
+
+                                result:
+                                    result,
+
+                                mistakes:
+                                    mistakesText,
+
+                                answers:
+                                    answers.join(
+                                        ", "
+                                    )
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.status ===
+                "success"
+            ) {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Result saved · Attempt " +
+                    data.attempt;
+
+            } else {
+
+                document.getElementById(
+                    "resultSaved"
+                ).textContent =
+                    "Could not save result";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            document.getElementById(
+                "resultSaved"
+            ).textContent =
+                "Could not save result";
+
+        }
+
+
+        document.getElementById(
+            "resultCard"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    loadLastAttempt();
+
 </script>
+
+
 </body>
+
 </html>
