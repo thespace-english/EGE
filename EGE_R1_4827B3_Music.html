@@ -1671,6 +1671,8 @@ const platformTaskId =
                 ".text-card"
             );
 
+        const maxScore =
+    cards.length;
 
         let score = 0;
 
@@ -1764,7 +1766,7 @@ const platformTaskId =
 
 
         const result =
-            score + "/7";
+    score + "/" + maxScore;
 
 
         const mistakesText =
@@ -1838,7 +1840,9 @@ const platformTaskId =
         "&task_id=" +
         encodeURIComponent(platformTaskId) +
         "&score=" +
-        encodeURIComponent(score);
+encodeURIComponent(score) +
+"&max_score=" +
+encodeURIComponent(maxScore);
 
 
     const response =
