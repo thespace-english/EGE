@@ -1226,12 +1226,15 @@
     ========================================= */
 
     const API_URL =
-        "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+    "https://script.google.com/macros/s/AKfycbxxTEqdc_eAgBYhxPlAxGdD4ufwliTjwp3Rvc_leSns3wG6tnS1KKlCQABN2OYHZP1nTQ/exec";
+
+const PLATFORM_API_URL =
+    "https://functions.yandexcloud.net/d4e8345m7p4h6fmheoae";
 
 
-    const COURSE = "EGE";
-    const SECTION = "R1";
-    const TASK_ID = "4827B3";
+const COURSE = "EGE";
+const SECTION = "R1";
+const TASK_ID = "4827B3";
 
 
     const R1_URL =
@@ -1250,6 +1253,12 @@
 
     let student =
         params.get("student") || "";
+
+    const assignmentId =
+    params.get("assignment_id") || "";
+
+const platformTaskId =
+    params.get("task_id") || "";
 
 
     if (!student) {
@@ -1809,85 +1818,71 @@
 
         try {
 
-            const response =
-                await fetch(
-                    API_URL,
-                    {
-                        method: "POST",
+    if (
+        !student ||
+        !assignmentId ||
+        !platformTaskId
+    ) {
+        throw new Error(
+            "Platform assignment data is missing"
+        );
+    }
 
-                        headers: {
-                            "Content-Type":
-                                "text/plain;charset=utf-8"
-                        },
-
-                        body:
-                            JSON.stringify({
-
-                                student:
-                                    student,
-
-                                course:
-                                    COURSE,
-
-                                section:
-                                    SECTION,
-
-                                taskId:
-                                    TASK_ID,
-
-                                result:
-                                    result,
-
-                                mistakes:
-                                    mistakesText,
-
-                                answers:
-                                    answers.join(
-                                        ", "
-                                    )
-
-                            })
-
-                    }
-                );
+    const saveUrl =
+        PLATFORM_API_URL +
+        "?login=" +
+        encodeURIComponent(student) +
+        "&action=submit-attempt" +
+        "&assignment_id=" +
+        encodeURIComponent(assignmentId) +
+        "&task_id=" +
+        encodeURIComponent(platformTaskId) +
+        "&score=" +
+        encodeURIComponent(score);
 
 
-            const data =
-                await response.json();
+    const response =
+        await fetch(saveUrl);
 
 
-            if (
-                data.status ===
-                "success"
-            ) {
-
-                document.getElementById(
-                    "resultSaved"
-                ).textContent =
-                    "Result saved · Attempt " +
-                    data.attempt;
-
-            } else {
-
-                document.getElementById(
-                    "resultSaved"
-                ).textContent =
-                    "Could not save result";
-
-            }
+    const data =
+        await response.json();
 
 
-        } catch (error) {
+    if (
+        response.ok &&
+        data.ok
+    ) {
 
-            console.error(error);
+        document.getElementById(
+            "resultSaved"
+        ).textContent =
+            "Result saved · Attempt " +
+            data.attempt_no;
+
+    } else {
+
+        throw new Error(
+            data.error ||
+            "Could not save result"
+        );
+    }
 
 
-            document.getElementById(
-                "resultSaved"
-            ).textContent =
-                "Could not save result";
+} catch (error) {
 
-        }
+    console.error(
+        "Platform save error:",
+        error
+    );
+
+
+    document.getElementById(
+        "resultSaved"
+    ).textContent =
+        "Could not save result";
+
+}
 
 
         document.getElementById(
